@@ -47,7 +47,7 @@ const QuestionScreen: React.FC = () => {
             </div>
             <div className="ml-4">
               <h3 className="font-semibold text-lg text-gray-800">{character.name}</h3>
-              <p className="text-indigo-600 font-medium">Score: {gameState.score}</p>
+              <p className="text-indigo-600 font-medium">累積人民的怒氣值: {gameState.score}</p>
             </div>
           </div>
           
@@ -66,7 +66,7 @@ const QuestionScreen: React.FC = () => {
           transition={{ duration: 0.4 }}
         >
           <h2 className="text-xl font-semibold text-gray-800 mb-2">
-            Question {gameState.currentQuestionIndex + 1}
+            第{gameState.currentQuestionIndex + 1}題
           </h2>
           <p className="text-gray-700 text-lg mb-4">{currentQuestion.text}</p>
           
@@ -113,7 +113,7 @@ const QuestionScreen: React.FC = () => {
           ></div>
         </div>
         <p className="text-center text-gray-600 mt-2">
-          Question {gameState.currentQuestionIndex + 1} of 12
+          生存進度 {gameState.currentQuestionIndex + 1} / 12
         </p>
       </div>
     </div>

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const CharacterSelection: React.FC = () => {
   const { selectCharacter } = useGame();
   const gameTitle="《2025立院生存指南》";
-  const gameDescription="你能保證不被罷免並成功留在立法院嗎？\n每做一個決定 連署人數會增加 加快被罷免速度\n結局:  成功生存！也符合罷免的資格";
+  const gameDescription="你能保證不被罷免並成功留在立法院嗎？<br>每做一個決定 連署人數會增加 加快被罷免速度<br>結局:  成功生存！也符合罷免的資格";
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">

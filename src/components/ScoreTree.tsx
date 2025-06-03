@@ -11,11 +11,11 @@ const ScoreTree: React.FC<ScoreTreeProps> = ({ score, maxScore }) => {
   
   // Define tree states based on growth
   const getTreeState = () => {
-    if (growthPercentage < 20) return 'Seed';
-    if (growthPercentage < 40) return 'Sprout';
-    if (growthPercentage < 60) return 'Sapling';
-    if (growthPercentage < 80) return 'Young Tree';
-    return 'Mature Tree';
+    if (growthPercentage < 20) return '無名小卒';
+    if (growthPercentage < 40) return '小有名氣';
+    if (growthPercentage < 60) return '樹大招風';
+    if (growthPercentage < 80) return '人人喊打';
+    return '天怒人怨';
   };
 
   // Determine height based on growth (between 50px and 200px)
@@ -31,7 +31,7 @@ const ScoreTree: React.FC<ScoreTreeProps> = ({ score, maxScore }) => {
     <div className="flex flex-col items-center justify-center p-4">
       <div className="mb-2 text-center">
         <span className="text-lg font-semibold">{getTreeState()}</span>
-        <div className="text-sm text-gray-600">Score: {score}</div>
+        <div className="text-sm text-gray-600">累積人民的怒氣值: {score}</div>
       </div>
       
       <div className="relative" style={{ height: `${treeHeight}px`, transition: 'height 0.5s ease-in-out' }}>
