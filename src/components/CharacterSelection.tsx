@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 
 const CharacterSelection: React.FC = () => {
   const { selectCharacter } = useGame();
+  const gameTitle="《2025立院生存指南》";
+  const gameDescription="你能保證不被罷免並成功留在立法院嗎？\n每做一個決定 連署人數會增加 加快被罷免速度\n結局:  成功生存！也符合罷免的資格";
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
@@ -15,7 +17,7 @@ const CharacterSelection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Personality Path Finder
+          {gameTitle}
         </motion.h1>
         
         <motion.p 
@@ -24,7 +26,8 @@ const CharacterSelection: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Choose a character to begin your psychological journey
+          {gameDescription}
+
         </motion.p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
@@ -53,7 +56,7 @@ const CharacterSelection: React.FC = () => {
                   onClick={() => selectCharacter(character)}
                   className="w-full py-2 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  Select
+                  選擇
                 </button>
               </div>
             </motion.div>

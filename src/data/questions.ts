@@ -15,27 +15,27 @@ const analyticalQuestions: Question[] = [
     id: 'a1',
     text: '為了保住立委席次，你決定到AB里和里民共餐，你決定送什麼東西表示親民？:',
     options: [
-      { id: 'a1-1', text: '一個便當+一杯飲料', points: 10, isCorrect: true },
-      { id: 'a1-2', text: '一張都更同意書', points: 5, isCorrect: false },
-      { id: 'a1-3', text: '站出來投不同意宣言', points: 3, isCorrect: false },
+      { id: 'a1-1', text: '一個便當+一杯飲料', points: 0, isCorrect: false },
+      { id: 'a1-2', text: '一張都更同意書', points: 0, isCorrect: false },
+      { id: 'a1-3', text: '站出來投不同意宣言', points: 3, isCorrect: true },
     ],
   },
   {
     id: 'a2',
     text: '媽媽陳錦錠議員說母親節即將到來，政治獻金法說小物只能限定30元，你決定贈送＿＿＿給里民？',
     options: [
-      { id: 'a2-1', text: '垃圾袋', points: 10, isCorrect: true },
-      { id: 'a2-2', text: '修容組', points: 7, isCorrect: false },
-      { id: 'a2-3', text: '洗衣精', points: 4, isCorrect: false },
+      { id: 'a2-1', text: '垃圾袋', points: 0, isCorrect: false },
+      { id: 'a2-2', text: '修容組', points: 0, isCorrect: false },
+      { id: 'a2-3', text: '洗衣精', points: 4, isCorrect: true },
     ],
   },
   {
     id: 'a3',
     text: '行政院警告反對覆議《總預算案》將影響地方補助，因此你想推動的中和汙水下水道工程預算也會受影響，所以你決定？',
     options: [
-      { id: 'a3-1', text: '痾...對吼！我想起來了', points: 12, isCorrect: true },
-      { id: 'a3-2', text: '我不知道這是什麼欸', points: 6, isCorrect: false },
-      { id: 'a3-3', text: '反對啦！哪次不反！？', points: 3, isCorrect: false },
+      { id: 'a3-1', text: '痾...對吼！我想起來了', points: 0, isCorrect: false },
+      { id: 'a3-2', text: '我不知道這是什麼欸', points: 0, isCorrect: false },
+      { id: 'a3-3', text: '反對啦！哪次不反！？', points: 12, isCorrect: true },
     ],
   },
   {
