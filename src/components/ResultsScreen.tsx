@@ -28,7 +28,7 @@ const ResultsScreen: React.FC = () => {
   const getPersonalityTrait = () => {
     const characterType = character.id;
     const score = gameState.score;
-    
+    //根據最終分數給予的頭銜
     if (characterType === 'ChangChihLun') {
       if (score < 50) return "Emerging Analyst";
       if (score < 100) return "Logical Thinker";

@@ -20,7 +20,7 @@ export const characters: Character[] = [
     id: 'HSUCHIAOHSIN',//人物id
     name: '徐巧芯',
     avatar: '../images/徐巧芯8bit.png?auto=compress&cs=tinysrgb&w=300',
-    description: '代表花蓮的立法委員，在0403大地震，太魯閣滿目瘡痍、搜救人員努力搜救之時，帶著國會立法委員前往敵對勢力國家接旨',
+    description: '我有中指，我驕傲！',
     questionSetId: 'HSUCHIAOHSIN',//對應問題系列
   },
   
@@ -68,7 +68,7 @@ export const characters: Character[] = [
   {
     id: 'FUKUNCHI',//人物id
     name: '傅崐萁',
-    avatar: '../images/傅崐萁8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/baba_test/images/傅崐萁8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '代表花蓮的立法委員，在0403大地震，太魯閣滿目瘡痍、搜救人員努力搜救之時，帶著國會立法委員前往敵對勢力國家接旨',
     questionSetId: 'FUKUNCHI',//對應問題系列
   },
