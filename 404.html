@@ -3,11 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; URL=./" />
     <script>
-      // 如果 meta refresh 無效就用 JS
-      window.location.replace('/baba_test/main');
+      // 修正 GitHub Pages SPA 子路徑 404 問題
+      const base = '/vite-intro-page';
+      const fullPath = location.pathname + location.search + location.hash;
+
+      // 如果已經在 base 下就別再重導
+      if (!location.pathname.startsWith(base)) {
+        window.location.replace(base + fullPath);
+      }
     </script>
   </head>
-  <body></body>
+  <body>
+    <p>Redirecting...</p>
+  </body>
 </html>
