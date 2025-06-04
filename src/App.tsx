@@ -1,30 +1,13 @@
-import React from 'react';
-import { GameProvider, useGame } from './context/GameContext';
-import CharacterSelection from './components/CharacterSelection';
-import QuestionScreen from './components/QuestionScreen';
-import ResultsScreen from './components/ResultsScreen';
-
-const GameContainer: React.FC = () => {
-  const { gameState } = useGame();
-  
-  return (
-    <div className="font-sans">
-      {!gameState.selectedCharacter ? (
-        <CharacterSelection />
-      ) : gameState.isGameOver ? (
-        <ResultsScreen />
-      ) : (
-        <QuestionScreen />
-      )}
-    </div>
-  );
-};
+import { Routes, Route } from 'react-router-dom';
+import Landing from './landing/App_landing.jsx';
+import Game from './Game.tsx';
 
 function App() {
   return (
-    <GameProvider>
-      <GameContainer />
-    </GameProvider>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/main" element={<Game />} />
+    </Routes>
   );
 }
 
