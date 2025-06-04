@@ -52,7 +52,7 @@ export const characters: Character[] = [
   {
     id: 'ChenYuJen',//人物id
     name: '陳玉珍',
-    avatar: '../images/陳玉珍8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/baba_test/images/陳玉珍_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍',
     questionSetId: 'ChenYuJen',//對應問題系列
   },
@@ -60,7 +60,7 @@ export const characters: Character[] = [
   {
     id: 'YEHYUANCHIH',//人物id
     name: '葉元之',
-    avatar: '../images/葉元之8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/baba_test/images/葉元之_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '葉元之葉元之葉元之葉元之葉元之葉元之葉元之葉元之',
     questionSetId: 'YEHYUANCHIH',//對應問題系列
   },
@@ -76,7 +76,7 @@ export const characters: Character[] = [
   {
     id: 'HungMongKai',//人物id
     name: '洪孟楷',
-    avatar: '../images/洪孟楷8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/baba_test/images/洪孟楷_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷',
     questionSetId: 'HungMongKai',//對應問題系列
   },
@@ -84,7 +84,7 @@ export const characters: Character[] = [
   {
     id: 'LoMingTsai',//人物id
     name: '羅明才',
-    avatar: '../images/羅明才8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/baba_test/images/羅明才_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '2024年亦成為目前立法院黨團中最資深的「八連霸」立委，其父羅福助為天道盟創辦人，2012年獲罪潛逃大陸並被通緝至今。',
     questionSetId: 'LoMingTsai',//對應問題系列
   },
@@ -92,7 +92,7 @@ export const characters: Character[] = [
   {
     id: 'LIAOHsienHsiang',//人物id
     name: '廖先翔',
-    avatar: '../images/廖先翔8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/baba_test/images/廖先翔_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '廖先翔廖先翔廖先翔廖先翔廖先翔',
     questionSetId: 'LIAOHsienHsiang',//對應問題系列
   },
