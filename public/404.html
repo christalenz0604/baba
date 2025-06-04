@@ -5,9 +5,14 @@
     <title>Redirecting...</title>
     <script>
       const base = '/baba_test';
-      const fullPath = location.pathname.replace(base, '') + location.search + location.hash;
 
-      window.location.replace(base + fullPath);
+      const is404 = !location.pathname.startsWith(base + '/'); // 不是有效路由時才導
+      const isHTML = !location.pathname.endsWith('.html');      // 避免重導 404.html 自己
+      const fullPath = location.pathname + location.search + location.hash;
+
+      if (is404 && isHTML) {
+        window.location.replace(base + fullPath);
+      }
     </script>
   </head>
   <body>
