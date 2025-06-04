@@ -4,14 +4,10 @@
     <meta charset="utf-8" />
     <title>Redirecting...</title>
     <script>
-      // 修正 GitHub Pages SPA 子路徑 404 問題
       const base = '/baba_test';
-      const fullPath = location.pathname + location.search + location.hash;
+      const fullPath = location.pathname.replace(base, '') + location.search + location.hash;
 
-      // 如果已經在 base 下就別再重導
-      if (!location.pathname.startsWith(base)) {
-        window.location.replace(base + fullPath);
-      }
+      window.location.replace(base + fullPath);
     </script>
   </head>
   <body>
