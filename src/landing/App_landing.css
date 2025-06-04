@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'Unifont-JP';
+  src: url('/fonts/unifont_jp-16.0.04.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body, #root, #root > * {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* ✅ 完全禁止 scroll */
+}
+
+.container_landing {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* ✅ 不允許滾動 */
+  background-color: #909090;
+}
+
+.background {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 60%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  z-index: 0;
+}
+
+.foreground {
+  position: absolute;
+  z-index: 1;
+  bottom: 80px; /* 距離底部一段空間 */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none; /* 不吃點擊事件 */
+  color: white;
+  text-shadow: 1px 1px 4px black;
+}
+
+.gif {
+  width: 150px;
+  margin-bottom: 20px;
+  pointer-events: auto; /* 若你想讓 GIF 可點擊 */
+}
+
+.text {
+  font-size: 24px;
+  font-family: 'Unifont-JP', monospace;
+  text-align: center;
+  line-height: 1.6;
+  white-space: pre-line;
+  pointer-events: auto;
+}
+
+.prompt {
+  margin-top: 20px;
+  font-size: 18px;
+  opacity: 0.8;
+  animation: blink 1.2s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

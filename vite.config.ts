@@ -10,6 +10,10 @@ import react from '@vitejs/plugin-react';
 // });
 // define js
 export default defineConfig({
-  base: '/baba_test/', // ← 這個是你 repo 名稱
+  base: '/baba_test', // ← 這個是你 repo 名稱
   plugins: [react()],
-})
+  server: {
+    historyApiFallback: true,
+  },
+});
+
