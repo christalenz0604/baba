@@ -9,11 +9,11 @@ export const characters: Character[] = [
     questionSetId: 'ChangChihLun',//對應問題系列
   },
   {
-    id: 'linTeFU',//人物id
+    id: 'linTeFu',//人物id
     name: '林德福',
     avatar: '/baba_test/images/林德福8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '在永和經歷過市議員市長到立法委員已超過30個年頭，讓永和人最有感的是在國會殿堂閉目養神',
-    questionSetId: 'linTeFU',//對應問題系列
+    questionSetId: 'linTeFu',//對應問題系列
   },
   //徐巧芯HSUCHIAOHSIN_題目OK
   {

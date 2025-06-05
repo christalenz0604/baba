@@ -30,12 +30,12 @@ const ResultsScreen: React.FC = () => {
     const score = gameState.score;
     //根據最終分數給予的頭銜
     if (characterType === 'ChangChihLun') {
-      if (score < 50) return "Emerging Analyst";
-      if (score < 100) return "Logical Thinker";
-      return "Master Strategist";
+      if (score < 50) return "好好罷罷";
+      if (score < 100) return "妖精罷";
+      return "天罷王！";
     }
     
-    if (characterType === 'linTeFU') {
+    if (characterType === 'linTeFu') {
       if (score < 50) return "Budding Creator";
       if (score < 100) return "Innovative Mind";
       return "Visionary Genius";
