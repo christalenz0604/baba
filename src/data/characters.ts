@@ -4,14 +4,14 @@ export const characters: Character[] = [
   {
     id: 'ChangChihLun',//人物id
     name: '張智倫',
-    avatar: '/images/張智倫8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/images/張智倫_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '張家二兒子，爸爸是張慶忠AKA半分鐘通過服貿那位。媽媽是陳錦錠，有時都分不清楚政績是媽媽的還是誰的。',
     questionSetId: 'ChangChihLun',//對應問題系列
   },
   {
     id: 'linTeFU',//人物id
     name: '林德福',
-    avatar: '/images/林德福8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/images/林德福_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '在永和經歷過市議員市長到立法委員已超過30個年頭，讓永和人最有感的是在國會殿堂閉目養神',
     questionSetId: 'linTeFU',//對應問題系列
   },
@@ -19,7 +19,7 @@ export const characters: Character[] = [
   {
     id: 'HSUCHIAOHSIN',//人物id
     name: '徐巧芯',
-    avatar: '/images/徐巧芯8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/images/徐巧芯_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '我有中指，我驕傲！',
     questionSetId: 'HSUCHIAOHSIN',//對應問題系列
   },
@@ -28,7 +28,7 @@ export const characters: Character[] = [
   {
     id: 'LaiShyhBao',//人物id
     name: '賴士葆',
-    avatar: '/images/賴士葆8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/images/賴士葆_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '賴士葆昔日曾批評禮讓行人的法規為「白痴政策」卻撞傷人，辯稱自己是因為天色昏暗及A柱死角沒有看到行人、行人一直聊天，可能沒有看到車子。',
     questionSetId: 'LaiShyhBao',//對應問題系列
   },
@@ -36,7 +36,7 @@ export const characters: Character[] = [
   {
     id: 'wanghungwei',//人物id
     name: '王鴻薇',
-    avatar: '/images/王鴻薇8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/images/王鴻薇_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '王鴻薇王鴻薇王鴻薇王鴻薇王鴻薇王鴻薇王鴻薇',
     questionSetId: 'wanghungwei',//對應問題系列
   },
@@ -44,7 +44,7 @@ export const characters: Character[] = [
   {
     id: 'LEEYEHSIU',//人物id
     name: '李彥秀',
-    avatar: '/images/李彥秀8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/images/李彥秀_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '李彥秀李彥秀李彥秀李彥秀李彥秀李彥秀李彥秀李彥秀',
     questionSetId: 'LEEYEHSIU',//對應問題系列
   },
@@ -68,7 +68,7 @@ export const characters: Character[] = [
   {
     id: 'FUKUNCHI',//人物id
     name: '傅崐萁',
-    avatar: '/images/傅崐萁8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/images/傅崐萁_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '代表花蓮的立法委員，在0403大地震，太魯閣滿目瘡痍、搜救人員努力搜救之時，帶著國會立法委員前往敵對勢力國家接旨',
     questionSetId: 'FUKUNCHI',//對應問題系列
   },
@@ -100,7 +100,7 @@ export const characters: Character[] = [
   {
     id: 'LOCHIHCHIANG',//人物id
     name: '羅智強',
-    avatar: '/images/羅智強8bit.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/images/羅智強_8bit.png?auto=compress&cs=tinysrgb&w=300',
     description: '羅智強羅智強羅智強羅智強羅智強',
     questionSetId: 'LOCHIHCHIANG',//對應問題系列
   },
