@@ -29,7 +29,7 @@ function Landing() {
   useEffect(() => {
     if (clicked) {
       // 這裡可以替換成 window.location.href 或 navigate()
-      window.location.href = '/baba_test/#/main'; // ← 替換成你要導向的路徑
+      window.location.href = '/#/main'; // ← 替換成你要導向的路徑
     }
   }, [clicked]);
 
