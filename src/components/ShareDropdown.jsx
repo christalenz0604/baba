@@ -9,7 +9,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const encodedUrl = encodeURIComponent(shareUrl);
   const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-  const messageText = `${shareText}\n${shareUrl}`;
+  const messageText = `${shareText}\n${shareUrl}`.replace(/\n/g, '%0A');
   const lineText = encodeURIComponent(messageText);
   const lineShareUrl = isMobile
     ? `https://line.me/R/share?text=${lineText}`
