@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const CharacterSelection: React.FC = () => {
   const { selectCharacter } = useGame();
-  const gameTitle="《2025立院生存指南》";
+  const gameTitle="《國會派對：生存之亂》";
   const gameDescription="選擇一位立法委員在立法院闖蕩，根據該名立法委員做過的事回答問題，罷免對的人！";
   const [currentIndex, setCurrentIndex] = useState(0);
   const prev = () => {
@@ -42,6 +42,23 @@ const CharacterSelection: React.FC = () => {
         </motion.p>
 
         <div className="relative max-w-md mx-auto">
+          {/* Navigation Buttons */}
+          <button
+            onClick={prev}
+            className="absolute left-[-3rem] top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg hover:bg-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Previous character"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </button>
+
+          <button
+            onClick={next}
+            className="absolute right-[-3rem] top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg hover:bg-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Next character"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </button>
+
           <motion.div
             key={character.id}
             className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -70,21 +87,6 @@ const CharacterSelection: React.FC = () => {
               </button>
             </div>
           </motion.div>
-
-          <div className="flex justify-between mt-4">
-            <button
-              onClick={prev}
-              className="w-1/2 bg-white px-4 py-2 rounded-lg shadow hover:bg-gray-100"
-            >
-              <ChevronLeft className="inline-block mr-1" /> 上一位
-            </button>
-            <button
-              onClick={next}
-              className="w-1/2 bg-white px-4 py-2 rounded-lg shadow hover:bg-gray-100"
-            >
-              下一位 <ChevronRight className="inline-block ml-1" />
-            </button>
-          </div>
         </div>
       </div>
     </div>
