@@ -142,6 +142,8 @@ const ResultsScreen: React.FC = () => {
     }
   };
 
+  const shareText = `Ba Party 好玩！\n一起來玩小遊戲吧！`;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
       <div className="max-w-4xl mx-auto">
@@ -251,7 +253,7 @@ const ResultsScreen: React.FC = () => {
 
                 <ShareDropdown
                     shareUrl="https://bettertaiwan.goodwordstudio.com/share/"
-                    shareText="Ba Party 好玩！\n一起來玩小遊戲吧！"
+                    shareText={shareText}
                 />
 
               </div>
