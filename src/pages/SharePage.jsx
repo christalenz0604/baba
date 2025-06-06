@@ -85,8 +85,8 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 };
 
 const SharePage = () => {
-  const shareUrl = 'https://bettertaiwan.goodwordstudio.com/share/ba-party.html';
-  const shareText = '這是我很棒的作品，推薦你看看！';
+  const shareUrl = 'https://bettertaiwan.goodwordstudio.com/share/';
+  const shareText = '歡迎來玩小遊戲';
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
