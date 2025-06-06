@@ -13,7 +13,6 @@ export default defineConfig({
   base: '/', // ← 這個是你 repo 名稱
   plugins: [react()],
   server: {
-    historyApiFallback: true,
   },
 });
 
