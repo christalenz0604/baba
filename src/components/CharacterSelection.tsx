@@ -70,7 +70,7 @@ const CharacterSelection: React.FC = () => {
                 onClick={prev}
                 className="absolute left-[-1.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
                 aria-label="Previous character"
-                style={{ backgroundImage: `url('/baba_test/images/arrow_L.png')` }}
+                style={{ backgroundImage: `url('/images/arrow_L.png')` }}
               >
                 {/* <ChevronLeft className="w-6 h-6 text-gray-600" /> */}
               </button>
@@ -79,7 +79,7 @@ const CharacterSelection: React.FC = () => {
                 onClick={next}
                 className="absolute right-[-1.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
                 aria-label="Next character"
-                style={{ backgroundImage: `url('/baba_test/images/arrow_R.png')` }}
+                style={{ backgroundImage: `url('/images/arrow_R.png')` }}
               >
                 {/* <ChevronRight className="w-6 h-6 text-gray-600" /> */}
               </button>
