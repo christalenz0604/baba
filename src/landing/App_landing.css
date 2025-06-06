@@ -33,12 +33,6 @@ html, body, #root, #root > * {
   z-index: 0;
 }
 
-@media (max-width: 768px) {
-  .background {
-    width: 95vw;         /* 手機更寬一點 */
-    max-width: none;     /* 不限制最大寬度 */
-  }
-}
 
 .foreground {
   position: absolute;
@@ -75,6 +69,17 @@ html, body, #root, #root > * {
   opacity: 0.8;
   animation: blink 1.2s steps(2, start) infinite;
 }
+
+@media (max-width: 768px) {
+  .background {
+    width: 95vw;         /* 手機更寬一點 */
+    max-width: none;     /* 不限制最大寬度 */
+  }
+  .text {
+    font-size: 18px;
+  }
+}
+
 
 @keyframes blink {
   50% {
