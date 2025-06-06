@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'PixelFont';
+  src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+}
+@font-face {
+    font-family: 'Unifont-JP';
+    src: url('/fonts/unifont_jp-16.0.04.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-pixel {
+  font-family: 'Unifont-JP', 'PixelFont', system-ui, -apple-system, sans-serif;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+} 
+.btn-pixel {
+    background-color: #ff6b6b;
+    color: white;
+    font-weight: bold;
+    border-radius: 0;       /* rounded-none */
+    border-bottom: 4px solid #c92a2a;
+    border-right: 4px solid #c92a2a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* tracking-wider */
+    font-size: 1.125rem;    /* text-lg = 18px */
+    font-family: 'Unifont-JP', 'PixelFont', monospace; /* 請自行替換為你自定義字體 */
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.2);
+    transition: all 100ms;
+    position: relative;
+} 
+.btn-pixel:hover {
+  transform: translateX(2px) translateY(2px);
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.btn-pixel:active {
+  transform: translateX(4px) translateY(4px);
+  border-bottom-width: 0;
+  border-right-width: 0;
+}
