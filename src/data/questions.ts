@@ -178,7 +178,7 @@ import { Question, QuestionSet } from '../types';
         ],
       },
       {
-        id: 'LINTEFU7',
+        id: 'linTeFu7',
         text: '上班時間總召邀你一起去中國查訪',
         options: [
           { id: 'linTeFu7-1', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: true },
@@ -199,9 +199,9 @@ import { Question, QuestionSet } from '../types';
         id: 'linTeFu9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
         options: [
-          { id: 'LINTEFU9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
-          { id: 'LINTEFU9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
-          { id: 'LINTEFU9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
+          { id: 'linTeFu9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
+          { id: 'linTeFu9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
+          { id: 'linTeFu9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
         ],
       },
       {
