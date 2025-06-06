@@ -8,8 +8,6 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   const encodedUrl = encodeURIComponent(shareUrl);
   const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const isIOS = typeof navigator !== 'undefined' && /iPhone|iPad|iPod/i.test(navigator.userAgent);
-  const isDesktop = !isMobile;
 
   const messageText = `${shareText}\n${shareUrl}`;
   const lineText = encodeURIComponent(messageText);
@@ -18,11 +16,13 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
 
   const handleFacebookShare = () => {
-    const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-    if (isDesktop) {
-      window.open(fbShareUrl, '_blank', 'width=600,height=600');
+    if (window.FB) {
+      window.FB.ui({
+        method: 'share',
+        href: shareUrl,
+      }, function(response) {});
     } else {
-      window.location.href = fbShareUrl;
+      alert('Facebook SDK 尚未加載');
     }
     setOpen(false);
   };
@@ -106,8 +106,29 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 };
 
 const SharePage = () => {
-  const shareUrl =  'https://bettertaiwan.goodwordstudio.com/share/';
+  const shareUrl = 'https://bettertaiwan.goodwordstudio.com/share/';
   const shareText = 'Ba Party 好玩\n一起來玩小遊戲吧！';
+
+  useEffect(() => {
+    // 載入 Facebook SDK
+    if (!window.FB) {
+      window.fbAsyncInit = function () {
+        window.FB.init({
+          appId: '656281544074641',
+          xfbml: true,
+          version: 'v18.0',
+        });
+      };
+
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/zh_TW/sdk.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    }
+  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
