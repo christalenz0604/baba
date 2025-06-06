@@ -8,6 +8,13 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const encodedUrl = encodeURIComponent(shareUrl);
   const encodedText = encodeURIComponent(shareText);
 
+  const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const lineText = encodeURIComponent(`${shareText} ${shareUrl}`);
+  const lineShareUrl = isMobile
+    ? `https://line.me/R/share?text=${lineText}`
+    : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
+
   const handleIGShare = () => {
     if (typeof navigator !== 'undefined' && navigator.share) {
       try {
@@ -18,12 +25,12 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
         });
       } catch (error) {
         console.error('分享失敗：', error);
-        navigator.clipboard.writeText(shareUrl);
-        alert('連結已複製！可以貼到 IG 限動或私訊');
+        navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
+        alert('連結已複製！可以貼到 IG 限動或貼文');
       }
     } else {
-      navigator.clipboard.writeText(shareUrl);
-      alert('連結已複製！可以貼到 IG 限動或私訊');
+      navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
+      alert('連結已複製！可以貼到 IG 限動或貼文');
     }
     setOpen(false);
   };
@@ -63,8 +70,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
           </a>
 
           <a
-            /*href={`https://social-plugins.line.me/lineit/share?url=${encodedUrl}`} */
-			href={`https://line.me/R/share?text=${encodedText}%20${encodedUrl}`}
+            href={lineShareUrl}
             target="_blank"
             rel="noreferrer"
             onClick={() => setOpen(false)}
@@ -86,12 +92,8 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 };
 
 const SharePage = () => {
-
-
   const shareUrl = 'https://bettertaiwan.goodwordstudio.com/share/';
-  const shareText = '歡迎來玩小遊戲';
-
-
+  const shareText = 'Ba Party 好玩，一起來玩小遊戲吧！';
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
