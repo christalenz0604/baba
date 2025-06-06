@@ -16,6 +16,12 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
     ? `https://line.me/R/share?text=${lineText}`
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
 
+  const handleFacebookShare = () => {
+    const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+    window.open(fbShareUrl, '_blank', 'width=600,height=600');
+    setOpen(false);
+  };
+
   const handleIGShare = () => {
     const fullText = `${shareText}\n${shareUrl}`;
     navigator.clipboard.writeText(fullText);
@@ -48,15 +54,12 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
         {open && (
           <div className="mt-2 w-56 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 p-2">
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => setOpen(false)}
-              className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg"
+            <button
+              onClick={handleFacebookShare}
+              className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg w-full text-left"
             >
               <FaFacebookF /> 分享到 Facebook
-            </a>
+            </button>
 
             <a
               href={lineShareUrl}
@@ -96,7 +99,6 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
     </>
   );
 };
-
 
 const SharePage = () => {
   const shareUrl =  'https://bettertaiwan.goodwordstudio.com/share/';
