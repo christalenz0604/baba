@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { characters } from '../data/characters';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
 
 const CharacterSelection: React.FC = () => {
@@ -83,14 +83,21 @@ const CharacterSelection: React.FC = () => {
               >
                 {/* <ChevronRight className="w-6 h-6 text-gray-600" /> */}
               </button>
-
+              <div className="p-3 bg-white rounded-0 flex flex-col justify-center items-center mb-2">
+              <p className="text-gray-600" style={{ whiteSpace: 'pre-line' }}>你選擇的是</p>
+              {/* <img></img> */}
+              <ChevronDown className="w-6 h-6 text-black-600" />
               <h3 className="text-xl font-pixel font-semibold text-gray-800 text-center mb-2">{character.name}</h3>
+              </div>
 
+
+            </div>
+            <div className="relative p-5 mx-auto text-center">
               <button
-                onClick={() => selectCharacter(character)}
-                className="btn-pixel w-3/4 py-3 px-4 tracking-wider text-lg "
-              >
-                確認角色
+                  onClick={() => selectCharacter(character)}
+                  className="btn-pixel w-3/4 py-3 px-4 tracking-wider text-lg "
+                >
+                  確認角色
               </button>
             </div>
         </div>
