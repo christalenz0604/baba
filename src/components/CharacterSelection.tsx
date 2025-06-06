@@ -23,7 +23,7 @@ const CharacterSelection: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.h1
-          className="text-3xl md:text-4xl font-bold text-center text-indigo-800 mb-2"
+          className="text-3xl md:text-4xl font-pixel font-bold text-center text-indigo-800 mb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -32,7 +32,7 @@ const CharacterSelection: React.FC = () => {
         </motion.h1>
 
         <motion.p
-          className="text-center text-gray-600 mb-10"
+          className="text-center font-pixel text-gray-600 mb-10"
           style={{ whiteSpace: 'pre-line' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -42,22 +42,6 @@ const CharacterSelection: React.FC = () => {
         </motion.p>
 
         <div className="relative max-w-md mx-auto">
-          {/* Navigation Buttons */}
-          <button
-            onClick={prev}
-            className="absolute left-[-3rem] top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg hover:bg-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            aria-label="Previous character"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
-          </button>
-
-          <button
-            onClick={next}
-            className="absolute right-[-3rem] top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white/80 shadow-lg hover:bg-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            aria-label="Next character"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
-          </button>
 
           <motion.div
             key={character.id}
@@ -67,6 +51,11 @@ const CharacterSelection: React.FC = () => {
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.5 }}
           >
+            <div className="p-5">
+              <p className="text-gray-600 mb-4" style={{ whiteSpace: 'pre-line' }}>{character.description}</p>
+            </div>
+          </motion.div>
+
             <div className="h-64 overflow-hidden">
               <img
                 src={character.avatar}
@@ -75,18 +64,35 @@ const CharacterSelection: React.FC = () => {
               />
             </div>
 
-            <div className="p-5">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{character.name}</h3>
-              <p className="text-gray-600 mb-4" style={{ whiteSpace: 'pre-line' }}>{character.description}</p>
+            {/* Navigation Buttons */}
+            <div className="relative p-5 mx-auto text-center">
+              <button
+                onClick={prev}
+                className="absolute left-[-1.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
+                aria-label="Previous character"
+                style={{ backgroundImage: `url('/baba_test/images/arrow_L.png')` }}
+              >
+                {/* <ChevronLeft className="w-6 h-6 text-gray-600" /> */}
+              </button>
+
+              <button
+                onClick={next}
+                className="absolute right-[-1.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
+                aria-label="Next character"
+                style={{ backgroundImage: `url('/baba_test/images/arrow_R.png')` }}
+              >
+                {/* <ChevronRight className="w-6 h-6 text-gray-600" /> */}
+              </button>
+
+              <h3 className="text-xl font-pixel font-semibold text-gray-800 text-center mb-2">{character.name}</h3>
 
               <button
                 onClick={() => selectCharacter(character)}
-                className="w-full py-2 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="btn-pixel w-3/4 py-3 px-4 tracking-wider text-lg "
               >
-                選擇
+                確認角色
               </button>
             </div>
-          </motion.div>
         </div>
       </div>
     </div>

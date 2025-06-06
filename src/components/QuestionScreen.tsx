@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import ScoreTree from './ScoreTree';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronUp, ChevronDown, ExternalLink, X } from "lucide-react";
+import { ExternalLink, X } from "lucide-react";
 
 
 const QuestionScreen: React.FC = () => {
@@ -34,20 +34,16 @@ const QuestionScreen: React.FC = () => {
     }, 1500);
   };
 
-  const toggleExplanation = (optionId: string) => {
-    setExpandedOption(expandedOption === optionId ? null : optionId);
-  };
-
   // Maximum possible score (for the tree visualization)
   const maxScore = 200;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-6 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+        <div className="flex flex-row justify-between items-center mb-8 flex-wrap">
           {/* Character and score display */}
           <div className="flex items-center mb-4 md:mb-0">
-            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-indigo-500">
+            <div className="w-16 h-16 rounded-0 overflow-hidden border-2 border-indigo-500">
               <img 
                 src={character.avatar} 
                 alt={character.name} 
