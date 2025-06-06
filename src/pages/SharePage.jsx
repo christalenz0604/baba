@@ -3,6 +3,7 @@ import { FaFacebookF, FaLine, FaInstagram } from 'react-icons/fa';
 
 const ShareDropdown = ({ shareUrl, shareText }) => {
   const [open, setOpen] = useState(false);
+  const [showIGModal, setShowIGModal] = useState(false);
   const dropdownRef = useRef(null);
 
   const encodedUrl = encodeURIComponent(shareUrl);
@@ -17,22 +18,8 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   const handleIGShare = () => {
     const fullText = `${shareText}\n${shareUrl}`;
-    if (typeof navigator !== 'undefined' && navigator.share) {
-      try {
-        navigator.share({
-          title: '分享內容',
-          text: shareText,
-          url: shareUrl,
-        });
-      } catch (error) {
-        console.error('分享失敗：', error);
-        navigator.clipboard.writeText(fullText);
-        alert('連結已複製！可以貼到 IG 限動或貼文');
-      }
-    } else {
-      navigator.clipboard.writeText(fullText);
-      alert('連結已複製！可以貼到 IG 限動或貼文');
-    }
+    navigator.clipboard.writeText(fullText);
+    setShowIGModal(true);
     setOpen(false);
   };
 
@@ -47,50 +34,69 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   }, []);
 
   return (
-    <div
-      ref={dropdownRef}
-      className="fixed bottom-4 right-4 z-50"
-    >
-      <button
-        onClick={() => setOpen(!open)}
-        className="px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 focus:outline-none"
+    <>
+      <div
+        ref={dropdownRef}
+        className="fixed bottom-4 right-4 z-50"
       >
-        🔗 分享
-      </button>
+        <button
+          onClick={() => setOpen(!open)}
+          className="px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 focus:outline-none"
+        >
+          🔗 分享
+        </button>
 
-      {open && (
-        <div className="mt-2 w-56 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 p-2">
-          <a
-            href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg"
-          >
-            <FaFacebookF /> 分享到 Facebook
-          </a>
+        {open && (
+          <div className="mt-2 w-56 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 p-2">
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg"
+            >
+              <FaFacebookF /> 分享到 Facebook
+            </a>
 
-          <a
-            href={lineShareUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2 px-4 py-2 text-green-600 hover:bg-green-50 rounded-lg"
-          >
-            <FaLine /> 分享到 LINE
-          </a>
+            <a
+              href={lineShareUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 px-4 py-2 text-green-600 hover:bg-green-50 rounded-lg"
+            >
+              <FaLine /> 分享到 LINE
+            </a>
 
-          <button
-            onClick={handleIGShare}
-            className="flex items-center gap-2 px-4 py-2 text-pink-600 hover:bg-pink-50 rounded-lg w-full text-left"
-          >
-            <FaInstagram /> 分享到 Instagram
-          </button>
+            <button
+              onClick={handleIGShare}
+              className="flex items-center gap-2 px-4 py-2 text-pink-600 hover:bg-pink-50 rounded-lg w-full text-left"
+            >
+              <FaInstagram /> 分享到 Instagram
+            </button>
+          </div>
+        )}
+      </div>
+
+      {showIGModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-xl shadow-lg text-center max-w-sm w-full">
+            <h2 className="text-lg font-bold mb-2">Instagram 分享說明</h2>
+            <p className="mb-4 text-gray-700">分享文字已自動複製，請長按下方圖片儲存，然後到 Instagram 發文。</p>
+            <img src="/images/share.jpg" alt="分享圖片" className="w-full rounded-lg mb-4" />
+            <button
+              onClick={() => setShowIGModal(false)}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
+              關閉
+            </button>
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
+
 
 const SharePage = () => {
   const shareUrl =  'https://bettertaiwan.goodwordstudio.com/share/';
