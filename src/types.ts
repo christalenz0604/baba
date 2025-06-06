@@ -13,10 +13,19 @@ export interface Option {
   isCorrect: boolean;
 }
 
+export interface QuestionExplanation {
+  image?: string;
+  text?: string;
+  reference?: string;
+}
+
 export interface Question {
   id: string;
   text: string;
   options: Option[];
+  image?: string;
+  description?: string;
+  explanation?: QuestionExplanation;
 }
 
 export interface QuestionSet {
