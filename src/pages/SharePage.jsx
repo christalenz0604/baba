@@ -8,6 +8,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   const encodedUrl = encodeURIComponent(shareUrl);
   const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isIOS = typeof navigator !== 'undefined' && /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   // 使用換行字元\n（需雙重 encode）
   const messageText = `${shareText}\n${shareUrl}`;
@@ -18,7 +19,11 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   const handleFacebookShare = () => {
     const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-    window.open(fbShareUrl, '_blank', 'width=600,height=600');
+    if (isIOS) {
+      window.location.href = fbShareUrl; // 直接跳轉（避免 iOS open 錯誤）
+    } else {
+      window.open(fbShareUrl, '_blank', 'width=600,height=600');
+    }
     setOpen(false);
   };
 
