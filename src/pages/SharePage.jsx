@@ -97,6 +97,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
     </>
   );
 };
+export default ShareDropdown;
 
 const SharePage = () => {
   const shareUrl = 'https://bettertaiwan.goodwordstudio.com/share/';

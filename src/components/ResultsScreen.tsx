@@ -3,6 +3,8 @@ import { useGame } from '../context/GameContext';
 import ScoreTree from './ScoreTree';
 import { motion } from 'framer-motion';
 
+import ShareDropdown from '../pages/SharePage';
+
 const ResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
   const character = gameState.selectedCharacter;
@@ -179,6 +181,11 @@ const ResultsScreen: React.FC = () => {
             </div>
           </div>
         </motion.div>
+        <ShareDropdown
+            shareUrl="https://bettertaiwan.goodwordstudio.com/share"
+            shareText="Ba Party 好玩\n一起來玩小遊戲吧！"
+        />
+
       </div>
     </div>
   );
