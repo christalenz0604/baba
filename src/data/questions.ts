@@ -4,12 +4,15 @@ import { Question, QuestionSet } from '../types';
     id: '題目的id，通常會按照順序往下1-N題',
     text: '題目內容',
     options: [
+        //#isCorrect: true 才能前往下一題，其他會直接到結束頁面
       { id: '答案id', text: '答案內容', points: 答案得分, isCorrect: true },
       { id: '答案id', text: '答案內容', points: 答案得分, isCorrect: false },
       { id: '答案id', text: '答案內容', points: 答案得分, isCorrect: false },
     ],
-    isCorrect: true 才能前往下一題，其他會直接到結束頁面
- */
+    image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+    description: '法案審查是立委的重要職責，每個決定都可能影響thousands of人民的生活。面對不熟悉的議題，如何在有限時間內做出正確判斷，考驗著立委的專業素養和責任心。這個時刻的選擇，將展現你是否真正重視立委的職責。',
+*/
+
     const ChangChihLunQuestions: Question[] = [
       {
         id: 'ChangChihLun1',
@@ -19,6 +22,11 @@ import { Question, QuestionSet } from '../types';
           { id: 'ChangChihLun1-2', text: '一張都更同意書', points: 5, isCorrect: false },
           { id: 'ChangChihLun1-3', text: '一個便當+一杯飲料', points: 100, isCorrect: false },
         ],
+        explanation: {
+          image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+          text: '2024年1月31日，國民黨立委許巧芯的助理帶著油壓剪到立法院，試圖剪開議場大門。這個事件引發了廣泛討論，也凸顯了立法院內部政治對立的嚴重性。',
+          reference: 'https://news.ltn.com.tw/news/politics/breakingnews/4564055'
+        }
       },
       {
         id: 'ChangChihLun2',
@@ -245,6 +253,11 @@ import { Question, QuestionSet } from '../types';
           { id: 'HSUCHIAOHSIN1-2', text: '打火機', points: 5, isCorrect: false },
           { id: 'HSUCHIAOHSIN1-3', text: '電鋸', points: 100, isCorrect: false },
         ],
+        explanation: {
+          image: '/images/explanations/HSUCHIAOHSIN1.jpg',
+          text: '2024年1月31日，國民黨立委許巧芯的助理帶著油壓剪到立法院，試圖剪開議場大門。這個事件引發了廣泛討論，也凸顯了立法院內部政治對立的嚴重性。',
+          reference: 'https://news.ltn.com.tw/news/politics/breakingnews/4564055'
+        }
       },
       {
         id: 'HSUCHIAOHSIN2',
