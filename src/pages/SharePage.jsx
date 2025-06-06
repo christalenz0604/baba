@@ -93,7 +93,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 };
 
 const SharePage = () => {
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const shareUrl =  'https://bettertaiwan.goodwordstudio.com/';
   const shareText = 'Ba Party 好玩\n一起來玩小遊戲吧！';
 
   return (
