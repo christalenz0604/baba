@@ -9,7 +9,10 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const encodedUrl = encodeURIComponent(shareUrl);
   const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-  const lineText = `${encodeURIComponent(shareText)}%0A${encodedUrl}`;
+  // 確保 被正確解析為換行符再 encode
+  const parsedText = shareText.replace(/\\n/g, '\n');
+  const messageText = `${parsedText}\n${shareUrl}`;
+  const lineText = encodeURIComponent(messageText);
   const lineShareUrl = isMobile
     ? `https://line.me/R/share?text=${lineText}`
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;

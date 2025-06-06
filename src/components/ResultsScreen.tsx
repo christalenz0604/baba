@@ -251,7 +251,7 @@ const ResultsScreen: React.FC = () => {
 
                 <ShareDropdown
                     shareUrl="https://bettertaiwan.goodwordstudio.com/share/"
-                    shareText="Ba Party 好玩%0A一起來玩小遊戲吧！"
+                    shareText="Ba Party 好玩!\\n一起來玩小遊戲吧！"
                 />
 
               </div>
