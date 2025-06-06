@@ -15,17 +15,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
     ? `https://line.me/R/share?text=${lineText}`
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
 
-  const handleFacebookShare = () => {
-    if (window.FB) {
-      window.FB.ui({
-        method: 'share',
-        href: shareUrl,
-      }, function(response) {});
-    } else {
-      alert('Facebook SDK 尚未加載');
-    }
-    setOpen(false);
-  };
+  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
 
   const handleIGShare = () => {
     const fullText = `${shareText}\n${shareUrl}`;
@@ -59,12 +49,15 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
         {open && (
           <div className="mt-2 w-56 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 p-2">
-            <button
-              onClick={handleFacebookShare}
+            <a
+              href={facebookShareUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
               className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg w-full text-left"
             >
               <FaFacebookF /> 分享到 Facebook
-            </button>
+            </a>
 
             <a
               href={lineShareUrl}
@@ -108,27 +101,6 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 const SharePage = () => {
   const shareUrl = 'https://bettertaiwan.goodwordstudio.com/share/';
   const shareText = 'Ba Party 好玩\n一起來玩小遊戲吧！';
-
-  useEffect(() => {
-    // 載入 Facebook SDK
-    if (!window.FB) {
-      window.fbAsyncInit = function () {
-        window.FB.init({
-          appId: '656281544074641',
-          xfbml: true,
-          version: 'v18.0',
-        });
-      };
-
-      (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/zh_TW/sdk.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    }
-  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
