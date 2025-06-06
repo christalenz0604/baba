@@ -64,7 +64,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
           <a
             /*href={`https://social-plugins.line.me/lineit/share?url=${encodedUrl}`} */
-			href={`https://line.me/R/msg/text/?${encodedText}%20${encodedUrl}`}
+			href={`https://line.me/R/msg/text/?${encodedText}`}
             target="_blank"
             rel="noreferrer"
             onClick={() => setOpen(false)}
