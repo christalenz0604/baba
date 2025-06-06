@@ -85,7 +85,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 };
 
 const SharePage = () => {
-  const shareUrl = 'http://localhost:5173/shared/ba-party.html';
+  const shareUrl = 'https://bettertaiwan.goodwordstudio.com/shared/ba-party.html';
   const shareText = '這是我很棒的作品，推薦你看看！';
 
   return (
