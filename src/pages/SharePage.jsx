@@ -63,7 +63,8 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
           </a>
 
           <a
-            href={`https://social-plugins.line.me/lineit/share?url=${encodedUrl}`}
+            /*href={`https://social-plugins.line.me/lineit/share?url=${encodedUrl}`} */
+			href={`https://line.me/R/msg/text/?${encodedText}%20${encodedUrl}`}
             target="_blank"
             rel="noreferrer"
             onClick={() => setOpen(false)}
@@ -85,8 +86,12 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 };
 
 const SharePage = () => {
+
+
   const shareUrl = 'https://bettertaiwan.goodwordstudio.com/share/';
   const shareText = '歡迎來玩小遊戲';
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
