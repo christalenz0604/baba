@@ -214,21 +214,21 @@ import { Question, QuestionSet } from '../types';
         ],
       },
       {
-        id: 'LINTEFU11',
+        id: 'linTeFu11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
         options: [
-          { id: 'LINTEFU11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 12, isCorrect: true },
-          { id: 'LINTEFU11-2', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 6, isCorrect: false },
-          { id: 'LINTEFU11-3', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
+          { id: 'linTeFu11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 12, isCorrect: true },
+          { id: 'linTeFu11-2', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 6, isCorrect: false },
+          { id: 'linTeFu11-3', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
         ],
       },
       {
-        id: 'LINTEFU12',
+        id: 'linTeFu12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
         options: [
-          { id: 'LINTEFU12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
-          { id: 'LINTEFU12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
-          { id: 'LINTEFU12-3', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 5, isCorrect: false },
+          { id: 'linTeFu12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
+          { id: 'linTeFu12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
+          { id: 'linTeFu12-3', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 5, isCorrect: false },
         ],
       },
     ];
