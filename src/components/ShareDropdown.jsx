@@ -10,7 +10,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   // 確保 被正確解析為換行符再 encode
-  const parsedText = shareText.replace(/\\n/g, '\n');
+  const parsedText = shareText;
   const messageText = `${parsedText}\n${shareUrl}`;
   const lineText = encodeURIComponent(messageText);
   const lineShareUrl = isMobile
