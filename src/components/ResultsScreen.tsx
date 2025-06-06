@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import ScoreTree from './ScoreTree';
 import { motion } from 'framer-motion';
-
 import ShareDropdown from '../components/ShareDropdown.jsx';
-
 
 const ResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const character = gameState.selectedCharacter;
   
   if (!character) return null;
@@ -33,12 +34,12 @@ const ResultsScreen: React.FC = () => {
     const score = gameState.score;
     //根據最終分數給予的頭銜
     if (characterType === 'ChangChihLun') {
-      if (score < 50) return "Emerging Analyst";
-      if (score < 100) return "Logical Thinker";
-      return "Master Strategist";
+      if (score < 50) return "好好罷罷";
+      if (score < 100) return "妖精罷";
+      return "天罷王！";
     }
     
-    if (characterType === 'linTeFU') {
+    if (characterType === 'linTeFu') {
       if (score < 50) return "Budding Creator";
       if (score < 100) return "Innovative Mind";
       return "Visionary Genius";
@@ -111,6 +112,36 @@ const ResultsScreen: React.FC = () => {
     return "罷免不適任立委才能換得正常的國會";
   };
 
+  const handleSubmitEmail = async () => {
+    if (!email || !character) return;
+    
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyF2RBHz_E88v6rEV1cZ3Rys7KOdWIXR8lqHcH94_o12OTAhCPKM6-pkEn8aOBRTUej1A/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          character: character.name,
+          score: gameState.score,
+          timestamp: new Date().toISOString()
+        })
+      });
+      
+      setSubmitStatus('success');
+    } catch (error) {
+      console.error('Error submitting email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
       <div className="max-w-4xl mx-auto">
@@ -169,6 +200,45 @@ const ResultsScreen: React.FC = () => {
                   </h3>
                   <p className="text-gray-700">{getResultMessage()}</p>
                 </motion.div>
+
+                {/* Email subscription form */}
+                <div className="mb-6">
+                  <div className="bg-white rounded-lg border border-gray-200 p-4">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-2">
+                      想收到更多相關資訊嗎？
+                    </h4>
+                    <div className="flex gap-2">
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="輸入你的 Email"
+                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      />
+                      <button
+                        onClick={handleSubmitEmail}
+                        disabled={isSubmitting || !email}
+                        className={`px-4 py-2 rounded-lg font-medium ${
+                          isSubmitting || !email
+                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                            : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                        }`}
+                      >
+                        {isSubmitting ? '提交中...' : '訂閱'}
+                      </button>
+                    </div>
+                    {submitStatus === 'success' && (
+                      <p className="mt-2 text-sm text-green-600">
+                        感謝訂閱！我們會寄送相關資訊給你。
+                      </p>
+                    )}
+                    {submitStatus === 'error' && (
+                      <p className="mt-2 text-sm text-red-600">
+                        抱歉，發生錯誤。請稍後再試。
+                      </p>
+                    )}
+                  </div>
+                </div>
                 
                 <motion.button
                   onClick={restartGame}
@@ -178,16 +248,16 @@ const ResultsScreen: React.FC = () => {
                 >
                   再試一次
                 </motion.button>
-				<ShareDropdown
-                    shareUrl="https://bettertaiwan.goodwordstudio.com/share"
+
+                <ShareDropdown
+                    shareUrl="https://bettertaiwan.goodwordstudio.com/share/"
                     shareText="Ba Party 好玩\n一起來玩小遊戲吧！"
                 />
+
               </div>
             </div>
           </div>
         </motion.div>
-
-
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { GameProvider, useGame } from './context/GameContext';
 import CharacterSelection from './components/CharacterSelection';
 import QuestionScreen from './components/QuestionScreen';
 import ResultsScreen from './components/ResultsScreen';
+import './styles/pixel.css';
 
 const GameContainer: React.FC = () => {
   const { gameState } = useGame();

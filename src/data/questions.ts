@@ -4,12 +4,15 @@ import { Question, QuestionSet } from '../types';
     id: '題目的id，通常會按照順序往下1-N題',
     text: '題目內容',
     options: [
+        //#isCorrect: true 才能前往下一題，其他會直接到結束頁面
       { id: '答案id', text: '答案內容', points: 答案得分, isCorrect: true },
       { id: '答案id', text: '答案內容', points: 答案得分, isCorrect: false },
       { id: '答案id', text: '答案內容', points: 答案得分, isCorrect: false },
     ],
-    isCorrect: true 才能前往下一題，其他會直接到結束頁面
- */
+    image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+    description: '法案審查是立委的重要職責，每個決定都可能影響thousands of人民的生活。面對不熟悉的議題，如何在有限時間內做出正確判斷，考驗著立委的專業素養和責任心。這個時刻的選擇，將展現你是否真正重視立委的職責。',
+*/
+
     const ChangChihLunQuestions: Question[] = [
       {
         id: 'ChangChihLun1',
@@ -19,6 +22,11 @@ import { Question, QuestionSet } from '../types';
           { id: 'ChangChihLun1-2', text: '一張都更同意書', points: 5, isCorrect: false },
           { id: 'ChangChihLun1-3', text: '一個便當+一杯飲料', points: 100, isCorrect: false },
         ],
+        explanation: {
+          image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+          text: '2024年1月31日，國民黨立委許巧芯的助理帶著油壓剪到立法院，試圖剪開議場大門。這個事件引發了廣泛討論，也凸顯了立法院內部政治對立的嚴重性。',
+          reference: 'https://news.ltn.com.tw/news/politics/breakingnews/4564055'
+        }
       },
       {
         id: 'ChangChihLun2',
@@ -178,57 +186,57 @@ import { Question, QuestionSet } from '../types';
         ],
       },
       {
-        id: 'LINTEFU7',
+        id: 'linTeFu7',
         text: '上班時間總召邀你一起去中國查訪',
         options: [
-          { id: 'LINTEFU7-1', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: true },
-          { id: 'LINTEFU7-2', text: '不行，我要為民服務上班', points: 4, isCorrect: false },
-          { id: 'LINTEFU7-3', text: '好，總召說甚麼是甚麼', points: 2, isCorrect: false },
+          { id: 'linTeFu7-1', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: true },
+          { id: 'linTeFu7-2', text: '不行，我要為民服務上班', points: 4, isCorrect: false },
+          { id: 'linTeFu7-3', text: '好，總召說甚麼是甚麼', points: 2, isCorrect: false },
         ],
       },
       {
-        id: 'LINTEFU8',
+        id: 'linTeFu8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
         options: [
-          { id: 'LINTEFU8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 15, isCorrect: true },
-          { id: 'LINTEFU8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 8, isCorrect: false },
-          { id: 'LINTEFU8-3', text: '其實中配待遇已經優於外籍配偶了，我持保留態度。', points: 5, isCorrect: false },
+          { id: 'linTeFu8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 15, isCorrect: true },
+          { id: 'linTeFu8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 8, isCorrect: false },
+          { id: 'linTeFu8-3', text: '其實中配待遇已經優於外籍配偶了，我持保留態度。', points: 5, isCorrect: false },
         ],
       },
       {
-        id: 'LINTEFU9',
+        id: 'linTeFu9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
         options: [
-          { id: 'LINTEFU9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
-          { id: 'LINTEFU9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
-          { id: 'LINTEFU9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
+          { id: 'linTeFu9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
+          { id: 'linTeFu9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
+          { id: 'linTeFu9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
         ],
       },
       {
-        id: 'LINTEFU10',
+        id: 'linTeFu10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
         options: [
-          { id: 'LINTEFU10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
-          { id: 'LINTEFU10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 5, isCorrect: false },
-          { id: 'LINTEFU10-3', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 3, isCorrect: false },
+          { id: 'linTeFu10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
+          { id: 'linTeFu10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 5, isCorrect: false },
+          { id: 'linTeFu10-3', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 3, isCorrect: false },
         ],
       },
       {
-        id: 'LINTEFU11',
+        id: 'linTeFu11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
         options: [
-          { id: 'LINTEFU11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 12, isCorrect: true },
-          { id: 'LINTEFU11-2', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 6, isCorrect: false },
-          { id: 'LINTEFU11-3', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
+          { id: 'linTeFu11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 12, isCorrect: true },
+          { id: 'linTeFu11-2', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 6, isCorrect: false },
+          { id: 'linTeFu11-3', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
         ],
       },
       {
-        id: 'LINTEFU12',
+        id: 'linTeFu12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
         options: [
-          { id: 'LINTEFU12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
-          { id: 'LINTEFU12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
-          { id: 'LINTEFU12-3', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 5, isCorrect: false },
+          { id: 'linTeFu12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
+          { id: 'linTeFu12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
+          { id: 'linTeFu12-3', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 5, isCorrect: false },
         ],
       },
     ];
@@ -245,6 +253,11 @@ import { Question, QuestionSet } from '../types';
           { id: 'HSUCHIAOHSIN1-2', text: '打火機', points: 5, isCorrect: false },
           { id: 'HSUCHIAOHSIN1-3', text: '電鋸', points: 100, isCorrect: false },
         ],
+        explanation: {
+          image: '/images/explanations/HSUCHIAOHSIN1.jpg',
+          text: '2024年1月31日，國民黨立委許巧芯的助理帶著油壓剪到立法院，試圖剪開議場大門。這個事件引發了廣泛討論，也凸顯了立法院內部政治對立的嚴重性。',
+          reference: 'https://news.ltn.com.tw/news/politics/breakingnews/4564055'
+        }
       },
       {
         id: 'HSUCHIAOHSIN2',
@@ -1464,7 +1477,7 @@ import { Question, QuestionSet } from '../types';
         id: 'ChangChihLun',
         questions: ChangChihLunQuestions,
       },
-      LINTEFU: {
+      linTeFu: {
         id: 'linTeFu',
         questions: linTeFuQuestions,
       },
