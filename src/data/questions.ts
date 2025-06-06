@@ -178,39 +178,39 @@ import { Question, QuestionSet } from '../types';
         ],
       },
       {
-        id: 'LINTEFU7',
+        id: 'linTeFu7',
         text: '上班時間總召邀你一起去中國查訪',
         options: [
-          { id: 'LINTEFU7-1', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: true },
-          { id: 'LINTEFU7-2', text: '不行，我要為民服務上班', points: 4, isCorrect: false },
-          { id: 'LINTEFU7-3', text: '好，總召說甚麼是甚麼', points: 2, isCorrect: false },
+          { id: 'linTeFu7-1', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: true },
+          { id: 'linTeFu7-2', text: '不行，我要為民服務上班', points: 4, isCorrect: false },
+          { id: 'linTeFu7-3', text: '好，總召說甚麼是甚麼', points: 2, isCorrect: false },
         ],
       },
       {
-        id: 'LINTEFU8',
+        id: 'linTeFu8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
         options: [
-          { id: 'LINTEFU8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 15, isCorrect: true },
-          { id: 'LINTEFU8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 8, isCorrect: false },
-          { id: 'LINTEFU8-3', text: '其實中配待遇已經優於外籍配偶了，我持保留態度。', points: 5, isCorrect: false },
+          { id: 'linTeFu8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 15, isCorrect: true },
+          { id: 'linTeFu8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 8, isCorrect: false },
+          { id: 'linTeFu8-3', text: '其實中配待遇已經優於外籍配偶了，我持保留態度。', points: 5, isCorrect: false },
         ],
       },
       {
-        id: 'LINTEFU9',
+        id: 'linTeFu9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
         options: [
-          { id: 'LINTEFU9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
-          { id: 'LINTEFU9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
-          { id: 'LINTEFU9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
+          { id: 'linTeFu9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
+          { id: 'linTeFu9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
+          { id: 'linTeFu9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
         ],
       },
       {
-        id: 'LINTEFU10',
+        id: 'linTeFu10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
         options: [
-          { id: 'LINTEFU10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
-          { id: 'LINTEFU10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 5, isCorrect: false },
-          { id: 'LINTEFU10-3', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 3, isCorrect: false },
+          { id: 'linTeFu10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
+          { id: 'linTeFu10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 5, isCorrect: false },
+          { id: 'linTeFu10-3', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 3, isCorrect: false },
         ],
       },
       {
@@ -1464,7 +1464,7 @@ import { Question, QuestionSet } from '../types';
         id: 'ChangChihLun',
         questions: ChangChihLunQuestions,
       },
-      LINTEFU: {
+      linTeFu: {
         id: 'linTeFu',
         questions: linTeFuQuestions,
       },
