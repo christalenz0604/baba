@@ -27,10 +27,17 @@ html, body, #root, #root > * {
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: contain;
-  width: 90vw;
-  max-width: 600px;
+  width: 90vw;           /* 預設用視窗寬度的 90% */
+  max-width: 900px;      /* 電腦上不超過 900px */
   height: auto;
   z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .background {
+    width: 95vw;         /* 手機更寬一點 */
+    max-width: none;     /* 不限制最大寬度 */
+  }
 }
 
 .foreground {
