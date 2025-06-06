@@ -78,6 +78,9 @@ html, body, #root, #root > * {
   .text {
     font-size: 18px;
   }
+  .gif {
+    width: 100px;
+  }
 }
 
 
