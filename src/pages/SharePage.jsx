@@ -8,24 +8,12 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   const encodedUrl = encodeURIComponent(shareUrl);
   const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const isIOS = typeof navigator !== 'undefined' && /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  // 使用換行字元\n（需雙重 encode）
   const messageText = `${shareText}\n${shareUrl}`;
   const lineText = encodeURIComponent(messageText);
   const lineShareUrl = isMobile
     ? `https://line.me/R/share?text=${lineText}`
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
-
-  const handleFacebookShare = () => {
-    const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-    if (isIOS) {
-      window.location.href = fbShareUrl; // 直接跳轉（避免 iOS open 錯誤）
-    } else {
-      window.open(fbShareUrl, '_blank', 'width=600,height=600');
-    }
-    setOpen(false);
-  };
 
   const handleIGShare = () => {
     const fullText = `${shareText}\n${shareUrl}`;
@@ -59,12 +47,15 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
         {open && (
           <div className="mt-2 w-56 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 p-2">
-            <button
-              onClick={handleFacebookShare}
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
               className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg w-full text-left"
             >
               <FaFacebookF /> 分享到 Facebook
-            </button>
+            </a>
 
             <a
               href={lineShareUrl}
