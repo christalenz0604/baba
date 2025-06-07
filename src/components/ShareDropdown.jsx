@@ -40,7 +40,8 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   };
 
   const handleTwitterShare = () => {
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodedUrl}`;
+    const twitterMessage = `${shareText}\n${shareUrl}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(twitterMessage)}`;
     window.open(twitterUrl, '_blank');
     setOpen(false);
   };
