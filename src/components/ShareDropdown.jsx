@@ -21,11 +21,28 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
 
   // 用 SDK 呼叫 FB 分享
+  const quote = "該如何在立法院生存呢？\n一起來玩小遊戲吧！\n立法院生存指南上線囉！";
+  const hashtag = "#立法院生存戰";
+  
   const handleFacebookShare = () => {
-    const popupUrl = `/fb-share-popup.html?url=${encodeURIComponent(shareUrl)}`;
-    window.open(popupUrl, '_blank', 'width=600,height=600');
+    const popupUrl = `/fb-share-popup.html?url=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`;
+    const popup = window.open(
+      popupUrl,
+      '_blank',
+      'width=600,height=600,noopener,noreferrer'
+    );
+
+    const timer = setInterval(() => {
+      if (popup && popup.closed) {
+        clearInterval(timer);
+        console.log("Facebook 分享完成（popup 關閉）");
+      }
+    }, 500);
+
     setOpen(false);
   };
+
+
 
   const handleTwitterShare = () => {
     const twitterMessage = `${shareText}\n${shareUrl}`;

@@ -2,55 +2,89 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
-    <title>Facebook 分享中...</title>
+    <title>Facebook 分享</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script async defer crossorigin="anonymous"
       src="https://connect.facebook.net/en_US/sdk.js"></script>
     <style>
       body {
+        font-family: sans-serif;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
         margin: 0;
-        font-family: sans-serif;
         background-color: #fff;
+        color: #333;
       }
-      .loading {
+      #manual-close {
+        display: none;
+        margin-top: 20px;
         text-align: center;
-        color: #555;
+      }
+      #manual-close button {
+        padding: 10px 16px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        background-color: #4267B2;
+        color: white;
+        cursor: pointer;
       }
     </style>
     <script>
+      function getParam(name) {
+        return new URLSearchParams(window.location.search).get(name);
+      }
+
+      function closeWindowFallback() {
+        document.getElementById("manual-close").style.display = "block";
+      }
+
       window.fbAsyncInit = function () {
         FB.init({
-          appId: '656281544074641', // ← 換成你的 Facebook App ID
-          version: 'v19.0',
+          appId: "YOUR_FACEBOOK_APP_ID", // ← 換成你的 App ID
+          version: "v19.0",
         });
 
-        const url = new URLSearchParams(window.location.search).get('url');
+        const url = getParam("url");
+        const quote = getParam("quote");
+        const hashtag = getParam("hashtag");
 
         if (!url) {
-          document.body.innerHTML = '<p style="color:red;">無效的分享網址</p>';
+          document.body.innerHTML =
+            "<p style='color:red;'>無效的分享網址</p>";
           return;
         }
 
-        FB.ui(
-          {
-            method: 'share',
-            href: url,
-            display: 'popup',
-          },
-          function (response) {
-            window.close(); // 分享後自動關閉
+        const shareOptions = {
+          method: "share",
+          href: url,
+        };
+        if (quote) shareOptions.quote = quote;
+        if (hashtag) shareOptions.hashtag = hashtag;
+
+        FB.ui(shareOptions, function (response) {
+          try {
+            window.close();
+            setTimeout(() => {
+              if (!window.closed) {
+                closeWindowFallback();
+              }
+            }, 500);
+          } catch (e) {
+            closeWindowFallback();
           }
-        );
+        });
       };
     </script>
   </head>
   <body>
-    <div class="loading">
-      <p>正在載入 Facebook 分享...</p>
+    <p>正在載入 Facebook 分享視窗...</p>
+    <div id="manual-close">
+      <p>分享完成，若視窗未自動關閉，請手動點選：</p>
+      <button onclick="window.close()">關閉視窗</button>
     </div>
   </body>
 </html>
