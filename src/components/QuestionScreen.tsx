@@ -43,6 +43,7 @@ const QuestionScreen: React.FC = () => {
         <div className="flex flex-row justify-between items-center flex-wrap">
           {/* Character and score display */}
           <div className="flex items-center mr-4">
+
             <div className="w-16 h-16 rounded-0 overflow-hidden border-2 border-indigo-500">
               <img 
                 src={character.avatar} 

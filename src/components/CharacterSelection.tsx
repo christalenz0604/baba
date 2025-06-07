@@ -65,6 +65,7 @@ const CharacterSelection: React.FC = () => {
               <button
                 onClick={prev}
                 className="absolute left-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
+
                 aria-label="Previous character"
                 style={{ backgroundImage: `url('/baba_test/images/arrow_L.png')` }}
               >
@@ -74,12 +75,14 @@ const CharacterSelection: React.FC = () => {
               <button
                 onClick={next}
                 className="absolute right-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
+
                 aria-label="Next character"
                 style={{ backgroundImage: `url('/baba_test/images/arrow_R.png')` }}
               >
                 {/* <ChevronRight className="w-6 h-6 text-gray-600" /> */}
               </button>
               <div className="p-3 w-full mx-auto bg-white rounded-0 flex flex-col justify-center items-center mb-2">
+
               <p className="text-gray-600" style={{ whiteSpace: 'pre-line' }}>你選擇的是</p>
               {/* <img></img> */}
               <ChevronDown className="w-6 h-6 text-black-600" />
