@@ -40,9 +40,10 @@ const QuestionScreen: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-6 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="flex flex-row justify-between items-center mb-8 flex-wrap">
+        <div className="flex flex-row justify-between items-center flex-wrap">
           {/* Character and score display */}
-          <div className="flex items-center mb-4 md:mb-0">
+          <div className="flex items-center mr-4">
+
             <div className="w-16 h-16 rounded-0 overflow-hidden border-2 border-indigo-500">
               <img 
                 src={character.avatar} 
@@ -50,74 +51,78 @@ const QuestionScreen: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="ml-4">
+            <div className="ml-4 font-pixel">
+              <p className="text-indigo-600 font-medium">{character.districts}</p>
+              <p className="text-indigo-600 font-medium">立法委員</p>
               <h3 className="font-semibold text-lg text-gray-800">{character.name}</h3>
-              <p className="text-indigo-600 font-medium">人民累積的怒氣值: {gameState.score}</p>
             </div>
           </div>
           
           {/* Tree visualization */}
-          <div className="w-40">
+          <div className="w-40 shrink-0">
             <ScoreTree score={gameState.score} maxScore={maxScore} />
           </div>
         </div>
           {/* Progress indicator */}
+        <hr className="dotted-line" />
         <p className="text-center text-gray-600 mt-2">
           生存進度 {gameState.currentQuestionIndex + 1} / 12
         </p>
-        <div className="w-full bg-gray-200 rounded-full h-3.5 mb-6">
+        <div className="w-full bg-gray-200 rounded-full h-3.5 mb-2">
           <div 
             className="bg-indigo-600 h-3.5 rounded-full transition-all duration-500"
             style={{ width: `${((gameState.currentQuestionIndex + 1) / 12) * 100}%` }}
           ></div>
         </div>
+        <hr className="dotted-line" />
 
         {/* Question */}
         <motion.div 
-          className="bg-white rounded-xl shadow-lg p-6 mb-6"
+          className="bg-white rounded-xl shadow-lg p-6 mb-2"
           key={currentQuestion.id}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
           <h2 className="text-xl font-semibold text-gray-800 mb-2">
-            第{gameState.currentQuestionIndex + 1}題
+            事件{gameState.currentQuestionIndex + 1}
           </h2>
           <p className="text-gray-700 text-lg mb-4">{currentQuestion.text}</p>
-          {/* Options */}
-          <div className="space-y-4">
-            {currentQuestion.options.map((option) => (
-              <motion.div 
-                key={option.id}
-                className={`relative p-4 border rounded-lg cursor-pointer transition-all duration-300 ${
-                  selectedOption === option.id 
-                    ? 'border-indigo-500 bg-indigo-50' 
-                    : 'border-gray-200 hover:border-indigo-300 hover:bg-indigo-50/50'
-                }`}
-                onClick={() => handleOptionClick(option.points, option.isCorrect, option.id)}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-              >
-                <p className="text-gray-700">{option.text}</p>
-                
-                {/* Points animation */}
-                <AnimatePresence>
-                  {showPoints && selectedOption === option.id && (
-                    <motion.div 
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 font-bold text-xl text-green-500"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      +{pointsToAdd}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
+
         </motion.div>
+        {/* Options */}
+          <div className="space-y-4">
+          {currentQuestion.options.map((option) => (
+            <motion.div 
+              key={option.id}
+              className={`relative p-4 border rounded-lg cursor-pointer transition-all duration-300 ${
+                selectedOption === option.id 
+                  ? 'border-indigo-500 bg-indigo-50' 
+                  : 'border-gray-200 hover:border-indigo-300 hover:bg-indigo-50/50'
+              }`}
+              onClick={() => handleOptionClick(option.points, option.isCorrect, option.id)}
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
+            >
+              <p className="text-gray-700">{option.text}</p>
+              
+              {/* Points animation */}
+              <AnimatePresence>
+                {showPoints && selectedOption === option.id && (
+                  <motion.div 
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 font-bold text-xl text-green-500"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    +{pointsToAdd}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Explanation Button */}
         <motion.button

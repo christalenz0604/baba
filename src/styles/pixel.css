@@ -41,3 +41,38 @@
   border-bottom-width: 0;
   border-right-width: 0;
 }
+.dialog-box {
+  font-weight: bold;
+  border-radius: 0;       /* rounded-none */
+  text-transform: uppercase;
+  letter-spacing: 0.05em; /* tracking-wider */
+  font-size: 1.125rem;    /* text-lg = 18px */
+  position: relative;
+}
+/* Dotted red border */
+hr.dotted-line {
+    border-top: 4px dashed rgb(118, 118, 118);
+  }
+.office-character {
+    background-image: url('/baba_test/images/office_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.name-plate{
+    background-color: #f48e13;
+    color: white;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.width-65{
+    width: 65%;
+}
+.width-70{
+    width: 70%;
+}
+.width-60{
+    width: 60%;
+}
