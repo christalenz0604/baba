@@ -51,7 +51,7 @@
 }
 /* Dotted red border */
 hr.dotted-line {
-    border-top: 4px dashed rgb(118, 118, 118);
+    border-top: 4px dashed rgb(226, 226, 226);
   }
 .office-character {
     background-image: url('/baba_test/images/office_bg.png');
@@ -75,4 +75,27 @@ hr.dotted-line {
 }
 .width-60{
     width: 60%;
+}
+.question-option-color{
+    background-color: white;
+    border-color: #65dbff;
+    border-width: 8px;
+    border-style: solid;
+    border-radius: 0;
+    box-shadow: 6px 6px 0px #878787;
+    transition: all 100ms;
+    position: relative;
+}
+.question-option-color:hover{
+    border-color: #0017c4;
+    background-color: #3bd6ff;
+    box-shadow: 6px 6px 0px #878787;
+}
+.question-option-color:active{
+    border-color: #0017c4;
+    background-color: #3bd6ff;
+    box-shadow: 2px 2px 0px #878787;
+}
+.question-points-color{
+    color: #2ba242;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface ScoreTreeProps {
+interface ScorePaperProps {
   score: number;
   maxScore: number;
 }
 
-const ScoreTree: React.FC<ScoreTreeProps> = ({ score, maxScore }) => {
+const ScoreTree: React.FC<ScorePaperProps> = ({ score, maxScore }) => {
   // Calculate growth percentage (limit to 100%)
   // const growthPercentage = Math.min((score / maxScore) * 100, 100);
   
@@ -21,10 +21,10 @@ const ScoreTree: React.FC<ScoreTreeProps> = ({ score, maxScore }) => {
   return (
     <div className="flex flex-row p-4">
       <div className="mb-2">
-        <div className="text-sm text-gray-600 font-pixel font-semibold">累積人民的怒氣值</div>
-        <div className="flex items-center text-sm text-gray-600 font-pixel font-semibold">
-          <img src="/baba_test/images/連署書1-2.png" alt="連署書數量" className="w-10 h-auto mr-2" />
-          <span className="text-sm text-gray-600 font-pixel font-semibold">x {score}</span>
+        <div className="text-sm text-gray-100 font-pixel font-semibold">累積人民的怒氣值</div>
+        <div className="flex items-center text-sm text-gray-100 font-pixel font-semibold">
+          <img src="/baba_test/images/question/staement.png" alt="連署書數量" className="w-10 h-auto mr-2" />
+          <span className="text-sm text-gray-100 font-pixel font-semibold">x {score}</span>
         </div>
       </div>
     </div>

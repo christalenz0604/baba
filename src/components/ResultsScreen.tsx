@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
-import ScoreTree from './ScoreTree';
+import ScoreTree from './ScorePaperProps';
 import { motion } from 'framer-motion';
 
 const ResultsScreen: React.FC = () => {
