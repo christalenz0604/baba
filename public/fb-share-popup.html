@@ -53,7 +53,7 @@
     </div>
 
     <div id="manual-close">
-      <p>✅ 已完成分享。若視窗未自動關閉，請點選下方按鈕：</p>
+      <p>✅ 分享應已完成。若視窗未自動關閉，請點選下方按鈕：</p>
       <button onclick="window.close()">關閉視窗</button>
     </div>
 
@@ -71,22 +71,9 @@
         document.getElementById("ios-notice").style.display = "block";
       }
 
-      function attemptCloseWindow() {
-        try {
-          window.close();
-          setTimeout(() => {
-            if (!window.closed) {
-              showManualClose();
-            }
-          }, 500);
-        } catch (e) {
-          showManualClose();
-        }
-      }
-
       window.fbAsyncInit = function () {
         FB.init({
-          appId: "656281544074641", // Facebook App ID
+          appId: "656281544074641", // ← Facebook App ID
           version: "v19.0",
         });
 
@@ -109,11 +96,26 @@
 
         FB.ui(shareOptions, function (response) {
           console.log("FB 分享 callback:", response);
-          attemptCloseWindow();
+          // 嘗試自動關閉（大多數桌面會成功）
+          try {
+            window.close();
+            setTimeout(() => {
+              if (!window.closed) {
+                showManualClose();
+              }
+            }, 500);
+          } catch (e) {
+            showManualClose();
+          }
         });
       };
 
-      // Fallback for SDK load failure
+      // 無論 callback 有沒有來，5 秒後自動顯示關閉提示（因應 iOS 不回調）
+      setTimeout(() => {
+        showManualClose();
+      }, 5000);
+
+      // fallback：如果 SDK 掛載太久沒反應
       setTimeout(() => {
         if (!window.FB) {
           document.body.innerHTML =
