@@ -45,14 +45,10 @@ const CharacterSelection: React.FC = () => {
 
           <motion.div
             key={character.id}
-            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
+            className="mx-auto w-3/4 overflow-hidden mb-4"
           >
-            <div className="p-5">
-              <p className="text-gray-600 mb-4" style={{ whiteSpace: 'pre-line' }}>{character.description}</p>
+            <div className="p-5 font-pixel dialog-box">
+              <p className="text-gray-600" style={{ whiteSpace: 'pre-line' }}>{character.description}</p>
             </div>
           </motion.div>
 
@@ -65,10 +61,10 @@ const CharacterSelection: React.FC = () => {
             </div>
 
             {/* Navigation Buttons */}
-            <div className="relative p-5 mx-auto text-center">
+            <div className="relative w-3/4 p-5 mx-auto text-center">
               <button
                 onClick={prev}
-                className="absolute left-[-1.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
+                className="absolute left-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
                 aria-label="Previous character"
                 style={{ backgroundImage: `url('/baba_test/images/arrow_L.png')` }}
               >
@@ -77,13 +73,13 @@ const CharacterSelection: React.FC = () => {
 
               <button
                 onClick={next}
-                className="absolute right-[-1.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
+                className="absolute right-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
                 aria-label="Next character"
                 style={{ backgroundImage: `url('/baba_test/images/arrow_R.png')` }}
               >
                 {/* <ChevronRight className="w-6 h-6 text-gray-600" /> */}
               </button>
-              <div className="p-3 bg-white rounded-0 flex flex-col justify-center items-center mb-2">
+              <div className="p-3 w-full mx-auto bg-white rounded-0 flex flex-col justify-center items-center mb-2">
               <p className="text-gray-600" style={{ whiteSpace: 'pre-line' }}>你選擇的是</p>
               {/* <img></img> */}
               <ChevronDown className="w-6 h-6 text-black-600" />

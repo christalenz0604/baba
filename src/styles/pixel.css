@@ -41,3 +41,19 @@
   border-bottom-width: 0;
   border-right-width: 0;
 }
+.dialog-box {
+  background-color: white;
+  font-weight: bold;
+  border-radius: 0;       /* rounded-none */
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.2);
+  border-bottom: 4px solid #141414;
+  border-right: 4px solid #141414;
+  text-transform: uppercase;
+  letter-spacing: 0.05em; /* tracking-wider */
+  font-size: 1.125rem;    /* text-lg = 18px */
+  position: relative;
+}
+/* Dotted red border */
+hr.dotted-line {
+    border-top: 4px dashed rgb(118, 118, 118);
+  }
