@@ -4,7 +4,10 @@ import { FaFacebookF, FaLine, FaInstagram } from 'react-icons/fa';
 import ShareDropdown from '../components/ShareDropdown.jsx';
 
 const SharePage = () => {
-  const shareUrl = 'https://bettertaiwan.goodwordstudio.com/share/';
+
+  const apiDomain = import.meta.env.VITE_API_DOMAIN;
+
+  const shareUrl = `${apiDomain}/share/`;
   const shareText = 'Ba Party 好玩\n一起來玩小遊戲吧！';
 
   return (

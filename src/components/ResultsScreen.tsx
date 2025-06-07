@@ -142,6 +142,7 @@ const ResultsScreen: React.FC = () => {
     }
   };
 
+  const apiDomain = import.meta.env.VITE_API_DOMAIN;
   const shareText = `Ba Party 好玩！\n一起來玩小遊戲吧！`;
 
   return (
@@ -252,7 +253,7 @@ const ResultsScreen: React.FC = () => {
                 </motion.button>
 
                 <ShareDropdown
-                    shareUrl="https://bettertaiwan.goodwordstudio.com/share/"
+                    shareUrl=`${apiDomain}/share/`
                     shareText={shareText}
                 />
 
