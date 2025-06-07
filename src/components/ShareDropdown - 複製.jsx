@@ -1,11 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  FaFacebookF,
-  FaLine,
-  FaInstagram,
-  FaTwitter,
-} from 'react-icons/fa';
-import { FaThreads } from 'react-icons/fa6'; // Threads 需用新版圖標
+import { FaFacebookF, FaLine, FaInstagram } from 'react-icons/fa';
 
 const ShareDropdown = ({ shareUrl, shareText }) => {
   const [open, setOpen] = useState(false);
@@ -13,46 +7,20 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const dropdownRef = useRef(null);
 
   const encodedUrl = encodeURIComponent(shareUrl);
-  const messageText = `${shareText}\n${shareUrl}`;
   const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  // 將 \n 換行手動處理，避免 encodeURIComponent 編碼錯誤
+  const messageText = `${shareText}\n${shareUrl}`;
   const lineText = messageText.replace(/\n/g, '%0A');
   const lineShareUrl = isMobile
     ? `https://line.me/R/share?text=${lineText}`
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
 
-  // 用 SDK 呼叫 FB 分享
-  const handleFacebookShare = () => {
-    if (window.FB) {
-      window.FB.ui(
-        {
-          method: 'share',
-          href: shareUrl,
-          quote: shareText,
-        },
-        (response) => {
-          console.log('Facebook 分享結果', response);
-        }
-      );
-    } else {
-      alert('Facebook SDK 尚未載入');
-    }
-    setOpen(false);
-  };
-
-  const handleTwitterShare = () => {
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodedUrl}`;
-    window.open(twitterUrl, '_blank');
-    setOpen(false);
-  };
-
-  const handleThreadsShare = () => {
-    window.open('https://www.threads.net/', '_blank');
-    alert(`請貼上以下內容至 Threads：\n${messageText}`);
-    setOpen(false);
-  };
+  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
 
   const handleIGShare = () => {
-    navigator.clipboard.writeText(messageText);
+    const fullText = `${shareText}\n${shareUrl}`;
+    navigator.clipboard.writeText(fullText);
     setShowIGModal(true);
     setOpen(false);
   };
@@ -69,7 +37,10 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   return (
     <>
-      <div ref={dropdownRef} className="fixed bottom-4 right-4 z-50">
+      <div
+        ref={dropdownRef}
+        className="fixed bottom-4 right-4 z-50"
+      >
         <button
           onClick={() => setOpen(!open)}
           className="px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 focus:outline-none"
@@ -78,13 +49,16 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
         </button>
 
         {open && (
-          <div className="mt-2 w-64 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 p-2 space-y-1">
-            <button
-              onClick={handleFacebookShare}
+          <div className="mt-2 w-56 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 p-2">
+            <a
+              href={facebookShareUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
               className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg w-full text-left"
             >
               <FaFacebookF /> 分享到 Facebook
-            </button>
+            </a>
 
             <a
               href={lineShareUrl}
@@ -95,20 +69,6 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
             >
               <FaLine /> 分享到 LINE
             </a>
-
-            <button
-              onClick={handleTwitterShare}
-              className="flex items-center gap-2 px-4 py-2 text-blue-400 hover:bg-blue-50 rounded-lg w-full text-left"
-            >
-              <FaTwitter /> 分享到 Twitter
-            </button>
-
-            <button
-              onClick={handleThreadsShare}
-              className="flex items-center gap-2 px-4 py-2 text-black hover:bg-gray-100 rounded-lg w-full text-left"
-            >
-              <FaThreads /> 分享到 Threads
-            </button>
 
             <button
               onClick={handleIGShare}
@@ -138,5 +98,4 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
     </>
   );
 };
-
 export default ShareDropdown;
