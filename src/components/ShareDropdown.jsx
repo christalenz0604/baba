@@ -27,6 +27,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
         {
           method: 'share',
           href: shareUrl,
+		  display: 'popup',    // 加這行避免跳轉頁面
           quote: shareText,
         },
         (response) => {
