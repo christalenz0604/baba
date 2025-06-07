@@ -253,7 +253,7 @@ const ResultsScreen: React.FC = () => {
                 </motion.button>
 
                 <ShareDropdown
-                    shareUrl=`${apiDomain}/share/`
+                    shareUrl={`${apiDomain}/share/`}
                     shareText={shareText}
                 />
 
