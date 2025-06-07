@@ -8,20 +8,25 @@
       src="https://connect.facebook.net/en_US/sdk.js"></script>
     <style>
       body {
-        font-family: sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
         margin: 0;
-        background-color: #fff;
+        padding: 20px;
+        background-color: #f9f9f9;
         color: #333;
+        text-align: center;
+      }
+      .message {
+        max-width: 300px;
+        margin-bottom: 20px;
       }
       #manual-close {
         display: none;
         margin-top: 20px;
-        text-align: center;
       }
       #manual-close button {
         padding: 10px 16px;
@@ -32,19 +37,56 @@
         color: white;
         cursor: pointer;
       }
+      .notice {
+        font-size: 14px;
+        color: #777;
+        margin-top: 10px;
+      }
     </style>
+  </head>
+  <body>
+    <div class="message">
+      <h2>正在開啟 Facebook 分享視窗...</h2>
+      <p class="notice" id="ios-notice" style="display: none;">
+        偵測到 iOS Safari，分享完成後可能無法自動關閉視窗。
+      </p>
+    </div>
+
+    <div id="manual-close">
+      <p>✅ 已完成分享。若視窗未自動關閉，請點選下方按鈕：</p>
+      <button onclick="window.close()">關閉視窗</button>
+    </div>
+
     <script>
       function getParam(name) {
         return new URLSearchParams(window.location.search).get(name);
       }
 
-      function closeWindowFallback() {
+      function showManualClose() {
         document.getElementById("manual-close").style.display = "block";
+      }
+
+      const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isiOS) {
+        document.getElementById("ios-notice").style.display = "block";
+      }
+
+      function attemptCloseWindow() {
+        try {
+          window.close();
+          setTimeout(() => {
+            if (!window.closed) {
+              showManualClose();
+            }
+          }, 500);
+        } catch (e) {
+          showManualClose();
+        }
       }
 
       window.fbAsyncInit = function () {
         FB.init({
-          appId: "656281544074641", // App ID
+          appId: "656281544074641", // Facebook App ID
           version: "v19.0",
         });
 
@@ -66,25 +108,18 @@
         if (hashtag) shareOptions.hashtag = hashtag;
 
         FB.ui(shareOptions, function (response) {
-          try {
-            window.close();
-            setTimeout(() => {
-              if (!window.closed) {
-                closeWindowFallback();
-              }
-            }, 500);
-          } catch (e) {
-            closeWindowFallback();
-          }
+          console.log("FB 分享 callback:", response);
+          attemptCloseWindow();
         });
       };
+
+      // Fallback for SDK load failure
+      setTimeout(() => {
+        if (!window.FB) {
+          document.body.innerHTML =
+            "<p style='color:red;'>Facebook SDK 載入失敗，請稍後再試。</p>";
+        }
+      }, 4000);
     </script>
-  </head>
-  <body>
-    <p>正在載入 Facebook 分享視窗...</p>
-    <div id="manual-close">
-      <p>分享完成，若視窗未自動關閉，請手動點選：</p>
-      <button onclick="window.close()">關閉視窗</button>
-    </div>
   </body>
 </html>
