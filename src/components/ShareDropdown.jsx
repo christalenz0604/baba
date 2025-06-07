@@ -22,21 +22,8 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   // 用 SDK 呼叫 FB 分享
   const handleFacebookShare = () => {
-    if (window.FB) {
-      window.FB.ui(
-        {
-          method: 'share',
-          href: shareUrl,
-		  display: 'popup',    // 加這行避免跳轉頁面
-          quote: shareText,
-        },
-        (response) => {
-          console.log('Facebook 分享結果', response);
-        }
-      );
-    } else {
-      alert('Facebook SDK 尚未載入');
-    }
+    const popupUrl = `/fb-share-popup.html?url=${encodeURIComponent(shareUrl)}`;
+    window.open(popupUrl, '_blank', 'width=600,height=600');
     setOpen(false);
   };
 

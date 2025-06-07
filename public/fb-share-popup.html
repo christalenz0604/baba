@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Facebook 分享中...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script async defer crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #fff;
+      }
+      .loading {
+        text-align: center;
+        color: #555;
+      }
+    </style>
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: '656281544074641', // ← 換成你的 Facebook App ID
+          version: 'v19.0',
+        });
+
+        const url = new URLSearchParams(window.location.search).get('url');
+
+        if (!url) {
+          document.body.innerHTML = '<p style="color:red;">無效的分享網址</p>';
+          return;
+        }
+
+        FB.ui(
+          {
+            method: 'share',
+            href: url,
+            display: 'popup',
+          },
+          function (response) {
+            window.close(); // 分享後自動關閉
+          }
+        );
+      };
+    </script>
+  </head>
+  <body>
+    <div class="loading">
+      <p>正在載入 Facebook 分享...</p>
+    </div>
+  </body>
+</html>
