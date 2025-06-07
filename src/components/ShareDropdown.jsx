@@ -45,12 +45,17 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
     setOpen(false);
   };
 
-  const handleThreadsShare = () => {
-    window.open('https://www.threads.net/', '_blank');
-    alert(`請貼上以下內容至 Threads：\n${messageText}`);
-    setOpen(false);
+  const handleThreadsShare = async () => {
+    try {
+      await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+      alert("已複製分享內容，即將前往 Threads，請貼上後發文");
+      window.open('https://www.threads.net/', '_blank');
+    } catch (err) {
+      alert("複製失敗，請手動貼上內容：\n" + `${shareText}\n${shareUrl}`);
+    } finally {
+      setOpen(false);
+    }
   };
-
   const handleIGShare = () => {
     navigator.clipboard.writeText(messageText);
     setShowIGModal(true);
