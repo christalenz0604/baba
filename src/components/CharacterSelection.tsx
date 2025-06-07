@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { characters } from '../data/characters';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
-import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 
 const CharacterSelection: React.FC = () => {
   const { selectCharacter } = useGame();
-  const gameTitle="《國會派對：生存之亂》";
-  const gameDescription="選擇一位立法委員在立法院闖蕩，根據該名立法委員做過的事回答問題，罷免對的人！";
   const [currentIndex, setCurrentIndex] = useState(0);
   const prev = () => {
     setCurrentIndex((prev) => (prev - 1 + characters.length) % characters.length);
@@ -20,7 +18,7 @@ const CharacterSelection: React.FC = () => {
 
   const character = characters[currentIndex];
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
+    <div className="min-h-screen h-screen bg-[url('/baba_test/images/background.png')] bg-repeat-x bg-top py-6 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.h1
           className="text-3xl md:text-4xl font-pixel font-bold text-center text-indigo-800 mb-2"
@@ -28,31 +26,29 @@ const CharacterSelection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {gameTitle}
+          <img src="/baba_test/images/logo.png" alt="logo" className="mx-auto w-1/2 h-auto" />
         </motion.h1>
-
-        <motion.p
-          className="text-center font-pixel text-gray-600 mb-10"
-          style={{ whiteSpace: 'pre-line' }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {gameDescription}
-        </motion.p>
 
         <div className="relative max-w-md mx-auto">
 
           <motion.div
             key={character.id}
-            className="mx-auto w-3/4 overflow-hidden mb-4"
+            className="mx-auto w-full overflow-hidden mb-4"
           >
-            <div className="p-5 font-pixel dialog-box">
-              <p className="text-gray-600" style={{ whiteSpace: 'pre-line' }}>{character.description}</p>
-            </div>
-          </motion.div>
 
-            <div className="h-64 overflow-hidden">
+            <div className="p-2 font-pixel dialog-box">
+              {/* 四個角的圖片 */}
+              <img src="/baba_test/images/corner_LT.png"     className="absolute top-0 left-0 w-20 h-20" alt="Top Left" />
+              <img src="/baba_test/images/corner_RT.png"    className="absolute top-0 right-0 w-20 h-20" alt="Top Right" />
+              <img src="/baba_test/images/corner_LB.png"  className="absolute bottom-0 left-0 w-20 h-20" alt="Bottom Left" />
+              <img src="/baba_test/images/corner_RB.png" className="absolute bottom-0 right-0 w-20 h-20" alt="Bottom Right" />
+
+              {/* 中間文字 */}
+              <p className="text-gray-600 p-2" style={{ whiteSpace: 'pre-line' }}>{character.description}</p>
+            </div>
+            </motion.div>
+
+            <div className="h-64 overflow-hidden office-character">
               <img
                 src={character.avatar}
                 alt={character.name}
@@ -75,23 +71,26 @@ const CharacterSelection: React.FC = () => {
               <button
                 onClick={next}
                 className="absolute right-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
-
                 aria-label="Next character"
                 style={{ backgroundImage: `url('/baba_test/images/arrow_R.png')` }}
               >
                 {/* <ChevronRight className="w-6 h-6 text-gray-600" /> */}
               </button>
-              <div className="p-3 w-full mx-auto bg-white rounded-0 flex flex-col justify-center items-center mb-2">
-
-              <p className="text-gray-600" style={{ whiteSpace: 'pre-line' }}>你選擇的是</p>
-              {/* <img></img> */}
-              <ChevronDown className="w-6 h-6 text-black-600" />
-              <h3 className="text-xl font-pixel font-semibold text-gray-800 text-center mb-2">{character.name}</h3>
+              <div className="width-60 mx-auto border-4 border-black rounded-0 flex flex-col justify-center items-center"></div>
+              <div className="width-65 mx-auto h-2 bg-white border-x-8 border-black rounded-0 flex flex-col justify-center items-center"></div>
+              <div className="width-70 mx-auto h-2 bg-white border-x-8 border-black rounded-0 flex flex-col justify-center items-center"></div>
+              <div className="w-3/4 mx-auto bg-white border-x-8 border-black rounded-0 flex flex-col justify-center items-center">
+                <p className="text-gray-600" style={{ whiteSpace: 'pre-line' }}>你選擇的是</p>
+                {/* <img></img> */}
+                <ChevronDown className="w-6 h-4 text-black-600" />
+                <h3 className="text-xl font-pixel font-semibold text-center mb-2 name-plate">{character.name}</h3>
               </div>
-
+              <div className="width-70 mx-auto h-2 bg-white border-x-8 border-black rounded-0 flex flex-col justify-center items-center"></div>
+              <div className="width-65 mx-auto h-2 bg-white border-x-8 border-black rounded-0 flex flex-col justify-center items-center"></div>
+              <div className="width-60 mx-auto border-4 border-black rounded-0 flex flex-col justify-center items-center"></div>
 
             </div>
-            <div className="relative p-5 mx-auto text-center">
+            <div className="relative py-0 px-5 mx-auto text-center">
               <button
                   onClick={() => selectCharacter(character)}
                   className="btn-pixel w-3/4 py-3 px-4 tracking-wider text-lg "
