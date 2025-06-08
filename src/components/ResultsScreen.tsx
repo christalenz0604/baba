@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
-import ScoreTree from './ScoreTree';
 import { motion } from 'framer-motion';
 import ShareDropdown from '../components/ShareDropdown.jsx';
 
@@ -147,7 +146,7 @@ const ResultsScreen: React.FC = () => {
   const shareText = `該如何在立法院生存呢？\n一起來玩小遊戲吧！\n立法院生存指南上線囉！`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
+    <div className="min-h-screen bg-contain bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div 
           className="bg-white rounded-xl shadow-xl overflow-hidden"
@@ -155,113 +154,110 @@ const ResultsScreen: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="p-6 md:p-8">
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-1/3 mb-6 md:mb-0 flex justify-center">
-                <ScoreTree score={gameState.score} maxScore={maxScore} />
-              </div>
-              
-              <div className="md:w-2/3 md:pl-8">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
-                  你的立委生涯結束了！
-                </h1>
-                
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-indigo-500 mr-4">
-                    <img 
-                      src={character.avatar} 
-                      alt={character.name} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-gray-600">你扮演的立委是：</p>
-                    <h3 className="font-semibold text-lg text-gray-800">{character.name}</h3>
-                  </div>
+            {/* 封號、關於本立委的murmur */}
+            <div className="flex items-center w-full justify-center">
+                <h3 className="text-xl font-semibold text-indigo-700 mb-2">
+                  {getPersonalityTrait()}
+                </h3>
+            </div>
+
+              {/* 角色 */}
+              <div className="flex flex-row items-center mb-4 w-full justify-center">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-indigo-500 mr-4">
+                  {/* 立委大頭 */}
+                  <img 
+                    src={character.avatar} 
+                    alt={character.name} 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                
-                <div className="bg-indigo-50 rounded-lg p-4 mb-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <p className="font-medium text-gray-700">累積人民的怒氣值</p>
+                <div>
+                  <p className="w-full text-gray-600">你扮演的立委是：</p>
+                  <h3 className="font-semibold text-lg text-gray-800">{character.name}</h3>
+                </div>
+              </div>
+
+              <div className="w-full">
+                <div className="justify-between items-center rounded-0 p-4 mb-6">
+                  <div className="flex items-center mb-2">
+                  {/* 連署書圖 */}
+                    <img src="" alt="" />
+                  </div>
+                  <div className="flex ">
+                    <p className="font-medium text-gray-700">人民累積的怒氣值 x </p>
                     <p className="text-2xl font-bold text-indigo-600">{gameState.score}</p>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div 
-                      className="bg-indigo-600 h-2.5 rounded-full transition-all duration-1000"
-                      style={{ width: `${Math.min((gameState.score / maxScore) * 100, 100)}%` }}
-                    ></div>
-                  </div>
                 </div>
-                
-                <motion.div 
-                  className="mb-6"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                >
-                  <h3 className="text-xl font-semibold text-indigo-700 mb-2">
-                    {getPersonalityTrait()}
-                  </h3>
-                  <p className="text-gray-700">{getResultMessage()}</p>
-                </motion.div>
-
-                {/* Email subscription form */}
-                <div className="mb-6">
-                  <div className="bg-white rounded-lg border border-gray-200 p-4">
-                    <h4 className="text-lg font-semibold text-gray-800 mb-2">
-                      想收到更多相關資訊嗎？
-                    </h4>
-                    <div className="flex gap-2">
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="輸入你的 Email"
-                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      />
-                      <button
-                        onClick={handleSubmitEmail}
-                        disabled={isSubmitting || !email}
-                        className={`px-4 py-2 rounded-lg font-medium ${
-                          isSubmitting || !email
-                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                            : 'bg-indigo-600 text-white hover:bg-indigo-700'
-                        }`}
-                      >
-                        {isSubmitting ? '提交中...' : '訂閱'}
-                      </button>
-                    </div>
-                    {submitStatus === 'success' && (
-                      <p className="mt-2 text-sm text-green-600">
-                        感謝訂閱！我們會寄送相關資訊給你。
-                      </p>
-                    )}
-                    {submitStatus === 'error' && (
-                      <p className="mt-2 text-sm text-red-600">
-                        抱歉，發生錯誤。請稍後再試。
-                      </p>
-                    )}
-                  </div>
-                </div>
-                
-                <motion.button
-                  onClick={restartGame}
-                  className="w-full py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  再試一次
-                </motion.button>
-
-                <ShareDropdown
-                    shareUrl={shareUrl}
-                    shareText={shareText}
-                />
-
               </div>
+              {/* murmur */}
+              <div className="w-full mx-4 my-4">
+                <p className="text-gray-700">{getResultMessage()}</p>
+              </div>
+
+            {/* 截圖分享 & 再玩一次 */}
+            <div className="flex items-between justify-center mx-4">
+              <motion.button
+                //onClick={shareGame} //截圖分享的函式
+                className="w-20 h-20 mx-4 py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                截圖分享
+              </motion.button>
+              
+              <motion.button
+                onClick={restartGame}
+                className="w-20 h-20 mx-4py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                再玩一次
+              </motion.button>
             </div>
-          </div>
-        </motion.div>
+
+            </motion.div>
+          {/* Email subscription form */}
+          <div className="mb-6">
+            <div className="p-4">
+              <h4 className="text-lg font-semibold text-gray-800 mb-2">
+                想收到更多相關資訊嗎？
+              </h4>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="請輸入您的 Email"
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <button
+                  onClick={handleSubmitEmail}
+                  disabled={isSubmitting || !email}
+                  className={`px-4 py-2 rounded-lg font-medium ${
+                    isSubmitting || !email
+                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                  }`}
+                >
+                  {isSubmitting ? '提交中...' : '訂閱'}
+                </button>
+              </div>
+              {submitStatus === 'success' && (
+                <p className="mt-2 text-sm text-green-600">
+                  感謝訂閱！我們會寄送相關資訊給你。
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="mt-2 text-sm text-red-600">
+                  抱歉，發生錯誤。請稍後再試。
+                </p>
+              )}
+            </div>
+            <ShareDropdown
+                shareUrl={shareUrl}
+                shareText={shareText}
+            />
+          </div>   
       </div>
     </div>
   );

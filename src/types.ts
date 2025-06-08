@@ -1,6 +1,7 @@
 export interface Character {
   id: string;
   name: string;
+  districts: string;
   avatar: string;
   description: string;
   questionSetId: string;

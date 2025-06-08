@@ -25,14 +25,12 @@ html, body, #root, #root > * {
   position: absolute;
   top: 40%;
   left: 50%;
+  width: 60%;
+  height: auto;
   transform: translate(-50%, -50%);
   object-fit: contain;
-  width: 90vw;           /* 預設用視窗寬度的 90% */
-  max-width: 900px;      /* 電腦上不超過 900px */
-  height: auto;
   z-index: 0;
 }
-
 
 .foreground {
   position: absolute;
