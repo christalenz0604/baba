@@ -76,50 +76,49 @@
       const quote = getParam("quote") || "";
       const hashtag = getParam("hashtag") || "";
 
-      function runFacebookShare() {
-        if (!window.FB) {
-          console.log("Facebook SDK 尚未載入，等待中...");
-          setTimeout(runFacebookShare, 500);
-          return;
-        }
+      function runFacebookShareWhenReady() {
+        if (typeof FB !== "undefined") {
+          FB.init({
+            appId: "YOUR_FACEBOOK_APP_ID",
+            version: "v19.0",
+          });
 
-        FB.init({
-          appId: "YOUR_FACEBOOK_APP_ID",
-          version: "v19.0",
-        });
+          const shareOptions = {
+            method: "share",
+            href: url,
+          };
+          if (quote) shareOptions.quote = quote;
+          if (hashtag) shareOptions.hashtag = hashtag;
 
-        const shareOptions = {
-          method: "share",
-          href: url,
-        };
-        if (quote) shareOptions.quote = quote;
-        if (hashtag) shareOptions.hashtag = hashtag;
+          let didCallback = false;
 
-        let didCallback = false;
-
-        FB.ui(shareOptions, function (response) {
-          console.log("FB 分享 callback:", response);
-          didCallback = true;
-          showManualClose();
-        });
-
-        setTimeout(() => {
-          if (!didCallback) {
-            console.log("未收到 callback，自動顯示手動關閉提示");
+          FB.ui(shareOptions, function (response) {
+            console.log("FB 分享 callback:", response);
+            didCallback = true;
             showManualClose();
-          }
-        }, 5000);
+          });
+
+          setTimeout(() => {
+            if (!didCallback) {
+              console.log("未收到 callback，自動顯示手動關閉提示");
+              showManualClose();
+            }
+          }, 5000);
+        } else {
+          console.log("FB SDK 尚未準備好，繼續等待...");
+          setTimeout(runFacebookShareWhenReady, 500);
+        }
       }
 
       if (!url || !platform) {
         document.body.innerHTML = "<p style='color:red;'>無效的分享參數</p>";
       } else if (platform === "facebook") {
-        runFacebookShare();
+        runFacebookShareWhenReady();
       } else {
         let shareLink = "";
         switch (platform) {
           case "twitter":
-            shareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quote)}%5Cn${encodeURIComponent(url)}`;
+            shareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quote + "\n" + url)}`;
             break;
           case "line":
             shareLink = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`;
