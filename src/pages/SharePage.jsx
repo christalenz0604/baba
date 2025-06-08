@@ -7,7 +7,7 @@ const SharePage = () => {
 
   const apiDomain = import.meta.env.VITE_API_DOMAIN;
 
-  const shareUrl = `${apiDomain}/share/`;
+  const shareUrl = `${apiDomain}/share.html`;
   const shareText = `該如何在立法院生存呢？\n一起來玩小遊戲吧！\n立法院生存指南上線囉！`;
 
   return (
