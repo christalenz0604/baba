@@ -26,7 +26,12 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const hashtag = "#派對遊戲";
 
   const handleFacebookShare = () => {
-    if (window.FB) {
+    setOpen(false);
+    if (!window.FB) {
+      alert("Facebook SDK 尚未載入");
+      return;
+    }
+    setTimeout(() => {
       window.FB.ui(
         {
           method: 'share',
@@ -39,10 +44,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
           console.log("Facebook 分享 callback:", response);
         }
       );
-    } else {
-      alert("Facebook SDK 尚未載入");
-    }
-    setOpen(false);
+    }, 0);
   };
 
   const handleTwitterShare = () => {
