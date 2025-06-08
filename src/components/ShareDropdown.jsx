@@ -5,7 +5,7 @@ import {
   FaInstagram,
   FaTwitter,
 } from 'react-icons/fa';
-import { FaThreads } from 'react-icons/fa6'; // Threads 需用新版圖標
+import { FaThreads } from 'react-icons/fa6';
 
 const ShareDropdown = ({ shareUrl, shareText }) => {
   const [open, setOpen] = useState(false);
@@ -18,27 +18,19 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-  // const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
   const lineText = messageText.replace(/\n/g, '%0A');
   const lineShareUrl = isMobile
     ? `https://line.me/R/share?text=${lineText}`
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
 
-  // 用 SDK 呼叫 FB 分享
-  const quote = "該如何在立法院生存呢？\n一起來玩小遊戲吧！\n立法院生存指南上線囉！";
-  const hashtag = "#立法院生存戰";
-  
-  const handleFacebookShare = () => {
-    const quote = "來玩看看這個超讚的小遊戲吧！";
-    const hashtag = "#派對遊戲";
+  const quote = shareText;
+  const hashtag = "#派對遊戲";
 
+  const handleFacebookShare = () => {
     if (isiOS || isMobile) {
-      // ✅ 行動裝置（含 iOS Safari）：改用 popup 頁面
-      const popupUrl = `/fb-share-popup.html?url=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`;
-      const popup = window.open(popupUrl, '_blank', 'width=600,height=600,noopener,noreferrer');
+      const popupUrl = `/fb-share-popup.html?platform=facebook&url=${encodedUrl}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`;
+      window.open(popupUrl, '_blank', 'width=600,height=600,noopener,noreferrer');
     } else if (window.FB) {
-      // ✅ 桌面：直接使用 SDK 開 popup
       window.FB.ui(
         {
           method: 'share',
@@ -54,15 +46,11 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
     } else {
       alert("Facebook SDK 尚未載入");
     }
-
     setOpen(false);
   };
 
-
-
   const handleTwitterShare = () => {
-    const twitterMessage = `${shareText}\n${shareUrl}`;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(twitterMessage)}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText + '\n' + shareUrl)}`;
     window.open(twitterUrl, '_blank');
     setOpen(false);
   };
@@ -78,6 +66,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
       setOpen(false);
     }
   };
+
   const handleIGShare = () => {
     navigator.clipboard.writeText(messageText);
     setShowIGModal(true);
