@@ -1,146 +1,104 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <title>分享</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        padding: 20px;
-        background-color: #f9f9f9;
-        color: #333;
-        text-align: center;
-      }
-      .message {
-        max-width: 300px;
-        margin-bottom: 20px;
-      }
-      #manual-close {
-        display: none;
-        margin-top: 20px;
-      }
-      #manual-close button {
-        padding: 10px 16px;
-        font-size: 16px;
-        border: none;
-        border-radius: 6px;
-        background-color: #4267B2;
-        color: white;
-        cursor: pointer;
-      }
-      .notice {
-        font-size: 14px;
-        color: #777;
-        margin-top: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="message">
-      <h2>正在開啟分享...</h2>
-      <p class="notice" id="ios-notice" style="display: none;">
-        偵測到 iOS Safari，分享完成後此視窗可能無法自動關閉。
-      </p>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Facebook 分享</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+    .message { max-width: 300px; margin-bottom: 20px; }
+    #manual-close { display: none; margin-top: 20px; }
+    #manual-close button {
+      padding: 10px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #4267B2;
+      color: white;
+      cursor: pointer;
+    }
+    .notice { font-size: 14px; color: #777; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <h2>正在開啟 Facebook 分享視窗...</h2>
+    <p class="notice" id="ios-notice" style="display: none;">
+      偵測到 iOS Safari，分享完成後可能無法自動關閉視窗。
+    </p>
+  </div>
 
-    <div id="manual-close">
-      <p>✅ 分享已完成！</p>
-      <p>由於瀏覽器限制，請手動關閉此視窗：</p>
-      <button onclick="window.close()">關閉視窗</button>
-    </div>
+  <div id="manual-close">
+    <p>✅ 分享應已完成。若視窗未自動關閉，請點選下方按鈕：</p>
+    <button onclick="window.close()">關閉視窗</button>
+  </div>
 
-    <script>
-      function getParam(name) {
-        return new URLSearchParams(window.location.search).get(name);
-      }
+  <script>
+    function getParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
 
-      function showManualClose() {
-        document.getElementById("manual-close").style.display = "block";
-      }
+    function showManualClose() {
+      document.getElementById("manual-close").style.display = "block";
+    }
 
-      const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isiOS) {
-        document.getElementById("ios-notice").style.display = "block";
-      }
+    const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isiOS) {
+      document.getElementById("ios-notice").style.display = "block";
+    }
 
-      const platform = getParam("platform");
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: "656281544074641", // ←請確保這個是正確的 App ID
+        version: "v19.0",
+      });
+
       const url = getParam("url");
-      const quote = getParam("quote") || "";
-      const hashtag = getParam("hashtag") || "";
+      const quote = getParam("quote");
+      const hashtag = getParam("hashtag");
 
-      function runFacebookShareWhenReady() {
-        if (typeof FB !== "undefined") {
-          FB.init({
-            appId: "YOUR_FACEBOOK_APP_ID",
-            version: "v19.0",
-          });
-
-          const shareOptions = {
-            method: "share",
-            href: url,
-          };
-          if (quote) shareOptions.quote = quote;
-          if (hashtag) shareOptions.hashtag = hashtag;
-
-          let didCallback = false;
-
-          FB.ui(shareOptions, function (response) {
-            console.log("FB 分享 callback:", response);
-            didCallback = true;
-            showManualClose();
-          });
-
-          setTimeout(() => {
-            if (!didCallback) {
-              console.log("未收到 callback，自動顯示手動關閉提示");
-              showManualClose();
-            }
-          }, 5000);
-        } else {
-          console.log("FB SDK 尚未準備好，繼續等待...");
-          setTimeout(runFacebookShareWhenReady, 500);
-        }
+      if (!url) {
+        document.body.innerHTML = "<p style='color:red;'>缺少分享網址</p>";
+        return;
       }
 
-      if (!url || !platform) {
-        document.body.innerHTML = "<p style='color:red;'>無效的分享參數</p>";
-      } else if (platform === "facebook") {
-        runFacebookShareWhenReady();
-      } else {
-        let shareLink = "";
-        switch (platform) {
-          case "twitter":
-            shareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quote + "\n" + url)}`;
-            break;
-          case "line":
-            shareLink = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`;
-            break;
-          case "threads":
-            shareLink = `https://www.threads.net/intent/post?text=${encodeURIComponent(quote + "\n" + url)}`;
-            break;
-          case "instagram":
-            document.body.innerHTML =
-              "<p>Instagram 不支援網頁直接分享，請透過 App 分享內容。</p>";
-            showManualClose();
-            return;
-        }
+      const shareOptions = {
+        method: "share",
+        href: url,
+        display: "popup"
+      };
+      if (quote) shareOptions.quote = quote;
+      if (hashtag) shareOptions.hashtag = hashtag;
 
-        if (shareLink) {
-          window.open(shareLink, "_blank");
-        }
-
-        setTimeout(() => {
+      FB.ui(shareOptions, function (response) {
+        try {
+          window.close();
+        } catch (e) {
           showManualClose();
-        }, 3000);
-      }
-    </script>
-  </body>
+        }
+        setTimeout(() => {
+          if (!window.closed) showManualClose();
+        }, 500);
+      });
+
+      // 保險機制：5秒後仍未關閉，就顯示手動按鈕
+      setTimeout(() => {
+        if (!window.closed) showManualClose();
+      }, 5000);
+    };
+  </script>
+</body>
 </html>

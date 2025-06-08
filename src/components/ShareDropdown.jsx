@@ -27,24 +27,15 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   const handleFacebookShare = () => {
     setOpen(false);
-    if (!window.FB) {
-      alert("Facebook SDK 尚未載入");
-      return;
+    const popup = window.open(
+      `/fb-share-popup.html?platform=facebook&url=${encodedUrl}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`,
+      '_blank',
+      'width=600,height=600'
+    );
+
+    if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+      alert("請允許瀏覽器開啟彈出式視窗，以便進行分享。");
     }
-    setTimeout(() => {
-      window.FB.ui(
-        {
-          method: 'share',
-          href: shareUrl,
-          quote,
-          hashtag,
-          display: 'popup',
-        },
-        (response) => {
-          console.log("Facebook 分享 callback:", response);
-        }
-      );
-    }, 0);
   };
 
   const handleTwitterShare = () => {
