@@ -14,7 +14,12 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   const encodedUrl = encodeURIComponent(shareUrl);
   const messageText = `${shareText}\n${shareUrl}`;
-  const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+  // const isMobile = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   const lineText = messageText.replace(/\n/g, '%0A');
   const lineShareUrl = isMobile
     ? `https://line.me/R/share?text=${lineText}`
@@ -25,19 +30,30 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const hashtag = "#立法院生存戰";
   
   const handleFacebookShare = () => {
-    const popupUrl = `/fb-share-popup.html?url=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`;
-    const popup = window.open(
-      popupUrl,
-      '_blank',
-      'width=600,height=600,noopener,noreferrer'
-    );
+    const quote = "來玩看看這個超讚的小遊戲吧！";
+    const hashtag = "#派對遊戲";
 
-    const timer = setInterval(() => {
-      if (popup && popup.closed) {
-        clearInterval(timer);
-        console.log("Facebook 分享完成（popup 關閉）");
-      }
-    }, 500);
+    if (isiOS || isMobile) {
+      // ✅ 行動裝置（含 iOS Safari）：改用 popup 頁面
+      const popupUrl = `/fb-share-popup.html?url=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`;
+      const popup = window.open(popupUrl, '_blank', 'width=600,height=600,noopener,noreferrer');
+    } else if (window.FB) {
+      // ✅ 桌面：直接使用 SDK 開 popup
+      window.FB.ui(
+        {
+          method: 'share',
+          href: shareUrl,
+          quote,
+          hashtag,
+          display: 'popup',
+        },
+        (response) => {
+          console.log("Facebook 分享 callback:", response);
+        }
+      );
+    } else {
+      alert("Facebook SDK 尚未載入");
+    }
 
     setOpen(false);
   };
