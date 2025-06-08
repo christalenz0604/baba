@@ -15,8 +15,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const encodedUrl = encodeURIComponent(shareUrl);
   const messageText = `${shareText}\n${shareUrl}`;
 
-  const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   const lineText = messageText.replace(/\n/g, '%0A');
   const lineShareUrl = isMobile
@@ -27,10 +26,7 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const hashtag = "#派對遊戲";
 
   const handleFacebookShare = () => {
-    if (isiOS || isMobile) {
-      const popupUrl = `/fb-share-popup.html?platform=facebook&url=${encodedUrl}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`;
-      window.open(popupUrl, '_blank', 'width=600,height=600,noopener,noreferrer');
-    } else if (window.FB) {
+    if (window.FB) {
       window.FB.ui(
         {
           method: 'share',
