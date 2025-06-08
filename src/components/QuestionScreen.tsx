@@ -43,6 +43,7 @@ const QuestionScreen: React.FC = () => {
           <div className="flex items-center mr-4">
 
             <div className="w-16 h-16 rounded-0 overflow-hidden bg-[url('/baba_test/images/Char_base.png')] bg-contain bg-cover bg-center">
+
               <img 
                 src={character.avatar} 
                 alt={character.name} 
@@ -65,6 +66,7 @@ const QuestionScreen: React.FC = () => {
         <hr className="dotted-line" />
         <div className="flex flex-row justify-center gap-2 my-2">
           <p className="text-gray-100 font-pixel text-l flex items-center font-semibold">
+
             生存進度 {gameState.currentQuestionIndex + 1} / 10
             {Array(10).fill(null).map((_, index) => (
               <img
@@ -78,6 +80,7 @@ const QuestionScreen: React.FC = () => {
         </div>
         <hr className="dotted-line" />
         
+
 
         {/* Question */}
         <motion.div 
