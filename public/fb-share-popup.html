@@ -76,37 +76,45 @@
       const quote = getParam("quote") || "";
       const hashtag = getParam("hashtag") || "";
 
+      function runFacebookShare() {
+        if (!window.FB) {
+          console.log("Facebook SDK 尚未載入，等待中...");
+          setTimeout(runFacebookShare, 500);
+          return;
+        }
+
+        FB.init({
+          appId: "YOUR_FACEBOOK_APP_ID",
+          version: "v19.0",
+        });
+
+        const shareOptions = {
+          method: "share",
+          href: url,
+        };
+        if (quote) shareOptions.quote = quote;
+        if (hashtag) shareOptions.hashtag = hashtag;
+
+        let didCallback = false;
+
+        FB.ui(shareOptions, function (response) {
+          console.log("FB 分享 callback:", response);
+          didCallback = true;
+          showManualClose();
+        });
+
+        setTimeout(() => {
+          if (!didCallback) {
+            console.log("未收到 callback，自動顯示手動關閉提示");
+            showManualClose();
+          }
+        }, 5000);
+      }
+
       if (!url || !platform) {
         document.body.innerHTML = "<p style='color:red;'>無效的分享參數</p>";
       } else if (platform === "facebook") {
-        window.fbAsyncInit = function () {
-          FB.init({
-            appId: "YOUR_FACEBOOK_APP_ID",
-            version: "v19.0",
-          });
-
-          const shareOptions = {
-            method: "share",
-            href: url,
-          };
-          if (quote) shareOptions.quote = quote;
-          if (hashtag) shareOptions.hashtag = hashtag;
-
-          let didCallback = false;
-
-          FB.ui(shareOptions, function (response) {
-            console.log("FB 分享 callback:", response);
-            didCallback = true;
-            showManualClose();
-          });
-
-          setTimeout(() => {
-            if (!didCallback) {
-              console.log("未收到 callback，自動顯示手動關閉提示");
-              showManualClose();
-            }
-          }, 5000);
-        };
+        runFacebookShare();
       } else {
         let shareLink = "";
         switch (platform) {
@@ -134,13 +142,6 @@
           showManualClose();
         }, 3000);
       }
-
-      setTimeout(() => {
-        if (!window.FB && platform === "facebook") {
-          document.body.innerHTML =
-            "<p style='color:red;'>Facebook SDK 載入失敗，請稍後再試。</p>";
-        }
-      }, 4000);
     </script>
   </body>
 </html>
