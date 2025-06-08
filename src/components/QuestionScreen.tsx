@@ -36,13 +36,13 @@ const QuestionScreen: React.FC = () => {
   const maxScore = 200;
 
   return (
-    <div className="h-screen bg-contain bg-[url('/baba_test/images/question/background_event.png')] bg-repeat-x bg-top py-6 px-4 font-pixel">
+    <div className="h-screen bg-contain bg-[url('/baba_test/images/background_event.png')] bg-repeat-x bg-top py-6 px-4 font-pixel">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-row justify-between items-center flex-wrap">
           {/* Character and score display */}
           <div className="flex items-center mr-4">
 
-            <div className="w-16 h-16 rounded-0 overflow-hidden bg-[url('/baba_test/images/question/Char_base.png')] bg-contain bg-cover bg-center">
+            <div className="w-16 h-16 rounded-0 overflow-hidden bg-[url('/baba_test/images/Char_base.png')] bg-contain bg-cover bg-center">
               <img 
                 src={character.avatar} 
                 alt={character.name} 
@@ -63,30 +63,39 @@ const QuestionScreen: React.FC = () => {
         </div>
           {/* Progress indicator */}
         <hr className="dotted-line" />
-        <div className="flex flex-row justify-center gap-2 my-4">
-          <p className="text-gray-100 mt-2 font-pixel text-lg flex items-center font-semibold">
+        <div className="flex flex-row justify-center gap-2 my-2">
+          <p className="text-gray-100 font-pixel text-l flex items-center font-semibold">
             生存進度 {gameState.currentQuestionIndex + 1} / 10
             {Array(10).fill(null).map((_, index) => (
               <img
                 key={index}
-                src={`/baba_test/images/question/${index < gameState.currentQuestionIndex + 1 ? 'heart_red' : 'heart_white'}.png`}
+                src={`/baba_test/images/${index < gameState.currentQuestionIndex + 1 ? 'heart_red' : 'heart_white'}.png`}
                 alt={`Heart ${index + 1}`}
-                className="w-6 h-6 ml-1"
+                className="w-5 h-5 ml-1"
               />
             ))}
           </p>
         </div>
         <hr className="dotted-line" />
         
+
+        {/* Question */}
+        <motion.div 
+          className="relative question-color p-6 my-2"
+          key={currentQuestion.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
         {/* Explanation Button */}
         <motion.button
           onClick={() => setIsLightboxOpen(true)}
-          className="w-full mt-4 p-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center justify-center font-medium"
-          whileHover={{ scale: 1.01 }}
+          className="absolute -top-12 right-6 w-20 h-20 bg-[url('/baba_test/images/aboutmore_2.png')] bg-contain bg-center bg-no-repeat text-white transition-colors duration-200 flex items-center justify-center font-medium"
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.99 }}
           >
-          <ExternalLink className="w-5 h-5 mr-2" />
-          查看相關說明
+          {/* <ExternalLink className="w-5 h-5 mr-2" />
+          相關說明 */}
         </motion.button>
 
           {/* Lightbox */}
@@ -148,23 +157,16 @@ const QuestionScreen: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
-
-        {/* Question */}
-        <motion.div 
-          className="bg-white border-4 border-sky-600 rounded-xl shadow-lg p-6 mb-2"
-          key={currentQuestion.id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
-            事件{gameState.currentQuestionIndex + 1}
-          </h2>
-          <p className="text-gray-700 text-lg mb-4">{currentQuestion.text}</p>
+          <div className="absolute -top-3 -left-3 bg-black px-3 py-1 shadow-md rounded-lg">
+            <h2 className="text-xl font-semibold">
+              事件{gameState.currentQuestionIndex + 1}
+            </h2>
+          </div>
+          <p className="text-lg mb-4">{currentQuestion.text}</p>
 
         </motion.div>
         {/* Options */}
-          <div className="space-y-4">
+          <div className="w-3/4 mx-auto space-y-4">
           {currentQuestion.options.map((option) => (
             <motion.div 
               key={option.id}
@@ -183,7 +185,7 @@ const QuestionScreen: React.FC = () => {
               <AnimatePresence>
                 {showPoints && selectedOption === option.id && (
                   <motion.div 
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 font-bold text-xl"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 font-bold text-xl question-points-color"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}

@@ -54,7 +54,7 @@ hr.dotted-line {
     border-top: 4px dashed rgb(226, 226, 226);
   }
 .office-character {
-    background-image: url('/baba_test/images/office_bg.png');
+    background-image: url('/images/office_bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -98,4 +98,12 @@ hr.dotted-line {
 }
 .question-points-color{
     color: #2ba242;
+}
+.question-color{
+    background-color: #0017c4;
+    border-color: #3bd6ff;
+    border-radius: 0;
+    border-width: 8px;
+    border-style: solid;
+    color: white;
 }
