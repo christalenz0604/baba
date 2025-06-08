@@ -18,7 +18,7 @@ const CharacterSelection: React.FC = () => {
 
   const character = characters[currentIndex];
   return (
-    <div className="min-h-screen h-screen bg-[url('/baba_test/images/background.png')] bg-repeat-x bg-top py-6 px-4">
+    <div className="min-h-screen bg-contain bg-[url('/baba_test/images/background.png')] bg-repeat-x bg-top py-6 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.h1
           className="text-3xl md:text-4xl font-pixel font-bold text-center text-indigo-800 mb-2"

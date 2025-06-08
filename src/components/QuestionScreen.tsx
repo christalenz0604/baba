@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGame } from '../context/GameContext';
 import ScorePaperProps from './ScorePaperProps';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -16,6 +16,12 @@ const QuestionScreen: React.FC = () => {
   const character = gameState.selectedCharacter;
   
   if (!currentQuestion || !character) return null;
+  
+  useEffect(() => {
+    setSelectedOption(null);
+    setShowPoints(false);
+  }, [currentQuestion.id]); // 或 currentQuestionIndex
+
 
   const handleOptionClick = (points: number, isCorrect: boolean, optionId: string) => {
     if (selectedOption) return; // Prevent multiple selections
@@ -26,8 +32,8 @@ const QuestionScreen: React.FC = () => {
     
     // Delay moving to next question to show the points animation
     setTimeout(() => {
-      answerQuestion(points, isCorrect);
       setSelectedOption(null);
+      answerQuestion(points, isCorrect);
       setShowPoints(false);
     }, 1500);
   };
@@ -175,7 +181,7 @@ const QuestionScreen: React.FC = () => {
               key={option.id}
               className={`relative p-4 question-option-color cursor-pointer transition-all duration-300 ${
                 selectedOption === option.id 
-                  ? 'hover:shadow-[4px_4px_0px_##c3c3c3]' 
+                  ? 'shadow-[6px_6px_0px_#878787] bg-[#ffffff] border-[#65dbff]' 
                   : 'hover:shadow-[-4px_-4px_0px_#6b21a8]'
               }`}
               onClick={() => handleOptionClick(option.points, option.isCorrect, option.id)}

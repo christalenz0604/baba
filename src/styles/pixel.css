@@ -91,11 +91,11 @@ hr.dotted-line {
     background-color: #3bd6ff;
     box-shadow: 6px 6px 0px #878787;
 }
-.question-option-color:active{
+/* .question-option-color:active{
     border-color: #0017c4;
     background-color: #3bd6ff;
     box-shadow: 2px 2px 0px #878787;
-}
+} */
 .question-points-color{
     color: #2ba242;
 }
