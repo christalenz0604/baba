@@ -48,7 +48,7 @@ const QuestionScreen: React.FC = () => {
           {/* Character and score display */}
           <div className="flex items-center mr-4">
 
-            <div className="w-16 h-16 rounded-0 overflow-hidden bg-[url('/baba_test/images/Char_base.png')] bg-contain bg-cover bg-center">
+            <div className="w-16 h-16 rounded-0 overflow-hidden bg-[url('/images/Char_base.png')] bg-contain bg-cover bg-center">
 
               <img 
                 src={character.avatar} 
@@ -99,7 +99,7 @@ const QuestionScreen: React.FC = () => {
         {/* Explanation Button */}
         <motion.button
           onClick={() => setIsLightboxOpen(true)}
-          className="absolute -top-12 right-6 w-20 h-20 bg-[url('/baba_test/images/aboutmore_2.png')] bg-contain bg-center bg-no-repeat text-white transition-colors duration-200 flex items-center justify-center font-medium"
+          className="absolute -top-12 right-6 w-20 h-20 bg-[url('/images/aboutmore_2.png')] bg-contain bg-center bg-no-repeat text-white transition-colors duration-200 flex items-center justify-center font-medium"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.99 }}
           >
