@@ -59,6 +59,7 @@ html, body, #root, #root > * {
   line-height: 1.6;
   white-space: pre-line;
   pointer-events: auto;
+  color: #0044BB;
 }
 
 .prompt {
