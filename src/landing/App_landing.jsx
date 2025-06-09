@@ -41,7 +41,7 @@ function Landing() {
 
   return (
     <div className="container_landing" onClick={handleClick}>
-      <img src="images/議場.png" alt="背景圖" className="background" />
+      <img src="images/議場.gif" alt="背景圖" className="background" />
       <div className="foreground">
         <img src="images/藍委跑步.gif" alt="動畫" className="gif" />
         <div className="text">
