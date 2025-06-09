@@ -26,3 +26,6 @@ dist-ssr
 
 # co-folders
 baba_test/
+
+# npm deploy code
+dist/
