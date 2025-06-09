@@ -16,26 +16,26 @@ const ResultsScreen: React.FC = () => {
   const maxScore = 200;
   
   // Determine result message based on score
-  const getResultMessage = () => {
+  const getResultTitle = () => {
     const score = gameState.score;
-    
-    if (score < 30) return "你獲得了被罷免的資格";
-    if (score < 60) return "雖然你好像還有點良心，但還是聽黨的只有被罷免的結局";
-    if (score < 90) return "阿罷之，不罷你罷誰";
-    if (score < 120) return "很棒，黨說甚麼，你就做甚麼，這樣真的是好的嗎？看看那堆積如山的連署書";
-    return "罷免不適任立委，讓國會回歸正軌";
+    //遊戲封號
+    if (score < 30) return "阿罷";
+    if (score < 60) return "看罷";
+    if (score < 90) return "好罷";
+    if (score < 120) return "國安漏洞製造者";
+    return "天罷王";
   };
   
   // Get personality trait based on character type and score
   // 需要跟 角色id 對照
+  // 角色murmur
   const getPersonalityTrait = () => {
     const characterType = character.id;
     const score = gameState.score;
-    //根據最終分數給予的頭銜
     if (characterType === 'ChangChihLun') {
-      if (score < 50) return "好好罷罷";
-      if (score < 100) return "妖精罷";
-      return "天罷王！";
+      if (score < 50) return "你獲得了被罷免的資格";
+      if (score < 100) return "很棒，黨說甚麼，你就做甚麼，這樣真的是好的嗎？看看那堆積如山的連署書";
+      return "罷免不適任立委，讓國會回歸正軌！";
     }
     
     if (characterType === 'linTeFu') {
@@ -149,7 +149,7 @@ const ResultsScreen: React.FC = () => {
     <div className="min-h-screen bg-contain bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div 
-          className="bg-white rounded-xl shadow-xl overflow-hidden"
+          className="flex flex-col bg-red-500 rounded-0 overflow-hidden justify-center my-4 py-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -157,7 +157,7 @@ const ResultsScreen: React.FC = () => {
             {/* 封號、關於本立委的murmur */}
             <div className="flex items-center w-full justify-center">
                 <h3 className="text-xl font-semibold text-indigo-700 mb-2">
-                  {getPersonalityTrait()}
+                  {getResultTitle()}
                 </h3>
             </div>
 
@@ -178,7 +178,8 @@ const ResultsScreen: React.FC = () => {
               </div>
 
               <div className="w-full">
-                <div className="justify-between items-center rounded-0 p-4 mb-6">
+                <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
+
                   <div className="flex items-center mb-2">
                   {/* 連署書圖 */}
                     <img src="" alt="" />
@@ -191,31 +192,33 @@ const ResultsScreen: React.FC = () => {
               </div>
               {/* murmur */}
               <div className="w-full mx-4 my-4">
-                <p className="text-gray-700">{getResultMessage()}</p>
+                <div className="flex flex-row justify-center items-center">
+                  <p className="flex justify-center text-gray-700">{getPersonalityTrait()}</p>
+                </div>
               </div>
 
-            {/* 截圖分享 & 再玩一次 */}
-            <div className="flex items-between justify-center mx-4">
-              <motion.button
-                //onClick={shareGame} //截圖分享的函式
-                className="w-20 h-20 mx-4 py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                截圖分享
-              </motion.button>
-              
-              <motion.button
-                onClick={restartGame}
-                className="w-20 h-20 mx-4py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                再玩一次
-              </motion.button>
-            </div>
+          </motion.div>
+          {/* 截圖分享 & 再玩一次 */}
+          <div className="flex items-between justify-center mx-4">
+            <motion.button
+              //onClick={shareGame} //截圖分享的函式
+              className="w-20 h-20 mx-4 py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              截圖分享
+            </motion.button>
+            
+            <motion.button
+              onClick={restartGame}
+              className="w-20 h-20 mx-4py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              再玩一次
+            </motion.button>
+          </div>
 
-            </motion.div>
           {/* Email subscription form */}
           <div className="mb-6">
             <div className="p-4">
