@@ -22,6 +22,7 @@ import { Question, QuestionSet } from '../types';
           { id: 'ChangChihLun1-2', text: '一張都更同意書', points: 5, isCorrect: false },
           { id: 'ChangChihLun1-3', text: '一個便當+一杯飲料', points: 100, isCorrect: false },
         ],
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         explanation: {
           image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
           text: '2024年1月31日，國民黨立委許巧芯的助理帶著油壓剪到立法院，試圖剪開議場大門。這個事件引發了廣泛討論，也凸顯了立法院內部政治對立的嚴重性。',
@@ -31,6 +32,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChangChihLun2',
         text: '媽媽陳錦錠議員說母親節即將到來，政治獻金法說小物只能限定30元，你決定贈送＿＿＿給里民？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChangChihLun2-1', text: '洗衣精', points: 10, isCorrect: true },
           { id: 'ChangChihLun2-2', text: '修容組', points: 7, isCorrect: false },
@@ -40,6 +42,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChangChihLun3',
         text: '行政院警告反對覆議《總預算案》將影響地方補助，因此你想推動的中和汙水下水道工程預算也會受影響，所以你決定？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChangChihLun3-1', text: '反對啦！哪次不反！？', points: 12, isCorrect: true },
           { id: 'ChangChihLun3-2', text: '我不知道這是什麼欸', points: 6, isCorrect: false },
@@ -49,6 +52,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChangChihLun4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChangChihLun4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 8, isCorrect: true },
           { id: 'ChangChihLun4-2', text: '和總召商量，號召大家一起去守夜', points: 5, isCorrect: false },
@@ -58,6 +62,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChangChihLun5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChangChihLun5-1', text: '增訂「藐視國會罪」', points: 10, isCorrect: true },
           { id: 'ChangChihLun5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
@@ -67,6 +72,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChangChihLun6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的立委，你會？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChangChihLun6-1', text: '動員外籍移工一起上街', points: 12, isCorrect: true },
           { id: 'ChangChihLun6-2', text: '去問問盧秀燕那天有沒有空', points: 8, isCorrect: false },
@@ -76,6 +82,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChangChihLun7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChangChihLun7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
           { id: 'ChangChihLun7-2', text: '不行，我要為民服務上班', points: 7, isCorrect: false },
@@ -85,6 +92,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChangChihLun8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChangChihLun8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
           { id: 'ChangChihLun8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 6, isCorrect: false },
@@ -94,6 +102,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChangChihLun9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChangChihLun9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了 ', points: 12, isCorrect: true },
           { id: 'ChangChihLun9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 8, isCorrect: false },
@@ -103,6 +112,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChangChihLun10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChangChihLun10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'ChangChihLun10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 7, isCorrect: false },
@@ -112,6 +122,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'a11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'a11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 15, isCorrect: true },
           { id: 'a11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 8, isCorrect: false },
@@ -121,6 +132,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'a12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'a12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'a12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
@@ -134,6 +146,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu1',
         text: '缺特色題1',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu1-1', text: 'Explore different possibilities', points: 10, isCorrect: true },
           { id: 'linTeFu1-2', text: 'Create a detailed plan', points: 5, isCorrect: false },
@@ -143,6 +156,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu2',
         text: '缺特色題2',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu2-1', text: 'New experiences and diverse perspectives', points: 12, isCorrect: true },
           { id: 'linTeFu2-2', text: 'Research and analysis', points: 6, isCorrect: false },
@@ -152,6 +166,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu3',
         text: '缺特色題3',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu3-1', text: 'Find creative workarounds', points: 15, isCorrect: true },
           { id: 'linTeFu3-2', text: 'Analyze the problem systematically', points: 8, isCorrect: false },
@@ -161,6 +176,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 10, isCorrect: true },
           { id: 'linTeFu4-2', text: '和總召商量，號召大家一起去守夜', points: 5, isCorrect: false },
@@ -170,6 +186,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu5-1', text: '增訂「藐視國會罪」', points: 12, isCorrect: true },
           { id: 'linTeFu5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
@@ -179,6 +196,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的黨團立委，你會？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu6-1', text: '動員外籍移工一起上街', points: 10, isCorrect: true },
           { id: 'linTeFu6-2', text: '去問問盧秀燕那天有沒有空', points: 5, isCorrect: false },
@@ -188,6 +206,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu7-1', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: true },
           { id: 'linTeFu7-2', text: '不行，我要為民服務上班', points: 4, isCorrect: false },
@@ -197,6 +216,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 15, isCorrect: true },
           { id: 'linTeFu8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 8, isCorrect: false },
@@ -206,6 +226,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
           { id: 'linTeFu9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
@@ -215,15 +236,17 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
-          { id: 'linTeFu10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 5, isCorrect: false },
-          { id: 'linTeFu10-3', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 3, isCorrect: false },
+          { id: 'linTeFu10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 7, isCorrect: false },
+          { id: 'linTeFu10-3', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 5, isCorrect: false },
         ],
       },
       {
         id: 'linTeFu11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 12, isCorrect: true },
           { id: 'linTeFu11-2', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 6, isCorrect: false },
@@ -233,6 +256,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'linTeFu12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'linTeFu12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'linTeFu12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
@@ -248,6 +272,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HSUCHIAOHSIN1',
         text: '議場門鎖住進不去 ! 許巧芯要準備工具突圍。請問小芯芯助理最後帶了什麼要勇闖議場？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'HSUCHIAOHSIN1-1', text: '油壓剪', points: 10, isCorrect: true },
           { id: 'HSUCHIAOHSIN1-2', text: '打火機', points: 5, isCorrect: false },
@@ -262,6 +287,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HSUCHIAOHSIN2',
         text: '我是黨意小尖兵，黨指示要大砍預算，我來刪：「某些部會功能不明，乾脆只給一元！」，該點名以下哪三個部會呢？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'HSUCHIAOHSIN2-1', text: '數位部 + NCC + 陸委會', points: 10, isCorrect: true },
           { id: 'HSUCHIAOHSIN2-2', text: '魔法部 + 忍者部 + 想像部', points: 7, isCorrect: false },
@@ -276,6 +302,7 @@ import { Question, QuestionSet } from '../types';
           { id: 'HSUCHIAOHSIN3-2', text: '我不知道這是什麼欸', points: 6, isCorrect: false },
           { id: 'HSUCHIAOHSIN3-3', text: '痾...對吼！我想起來了', points: 3, isCorrect: false },
         ],
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg'
       },
       {
         id: 'HSUCHIAOHSIN4',
@@ -298,6 +325,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HSUCHIAOHSIN6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的立委，你會？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'HSUCHIAOHSIN6-1', text: '動員外籍移工一起上街', points: 12, isCorrect: true },
           { id: 'HSUCHIAOHSIN6-2', text: '去問問盧秀燕那天有沒有空', points: 8, isCorrect: false },
@@ -307,6 +335,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HSUCHIAOHSIN7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'HSUCHIAOHSIN7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
           { id: 'HSUCHIAOHSIN7-2', text: '不行，我要為民服務上班', points: 7, isCorrect: false },
@@ -316,6 +345,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HSUCHIAOHSIN8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'HSUCHIAOHSIN8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
           { id: 'HSUCHIAOHSIN8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 6, isCorrect: false },
@@ -325,6 +355,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HSUCHIAOHSIN9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'HSUCHIAOHSIN9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了 ', points: 12, isCorrect: true },
           { id: 'HSUCHIAOHSIN9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 8, isCorrect: false },
@@ -334,6 +365,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HSUCHIAOHSIN10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'HSUCHIAOHSIN10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'HSUCHIAOHSIN10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 7, isCorrect: false },
@@ -343,6 +375,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HSUCHIAOHSIN11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'HSUCHIAOHSIN11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 15, isCorrect: true },
           { id: 'HSUCHIAOHSIN11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 8, isCorrect: false },
@@ -352,6 +385,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HSUCHIAOHSIN12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'HSUCHIAOHSIN12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'HSUCHIAOHSIN12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
@@ -365,6 +399,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao1',
         text: '面對執政黨各部長的強勢回應，你決定用魔法來對抗魔法。請問黑魔法的祈使句要怎麼啟動？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao1-1', text: '嘎啦嘎啦', points: 10, isCorrect: true },
           { id: 'LaiShyhBao1-2', text: '福利熊，熊福利', points: 5, isCorrect: false },
@@ -374,6 +409,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao2',
         text: '缺特色題2',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao2-1', text: 'Your intuition and feelings', points: 12, isCorrect: true },
           { id: 'LaiShyhBao2-2', text: 'Creative problem-solving', points: 6, isCorrect: false },
@@ -383,6 +419,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao3',
         text: '缺特色題3',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao3-1', text: 'Supportive and harmonious', points: 10, isCorrect: true },
           { id: 'LaiShyhBao3-2', text: 'Innovative and stimulating', points: 5, isCorrect: false },
@@ -392,6 +429,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 15, isCorrect: true },
           { id: 'LaiShyhBao4-2', text: '給總召摸頭，一摸泯恩仇', points: 8, isCorrect: false },
@@ -401,6 +439,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao5-1', text: '增訂「藐視國會罪」', points: 12, isCorrect: true },
           { id: 'LaiShyhBao5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
@@ -410,6 +449,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的黨團立委，你會？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao6-1', text: '動員外籍移工一起上街', points: 10, isCorrect: true },
           { id: 'LaiShyhBao6-2', text: '去問問盧秀燕那天有沒有空', points: 5, isCorrect: false },
@@ -419,6 +459,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
           { id: 'LaiShyhBao7-2', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: false },
@@ -428,6 +469,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
           { id: 'LaiShyhBao8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 5, isCorrect: false },
@@ -437,6 +479,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',        
         options: [
           { id: 'LaiShyhBao9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
           { id: 'LaiShyhBao9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
@@ -446,6 +489,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'LaiShyhBao10-2', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 5, isCorrect: false },
@@ -455,6 +499,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 8, isCorrect: true },
           { id: 'LaiShyhBao11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
@@ -464,6 +509,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LaiShyhBao12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LaiShyhBao12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'LaiShyhBao12-2', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 10, isCorrect: false },
@@ -476,6 +522,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei1',
         text: '議場門鎖住進不去 ! 許巧芯要準備工具突圍。請問小芯芯助理最後帶了什麼要勇闖議場？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei1-1', text: '油壓剪', points: 10, isCorrect: true },
           { id: 'wanghungwei1-2', text: '打火機', points: 5, isCorrect: false },
@@ -485,6 +532,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei2',
         text: '我是黨意小尖兵，黨指示要大砍預算，我來刪：「某些部會功能不明，乾脆只給一元！」，該點名以下哪三個部會呢？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei2-1', text: '數位部 + NCC + 陸委會', points: 10, isCorrect: true },
           { id: 'wanghungwei2-2', text: '魔法部 + 忍者部 + 想像部', points: 7, isCorrect: false },
@@ -494,6 +542,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei3',
         text: '缺專用題？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei3-1', text: '反對啦！哪次不反！？', points: 12, isCorrect: true },
           { id: 'wanghungwei3-2', text: '我不知道這是什麼欸', points: 6, isCorrect: false },
@@ -503,6 +552,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 8, isCorrect: true },
           { id: 'wanghungwei4-2', text: '和總召商量，號召大家一起去守夜', points: 5, isCorrect: false },
@@ -512,6 +562,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei5-1', text: '增訂「藐視國會罪」', points: 10, isCorrect: true },
           { id: 'wanghungwei5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
@@ -521,6 +572,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的立委，你會？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei6-1', text: '動員外籍移工一起上街', points: 12, isCorrect: true },
           { id: 'wanghungwei6-2', text: '去問問盧秀燕那天有沒有空', points: 8, isCorrect: false },
@@ -530,6 +582,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
           { id: 'wanghungwei7-2', text: '不行，我要為民服務上班', points: 7, isCorrect: false },
@@ -539,6 +592,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
           { id: 'wanghungwei8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 6, isCorrect: false },
@@ -548,6 +602,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了 ', points: 12, isCorrect: true },
           { id: 'wanghungwei9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 8, isCorrect: false },
@@ -557,6 +612,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'wanghungwei10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 7, isCorrect: false },
@@ -566,6 +622,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 15, isCorrect: true },
           { id: 'wanghungwei11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 8, isCorrect: false },
@@ -575,6 +632,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'wanghungwei12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'wanghungwei12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'wanghungwei12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
@@ -587,6 +645,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU1',
         text: '「親中疑美是工作、真正移美是生活」，李彥秀被爆未申報一間國外房產，請問彥秀這棟房子在哪？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LEEYEHSIU1-1', text: '美國加州爾灣', points: 10, isCorrect: true },
           { id: 'LEEYEHSIU1-2', text: '上海迪士尼旁', points: 5, isCorrect: false },
@@ -596,6 +655,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU2',
         text: '李彥秀推動「東區門戶計畫」需大量經費，卻同時提案砍雙北經費，請問這邏輯是？？？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LEEYEHSIU2-1', text: '管他的先砍再說，砍完之後說「啊是行政院不給錢啦」', points: 12, isCorrect: true },
           { id: 'LEEYEHSIU2-2', text: '東方計畫靠彥秀自家房產抵押', points: 6, isCorrect: false },
@@ -605,6 +665,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU3',
         text: '缺特色題3',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LEEYEHSIU3-1', text: 'Find creative workarounds', points: 15, isCorrect: true },
           { id: 'LEEYEHSIU3-2', text: 'Analyze the problem systematically', points: 8, isCorrect: false },
@@ -614,6 +675,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LEEYEHSIU4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 10, isCorrect: true },
           { id: 'LEEYEHSIU4-2', text: '和總召商量，號召大家一起去守夜', points: 5, isCorrect: false },
@@ -623,6 +685,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LEEYEHSIU5-1', text: '增訂「藐視國會罪」', points: 12, isCorrect: true },
           { id: 'LEEYEHSIU5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
@@ -632,6 +695,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的黨團立委，你會？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LEEYEHSIU6-1', text: '動員外籍移工一起上街', points: 10, isCorrect: true },
           { id: 'LEEYEHSIU6-2', text: '去問問盧秀燕那天有沒有空', points: 5, isCorrect: false },
@@ -641,6 +705,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LEEYEHSIU7-1', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: true },
           { id: 'LEEYEHSIU7-2', text: '不行，我要為民服務上班', points: 4, isCorrect: false },
@@ -650,6 +715,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LEEYEHSIU8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 15, isCorrect: true },
           { id: 'LEEYEHSIU8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 8, isCorrect: false },
@@ -659,6 +725,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LEEYEHSIU9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
           { id: 'LEEYEHSIU9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
@@ -668,7 +735,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'LEEYEHSIU10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'LEEYEHSIU10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 5, isCorrect: false },
           { id: 'LEEYEHSIU10-3', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 3, isCorrect: false },
@@ -677,7 +745,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'LEEYEHSIU11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 12, isCorrect: true },
           { id: 'LEEYEHSIU11-2', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 6, isCorrect: false },
           { id: 'LEEYEHSIU11-3', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
@@ -686,7 +755,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LEEYEHSIU12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'LEEYEHSIU12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'LEEYEHSIU12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
           { id: 'LEEYEHSIU12-3', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 5, isCorrect: false },
@@ -698,7 +768,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen1',
         text: '面對執政黨各部長的強勢回應，你決定用魔法來對抗魔法。請問黑魔法的祈使句要怎麼啟動？',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'ChenYuJen1-1', text: '嘎啦嘎啦', points: 10, isCorrect: true },
           { id: 'ChenYuJen1-2', text: '福利熊，熊福利', points: 5, isCorrect: false },
           { id: 'ChenYuJen1-3', text: '去去，武器走', points: 3, isCorrect: false },
@@ -707,7 +778,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen2',
         text: '缺特色題2',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'ChenYuJen2-1', text: 'Your intuition and feelings', points: 12, isCorrect: true },
           { id: 'ChenYuJen2-2', text: 'Creative problem-solving', points: 6, isCorrect: false },
           { id: 'ChenYuJen2-3', text: 'Logical analysis', points: 4, isCorrect: false },
@@ -716,7 +788,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen3',
         text: '缺特色題3',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'ChenYuJen3-1', text: 'Supportive and harmonious', points: 10, isCorrect: true },
           { id: 'ChenYuJen3-2', text: 'Innovative and stimulating', points: 5, isCorrect: false },
           { id: 'ChenYuJen3-3', text: 'Structured and organized', points: 3, isCorrect: false },
@@ -725,7 +798,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'ChenYuJen4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 15, isCorrect: true },
           { id: 'ChenYuJen4-2', text: '給總召摸頭，一摸泯恩仇', points: 8, isCorrect: false },
           { id: 'ChenYuJen4-3', text: '和總召商量，號召大家一起去守夜', points: 5, isCorrect: false },
@@ -734,7 +808,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'ChenYuJen5-1', text: '增訂「藐視國會罪」', points: 12, isCorrect: true },
           { id: 'ChenYuJen5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
           { id: 'ChenYuJen5-3', text: '陽光來了，貪腐再見', points: 4, isCorrect: false },
@@ -743,6 +818,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的黨團立委，你會？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChenYuJen6-1', text: '動員外籍移工一起上街', points: 10, isCorrect: true },
           { id: 'ChenYuJen6-2', text: '去問問盧秀燕那天有沒有空', points: 5, isCorrect: false },
@@ -752,6 +828,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'ChenYuJen7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
           { id: 'ChenYuJen7-2', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: false },
@@ -761,7 +838,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
-        options: [
+          image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+      options: [
           { id: 'ChenYuJen8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
           { id: 'ChenYuJen8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 5, isCorrect: false },
           { id: 'ChenYuJen8-3', text: '其實中配待遇已經優於外籍配偶了，我持保留態度。', points: 3, isCorrect: false },
@@ -770,7 +848,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
-        options: [
+          image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+      options: [
           { id: 'ChenYuJen9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
           { id: 'ChenYuJen9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
           { id: 'ChenYuJen9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
@@ -779,7 +858,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'ChenYuJen10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'ChenYuJen10-2', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 5, isCorrect: false },
           { id: 'ChenYuJen10-3', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 3, isCorrect: false },
@@ -788,7 +868,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
-        options: [
+          image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+      options: [
           { id: 'ChenYuJen11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 8, isCorrect: true },
           { id: 'ChenYuJen11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
           { id: 'ChenYuJen11-3', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 2, isCorrect: false },
@@ -797,7 +878,8 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'ChenYuJen12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
-        options: [
+         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+       options: [
           { id: 'ChenYuJen12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'ChenYuJen12-2', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 10, isCorrect: false },
           { id: 'ChenYuJen12-3', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 5, isCorrect: false },
@@ -809,6 +891,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH1',
         text: '議場門鎖住進不去 ! 許巧芯要準備工具突圍。請問小芯芯助理最後帶了什麼要勇闖議場？',
+        image: 'YEHYUANCHIH1.jpg',
         options: [
           { id: 'YEHYUANCHIH1-1', text: '油壓剪', points: 10, isCorrect: true },
           { id: 'YEHYUANCHIH1-2', text: '打火機', points: 5, isCorrect: false },
@@ -818,6 +901,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH2',
         text: '我是黨意小尖兵，黨指示要大砍預算，我來刪：「某些部會功能不明，乾脆只給一元！」，該點名以下哪三個部會呢？',
+        image: 'YEHYUANCHIH2.jpg',
         options: [
           { id: 'YEHYUANCHIH2-1', text: '數位部 + NCC + 陸委會', points: 10, isCorrect: true },
           { id: 'YEHYUANCHIH2-2', text: '魔法部 + 忍者部 + 想像部', points: 7, isCorrect: false },
@@ -827,6 +911,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH3',
         text: '缺專用題？',
+        image: 'YEHYUANCHIH3.jpg',
         options: [
           { id: 'YEHYUANCHIH3-1', text: '反對啦！哪次不反！？', points: 12, isCorrect: true },
           { id: 'YEHYUANCHIH3-2', text: '我不知道這是什麼欸', points: 6, isCorrect: false },
@@ -836,6 +921,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+        image: 'YEHYUANCHIH4.jpg',
         options: [
           { id: 'YEHYUANCHIH4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 8, isCorrect: true },
           { id: 'YEHYUANCHIH4-2', text: '和總召商量，號召大家一起去守夜', points: 5, isCorrect: false },
@@ -845,6 +931,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+        image: 'YEHYUANCHIH5.jpg',
         options: [
           { id: 'YEHYUANCHIH5-1', text: '增訂「藐視國會罪」', points: 10, isCorrect: true },
           { id: 'YEHYUANCHIH5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
@@ -854,6 +941,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的立委，你會？',
+        image: 'YEHYUANCHIH6.jpg',
         options: [
           { id: 'YEHYUANCHIH6-1', text: '動員外籍移工一起上街', points: 12, isCorrect: true },
           { id: 'YEHYUANCHIH6-2', text: '去問問盧秀燕那天有沒有空', points: 8, isCorrect: false },
@@ -863,6 +951,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'YEHYUANCHIH7.jpg',
         options: [
           { id: 'YEHYUANCHIH7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
           { id: 'YEHYUANCHIH7-2', text: '不行，我要為民服務上班', points: 7, isCorrect: false },
@@ -872,6 +961,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'YEHYUANCHIH8.jpg',
         options: [
           { id: 'YEHYUANCHIH8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
           { id: 'YEHYUANCHIH8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 6, isCorrect: false },
@@ -881,6 +971,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'YEHYUANCHIH9.jpg',
         options: [
           { id: 'YEHYUANCHIH9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了 ', points: 12, isCorrect: true },
           { id: 'YEHYUANCHIH9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 8, isCorrect: false },
@@ -890,6 +981,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        image: 'YEHYUANCHIH10.jpg',
         options: [
           { id: 'YEHYUANCHIH10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'YEHYUANCHIH10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 7, isCorrect: false },
@@ -899,6 +991,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+        image: 'YEHYUANCHIH11.jpg',
         options: [
           { id: 'YEHYUANCHIH11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 15, isCorrect: true },
           { id: 'YEHYUANCHIH11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 8, isCorrect: false },
@@ -908,6 +1001,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'YEHYUANCHIH12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'YEHYUANCHIH12.jpg',
         options: [
           { id: 'YEHYUANCHIH12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'YEHYUANCHIH12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
@@ -920,6 +1014,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI1',
         text: '缺特色題1',
+        image: 'FUKUNCHI1.jpg',
         options: [
           { id: 'FUKUNCHI1-1', text: 'Explore different possibilities', points: 10, isCorrect: true },
           { id: 'FUKUNCHI1-2', text: 'Create a detailed plan', points: 5, isCorrect: false },
@@ -929,6 +1024,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI2',
         text: '缺特色題2',
+        image: 'FUKUNCHI2.jpg',
         options: [
           { id: 'FUKUNCHI2-1', text: 'New experiences and diverse perspectives', points: 12, isCorrect: true },
           { id: 'FUKUNCHI2-2', text: 'Research and analysis', points: 6, isCorrect: false },
@@ -938,6 +1034,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI3',
         text: '缺特色題3',
+        image: 'FUKUNCHI3.jpg',
         options: [
           { id: 'FUKUNCHI3-1', text: 'Find creative workarounds', points: 15, isCorrect: true },
           { id: 'FUKUNCHI3-2', text: 'Analyze the problem systematically', points: 8, isCorrect: false },
@@ -947,6 +1044,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+        image: 'FUKUNCHI4.jpg',
         options: [
           { id: 'FUKUNCHI4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 10, isCorrect: true },
           { id: 'FUKUNCHI4-2', text: '和總召商量，號召大家一起去守夜', points: 5, isCorrect: false },
@@ -956,6 +1054,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+        image: 'FUKUNCHI5.jpg',
         options: [
           { id: 'FUKUNCHI5-1', text: '增訂「藐視國會罪」', points: 12, isCorrect: true },
           { id: 'FUKUNCHI5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
@@ -965,6 +1064,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的黨團立委，你會？',
+        image: 'FUKUNCHI6.jpg',
         options: [
           { id: 'FUKUNCHI6-1', text: '動員外籍移工一起上街', points: 10, isCorrect: true },
           { id: 'FUKUNCHI6-2', text: '去問問盧秀燕那天有沒有空', points: 5, isCorrect: false },
@@ -974,6 +1074,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'FUKUNCHI7.jpg',
         options: [
           { id: 'FUKUNCHI7-1', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: true },
           { id: 'FUKUNCHI7-2', text: '不行，我要為民服務上班', points: 4, isCorrect: false },
@@ -983,6 +1084,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'FUKUNCHI8.jpg',
         options: [
           { id: 'FUKUNCHI8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 15, isCorrect: true },
           { id: 'FUKUNCHI8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 8, isCorrect: false },
@@ -992,15 +1094,17 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'FUKUNCHI9.jpg',
         options: [
-          { id: 'FUKUNCHI9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
-          { id: 'FUKUNCHI9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
+          { id: 'FUKUNCHI9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了 ', points: 12, isCorrect: true },
+          { id: 'FUKUNCHI9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 8, isCorrect: false },
           { id: 'FUKUNCHI9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
         ],
       },
       {
         id: 'FUKUNCHI10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        image: 'FUKUNCHI10.jpg',
         options: [
           { id: 'FUKUNCHI10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'FUKUNCHI10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 5, isCorrect: false },
@@ -1010,6 +1114,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+        image: 'FUKUNCHI11.jpg',
         options: [
           { id: 'FUKUNCHI11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 12, isCorrect: true },
           { id: 'FUKUNCHI11-2', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 6, isCorrect: false },
@@ -1019,6 +1124,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'FUKUNCHI12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'FUKUNCHI12.jpg',
         options: [
           { id: 'FUKUNCHI12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'FUKUNCHI12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
@@ -1031,6 +1137,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai1',
         text: 'WBC世界棒球經典賽資格賽昨晚（25日）落幕，美國在台協會昨天晚間在臉書發文『恭喜台灣打進2026世界棒球經典賽』;洪孟楷也寫下：「感謝AIT！希望2026WBC中華隊跟美國隊有機會碰頭』;身為洪委員的支持者,你的社群回應？',
+        image: 'HungMongKai1.jpg',
         options: [
           { id: 'HungMongKai1-1', text: '委員棒棒！！Go, Taiwan  go!!', points: 10, isCorrect: true },
           { id: 'HungMongKai1-2', text: '體育噌美國 政治噌中國？', points: 5, isCorrect: false },
@@ -1040,6 +1147,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai2',
         text: '今天洪孟楷終於現身林口,且國民黨黨主席朱立倫與地方議員陪同掃街,宣傳反罷免;平日不太在林口走動的他,如今動作頻頻,對此,你的回應？',
+        image: 'HungMongKai2.jpg',
         options: [
           { id: 'HungMongKai2-1', text: '都是賴清德害的', points: 12, isCorrect: true },
           { id: 'HungMongKai2-2', text: '你只有選舉到了才會來林口！', points: 6, isCorrect: false },
@@ -1058,6 +1166,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+        image: 'HungMongKai4.jpg',
         options: [
           { id: 'HungMongKai4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 15, isCorrect: true },
           { id: 'HungMongKai4-2', text: '給總召摸頭，一摸泯恩仇', points: 8, isCorrect: false },
@@ -1067,6 +1176,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+        image: 'HungMongKai5.jpg',
         options: [
           { id: 'HungMongKai5-1', text: '增訂「藐視國會罪」', points: 12, isCorrect: true },
           { id: 'HungMongKai5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
@@ -1076,6 +1186,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的黨團立委，你會？',
+        image: 'HungMongKai6.jpg',
         options: [
           { id: 'HungMongKai6-1', text: '動員外籍移工一起上街', points: 10, isCorrect: true },
           { id: 'HungMongKai6-2', text: '去問問盧秀燕那天有沒有空', points: 5, isCorrect: false },
@@ -1085,15 +1196,17 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'HungMongKai7.jpg',
         options: [
           { id: 'HungMongKai7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
-          { id: 'HungMongKai7-2', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: false },
-          { id: 'HungMongKai7-3', text: '不行，我要為民服務上班', points: 5, isCorrect: false },
+          { id: 'HungMongKai7-2', text: '不行，我要為民服務上班', points: 7, isCorrect: false },
+          { id: 'HungMongKai7-3', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 4, isCorrect: false },
         ],
       },
       {
         id: 'HungMongKai8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'HungMongKai8.jpg',
         options: [
           { id: 'HungMongKai8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
           { id: 'HungMongKai8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 5, isCorrect: false },
@@ -1103,6 +1216,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'HungMongKai9.jpg',
         options: [
           { id: 'HungMongKai9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
           { id: 'HungMongKai9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
@@ -1112,6 +1226,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        image: 'HungMongKai10.jpg',
         options: [
           { id: 'HungMongKai10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'HungMongKai10-2', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 5, isCorrect: false },
@@ -1121,6 +1236,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+        image: 'HungMongKai11.jpg',
         options: [
           { id: 'HungMongKai11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 8, isCorrect: true },
           { id: 'HungMongKai11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
@@ -1130,6 +1246,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'HungMongKai12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'HungMongKai12.jpg',
         options: [
           { id: 'HungMongKai12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'HungMongKai12-2', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 10, isCorrect: false },
@@ -1142,6 +1259,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LoMingTsai1',
         text: '羅明才委員的反罷免之歌,由哪首著名兒歌所改編？',
+        image: 'LoMingTsai1.jpg',
         options: [
           { id: 'LoMingTsai1-1', text: '兩隻老虎', points: 10, isCorrect: true },
           { id: 'LoMingTsai1-2', text: '三劍客', points: 5, isCorrect: false },
@@ -1151,6 +1269,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LoMingTsai2',
         text: '立委（國）羅明才說：『我唱完團結就是力量，我往前面走的時候，你們會不會前進？』,你的回應？',
+        image: 'LoMingTsai2.jpg',
         options: [
           { id: 'LoMingTsai2-1', text: '會啊！！！哪次不會？！', points: 10, isCorrect: true },
           { id: 'LoMingTsai2-2', text: '426站出來！426站出來！426站出來！', points: 7, isCorrect: false },
@@ -1160,6 +1279,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LoMingTsai3',
         text: '缺專用題？',
+        image: 'LoMingTsai3.jpg',
         options: [
           { id: 'LoMingTsai3-1', text: '缺專用題？', points: 12, isCorrect: true },
           { id: 'LoMingTsai3-2', text: '缺專用題？', points: 6, isCorrect: false },
@@ -1364,6 +1484,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG1',
         text: '面對執政黨各部長的強勢回應，你決定用魔法來對抗魔法。請問黑魔法的祈使句要怎麼啟動？',
+        image: 'LOCHIHCHIANG1.jpg',
         options: [
           { id: 'LOCHIHCHIANG1-1', text: '嘎啦嘎啦', points: 10, isCorrect: true },
           { id: 'LOCHIHCHIANG1-2', text: '福利熊，熊福利', points: 5, isCorrect: false },
@@ -1373,6 +1494,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG2',
         text: '缺特色題2',
+        image: 'LOCHIHCHIANG2.jpg',
         options: [
           { id: 'LOCHIHCHIANG2-1', text: 'Your intuition and feelings', points: 12, isCorrect: true },
           { id: 'LOCHIHCHIANG2-2', text: 'Creative problem-solving', points: 6, isCorrect: false },
@@ -1382,6 +1504,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG3',
         text: '缺特色題3',
+        image: 'LOCHIHCHIANG3.jpg',
         options: [
           { id: 'LOCHIHCHIANG3-1', text: 'Supportive and harmonious', points: 10, isCorrect: true },
           { id: 'LOCHIHCHIANG3-2', text: 'Innovative and stimulating', points: 5, isCorrect: false },
@@ -1391,6 +1514,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG4',
         text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+        image: 'LOCHIHCHIANG4.jpg',
         options: [
           { id: 'LOCHIHCHIANG4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 15, isCorrect: true },
           { id: 'LOCHIHCHIANG4-2', text: '給總召摸頭，一摸泯恩仇', points: 8, isCorrect: false },
@@ -1400,6 +1524,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG5',
         text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+        image: 'HungMongKai5.jpg',
         options: [
           { id: 'LOCHIHCHIANG5-1', text: '增訂「藐視國會罪」', points: 12, isCorrect: true },
           { id: 'LOCHIHCHIANG5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
@@ -1409,6 +1534,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG6',
         text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的黨團立委，你會？',
+        image: 'HungMongKai6.jpg',
         options: [
           { id: 'LOCHIHCHIANG6-1', text: '動員外籍移工一起上街', points: 10, isCorrect: true },
           { id: 'LOCHIHCHIANG6-2', text: '去問問盧秀燕那天有沒有空', points: 5, isCorrect: false },
@@ -1418,6 +1544,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG7',
         text: '上班時間總召邀你一起去中國查訪',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LOCHIHCHIANG7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
           { id: 'LOCHIHCHIANG7-2', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: false },
@@ -1427,6 +1554,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG8',
         text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LOCHIHCHIANG8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
           { id: 'LOCHIHCHIANG8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 5, isCorrect: false },
@@ -1436,6 +1564,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG9',
         text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LOCHIHCHIANG9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
           { id: 'LOCHIHCHIANG9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
@@ -1445,6 +1574,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG10',
         text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LOCHIHCHIANG10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
           { id: 'LOCHIHCHIANG10-2', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 5, isCorrect: false },
@@ -1454,6 +1584,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG11',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LOCHIHCHIANG11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 8, isCorrect: true },
           { id: 'LOCHIHCHIANG11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
@@ -1463,6 +1594,7 @@ import { Question, QuestionSet } from '../types';
       {
         id: 'LOCHIHCHIANG12',
         text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
           { id: 'LOCHIHCHIANG12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
           { id: 'LOCHIHCHIANG12-2', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 10, isCorrect: false },
