@@ -7,8 +7,8 @@ import {
 } from 'react-icons/fa';
 import { FaThreads } from 'react-icons/fa6';
 
-const ShareDropdown = ({ shareUrl, shareText }) => {
-  const [open, setOpen] = useState(false);
+const ShareDropdown = ({ shareUrl, shareText, autoExpand, imageData }) => {
+  const [open, setOpen] = useState(autoExpand || false);
   const [showIGModal, setShowIGModal] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -26,9 +26,16 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
   const hashtag = "#派對遊戲";
 
   const handleFacebookShare = () => {
+    let url = '';
     setOpen(false);
+    if (isMobile) {
+        url = `/fb-share-popup.html?platform=facebook&url=${encodedUrl}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`;
+    } else {
+        url = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`;
+    }
+	
     const popup = window.open(
-      `/fb-share-popup.html?platform=facebook&url=${encodedUrl}&quote=${encodeURIComponent(quote)}&hashtag=${encodeURIComponent(hashtag)}`,
+      url,
       '_blank',
       'width=600,height=600'
     );
@@ -74,14 +81,8 @@ const ShareDropdown = ({ shareUrl, shareText }) => {
 
   return (
     <>
-      <div ref={dropdownRef} className="fixed bottom-4 right-4 z-50">
-        <button
-          onClick={() => setOpen(!open)}
-          className="px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 focus:outline-none"
-        >
-          🔗 分享
-        </button>
-
+        <div className="relative inline-block text-left" ref={dropdownRef}>
+        {/* 不再顯示小小的分享按鈕 */}
         {open && (
           <div className="mt-2 w-64 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 p-2 space-y-1">
             <button
