@@ -23,10 +23,39 @@ const QuestionScreen: React.FC = () => {
     setSelectedOption(null);
     setShowPoints(false);
     setQuestionKey(prev => prev + 1);
+
+    // iOS 解除殘留 hover 狀態
+    const clearHover = () => {
+      try {
+        document.querySelectorAll(':hover').forEach((el) => {
+          (el as HTMLElement).blur?.();
+        });
+      } catch (e) {
+        // 有些瀏覽器不支援 :hover 查詢，可忽略
+      }
+    };
+
+    clearHover();
+
+    // 也清除任何焦點
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
   }, [currentQuestion.id]);
+
+  useEffect(() => {
+    const removeTouchHover = () => {
+      document.body.classList.add('no-hover');
+      setTimeout(() => {
+        document.body.classList.remove('no-hover');
+      }, 500);
+    };
+
+    document.addEventListener('touchstart', removeTouchHover);
+    return () => {
+      document.removeEventListener('touchstart', removeTouchHover);
+    };
+  }, []);
 
   const handleOptionClick = (points: number, isCorrect: boolean, optionId: string) => {
     if (selectedOption) return;
