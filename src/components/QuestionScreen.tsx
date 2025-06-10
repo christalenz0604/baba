@@ -11,6 +11,7 @@ const QuestionScreen: React.FC = () => {
   const [showPoints, setShowPoints] = useState(false);
   const [pointsToAdd, setPointsToAdd] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [questionKey, setQuestionKey] = useState(0);
 
   const currentQuestion = getCurrentQuestion();
   const character = gameState.selectedCharacter;
@@ -21,14 +22,7 @@ const QuestionScreen: React.FC = () => {
   useEffect(() => {
     setSelectedOption(null);
     setShowPoints(false);
-
-    // 強制 iOS Safari 重繪畫面
-    const root = document.getElementById('question-container');
-    if (root) {
-      root.style.display = 'none';
-      void root.offsetHeight;
-      root.style.display = '';
-    }
+    setQuestionKey(prev => prev + 1);
   }, [currentQuestion.id]);
 
   const handleOptionClick = (points: number, isCorrect: boolean, optionId: string) => {
@@ -99,7 +93,7 @@ const QuestionScreen: React.FC = () => {
         <div id="question-container">
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentQuestion.id}
+              key={questionKey}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -180,7 +174,7 @@ const QuestionScreen: React.FC = () => {
               <div className="w-3/4 mx-auto space-y-4">
                 {currentQuestion.options.map((option) => (
                   <motion.div 
-                    key={currentQuestion.id + option.id}
+                    key={questionKey + '-' + option.id}
                     className={`relative p-4 question-option-color cursor-pointer transition-all duration-300 ${
                       selectedOption === option.id 
                         ? 'shadow-[6px_6px_0px_#878787] bg-[#ffffff] border-[#65dbff]' 
