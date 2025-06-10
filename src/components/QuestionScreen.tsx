@@ -1,4 +1,3 @@
-// 省略 import 部分不變
 import React, { useEffect, useState } from 'react';
 import { useGame } from '../context/GameContext';
 import ScorePaperProps from './ScorePaperProps';
@@ -9,10 +8,11 @@ import { questionSets } from '../data/questions';
 const QuestionScreen: React.FC = () => {
   const { gameState, getCurrentQuestion, answerQuestion } = useGame();
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [hoveredOption, setHoveredOption] = useState<string | null>(null); // 🔸追蹤 hover
+  const [hoveredOption, setHoveredOption] = useState<string | null>(null);
   const [showPoints, setShowPoints] = useState(false);
   const [pointsToAdd, setPointsToAdd] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [questionKey, setQuestionKey] = useState(0);
 
   const currentQuestion = getCurrentQuestion();
   const character = gameState.selectedCharacter;
@@ -22,17 +22,24 @@ const QuestionScreen: React.FC = () => {
 
   useEffect(() => {
     setSelectedOption(null);
-    setShowPoints(false);
     setHoveredOption(null);
+    setShowPoints(false);
+    setQuestionKey(prev => prev + 1);
+
+    // iOS Safari workaround: force blur
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+      setTimeout(() => document.activeElement?.blur(), 50);
+    }
+    // Fake click to reset iOS hover
+    setTimeout(() => document.body.click(), 10);
   }, [currentQuestion.id]);
 
   const handleOptionClick = (points: number, isCorrect: boolean, optionId: string) => {
     if (selectedOption) return;
-
     setSelectedOption(optionId);
     setPointsToAdd(points);
     setShowPoints(true);
-
     setTimeout(() => {
       setSelectedOption(null);
       answerQuestion(points, isCorrect);
@@ -83,7 +90,7 @@ const QuestionScreen: React.FC = () => {
               <img
                 src={currentQuestion.image}
                 alt={currentQuestion.text + '圖片'}
-                className="w-full h-full top-1/2 left-1/2 object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
@@ -165,48 +172,56 @@ const QuestionScreen: React.FC = () => {
           <p className="text-lg mb-4">{currentQuestion.text}</p>
         </motion.div>
 
-        {/* 選項列表 */}
-        <div className="w-3/4 mx-auto space-y-4">
-          {currentQuestion.options.map((option) => {
-            const isSelected = selectedOption === option.id;
-            const isHovered = hoveredOption === option.id && selectedOption === null;
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`options-${questionKey}`}
+            className="w-3/4 mx-auto space-y-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {currentQuestion.options.map((option) => {
+              const isSelected = selectedOption === option.id;
+              const isHovered = hoveredOption === option.id && !isSelected;
 
-            const baseClass = "relative p-4 question-option-color cursor-pointer transition-all duration-300";
-            const stateClass = isSelected
-              ? "shadow-[6px_6px_0px_#878787] bg-[#ffffff] border-[#65dbff]"
-              : isHovered
-              ? "shadow-[-4px_-4px_0px_#6b21a8]"
-              : "";
+              const baseClass = "relative p-4 question-option-color cursor-pointer transition-all duration-300";
+              const stateClass = isSelected
+                ? "shadow-[6px_6px_0px_#878787] bg-[#ffffff] border-[#65dbff]"
+                : isHovered
+                ? "shadow-[-4px_-4px_0px_#6b21a8]"
+                : "";
 
-            return (
-              <motion.div
-                key={option.id}
-                className={`${baseClass} ${stateClass}`}
-                onClick={() => handleOptionClick(option.points, option.isCorrect, option.id)}
-                onMouseEnter={() => setHoveredOption(option.id)}
-                onMouseLeave={() => setHoveredOption(null)}
-                onTouchStart={() => setHoveredOption(option.id)}
-                onTouchEnd={() => setHoveredOption(null)}
-                whileTap={{ scale: 0.99 }}
-              >
-                <p className="text-gray-700">{option.text}</p>
-                <AnimatePresence>
-                  {showPoints && isSelected && (
-                    <motion.div
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 font-bold text-xl question-points-color"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      +{pointsToAdd}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
-        </div>
+              return (
+                <motion.div
+                  key={option.id}
+                  className={`${baseClass} ${stateClass}`}
+                  onClick={() => handleOptionClick(option.points, option.isCorrect, option.id)}
+                  onMouseEnter={() => setHoveredOption(option.id)}
+                  onMouseLeave={() => setHoveredOption(null)}
+                  onTouchStart={() => setHoveredOption(option.id)}
+                  onTouchEnd={() => setHoveredOption(null)}
+                  whileTap={{ scale: 0.99 }}
+                >
+                  <p className="text-gray-700">{option.text}</p>
+                  <AnimatePresence>
+                    {showPoints && isSelected && (
+                      <motion.div
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 font-bold text-xl question-points-color"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        +{pointsToAdd}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
