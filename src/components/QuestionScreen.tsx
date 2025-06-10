@@ -33,7 +33,7 @@ const QuestionScreen: React.FC = () => {
     
     // Delay moving to next question to show the points animation
     setTimeout(() => {
-      setSelectedOption(null);
+      //setSelectedOption(null);   // bug: iOS will delay to clear option
       answerQuestion(points, isCorrect);
       setShowPoints(false);
     }, 1500);
@@ -187,37 +187,36 @@ const QuestionScreen: React.FC = () => {
 
         </motion.div>
         {/* Options */}
-          <div className="w-3/4 mx-auto space-y-4">
-          {currentQuestion.options.map((option) => (
-            <motion.div 
-              key={option.id}
-              className={`relative p-4 question-option-color cursor-pointer transition-all duration-300 ${
-                selectedOption === option.id 
-                  ? 'shadow-[6px_6px_0px_#878787] bg-[#ffffff] border-[#65dbff]' 
-                  : 'hover:shadow-[-4px_-4px_0px_#6b21a8]'
-              }`}
-              onClick={() => handleOptionClick(option.points, option.isCorrect, option.id)}
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
-            >
-              <p className="text-gray-700">{option.text}</p>
-              
-              {/* Points animation */}
-              <AnimatePresence>
+        <div className="w-3/4 mx-auto space-y-4">
+            {currentQuestion.options.map((option) => (
+                <motion.div 
+                    key={currentQuestion.id + option.id}  // ⭐ 重點：強化 key 保證選項刷新
+                    className={`relative p-4 question-option-color cursor-pointer transition-all duration-300 ${
+                    selectedOption === option.id 
+                     ? 'shadow-[6px_6px_0px_#878787] bg-[#ffffff] border-[#65dbff]' 
+                     : 'hover:shadow-[-4px_-4px_0px_#6b21a8]'
+                    }`}
+                    onClick={() => handleOptionClick(option.points, option.isCorrect, option.id)}
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                >
+                <p className="text-gray-700">{option.text}</p>
+      
+                <AnimatePresence>
                 {showPoints && selectedOption === option.id && (
-                  <motion.div 
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 font-bold text-xl question-points-color"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                  >
+                    <motion.div 
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 font-bold text-xl question-points-color"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                    >
                     +{pointsToAdd}
-                  </motion.div>
+                    </motion.div>
                 )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                </AnimatePresence>
+                </motion.div>
+            ))}
         </div>
 
 
