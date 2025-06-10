@@ -11,6 +11,7 @@ const QuestionScreen: React.FC = () => {
   const [showPoints, setShowPoints] = useState(false);
   const [pointsToAdd, setPointsToAdd] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [questionKey, setQuestionKey] = useState(0);
 
   const currentQuestion = getCurrentQuestion();
   const character = gameState.selectedCharacter;
@@ -21,6 +22,7 @@ const QuestionScreen: React.FC = () => {
   useEffect(() => {
     setSelectedOption(null);
     setShowPoints(false);
+    setQuestionKey(prev => prev + 1);
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
@@ -46,11 +48,7 @@ const QuestionScreen: React.FC = () => {
         <div className="flex flex-row justify-between items-center flex-wrap">
           <div className="flex items-center mr-4">
             <div className="w-16 h-16 rounded-0 overflow-hidden bg-[url('/images/Char_base.png')] bg-contain bg-cover bg-center">
-              <img 
-                src={character.avatar} 
-                alt={character.name} 
-                className="w-full h-full object-cover"
-              />
+              <img src={character.avatar} alt={character.name} className="w-full h-full object-cover" />
             </div>
             <div className="ml-4 font-pixel">
               <p className="text-gray-100 font-medium">{character.districts}</p>
@@ -62,6 +60,7 @@ const QuestionScreen: React.FC = () => {
             <ScorePaperProps score={gameState.score} maxScore={maxScore} />
           </div>
         </div>
+
         <hr className="dotted-line" />
         <div className="flex flex-row justify-center gap-2 my-2">
           <p className="text-gray-100 font-pixel text-l flex items-center font-semibold">
@@ -83,7 +82,7 @@ const QuestionScreen: React.FC = () => {
             <div className="absolute inset-0 m-auto aspect-[4/3] h-full">
               <img
                 src={currentQuestion.image}
-                alt={currentQuestion.text + '圖片'} 
+                alt={currentQuestion.text + '圖片'}
                 className="w-full h-full top-1/2 left-1/2 object-cover"
               />
             </div>
@@ -91,8 +90,8 @@ const QuestionScreen: React.FC = () => {
         )}
 
         <AnimatePresence mode="wait">
-          <motion.div 
-            key={currentQuestion.id}
+          <motion.div
+            key={`question-${questionKey}`}
             className="relative question-color p-6 my-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -173,7 +172,7 @@ const QuestionScreen: React.FC = () => {
 
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentQuestion.id}
+            key={`options-${questionKey}`}
             className="w-3/4 mx-auto space-y-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -181,7 +180,7 @@ const QuestionScreen: React.FC = () => {
             transition={{ duration: 0.3 }}
           >
             {currentQuestion.options.map((option) => (
-              <motion.div 
+              <motion.div
                 key={option.id}
                 className={`relative p-4 question-option-color cursor-pointer transition-all duration-300 ${
                   selectedOption === option.id
@@ -197,7 +196,7 @@ const QuestionScreen: React.FC = () => {
                 <p className="text-gray-700">{option.text}</p>
                 <AnimatePresence>
                   {showPoints && selectedOption === option.id && (
-                    <motion.div 
+                    <motion.div
                       className="absolute right-4 top-1/2 transform -translate-y-1/2 font-bold text-xl question-points-color"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -212,7 +211,6 @@ const QuestionScreen: React.FC = () => {
             ))}
           </motion.div>
         </AnimatePresence>
-
       </div>
     </div>
   );
