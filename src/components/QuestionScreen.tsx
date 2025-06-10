@@ -12,6 +12,7 @@ const QuestionScreen: React.FC = () => {
   const [pointsToAdd, setPointsToAdd] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [questionKey, setQuestionKey] = useState(0);
+  const [isHoverEnabled, setIsHoverEnabled] = useState(true); // 控制 hover 樣式
 
   const currentQuestion = getCurrentQuestion();
   const character = gameState.selectedCharacter;
@@ -24,20 +25,16 @@ const QuestionScreen: React.FC = () => {
     setShowPoints(false);
     setQuestionKey(prev => prev + 1);
 
-    // iOS 解除殘留 hover 狀態
+    // iOS 移除 :hover 的 hack
     const clearHover = () => {
       try {
         document.querySelectorAll(':hover').forEach((el) => {
           (el as HTMLElement).blur?.();
         });
-      } catch (e) {
-        // 有些瀏覽器不支援 :hover 查詢，可忽略
-      }
+      } catch (e) {}
     };
 
     clearHover();
-
-    // 也清除任何焦點
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
@@ -59,6 +56,10 @@ const QuestionScreen: React.FC = () => {
 
   const handleOptionClick = (points: number, isCorrect: boolean, optionId: string) => {
     if (selectedOption) return;
+
+    setIsHoverEnabled(false);
+    setTimeout(() => setIsHoverEnabled(true), 1000); // 暫時停用 hover
+
     setSelectedOption(optionId);
     setPointsToAdd(points);
     setShowPoints(true);
@@ -214,7 +215,7 @@ const QuestionScreen: React.FC = () => {
                 className={`relative p-4 question-option-color cursor-pointer transition-all duration-300 ${
                   selectedOption === option.id
                     ? 'shadow-[6px_6px_0px_#878787] bg-[#ffffff] border-[#65dbff]'
-                    : selectedOption === null
+                    : selectedOption === null && isHoverEnabled
                     ? 'hover:shadow-[-4px_-4px_0px_#6b21a8]'
                     : ''
                 }`}
