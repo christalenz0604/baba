@@ -174,7 +174,6 @@ const ResultsScreen: React.FC = () => {
 
               <div className="w-full">
                 <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
-
                   <div className="flex items-center mb-2">
                   {/* 連署書圖 */}
                     <img src="" alt="" />
