@@ -186,7 +186,7 @@ const QuestionScreen: React.FC = () => {
 
         </motion.div>
         {/* Options */}
-          <div className="w-3/4 mx-auto space-y-4">
+          <div key={currentQuestion.id} className="w-3/4 mx-auto space-y-4">
           {currentQuestion.options.map((option) => (
             <motion.div 
               key={option.id}
