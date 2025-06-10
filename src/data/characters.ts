@@ -33,7 +33,7 @@ export const characters: Character[] = [
     name: '賴士葆',
     districts:'臺北市第8選區',
     avatar: '/images/LaiShyhBao_pic.png?auto=compress&cs=tinysrgb&w=300',
-    description: '賴士葆昔日曾批評禮讓行人的法規為「白痴政策」卻撞傷人，辯稱自己是因為天色昏暗及A柱死角沒有看到行人、行人一直聊天，可能沒有看到車子。',
+    description: '賴士葆曾高調批評「禮讓行人是白痴政策」。卻親身示範了這項政策存在的必要性——駕車撞上行人後，他將責任歸咎於天色昏暗、A柱死角，並暗指行人邊走邊聊天沒注意車輛。',
     questionSetId: 'LaiShyhBao',//對應問題系列
   },
 //王鴻薇wanghungwei
@@ -42,7 +42,7 @@ export const characters: Character[] = [
     name: '王鴻薇',
     districts:'臺北市第3選區',
     avatar: '/images/wanghungwei_pic.png?auto=compress&cs=tinysrgb&w=300',
-    description: '王鴻薇王鴻薇王鴻薇王鴻薇王鴻薇王鴻薇王鴻薇',
+    description: '曾加入新黨、擔任台北市議員時是中國央視熱門來賓、不避諱表態親中立場，專長技能：肉搜並曝光罷免自己的公民個資。',
     questionSetId: 'wanghungwei',//對應問題系列
   },
 //李彥秀LEEYEHSIU
@@ -51,7 +51,7 @@ export const characters: Character[] = [
     name: '李彥秀',
     districts:'臺北市第ˋ選區',
     avatar: '/images/LEEYEHSIU_pic.png?auto=compress&cs=tinysrgb&w=300',
-    description: '李彥秀李彥秀李彥秀李彥秀李彥秀李彥秀李彥秀李彥秀',
+    description: '疑美是工作 移美是生活',
     questionSetId: 'LEEYEHSIU',//對應問題系列
   },
 //陳玉珍ChenYuJen
@@ -69,7 +69,7 @@ export const characters: Character[] = [
     name: '葉元之',
     districts:'新北市第7選區',
     avatar: '/images/YEHYUANCHIH_pic.png?auto=compress&cs=tinysrgb&w=300',
-    description: '葉元之葉元之葉元之葉元之葉元之葉元之葉元之葉元之',
+    description: '想當我的助理嗎？你需要接受下列條件每日接受言語羞辱，不得生病請假，恩...還有什麼呢？算了，算了，我要去準備上通告了！',
     questionSetId: 'YEHYUANCHIH',//對應問題系列
   },
 //傅崐萁FUKUNCHI
@@ -87,7 +87,7 @@ export const characters: Character[] = [
     name: '洪孟楷',
     districts:'新北市第1選區',
     avatar: '/images/HungMongKai_pic.png?auto=compress&cs=tinysrgb&w=300',
-    description: '洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷洪孟楷',
+    description: '媽寶立委;擅長跳針與甩鍋，專精無邏輯辯護術，出招自帶迷因效果',
     questionSetId: 'HungMongKai',//對應問題系列
   },
 //羅明才
@@ -105,7 +105,7 @@ export const characters: Character[] = [
     name: '廖先翔',
     districts:'新北市第12選區',
     avatar: '/images/LIAOHsienHsiang_pic.png?auto=compress&cs=tinysrgb&w=300',
-    description: '廖先翔廖先翔廖先翔廖先翔廖先翔',
+    description: '被稱為廖先蝦。因刪減外交部預算，用超蝦理由：「中國」未依約採購宏都拉斯白蝦。還主動提案刪除汐止當地社宅計畫。再加林林總總的疑似國土侵占疑雲，被認為不懂人間疾苦。',
     questionSetId: 'LIAOHsienHsiang',//對應問題系列
   },
 //羅智強
@@ -114,7 +114,7 @@ export const characters: Character[] = [
     name: '羅智強',
     districts:'臺北市第6選區',
     avatar: '/images/LOCHIHCHIANG_pic.png?auto=compress&cs=tinysrgb&w=300',
-    description: '羅智強羅智強羅智強羅智強羅智強',
+    description: '又名大安區閒人，擅長沾醬油，常運用各種話題為自己製造聲量。號稱自己日行萬步，跟著「皮克敏」散步到月球。',
     questionSetId: 'LOCHIHCHIANG',//對應問題系列
   },
   

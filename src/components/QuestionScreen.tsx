@@ -3,7 +3,7 @@ import { useGame } from '../context/GameContext';
 import ScorePaperProps from './ScorePaperProps';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X } from "lucide-react";
-
+import { questionSets } from '../data/questions';
 
 const QuestionScreen: React.FC = () => {
   const { gameState, getCurrentQuestion, answerQuestion } = useGame();
@@ -14,6 +14,7 @@ const QuestionScreen: React.FC = () => {
 
   const currentQuestion = getCurrentQuestion();
   const character = gameState.selectedCharacter;
+  const totalQuestions = gameState.questionSetId ? questionSets[gameState.questionSetId].questions.length : 0;
   
   if (!currentQuestion || !character) return null;
   
@@ -43,7 +44,7 @@ const QuestionScreen: React.FC = () => {
 
   return (
     <div className="h-screen bg-contain bg-[url('/images/background_event.png')] bg-repeat-x bg-top py-6 px-4 font-pixel">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-xl mx-auto">
         <div className="flex flex-row justify-between items-center flex-wrap">
           {/* Character and score display */}
           <div className="flex items-center mr-4">
@@ -63,8 +64,8 @@ const QuestionScreen: React.FC = () => {
             </div>
           </div>
           
-          {/* Tree visualization */}
-          <div className="w-40 shrink-0">
+          {/* 人民累積的怒氣值 連署書數量 */}
+          <div className="flex shrink-0">
             <ScorePaperProps score={gameState.score} maxScore={maxScore} />
           </div>
         </div>
@@ -72,9 +73,9 @@ const QuestionScreen: React.FC = () => {
         <hr className="dotted-line" />
         <div className="flex flex-row justify-center gap-2 my-2">
           <p className="text-gray-100 font-pixel text-l flex items-center font-semibold">
-
-            生存進度 {gameState.currentQuestionIndex + 1} / 10
-            {Array(10).fill(null).map((_, index) => (
+            生存進度 
+            {/* {gameState.currentQuestionIndex + 1} / {totalQuestions} */}
+            {Array(totalQuestions).fill(null).map((_, index) => (
               <img
                 key={index}
                 src={`/images/${index < gameState.currentQuestionIndex + 1 ? 'heart_red' : 'heart_white'}.png`}
@@ -84,9 +85,20 @@ const QuestionScreen: React.FC = () => {
             ))}
           </p>
         </div>
-        <hr className="dotted-line" />
+        <hr className="dotted-line mb-2" />
         
-
+        {/* Question image container with aspect ratio */}
+        {currentQuestion.image && (
+          <div className="relative w-3/4 mx-auto h-40 overflow-hidden">
+              <div className="absolute inset-0 m-auto aspect-[4/3] h-full">
+                <img
+                  src={currentQuestion.image}
+                  alt={currentQuestion.text + '圖片'} 
+                  className="w-full h-full top-1/2 left-1/2 object-cover"
+                />
+              </div>
+          </div>
+        )}
 
         {/* Question */}
         <motion.div 
