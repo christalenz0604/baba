@@ -66,12 +66,10 @@ const ResultsScreen: React.FC = () => {
   const shareText = `該如何在立法院生存呢？\n一起來玩小遊戲吧！\n立法院生存指南上線囉！`;
 
   const handleScreenshotShare = async () => {
-    if (resultsRef.current) {
-      const canvas = await html2canvas(resultsRef.current);
-      const dataUrl = canvas.toDataURL('image/png');
-      setScreenshotUrl(dataUrl);
-      setShowShare(true);
-    }
+    const canvas = await html2canvas(document.body); // 你可以改成特定區域
+    const dataUrl = canvas.toDataURL();
+    setScreenshotUrl(dataUrl);
+    setShowShare(true); // 觸發打開 ShareDropdown
   };
 
 
@@ -120,13 +118,14 @@ const ResultsScreen: React.FC = () => {
 
         <div className="flex items-center justify-center gap-6 mt-6">
           <motion.button
-            onClick={() => {
-                if (showShare) {
-                    setShowShare(false);
-                } else {
-                    handleScreenshotShare();
-                }
+            onClick={async () => {
+              if (showShare) {
+                setShowShare(false); // 關閉分享選單
+              } else {
+                await handleScreenshotShare(); // 先截圖 → 再開啟分享
+              }
             }}
+
             className="px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 shadow"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -149,8 +148,9 @@ const ResultsScreen: React.FC = () => {
             <ShareDropdown
               shareUrl={shareUrl}
               shareText={shareText}
-              autoExpand={true}
               imageData={screenshotUrl}
+              open={showShare}
+              setOpen={setShowShare}
             />
           </div>
         )}

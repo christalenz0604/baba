@@ -7,8 +7,19 @@ import {
 } from 'react-icons/fa';
 import { FaThreads } from 'react-icons/fa6';
 
-const ShareDropdown = ({ shareUrl, shareText, autoExpand, imageData }) => {
-  const [open, setOpen] = useState(autoExpand || false);
+const ShareDropdown = ({
+  shareUrl,
+  shareText,
+  imageData,
+  onOpenChange,
+  open: controlledOpen,
+  setOpen: setControlledOpen
+}) => {
+  const isControlled = controlledOpen !== undefined && setControlledOpen !== undefined;
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
+  const open = isControlled ? controlledOpen : uncontrolledOpen;
+  const setOpen = isControlled ? setControlledOpen : setUncontrolledOpen;
+
   const [showIGModal, setShowIGModal] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -25,6 +36,12 @@ const ShareDropdown = ({ shareUrl, shareText, autoExpand, imageData }) => {
   const quote = shareText;
   const hashtag = "#派對遊戲";
 
+
+
+  useEffect(() => {
+    if (onOpenChange) onOpenChange(open);
+  }, [open, onOpenChange]);
+  
   const handleFacebookShare = () => {
     let url = '';
     setOpen(false);
