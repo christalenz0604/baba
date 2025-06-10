@@ -201,7 +201,6 @@ const QuestionScreen: React.FC = () => {
 
         <AnimatePresence mode="wait">
           <motion.div
-            onclick=""
             key={`options-${questionKey}`}
             className="w-3/4 mx-auto space-y-4"
             initial={{ opacity: 0 }}
