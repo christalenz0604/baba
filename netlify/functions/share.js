@@ -26,11 +26,13 @@ exports.handler = async (event) => {
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://playbaba.tw/share/${id}" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta http-equiv="refresh" content="0; url=/" />
   <title>${title}</title>
 </head>
 <body>
   <p>Redirecting...</p>
+  <script>
+    window.location.replace("/");
+  </script>
 </body>
 </html>`;
 
