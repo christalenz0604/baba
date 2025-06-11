@@ -68,7 +68,7 @@ const QuestionScreen: React.FC = () => {
             </div>
           </div>
           <div className="flex shrink-0">
-            <ScorePaperProps score={gameState.score} maxScore={maxScore} />
+            <ScorePaperProps score={gameState.score} maxScore={maxScore} level={gameState.currentQuestionIndex+1} />
           </div>
         </div>
 

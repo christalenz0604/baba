@@ -60,19 +60,19 @@ const CharacterSelection: React.FC = () => {
             <div className="relative w-3/4 p-5 mx-auto text-center">
               <button
                 onClick={prev}
-                className="absolute left-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
+                className="absolute left-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-20 bg-no-repeat bg-contain bg-center"
 
                 aria-label="Previous character"
-                style={{ backgroundImage: `url('/images/arrow_L.png')` }}
+                style={{ backgroundImage: `url('/images/arrow_L.gif')` }}
               >
                 {/* <ChevronLeft className="w-6 h-6 text-gray-600" /> */}
               </button>
 
               <button
                 onClick={next}
-                className="absolute right-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-10 bg-no-repeat bg-contain bg-center"
+                className="absolute right-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-20 bg-no-repeat bg-contain bg-center"
                 aria-label="Next character"
-                style={{ backgroundImage: `url('/images/arrow_R.png')` }}
+                style={{ backgroundImage: `url('/images/arrow_R.gif')` }}
               >
                 {/* <ChevronRight className="w-6 h-6 text-gray-600" /> */}
               </button>
