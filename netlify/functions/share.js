@@ -11,12 +11,14 @@ exports.handler = async (event) => {
   const title = '【國會派對：生存之亂】';
   const description = '在黨意與民意之間，你會怎麼選擇？朝小野大的全新國會正式拉開序幕，快來挑戰，你能活到第幾關？';
   const image = imageMap['default'];
+  const app_id = '656281544074641'
 
   const html = `
     <!DOCTYPE html>
     <html lang="zh-Hant">
     <head>
       <meta charset="UTF-8" />
+      <meta property="fb:app_id" content="${app_id}" />
       <meta property="og:title" content="${title}" />
       <meta property="og:description" content="${description}" />
       <meta property="og:image" content="${image}" />
