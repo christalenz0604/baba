@@ -54,7 +54,7 @@ const QuestionScreen: React.FC = () => {
   const maxScore = 200;
 
   return (
-    <div className="h-screen bg-contain bg-[url('/images/background_event.png')] bg-repeat-x bg-top py-6 px-4 font-pixel">
+    <div className="min-h-screen bg-[url('/images/background_event.png')] bg-repeat-x bg-[length:auto_100%] bg-top bg-local py-6 px-4 font-pixel">
       <div className="max-w-xl mx-auto">
         <div className="flex flex-row justify-between items-center flex-wrap">
           <div className="flex items-center mr-4">

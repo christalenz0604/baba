@@ -18,7 +18,7 @@ const CharacterSelection: React.FC = () => {
 
   const character = characters[currentIndex];
   return (
-    <div className="min-h-screen bg-contain bg-[url('/images/background.png')] bg-repeat-x bg-top py-6 px-4">
+    <div className="min-h-screen bg-[url('/images/background.png')] bg-repeat-x bg-[length:auto_100%] bg-top bg-local py-6 px-4 font-pixel">
       <div className="max-w-4xl mx-auto">
         <motion.h1
           className="text-3xl md:text-4xl font-pixel font-bold text-center text-indigo-800 mb-2"
@@ -38,10 +38,10 @@ const CharacterSelection: React.FC = () => {
 
             <div className="p-2 font-pixel dialog-box">
               {/* 四個角的圖片 */}
-              <img src="/images/corner_LT.png"     className="absolute top-0 left-0 w-20 h-20" alt="Top Left" />
-              <img src="/images/corner_RT.png"    className="absolute top-0 right-0 w-20 h-20" alt="Top Right" />
-              <img src="/images/corner_LB.png"  className="absolute bottom-0 left-0 w-20 h-20" alt="Bottom Left" />
-              <img src="/images/corner_RB.png" className="absolute bottom-0 right-0 w-20 h-20" alt="Bottom Right" />
+              <img src="/images/corner_LT.png"     className="absolute top-0 left-0 w-20 h-20 corner-img" alt="Top Left" />
+              <img src="/images/corner_RT.png"    className="absolute top-0 right-0 w-20 h-20 corner-img" alt="Top Right" />
+              <img src="/images/corner_LB.png"  className="absolute bottom-0 left-0 w-20 h-20 corner-img" alt="Bottom Left" />
+              <img src="/images/corner_RB.png" className="absolute bottom-0 right-0 w-20 h-20 corner-img" alt="Bottom Right" />
 
               {/* 中間文字 */}
               <p className="text-gray-600 p-2" style={{ whiteSpace: 'pre-line' }}>{character.description}</p>

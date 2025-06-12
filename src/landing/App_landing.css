@@ -15,10 +15,21 @@ html, body, #root, #root > * {
 
 .container_landing {
   position: relative;
-  width: 100%;
-  height: 100%;
-  /* overflow: hidden; ✅ 不允許滾動 */
-  background-color: #FFFFFF;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 新增的最底層布幕背景 */
+.container_landing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("images/background_landing.png");
+  background-repeat: repeat-x;         /* 水平重複 */
+  background-size: auto 100%;          /* 自動寬度，但高度填滿畫面 */
+  background-position: bottom left;    /* 從左下角開始貼圖 */
+  z-index: -2;                          /* 最底層 */
 }
 
 .background {
@@ -28,8 +39,8 @@ html, body, #root, #root > * {
   width: 60%;
   height: auto;
   transform: translate(-50%, -50%);
-  object-fit: contain;
-  z-index: 0;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .foreground {
@@ -42,7 +53,6 @@ html, body, #root, #root > * {
   align-items: center;
   justify-content: flex-end;
   pointer-events: none; /* 不吃點擊事件 */
-  color: white;
   text-shadow: 1px 1px 4px black;
 }
 
@@ -60,6 +70,7 @@ html, body, #root, #root > * {
   white-space: pre-line;
   pointer-events: auto;
   color: #0044BB;
+  text-shadow: none; /* ← 這行會取消繼承的陰影效果 */
 }
 
 .prompt {
