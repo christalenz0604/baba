@@ -36,7 +36,7 @@ html, body, #root, #root > * {
   position: absolute;
   top: 40%;
   left: 50%;
-  width: 60%;
+  width: 50%;
   height: auto;
   transform: translate(-50%, -50%);
   object-fit: cover;
@@ -96,7 +96,7 @@ html, body, #root, #root > * {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 397px) {
   .text {
     font-size: 16px;
   }
