@@ -46,7 +46,7 @@ html, body, #root, #root > * {
 .foreground {
   position: absolute;
   z-index: 1;
-  bottom: 80px; /* 距離底部一段空間 */
+  bottom: 15%; /* 距離底部一段空間 */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -57,13 +57,13 @@ html, body, #root, #root > * {
 }
 
 .gif {
-  width: 150px;
+  width: 10%;
   margin-bottom: 20px;
   pointer-events: auto; /* 若你想讓 GIF 可點擊 */
 }
 
 .text {
-  font-size: 14px;
+  font-size: 24px;
   font-family: 'Unifont-JP', monospace;
   text-align: center;
   line-height: 1.6;
@@ -87,6 +87,7 @@ html, body, #root, #root > * {
   .background {
     width: 95vw;         /* 手機更寬一點 */
     max-width: none;     /* 不限制最大寬度 */
+
   }
   .text {
     font-size: 18px;
@@ -101,6 +102,17 @@ html, body, #root, #root > * {
     font-size: 16px;
   }
 }
+
+@media (min-height: 1150px) {
+  .background {
+    width:95vw;
+    max-width: none;
+  }
+  .gif {
+	width: 20%;
+  }
+}
+
 
 
 /* 桌機更大畫面 */
