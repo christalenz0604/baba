@@ -103,6 +103,12 @@ html, body, #root, #root > * {
   }
 }
 
+@media (max-width: 350px) {
+  .text {
+    font-size: 14px;
+  }
+}
+
 @media (min-height: 1150px) {
   .background {
     width:95vw;
