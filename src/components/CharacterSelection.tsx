@@ -19,13 +19,14 @@ const CharacterSelection: React.FC = () => {
   const character = characters[currentIndex];
 
   return (
-    <div className="h-screen flex flex-col items-center justify-start bg-[url('/images/background.png')] bg-repeat-x bg-[length:auto_100%] bg-top bg-local font-pixel relative">
+    <div className="min-h-screen flex flex-col items-center justify-start bg-[url('/images/background.png')] bg-repeat-x bg-[length:auto_100%] bg-top bg-scroll font-pixel relative">
+
       
       {/* ✅ 固定 logo */}
       <img
         src="/images/logo.png"
         alt="logo"
-        className="h-1/4 w-auto my-4"
+        className="mx-auto w-80 h-auto my-4"
       />
 
       {/* ✅ 下方角色選擇區 */}
