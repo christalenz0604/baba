@@ -18,7 +18,7 @@ const CharacterSelection: React.FC = () => {
 
   const character = characters[currentIndex];
   return (
-    <div className="min-h-screen bg-[url('/images/background.png')] bg-repeat-x bg-[length:auto_100%] bg-top bg-local py-6 px-4 font-pixel">
+    <div className="h-screen overflow-hidden flex flex-col items-center justify-center bg-[url('/images/background.png')] bg-repeat-x bg-[length:auto_100%] bg-top bg-local font-pixel">
       <div className="max-w-4xl mx-auto">
         <motion.h1
           className="text-3xl md:text-4xl font-pixel font-bold text-center text-indigo-800 mb-2"
@@ -26,7 +26,7 @@ const CharacterSelection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <img src="/images/logo.png" alt="logo" className="mx-auto w-1/2 h-auto" />
+          <img src="/images/logo.png" alt="logo" className="mx-auto w-2/5 h-auto mb-2" />
         </motion.h1>
 
         <div className="relative max-w-md mx-auto">
