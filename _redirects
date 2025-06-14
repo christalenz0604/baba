@@ -1,0 +1,2 @@
+/share/:id   /.netlify/functions/share  200
+/              /.netlify/functions/home   200
