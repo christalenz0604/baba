@@ -1,0 +1,4 @@
+/* src/global.css */
+body.no-hover *:hover {
+  all: unset !important;
+}

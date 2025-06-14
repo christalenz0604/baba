@@ -29,7 +29,7 @@ function Landing() {
   useEffect(() => {
     if (clicked) {
       // 這裡可以替換成 window.location.href 或 navigate()
-      window.location.href = '/baba_test/#/main'; // ← 替換成你要導向的路徑
+      window.location.href = '/#/main'; // ← 替換成你要導向的路徑
     }
   }, [clicked]);
 
@@ -41,16 +41,16 @@ function Landing() {
 
   return (
     <div className="container_landing" onClick={handleClick}>
-      <img src="images/議場.png" alt="背景圖" className="background" />
-      <div className="foreground">
-        <img src="images/藍委跑步.gif" alt="動畫" className="gif" />
-        <div className="text">
-          {text.split('\n').map((line, idx) => (
-            <div key={idx}>{line}</div>
-          ))}
-          {allowClick && <div className="prompt">點擊任一處繼續</div>}
+        <img src="images/議場.gif" alt="背景圖" className="background" />
+        <div className="foreground">
+            <img src="images/藍委跑步.gif" alt="動畫" className="gif" />
+            <div className="text">
+                {text.split('\n').map((line, idx) => (
+                    <div key={idx}>{line}</div>
+                ))}
+                {allowClick && <div className="prompt">點擊任一處繼續</div>}
+            </div>
         </div>
-      </div>
     </div>
   );
 }

@@ -15,39 +15,49 @@ html, body, #root, #root > * {
 
 .container_landing {
   position: relative;
-  width: 100%;
-  height: 100%;
-  /* overflow: hidden; ✅ 不允許滾動 */
-  background-color: #909090;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 新增的最底層布幕背景 */
+.container_landing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("images/background_landing.png");
+  background-repeat: repeat-x;         /* 水平重複 */
+  background-size: auto 100%;          /* 自動寬度，但高度填滿畫面 */
+  background-position: bottom left;    /* 從左下角開始貼圖 */
+  z-index: -2;                          /* 最底層 */
 }
 
 .background {
   position: absolute;
   top: 40%;
   left: 50%;
-  width: 60%;
+  width: 50%;
   height: auto;
   transform: translate(-50%, -50%);
-  object-fit: contain;
-  z-index: 0;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .foreground {
   position: absolute;
   z-index: 1;
-  bottom: 80px; /* 距離底部一段空間 */
+  bottom: 15%; /* 距離底部一段空間 */
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   pointer-events: none; /* 不吃點擊事件 */
-  color: white;
   text-shadow: 1px 1px 4px black;
 }
 
 .gif {
-  width: 150px;
+  width: 10%;
   margin-bottom: 20px;
   pointer-events: auto; /* 若你想讓 GIF 可點擊 */
 }
@@ -59,6 +69,8 @@ html, body, #root, #root > * {
   line-height: 1.6;
   white-space: pre-line;
   pointer-events: auto;
+  color: #0044BB;
+  text-shadow: none; /* ← 這行會取消繼承的陰影效果 */
 }
 
 .prompt {
@@ -66,6 +78,54 @@ html, body, #root, #root > * {
   font-size: 18px;
   opacity: 0.8;
   animation: blink 1.2s steps(2, start) infinite;
+}
+
+
+
+/* 平板以上再覆蓋 */
+@media (max-width: 768px) {
+  .background {
+    width: 95vw;         /* 手機更寬一點 */
+    max-width: none;     /* 不限制最大寬度 */
+
+  }
+  .text {
+    font-size: 18px;
+  }
+  .gif {
+    width: 100px;
+  }
+}
+
+@media (max-width: 397px) {
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 350px) {
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media (min-height: 1150px) {
+  .background {
+    width:95vw;
+    max-width: none;
+  }
+  .gif {
+	width: 20%;
+  }
+}
+
+
+
+/* 桌機更大畫面 */
+@media (min-width: 1200px) {
+  .text {
+    font-size: 24px;
+  }
 }
 
 @keyframes blink {

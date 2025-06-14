@@ -4,6 +4,7 @@ import { HashRouter } from 'react-router-dom';
 
 import Home from './Home.tsx';
 import './index.css';
+import './global.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
