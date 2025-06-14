@@ -12,6 +12,7 @@ const ResultsScreen: React.FC = () => {
   if (!character) return null;
   
  
+ 
   // Get Result Page Title if gameState.score is the same as the character's score show Sucessed if not show Failed
   const getResult = () => {
     const score = gameState.score;
@@ -33,19 +34,19 @@ const ResultsScreen: React.FC = () => {
   const getPaperCountImage = () => {
     const score = gameState.score;
     const characterScore = character.score;
-    if (score === characterScore) return "/images/results/statement_lv3.png";
-    if (score < 100) return "/images/results/statement_lv1.png";
-    return "/images/results/statement_lv2.png";
+    if (score === characterScore) return "/baba_test/images/result_staement_lv3.png";
+    if (score < 100) return "/baba_test/images/result_staement_lv1.png";
+    return "/baba_test/images/result_staement_lv2.png";
   };
 
   const getResultTitleImage = () => {
     const score = gameState.score;
     const characterScore = character.score;
-    if (score === characterScore) return "/images/results/result_prettyName_Lv5.png";
-    if (score < 100) return "/images/results/result_prettyName_Lv1.png";
-    if (score < 1000) return "/images/results/result_prettyName_Lv2.png";
-    if (score < 10000) return "/images/results/result_prettyName_Lv3.png";
-    return "/images/results/result_prettyName_Lv4.png";
+    if (score === characterScore) return "/baba_test/images/result_prettyName_Lv5.png";
+    if (score < 100) return "/baba_test/images/result_prettyName_Lv1.png";
+    if (score < 1000) return "/baba_test/images/result_prettyName_Lv2.png";
+    if (score < 10000) return "/baba_test/images/result_prettyName_Lv3.png";
+    return "/baba_test/images/result_prettyName_Lv4.png";
   };
   const getResultTitle = () => {
     const score = gameState.score;
@@ -173,54 +174,64 @@ const ResultsScreen: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-contain bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
+    <div className="min-h-screen bg-contain bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4" >
       <div className="max-w-4xl mx-auto" >
         <motion.div
-          className="flex flex-col bg-white rounded-0 overflow-hidden justify-center my-4 py-8"
+          className="flex flex-col rounded-0 overflow-hidden justify-center my-4 relative"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-      <div className="flex items-center w-full justify-center">
-        <h3 className="text-xl font-semibold text-indigo-700 mb-2">{getResult()}</h3>
+      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-full z-10 justify-center ${getResult() === "成功" ? "bg-[url('/baba_test/images/title_Ribbon_Win.png')]" : "bg-[url('/baba_test/images/title_Ribbon_Fail.png')]"} bg-cover`}>
+        <img src={getResult() === "成功" ? "/baba_test/images/title_Win.png" : "/baba_test/images/title_Fail.png"} alt="" className="w-1/3 h-auto object-cover content-center mx-auto" /> 
       </div>
-      <div className="flex items-center w-full justify-center bg-red-500">
-
+      <div className={`flex flex-col items-center w-full justify-center z-0 ${getResult() === "成功" ? "bg-[url('/baba_test/images/result_Board_phoneSize_Win.png')]" : "bg-[url('/baba_test/images/result_Board_phoneSize_Fail.png')]"} bg-cover relative`}>
           <div className="flex flex-row items-center mb-4 w-full justify-center">
-            <div className="flex w-12 h-12 rounded-full overflow-hidden border-2 border-indigo-500 mr-4">
+            <div className="flex w-1/2 h-auto rounded-full overflow-hidden border-2 border-indigo-500">
               <img src={getResultCharacterImage()} alt={character.name} className="w-full h-full object-cover" />
             </div>
-            <div className="flex">
-              <p className="w-full text-gray-600">你扮演的立委是：</p>
-              <h3 className="font-semibold text-lg text-gray-800">{character.name}</h3>
+            <div className="flex flex-col w-1/2 h-auto">
+              <p className="flex w-full text-gray-200">你扮演的立委是：</p>
+              <h3 className="flex font-semibold text-lg text-white">{character.name}</h3>
             </div>
           </div>
 
-          <div className="w-full">
-            <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
-              <div className="flex items-center mb-2">
-                <img src={getPaperCountImage()} alt="" />
+          <div className="w-full flex flex-col">
+            <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-2">
+              <div className="flex items-center mb-2 w-1/2 h-auto">
+                <img src={getPaperCountImage()} alt="" className="w-full h-full object-cover"/>
               </div>
-              <div className="flex">
-                <p className="font-medium text-gray-700">累積連署書</p>
-                <p className="text-2xl font-bold text-indigo-600">x {gameState.score}</p>
+              <div className="flex-col w-1/2">
+                <p className="flex font-medium text-gray-200">累積連署書</p>
+                <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
               </div>
             </div>
           </div>
 
-          <div className="w-full">
+          <div className="w-full flex flex-col">
             <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
-              <div className="flex items-center mb-2">
-                <img src={getResultTitleImage()} alt="" />
+              <div className="flex items-center mb-2 w-1/2 h-auto">
+                <img src={getResultTitleImage()} alt="" className="w-full h-full object-cover"/>
               </div>
-              <div className="flex">
-                <p className="font-medium text-gray-700">{getResultTitle()}</p>
-                <p className="text-2xl font-bold text-indigo-600">{getPersonalityTrait()}</p>
+              <div className="flex-col w-1/2">
+                <p className="flex font-medium text-gray-200">{getResultTitle()}</p>
+                <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
               </div>
             </div>
           </div>
          </div>
         </motion.div>
+        
+{/* add two buttons in a row. One is share and the other is restart. */}
+{/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
+        <div className="flex flex-row items-center mb-4 w-full justify-center">
+          <button className="font-medium w-1/2 h-1/2 mx-4">
+            <img src={getResult() === "成功" ? "/baba_test/images/btn_Share_Success.png" : "/baba_test/images/btn_Share_Fail.png"} alt="share" className="w-full h-full object-cover" />
+          </button>
+          <button className="font-medium w-1/2 h-1/2 mx-4">
+            <img src={getResult() === "成功" ? "/baba_test/images/btn_Tryagain_Success.png" : "/baba_test/images/btn_Tryagain_Fail.png"} alt="restart" className="w-full h-full object-cover" />
+          </button>
+        </div>
 
           {/* Email subscription form */}
           <div className="mb-6">
