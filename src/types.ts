@@ -5,6 +5,13 @@ export interface Character {
   avatar: string;
   description: string;
   questionSetId: string;
+  score: number;
+  resultCharacterImages: ResultCharacterImage;
+}
+export interface ResultCharacterImage {
+  success: string;
+  happy: string;
+  normal: string;
 }
 
 export interface Option {
