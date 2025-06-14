@@ -16,15 +16,49 @@ const ResultsScreen: React.FC = () => {
   const character = gameState.selectedCharacter;
   if (!character) return null;
 
-  const getResultTitle = () => {
+  // Get Result Page Title if gameState.score is the same as the character's score show Sucessed if not show Failed
+  const getResult = () => {
     const score = gameState.score;
-    if (score < 30) return "阿罷";
-    if (score < 60) return "看罷";
-    if (score < 90) return "好罷";
-    if (score < 120) return "國安漏洞製造者";
-    return "天罷王";
+    const characterScore = character.score;
+    if (score === characterScore) return "成功";
+    return "失敗";
   };
 
+  //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
+  const getResultCharacterImage = () => {
+    const score = gameState.score;
+    const characterScore = character.score;
+    if (score === characterScore) return character.resultCharacterImages.success;
+    if (score < 100) return character.resultCharacterImages.happy;
+    return character.resultCharacterImages.normal;
+  };
+
+  //Get Paper Count Image if score is less than 100 show 100.png if the score is between 100 and character.score show 10000.png if the score is between 10000 and character.score show 100000.png
+  const getPaperCountImage = () => {
+    const score = gameState.score;
+    const characterScore = character.score;
+    if (score === characterScore) return "/images/results/statement_lv3.png";
+    if (score < 100) return "/images/results/statement_lv1.png";
+    return "/images/results/statement_lv2.png";
+  };
+
+  const getResultTitleImage = () => {
+    const score = gameState.score;
+    const characterScore = character.score;
+    if (score === characterScore) return "/images/results/result_prettyName_Lv5.png";
+    if (score < 100) return "/images/results/result_prettyName_Lv1.png";
+    if (score < 1000) return "/images/results/result_prettyName_Lv2.png";
+    if (score < 10000) return "/images/results/result_prettyName_Lv3.png";
+    return "/images/results/result_prettyName_Lv4.png";
+  };
+  const getResultTitle = () => {
+    const score = gameState.score;
+    if (score < 100) return "選區裝飾品";
+    if (score < 500) return "提案複製機";
+    if (score < 1000) return "政黨特攻隊長";
+    if (score < 5000) return "國安漏洞製造者";
+    if (score < 10000) return "賣台第一把交椅";
+  };
   const getPersonalityTrait = () => {
     const characterType = character.id;
     const score = gameState.score;
@@ -146,20 +180,21 @@ const ResultsScreen: React.FC = () => {
     <div className="min-h-screen bg-contain bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
       <div className="max-w-4xl mx-auto" ref={resultsRef}>
         <motion.div
-          className="flex flex-col bg-red-500 rounded-0 overflow-hidden justify-center my-4 py-8"
+          className="flex flex-col bg-white rounded-0 overflow-hidden justify-center my-4 py-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center w-full justify-center">
-            <h3 className="text-xl font-semibold text-indigo-700 mb-2">{getResultTitle()}</h3>
-          </div>
+      <div className="flex items-center w-full justify-center">
+        <h3 className="text-xl font-semibold text-indigo-700 mb-2">{getResult()}</h3>
+      </div>
+      <div className="flex items-center w-full justify-center bg-red-500">
 
           <div className="flex flex-row items-center mb-4 w-full justify-center">
-            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-indigo-500 mr-4">
-              <img src={character.avatar} alt={character.name} className="w-full h-full object-cover" />
+            <div className="flex w-12 h-12 rounded-full overflow-hidden border-2 border-indigo-500 mr-4">
+              <img src={getResultCharacterImage()} alt={character.name} className="w-full h-full object-cover" />
             </div>
-            <div>
+            <div className="flex">
               <p className="w-full text-gray-600">你扮演的立委是：</p>
               <h3 className="font-semibold text-lg text-gray-800">{character.name}</h3>
             </div>
@@ -168,20 +203,27 @@ const ResultsScreen: React.FC = () => {
           <div className="w-full">
             <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
               <div className="flex items-center mb-2">
-                <img src="" alt="" />
+                <img src={getPaperCountImage()} alt="" />
               </div>
               <div className="flex">
-                <p className="font-medium text-gray-700">人民累積的怒氣值 x </p>
-                <p className="text-2xl font-bold text-indigo-600">{gameState.score}</p>
+                <p className="font-medium text-gray-700">累積連署書</p>
+                <p className="text-2xl font-bold text-indigo-600">x {gameState.score}</p>
               </div>
             </div>
           </div>
 
-          <div className="w-full mx-4 my-4">
-            <div className="flex flex-row justify-center items-center">
-              <p className="flex justify-center text-gray-700">{getPersonalityTrait()}</p>
+          <div className="w-full">
+            <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
+              <div className="flex items-center mb-2">
+                <img src={getResultTitleImage()} alt="" />
+              </div>
+              <div className="flex">
+                <p className="font-medium text-gray-700">{getResultTitle()}</p>
+                <p className="text-2xl font-bold text-indigo-600">{getPersonalityTrait()}</p>
+              </div>
             </div>
           </div>
+         </div>
         </motion.div>
 
         <div className="flex items-center justify-center gap-6 mt-6">
