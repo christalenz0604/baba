@@ -233,27 +233,36 @@ const ResultsScreen: React.FC = () => {
           </button>
         </div>
 
+{/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
           {/* Email subscription form */}
-          <div className="mb-6">
-            <div className="p-4">
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">
-                想收到更多相關資訊嗎？
-              </h4>
+          <div className={`flex flex-row items-center w-full justify-center ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
+            <div className=" flex p-4">
+              <div className="flex w-1/5 h-auto">
+                <img src="/baba_test/images/logo.png" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex flex-col w-4/5 h-auto">
+              {/* 台派寶寶 */}
+              <div className="flex flex-row w-full h-auto">
+                <button className="flex w-1/5 h-auto result-bb-images"></button>
+                <h4 className="flex text-lg font-semibold text-white mb-2">
+                  想收到更多相關資訊嗎？
+                </h4>
+              </div>
               <div className="flex gap-2">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="請輸入您的 Email"
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <button
                   onClick={handleSubmitEmail}
                   disabled={isSubmitting || !email}
-                  className={`px-4 py-2 rounded-lg font-medium ${
+                  className={`px-4 py-2 font-medium ${
                     isSubmitting || !email
-                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                      ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                      : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
                   }`}
                 >
                   {isSubmitting ? '提交中...' : '訂閱'}
@@ -270,6 +279,7 @@ const ResultsScreen: React.FC = () => {
                 </p>
               )}
             </div>
+          </div>
           </div>   
       </div>
     </div>

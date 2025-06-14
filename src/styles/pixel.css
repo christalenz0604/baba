@@ -107,3 +107,14 @@ hr.dotted-line {
     border-style: solid;
     color: white;
 }
+.result-bb-images{
+    background-image: url('/baba_test/images/result_bb.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.result-bb-images:hover{
+    background-image: url('/baba_test/images/result_bb_hover.png');
+}
