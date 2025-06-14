@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
+import html2canvas from 'html2canvas';
+import ShareDropdown from './ShareDropdown';
 
 const ResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [showShare, setShowShare] = useState(false);
+  const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
   const character = gameState.selectedCharacter;
-  
   if (!character) return null;
-  
- 
- 
+
   // Get Result Page Title if gameState.score is the same as the character's score show Sucessed if not show Failed
   const getResult = () => {
     const score = gameState.score;
