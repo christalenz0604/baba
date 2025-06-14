@@ -186,7 +186,7 @@ const ResultsScreen: React.FC = () => {
         <img src={getResult() === "成功" ? "/baba_test/images/title_Win.png" : "/baba_test/images/title_Fail.png"} alt="" className="w-1/3 h-auto object-cover content-center mx-auto" /> 
       </div>
       <div className={`flex flex-col items-center w-full justify-center z-0 ${getResult() === "成功" ? "bg-[url('/baba_test/images/result_Board_phoneSize_Win.png')]" : "bg-[url('/baba_test/images/result_Board_phoneSize_Fail.png')]"} bg-cover relative`}>
-          <div className="flex flex-row items-center mb-4 w-full justify-center">
+          <div className="flex flex-row items-center w-full justify-center px-2">
             <div className="flex w-1/2 h-auto rounded-full overflow-hidden border-2 border-indigo-500">
               <img src={getResultCharacterImage()} alt={character.name} className="w-full h-full object-cover" />
             </div>
@@ -196,7 +196,7 @@ const ResultsScreen: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col">
+          <div className="w-full flex flex-col px-2">
             <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-2">
               <div className="flex items-center mb-2 w-1/2 h-auto">
                 <img src={getPaperCountImage()} alt="" className="w-full h-full object-cover"/>
@@ -208,7 +208,7 @@ const ResultsScreen: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col">
+          <div className="w-full flex flex-col px-2">
             <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
               <div className="flex items-center mb-2 w-1/2 h-auto">
                 <img src={getResultTitleImage()} alt="" className="w-full h-full object-cover"/>
@@ -236,50 +236,51 @@ const ResultsScreen: React.FC = () => {
 {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
           {/* Email subscription form */}
           <div className={`flex flex-row items-center w-full justify-center ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
-            <div className=" flex p-4">
-              <div className="flex w-1/5 h-auto">
-                <img src="/baba_test/images/logo.png" className="w-full h-full object-cover" />
+            <div className="flex w-full">
+              <div className="flex-shrink-0 w-1/5 p-2">
+                <img src="/baba_test/images/logo.png" className="w-full h-full object-contain" />
               </div>
-              <div className="flex flex-col w-4/5 h-auto">
-              {/* 台派寶寶 */}
-              <div className="flex flex-row w-full h-auto">
-                <button className="flex w-1/5 h-auto result-bb-images"></button>
-                <h4 className="flex text-lg font-semibold text-white mb-2">
-                  想收到更多相關資訊嗎？
-                </h4>
+              <div className="flex flex-col w-4/5 p-2">
+                <div className="flex items-end w-full">
+                  <div className="flex w-1/4">
+                    <button className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb-images"></button>
+                  </div>
+                  <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
+                    想收到更多相關資訊嗎？
+                  </h4>
+                </div>
+                <div className="flex mt-2">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="請輸入您的 Email"
+                    className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  />
+                  <button
+                    onClick={handleSubmitEmail}
+                    disabled={isSubmitting || !email}
+                    className={`px-4 py-2 font-medium ${
+                      isSubmitting || !email
+                        ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                        : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
+                    }`}
+                  >
+                    {isSubmitting ? '提交中...' : '訂閱'}
+                  </button>
+                </div>
+                {submitStatus === 'success' && (
+                  <p className="mt-2 text-sm text-green-600">
+                    感謝訂閱！我們會寄送相關資訊給你。
+                  </p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="mt-2 text-sm text-red-600">
+                    抱歉，發生錯誤。請稍後再試。
+                  </p>
+                )}
               </div>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="請輸入您的 Email"
-                  className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-                <button
-                  onClick={handleSubmitEmail}
-                  disabled={isSubmitting || !email}
-                  className={`px-4 py-2 font-medium ${
-                    isSubmitting || !email
-                      ? 'bg-[#d7005c] text-white cursor-not-allowed'
-                      : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
-                  }`}
-                >
-                  {isSubmitting ? '提交中...' : '訂閱'}
-                </button>
-              </div>
-              {submitStatus === 'success' && (
-                <p className="mt-2 text-sm text-green-600">
-                  感謝訂閱！我們會寄送相關資訊給你。
-                </p>
-              )}
-              {submitStatus === 'error' && (
-                <p className="mt-2 text-sm text-red-600">
-                  抱歉，發生錯誤。請稍後再試。
-                </p>
-              )}
             </div>
-          </div>
           </div>   
       </div>
     </div>
