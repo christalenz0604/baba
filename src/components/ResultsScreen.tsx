@@ -174,7 +174,7 @@ const ResultsScreen: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-contain bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4" >
+    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? "bg-[url('/baba_test/images/result_bg_Win.png')]" : "bg-[url('/baba_test/images/result_bg_Fail.png')]"} bg-cover py-10 px-4`}>
       <div className="max-w-4xl mx-auto" >
         <motion.div
           className="flex flex-col rounded-0 overflow-hidden justify-center my-4 relative"
