@@ -4,6 +4,8 @@ import ScorePaperProps from './ScorePaperProps';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X } from "lucide-react";
 import { questionSets } from '../data/questions';
+import { getImagePath } from '../utils/pathUtils';
+
 
 const QuestionScreen: React.FC = () => {
   const { gameState, getCurrentQuestion, answerQuestion } = useGame();
@@ -85,7 +87,7 @@ const QuestionScreen: React.FC = () => {
             {Array(totalQuestions).fill(null).map((_, index) => (
               <img
                 key={index}
-                src={`/images/${index < gameState.currentQuestionIndex + 1 ? 'heart_red' : 'heart_white'}.png`}
+                src={getImagePath(`/images/${index < gameState.currentQuestionIndex ? 'heart_red' : 'heart_white'}.png`)}
                 alt={`Heart ${index + 1}`}
                 className="w-5 h-5 ml-1"
               />

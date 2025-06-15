@@ -3,6 +3,7 @@ import { characters } from '../data/characters';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { getImagePath } from '../utils/pathUtils';
 
 const CharacterSelection: React.FC = () => {
   const { selectCharacter } = useGame();
@@ -24,7 +25,7 @@ const CharacterSelection: React.FC = () => {
       
       {/* ✅ 固定 logo */}
       <img
-        src="/images/logo.png"
+        src={getImagePath('images/logo.png')}
         alt="logo"
         className="mx-auto w-80 h-auto my-4"
       />
@@ -39,10 +40,10 @@ const CharacterSelection: React.FC = () => {
           >
             <div className="p-2 font-pixel dialog-box relative">
               {/* 四個角圖片 */}
-              <img src="/images/corner_LT.png" className="absolute top-0 left-0 w-20 h-20 corner-img" alt="Top Left" />
-              <img src="/images/corner_RT.png" className="absolute top-0 right-0 w-20 h-20 corner-img" alt="Top Right" />
-              <img src="/images/corner_LB.png" className="absolute bottom-0 left-0 w-20 h-20 corner-img" alt="Bottom Left" />
-              <img src="/images/corner_RB.png" className="absolute bottom-0 right-0 w-20 h-20 corner-img" alt="Bottom Right" />
+              <img src={getImagePath('images/corner_LT.png')} className="absolute top-0 left-0 w-20 h-20 corner-img" alt="Top Left" />
+              <img src={getImagePath('images/corner_RT.png')} className="absolute top-0 right-0 w-20 h-20 corner-img" alt="Top Right" />
+              <img src={getImagePath('images/corner_LB.png')} className="absolute bottom-0 left-0 w-20 h-20 corner-img" alt="Bottom Left" />
+              <img src={getImagePath('images/corner_RB.png')} className="absolute bottom-0 right-0 w-20 h-20 corner-img" alt="Bottom Right" />
 
               <p className="text-gray-600 p-2" style={{ whiteSpace: 'pre-line' }}>
                 {character.description}
@@ -64,14 +65,14 @@ const CharacterSelection: React.FC = () => {
               onClick={prev}
               className="absolute left-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-20 bg-no-repeat bg-contain bg-center"
               aria-label="Previous character"
-              style={{ backgroundImage: `url('/images/arrow_L.gif')` }}
+              style={{ backgroundImage: `url(${getImagePath('images/arrow_L.gif')})` }}
             />
 
             <button
               onClick={next}
               className="absolute right-[-0.5rem] top-1/2 transform -translate-y-1/2 p-2 w-10 h-20 bg-no-repeat bg-contain bg-center"
               aria-label="Next character"
-              style={{ backgroundImage: `url('/images/arrow_R.gif')` }}
+              style={{ backgroundImage: `url(${getImagePath('images/arrow_R.gif')})` }}
             />
 
             {/* 選擇角色展示框 */}

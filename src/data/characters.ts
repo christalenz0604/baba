@@ -15,7 +15,6 @@ export const characters: Character[] = [
       success: getImagePath('/images/ChangChihLun_pic.png'),
       happy: getImagePath('/images/ChangChihLun_pic.png'),
       normal: getImagePath('/images/ChangChihLun_pic.png')
-
     }
   },
   {
