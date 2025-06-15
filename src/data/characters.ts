@@ -5,29 +5,29 @@ export const characters: Character[] = [
     id: 'ChangChihLun',//人物id
     name: '張智倫',
     districts:'新北市第8選區',
-    avatar: '/baba_test/images/ChangChihLun_pic.png',
+    avatar: '/images/ChangChihLun_pic.png?auto=compress&cs=tinysrgb&w=300',
     description: '張家二兒子，爸爸是張慶忠AKA半分鐘通過服貿那位。媽媽是陳錦錠，有時都分不清楚政績是媽媽的還是誰的。',
     questionSetId: 'ChangChihLun',//對應問題系列
     score: 36140,
     //images according to the score
     resultCharacterImages: {
-      success: '/images/ChangChihLun_pic.png',
-      happy: '/images/ChangChihLun_pic.png',
-      normal: '/images/ChangChihLun_pic.png'
+      success: '/images/ChangChihLun_pic.png?auto=compress&cs=tinysrgb&w=300',
+      happy: '/images/ChangChihLun_pic.png?auto=compress&cs=tinysrgb&w=300',
+      normal: '/images/ChangChihLun_pic.png?auto=compress&cs=tinysrgb&w=300'
     }
   },
   {
     id: 'linTeFu',//人物id
     name: '林德福',
     districts:'新北市第9選區',
-    avatar: '/images/linTeFu_pic.png',
+    avatar: '/images/linTeFu_pic.png?auto=compress&cs=tinysrgb&w=300',
     description: '在永和經歷過市議員市長到立法委員已超過30個年頭，讓永和人最有感的是在國會殿堂閉目養神',
     questionSetId: 'linTeFu',//對應問題系列
     score: 29474,
     resultCharacterImages: {
-      success: '/images/linTeFu_pic.png',
-      happy: '/images/linTeFu_pic.png',
-      normal: '/images/linTeFu_pic.png'
+      success: '/images/linTeFu_pic.png?auto=compress&cs=tinysrgb&w=300',
+      happy: '/images/linTeFu_pic.png?auto=compress&cs=tinysrgb&w=300',
+      normal: '/images/linTeFu_pic.png?auto=compress&cs=tinysrgb&w=300'
     }
   },
   //徐巧芯HSUCHIAOHSIN_題目OK
