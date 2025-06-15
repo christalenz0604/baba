@@ -189,6 +189,7 @@ const ResultsScreen: React.FC = () => {
         <img src={getResult() === "成功" ? "/baba_test/images/title_Win.png" : "/baba_test/images/title_Fail.png"} alt="" className="w-1/3 h-auto object-cover content-center mx-auto" /> 
       </div>
       <div className={`flex flex-col items-center w-full justify-center z-0 ${getResult() === "成功" ? "bg-[url('/baba_test/images/result_Board_phoneSize_Win.png')]" : "bg-[url('/baba_test/images/result_Board_phoneSize_Fail.png')]"} bg-cover relative`}>
+
           <div className="flex flex-row items-center w-full justify-center px-2">
             <div className="flex w-1/2 h-auto rounded-full overflow-hidden border-2 border-indigo-500">
               <img src={getResultCharacterImage()} alt={character.name} className="w-full h-full object-cover" />
@@ -228,13 +229,41 @@ const ResultsScreen: React.FC = () => {
 {/* add two buttons in a row. One is share and the other is restart. */}
 {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
         <div className="flex flex-row items-center mb-4 w-full justify-center">
-          <button className="font-medium w-1/2 h-1/2 mx-4">
-            <img src={getResult() === "成功" ? "/baba_test/images/btn_Share_Success.png" : "/baba_test/images/btn_Share_Fail.png"} alt="share" className="w-full h-full object-cover" />
-          </button>
-          <button className="font-medium w-1/2 h-1/2 mx-4">
+          <motion.button
+            onClick={async () => {
+              if (showShare) {
+                setShowShare(false); // 關閉分享選單
+              } else {
+                await handleScreenshotShare(); // 先截圖 → 再開啟分享
+              }
+            }}
+            className="font-medium w-1/2 h-1/2 mx-4"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+             <img src={getResult() === "成功" ? "/baba_test/images/btn_Share_Success.png" : "/baba_test/images/btn_Share_Fail.png"} alt="share" className="w-full h-full object-cover" />
+          </motion.button>
+
+          <motion.button
+            onClick={restartGame}
+            className="font-medium w-1/2 h-1/2 mx-4"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
             <img src={getResult() === "成功" ? "/baba_test/images/btn_Tryagain_Success.png" : "/baba_test/images/btn_Tryagain_Fail.png"} alt="restart" className="w-full h-full object-cover" />
-          </button>
+          </motion.button>
         </div>
+        {showShare && screenshotUrl && (
+          <div className="flex justify-center mt-4">
+            <ShareDropdown
+              shareUrl={shareUrl}
+              shareText={shareText}
+              imageData={screenshotUrl}
+              open={showShare}
+              setOpen={setShowShare}
+            />
+          </div>
+        )}
 
 {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
           {/* Email subscription form */}
@@ -242,6 +271,7 @@ const ResultsScreen: React.FC = () => {
             <div className="flex w-full">
               <div className="flex-shrink-0 w-1/5 p-2">
                 <img src="/baba_test/images/logo.png" className="w-full h-full object-contain" />
+
               </div>
               <div className="flex flex-col w-4/5 p-2">
                 <div className="flex items-end w-full">

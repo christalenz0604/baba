@@ -11,23 +11,24 @@ export const characters: Character[] = [
     score: 36140,
     //images according to the score
     resultCharacterImages: {
-      success: '/images/ChangChihLun_pic.png',
-      happy: '/images/ChangChihLun_pic.png',
-      normal: '/images/ChangChihLun_pic.png'
+      success: '/baba_test/images/ChangChihLun_pic.png',
+      happy: '/baba_test/images/ChangChihLun_pic.png',
+      normal: '/baba_test/images/ChangChihLun_pic.png'
+
     }
   },
   {
     id: 'linTeFu',//人物id
     name: '林德福',
     districts:'新北市第9選區',
-    avatar: '/images/linTeFu_pic.png',
+    avatar: '/baba_test/images/linTeFu_pic.png',
     description: '在永和經歷過市議員市長到立法委員已超過30個年頭，讓永和人最有感的是在國會殿堂閉目養神',
     questionSetId: 'linTeFu',//對應問題系列
     score: 29474,
     resultCharacterImages: {
-      success: '/images/linTeFu_pic.png',
-      happy: '/images/linTeFu_pic.png',
-      normal: '/images/linTeFu_pic.png'
+      success: '/baba_test/images/linTeFu_pic.png',
+      happy: '/baba_test/images/linTeFu_pic.png',
+      normal: '/baba_test/images/linTeFu_pic.png'
     }
   },
   //徐巧芯HSUCHIAOHSIN_題目OK
@@ -35,14 +36,14 @@ export const characters: Character[] = [
     id: 'HSUCHIAOHSIN',//人物id
     name: '徐巧芯',
     districts:'臺北市第7選區',
-    avatar: '/images/HSUCHIAOHSIN_pic.png?auto=compress&cs=tinysrgb&w=300',
+    avatar: '/baba_test/images/HSUCHIAOHSIN_pic.png?auto=compress&cs=tinysrgb&w=300',
     description: '我有中指，我驕傲！',
     questionSetId: 'HSUCHIAOHSIN',//對應問題系列
     score: 41201,
     resultCharacterImages: {
-      success: '/images/HSUCHIAOHSIN_pic.png?auto=compress&cs=tinysrgb&w=300',
-      happy: '/images/HSUCHIAOHSIN_pic.png?auto=compress&cs=tinysrgb&w=300',
-      normal: '/images/HSUCHIAOHSIN_pic.png?auto=compress&cs=tinysrgb&w=300'
+      success: '/baba_test/images/HSUCHIAOHSIN_pic.png?auto=compress&cs=tinysrgb&w=300',
+      happy: '/baba_test/images/HSUCHIAOHSIN_pic.png?auto=compress&cs=tinysrgb&w=300',
+      normal: '/baba_test/images/HSUCHIAOHSIN_pic.png?auto=compress&cs=tinysrgb&w=300'
     }
   },
   
