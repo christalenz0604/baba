@@ -107,14 +107,14 @@ hr.dotted-line {
     border-style: solid;
     color: white;
 }
-.result-bb-images{
-    background-image: url('/baba_test/images/result_bb.gif');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
+.result-bb {
+  background-image: url('/images/result_bb.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
-.result-bb-images:hover{
-    background-image: url('/baba_test/images/result_bb_hover.gif');
+.result-bb:hover {
+  background-image: url('/images/result_bb_hover.gif');
 }

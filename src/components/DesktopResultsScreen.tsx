@@ -5,7 +5,7 @@ import html2canvas from 'html2canvas';
 import ShareDropdown from './ShareDropdown';
 import { getImagePath } from '../utils/pathUtils';
 
-const ResultsScreen: React.FC = () => {
+const DesktopResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -321,4 +321,4 @@ const ResultsScreen: React.FC = () => {
   );
 };
 
-export default ResultsScreen;
+export default DesktopResultsScreen;

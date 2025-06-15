@@ -1,0 +1,17 @@
+:root {
+  --result-bb-image: url('/images/result_bb.gif');
+  --result-bb-hover-image: url('/images/result_bb_hover.gif');
+}
+
+.result-bb {
+  background-image: var(--result-bb-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.result-bb:hover {
+  background-image: var(--result-bb-hover-image);
+} 
