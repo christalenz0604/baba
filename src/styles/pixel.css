@@ -107,6 +107,17 @@ hr.dotted-line {
     border-style: solid;
     color: white;
 }
+.result-bb-images{
+    background-image: url('/images/result_bb.gif');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.result-bb-images:hover{
+    background-image: url('/images/result_bb_hover.gif');
+}
 
 .corner-img {
 	max-height: 30%;

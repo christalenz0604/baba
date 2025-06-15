@@ -20,6 +20,12 @@ const QuestionScreen: React.FC = () => {
   const totalQuestions = gameState.questionSetId ? questionSets[gameState.questionSetId].questions.length : 0;
 
   if (!currentQuestion || !character) return null;
+  
+  useEffect(() => {
+    setSelectedOption(null);
+    setShowPoints(false);
+  }, [currentQuestion.id]); // 或 currentQuestionIndex
+
 
   useEffect(() => {
     setSelectedOption(null);
