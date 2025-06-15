@@ -54,7 +54,7 @@ hr.dotted-line {
     border-top: 4px dashed rgb(226, 226, 226);
   }
 .office-character {
-    background-image: url('/images/office_bg.png');
+    background-image: url('/images/office_bg.gif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -97,7 +97,7 @@ hr.dotted-line {
     box-shadow: 2px 2px 0px #878787;
 } */
 .question-points-color{
-    color: #2ba242;
+    color: #d70c74;
 }
 .question-color{
     background-color: #0017c4;
@@ -106,4 +106,15 @@ hr.dotted-line {
     border-width: 8px;
     border-style: solid;
     color: white;
+}
+.result-bb-images{
+    background-image: url('/images/result_bb.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.result-bb-images:hover{
+    background-image: url('/images/result_bb_hover.gif');
 }

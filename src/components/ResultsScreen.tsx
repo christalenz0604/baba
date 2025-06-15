@@ -1,33 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
+import html2canvas from 'html2canvas';
+import ShareDropdown from './ShareDropdown';
 
 const ResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [showShare, setShowShare] = useState(false);
+  const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
   const character = gameState.selectedCharacter;
-  
   if (!character) return null;
-  
-  // Maximum possible score (for the tree visualization)
-  const maxScore = 200;
-  
-  // Determine result message based on score
+
+  // Get Result Page Title if gameState.score is the same as the character's score show Sucessed if not show Failed
+  const getResult = () => {
+    const score = gameState.score;
+    const characterScore = character.score;
+    if (score === characterScore) return "成功";
+    return "失敗";
+  };
+
+  //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
+  const getResultCharacterImage = () => {
+    const score = gameState.score;
+    const characterScore = character.score;
+    if (score === characterScore) return character.resultCharacterImages.success;
+    if (score < 100) return character.resultCharacterImages.happy;
+    return character.resultCharacterImages.normal;
+  };
+
+  //Get Paper Count Image if score is less than 100 show 100.png if the score is between 100 and character.score show 10000.png if the score is between 10000 and character.score show 100000.png
+  const getPaperCountImage = () => {
+    const score = gameState.score;
+    const characterScore = character.score;
+    if (score === characterScore) return "/images/result_staement_lv3.png";
+    if (score < 100) return "/images/result_staement_lv1.png";
+    return "/images/result_staement_lv2.png";
+  };
+
+  const getResultTitleImage = () => {
+    const score = gameState.score;
+    const characterScore = character.score;
+    if (score === characterScore) return "/images/result_prettyName_Lv5.png";
+    if (score < 100) return "/images/result_prettyName_Lv1.png";
+    if (score < 1000) return "/images/result_prettyName_Lv2.png";
+    if (score < 10000) return "/images/result_prettyName_Lv3.png";
+    return "/images/result_prettyName_Lv4.png";
+  };
   const getResultTitle = () => {
     const score = gameState.score;
-    //遊戲封號
-    if (score < 30) return "阿罷";
-    if (score < 60) return "看罷";
-    if (score < 90) return "好罷";
-    if (score < 120) return "國安漏洞製造者";
-    return "天罷王";
+    if (score < 100) return "選區裝飾品";
+    if (score < 500) return "提案複製機";
+    if (score < 1000) return "政黨特攻隊長";
+    if (score < 5000) return "國安漏洞製造者";
+    if (score < 10000) return "賣台第一把交椅";
   };
-  
-  // Get personality trait based on character type and score
-  // 需要跟 角色id 對照
-  // 角色murmur
   const getPersonalityTrait = () => {
     const characterType = character.id;
     const score = gameState.score;
@@ -36,7 +67,6 @@ const ResultsScreen: React.FC = () => {
       if (score < 10000) return "反正出來連署的民眾都不是中和人，對吧？";
       return "跟隨黨意做事犧牲人民權益，拿石頭砸自己腳，這款立委該罷！";
     }
-    
     if (characterType === 'linTeFu') {
       if (score < 100) return "不愧是20年老立委，黨與地方你都兼顧～";
       if (score < 10000) return "黨意需服從，民意又擋不住，你選擇再睡一下。";
@@ -107,147 +137,180 @@ const ResultsScreen: React.FC = () => {
       if (score < 10000) return "昏暗A柱連署快閃隊，連署書突然暴增，讓人防不勝防";
       return "民主絕命轟炸機，嘎啦嘎啦";
     }
+    return "該立委不予評論";
   };
 
   const handleSubmitEmail = async () => {
     if (!email || !character) return;
-    
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyF2RBHz_E88v6rEV1cZ3Rys7KOdWIXR8lqHcH94_o12OTAhCPKM6-pkEn8aOBRTUej1A/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbyF2RBHz_E88v6rEV1cZ3Rys7KOdWIXR8lqHcH94_o12OTAhCPKM6-pkEn8aOBRTUej1A/exec', {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email,
           character: character.name,
           score: gameState.score,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
         })
       });
-      
       setSubmitStatus('success');
-    } catch (error) {
-      console.error('Error submitting email:', error);
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const apiDomain = import.meta.env.VITE_API_DOMAIN;
+  const shareUrl = `${apiDomain}/share/default`;
+  const shareText = `該如何在立法院生存呢？\n一起來玩小遊戲吧！\n立法院生存指南上線囉！`;
+
+  const handleScreenshotShare = async () => {
+    const canvas = await html2canvas(document.body); // 你可以改成特定區域
+    const dataUrl = canvas.toDataURL();
+    setScreenshotUrl(dataUrl);
+    setShowShare(true); // 觸發打開 ShareDropdown
+  };
+
+
   return (
-    <div className="min-h-screen bg-contain bg-gradient-to-b from-blue-50 to-indigo-100 py-10 px-4">
-      <div className="max-w-4xl mx-auto">
-        <motion.div 
-          className="flex flex-col bg-red-500 rounded-0 overflow-hidden justify-center my-4 py-8"
+    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? "bg-[url('/images/result_bg_Win.png')]" : "bg-[url('/images/result_bg_Fail.png')]"} bg-cover py-10 px-4`}>
+      <div className="max-w-4xl mx-auto" >
+        <motion.div
+          className="flex flex-col rounded-0 overflow-hidden justify-center my-4 relative"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-            {/* 封號、關於本立委的murmur */}
-            <div className="flex items-center w-full justify-center">
-                <h3 className="text-xl font-semibold text-indigo-700 mb-2">
-                  {getResultTitle()}
-                </h3>
+      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-full z-10 justify-center ${getResult() === "成功" ? "bg-[url('/images/title_Ribbon_Win.png')]" : "bg-[url('/images/title_Ribbon_Fail.png')]"} bg-cover`}>
+        <img src={getResult() === "成功" ? "/images/title_Win.png" : "/images/title_Fail.png"} alt="" className="w-1/3 h-auto object-cover content-center mx-auto" /> 
+      </div>
+      <div className={`flex flex-col items-center w-full justify-center z-0 ${getResult() === "成功" ? "bg-[url('/images/result_Board_phoneSize_Win.png')]" : "bg-[url('/images/result_Board_phoneSize_Fail.png')]"} bg-cover relative`}>
+          <div className="flex flex-row items-center w-full justify-center px-2">
+            <div className="flex w-1/2 h-auto rounded-full overflow-hidden border-2 border-indigo-500">
+              <img src={getResultCharacterImage()} alt={character.name} className="w-full h-full object-cover" />
             </div>
-
-              {/* 角色 */}
-              <div className="flex flex-row items-center mb-4 w-full justify-center">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-indigo-500 mr-4">
-                  {/* 立委大頭 */}
-                  <img 
-                    src={character.avatar} 
-                    alt={character.name} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="w-full text-gray-600">你扮演的立委是：</p>
-                  <h3 className="font-semibold text-lg text-gray-800">{character.name}</h3>
-                </div>
-              </div>
-
-              <div className="w-full">
-                <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
-                  <div className="flex items-center mb-2">
-                  {/* 連署書圖 */}
-                    <img src="" alt="" />
-                  </div>
-                  <div className="flex ">
-                    <p className="font-medium text-gray-700">人民累積的怒氣值 x </p>
-                    <p className="text-2xl font-bold text-indigo-600">{gameState.score}</p>
-                  </div>
-                </div>
-              </div>
-              {/* murmur */}
-              <div className="w-full mx-4 my-4">
-                <div className="flex flex-row justify-center items-center">
-                  <p className="flex justify-center text-gray-700">{getPersonalityTrait()}</p>
-                </div>
-              </div>
-
-          </motion.div>
-          {/* 截圖分享 & 再玩一次 */}
-          <div className="flex items-between justify-center mx-4">
-            <motion.button
-              //onClick={shareGame} //截圖分享的函式
-              className="w-20 h-20 mx-4 py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              截圖分享
-            </motion.button>
-            
-            <motion.button
-              onClick={restartGame}
-              className="w-20 h-20 mx-4py-3 px-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              再玩一次
-            </motion.button>
+            <div className="flex flex-col w-1/2 h-auto">
+              <p className="flex w-full text-gray-200">你扮演的立委是：</p>
+              <h3 className="flex font-semibold text-lg text-white">{character.name}</h3>
+            </div>
           </div>
 
-          {/* Email subscription form */}
-          <div className="mb-6">
-            <div className="p-4">
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">
-                想收到更多相關資訊嗎？
-              </h4>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="請輸入您的 Email"
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-                <button
-                  onClick={handleSubmitEmail}
-                  disabled={isSubmitting || !email}
-                  className={`px-4 py-2 rounded-lg font-medium ${
-                    isSubmitting || !email
-                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      : 'bg-indigo-600 text-white hover:bg-indigo-700'
-                  }`}
-                >
-                  {isSubmitting ? '提交中...' : '訂閱'}
-                </button>
+          <div className="w-full flex flex-col px-2">
+            <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-2">
+              <div className="flex items-center mb-2 w-1/2 h-auto">
+                <img src={getPaperCountImage()} alt="" className="w-full h-full object-cover"/>
               </div>
-              {submitStatus === 'success' && (
-                <p className="mt-2 text-sm text-green-600">
-                  感謝訂閱！我們會寄送相關資訊給你。
-                </p>
-              )}
-              {submitStatus === 'error' && (
-                <p className="mt-2 text-sm text-red-600">
-                  抱歉，發生錯誤。請稍後再試。
-                </p>
-              )}
+              <div className="flex-col w-1/2">
+                <p className="flex font-medium text-gray-200">累積連署書</p>
+                <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full flex flex-col px-2">
+            <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
+              <div className="flex items-center mb-2 w-1/2 h-auto">
+                <img src={getResultTitleImage()} alt="" className="w-full h-full object-cover"/>
+              </div>
+              <div className="flex-col w-1/2">
+                <p className="flex font-medium text-gray-200">{getResultTitle()}</p>
+                <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
+              </div>
+            </div>
+          </div>
+         </div>
+        </motion.div>
+        
+{/* add two buttons in a row. One is share and the other is restart. */}
+{/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
+        <div className="flex flex-row items-center mb-4 w-full justify-center">
+          <motion.button
+            onClick={async () => {
+              if (showShare) {
+                setShowShare(false); // 關閉分享選單
+              } else {
+                await handleScreenshotShare(); // 先截圖 → 再開啟分享
+              }
+            }}
+            className="font-medium w-1/2 h-1/2 mx-4"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+             <img src={getResult() === "成功" ? "/images/btn_Share_Success.png" : "/images/btn_Share_Fail.png"} alt="share" className="w-full h-full object-cover" />
+          </motion.button>
+
+          <motion.button
+            onClick={restartGame}
+            className="font-medium w-1/2 h-1/2 mx-4"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <img src={getResult() === "成功" ? "/images/btn_Tryagain_Success.png" : "/images/btn_Tryagain_Fail.png"} alt="restart" className="w-full h-full object-cover" />
+          </motion.button>
+        </div>
+        {showShare && screenshotUrl && (
+          <div className="flex justify-center mt-4">
+            <ShareDropdown
+              shareUrl={shareUrl}
+              shareText={shareText}
+              imageData={screenshotUrl}
+              open={showShare}
+              setOpen={setShowShare}
+            />
+          </div>
+        )}
+
+{/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
+          {/* Email subscription form */}
+          <div className={`flex flex-row items-center w-full justify-center ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
+            <div className="flex w-full">
+              <div className="flex-shrink-0 w-1/5 p-2">
+                <img src="/images/logo.png" className="w-full h-full object-contain" />
+              </div>
+              <div className="flex flex-col w-4/5 p-2">
+                <div className="flex items-end w-full">
+                  <div className="flex w-1/4">
+                    <button className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb-images"></button>
+                  </div>
+                  <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
+                    想收到更多相關資訊嗎？
+                  </h4>
+                </div>
+                <div className="flex mt-2">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="請輸入您的 Email"
+                    className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  />
+                  <button
+                    onClick={handleSubmitEmail}
+                    disabled={isSubmitting || !email}
+                    className={`px-4 py-2 font-medium ${
+                      isSubmitting || !email
+                        ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                        : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
+                    }`}
+                  >
+                    {isSubmitting ? '提交中...' : '訂閱'}
+                  </button>
+                </div>
+                {submitStatus === 'success' && (
+                  <p className="mt-2 text-sm text-green-600">
+                    感謝訂閱！我們會寄送相關資訊給你。
+                  </p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="mt-2 text-sm text-red-600">
+                    抱歉，發生錯誤。請稍後再試。
+                  </p>
+                )}
+              </div>
             </div>
           </div>   
       </div>
