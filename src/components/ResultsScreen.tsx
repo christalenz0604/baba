@@ -198,8 +198,16 @@ const ResultsScreen: React.FC = () => {
 
 
   return (
-    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/result_bg_Win.png')}')]` : `bg-[url('${getImagePath('/images/result_bg_Fail.png')}')]`} bg-cover py-10 px-4`}>
-
+    <div
+      className="min-h-screen bg-contain bg-cover py-10 px-4"
+      style={{
+        backgroundImage: `url(${getImagePath(
+          getResult() === '成功'
+          ? '/images/result_bg_Win.png'
+          : '/images/result_bg_Fail.png'
+        )})`
+      }}
+    >
 
       <div className="fireworks-container" id="fireworks"></div>
       <canvas id="confetti"></canvas>

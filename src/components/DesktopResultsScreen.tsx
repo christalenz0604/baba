@@ -198,8 +198,17 @@ const DesktopResultsScreen: React.FC = () => {
 
   return (
     // bg image url 需要調整
-    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/result_bg_Win.png')}')]` : `bg-[url('${getImagePath('/images/result_bg_Fail.png')}')]`} bg-cover`}>
-
+    <div
+      className="min-h-screen bg-contain bg-cover py-4 px-4"
+      style={{
+        backgroundImage: `url(${getImagePath(
+          getResult() === '成功'
+          ? '/images/result_bg_Win.png'
+          : '/images/result_bg_Fail.png'
+        )})`
+      }}
+    >
+	
       <div className="fireworks-container" id="fireworks"></div>
       <canvas id="confetti"></canvas>
 
@@ -207,12 +216,12 @@ const DesktopResultsScreen: React.FC = () => {
 
       <div className="flex-frow max-w-4xl mx-auto" >
         <motion.div
-          className="flex flex-col rounded-0 overflow-hidden justify-center my-4 relative"
+          className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="relative flex justify-center items-center w-full h-[50px] mb-0 mt-10 overflow-visible">
+          <div className="relative flex justify-center items-center w-full mt-10 overflow-visible">
             {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
             <img
               src={getResult() === "成功" ? `${getImagePath('/images/title_Win.png')}` : `${getImagePath('/images/title_Fail.png')}`}
@@ -298,54 +307,53 @@ const DesktopResultsScreen: React.FC = () => {
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
       {/* add a div with a background color and a gradient to the bottom of the page */}
-      <div className={`w-full mt-auto mx-auto justify-center bg-gradient-to-b from-transparent via-transparent ${getResult() === "成功" ? "to-[#fe3427]/90" : "to-[#1f31fe]/90"} py-8`}>
-        <div className="flex max-w-4xl mx-auto">
+      <div className="relative w-full overflow-hidden" style={{ minHeight: '0vh' }}>
+      {/* Gradient background fixed to bottom to cover entire footer */}
+      <div
+        className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
+      ></div>
 
-          <div className="flex-shrink-0 w-1/5 p-2">
-            <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
-
-          </div>
-          <div className="flex flex-col w-4/5 p-2">
-            <div className="flex items-end w-full">
-              <div className="flex w-1/4">
-                <button className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
-              </div>
-              <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
-                想收到更多相關資訊嗎？
-              </h4>
+      {/* Footer subscription section */}
+      <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4">
+        <div className="flex-shrink-0 w-1/5 p-2">
+          <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
+        </div>
+        <div className="flex flex-col w-4/5 p-2">
+          <div className="flex items-end w-full">
+            <div className="flex w-1/4">
+              <button className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
             </div>
-            <div className="flex mt-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="請輸入您的 Email"
-                className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-              <button
-                onClick={handleSubmitEmail}
-                disabled={isSubmitting || !email}
-                className={`px-4 py-2 font-medium ${isSubmitting || !email
-                  ? 'bg-[#d7005c] text-white cursor-not-allowed'
-                  : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
-                  }`}
-              >
-                {isSubmitting ? '提交中...' : '訂閱'}
-              </button>
-            </div>
-            {submitStatus === 'success' && (
-              <p className="mt-2 text-sm text-green-600">
-                感謝訂閱！我們會寄送相關資訊給你。
-              </p>
-            )}
-            {submitStatus === 'error' && (
-              <p className="mt-2 text-sm text-red-600">
-                抱歉，發生錯誤。請稍後再試。
-              </p>
-            )}
+            <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
+              想收到更多相關資訊嗎？
+            </h4>
           </div>
+          <div className="flex mt-2">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="請輸入您的 Email"
+              className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <button
+              onClick={handleSubmitEmail}
+              disabled={isSubmitting || !email}
+              className={`px-4 py-2 font-medium ${isSubmitting || !email
+                ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                : 'bg-[#5b00d7] text-white hover:bg-indigo-700'}`}
+            >
+              {isSubmitting ? '提交中...' : '訂閱'}
+            </button>
+          </div>
+          {submitStatus === 'success' && (
+            <p className="mt-2 text-sm text-green-600">感謝訂閱！我們會寄送相關資訊給你。</p>
+          )}
+          {submitStatus === 'error' && (
+            <p className="mt-2 text-sm text-red-600">抱歉，發生錯誤。請稍後再試。</p>
+          )}
         </div>
       </div>
+    </div>
     </div >
   );
 };
