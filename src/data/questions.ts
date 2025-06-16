@@ -450,123 +450,143 @@ import { Question, QuestionSet } from '../types';
     const LaiShyhBaoQuestions: Question[] = [
       {
         id: 'LaiShyhBao1',
-        text: '面對執政黨各部長的強勢回應，你決定用魔法來對抗魔法。請問黑魔法的祈使句要怎麼啟動？',
-        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
-        options: [
-          { id: 'LaiShyhBao1-1', text: '嘎啦嘎啦', points: 10, isCorrect: true },
-          { id: 'LaiShyhBao1-2', text: '福利熊，熊福利', points: 5, isCorrect: false },
-          { id: 'LaiShyhBao1-3', text: '去去，武器走', points: 3, isCorrect: false },
-        ],
-      },
-      {
-        id: 'LaiShyhBao2',
-        text: '缺特色題2',
-        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
-        options: [
-          { id: 'LaiShyhBao2-1', text: 'Your intuition and feelings', points: 12, isCorrect: true },
-          { id: 'LaiShyhBao2-2', text: 'Creative problem-solving', points: 6, isCorrect: false },
-          { id: 'LaiShyhBao2-3', text: 'Logical analysis', points: 4, isCorrect: false },
-        ],
-      },
-      {
-        id: 'LaiShyhBao3',
-        text: '缺特色題3',
-        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
-        options: [
-          { id: 'LaiShyhBao3-1', text: 'Supportive and harmonious', points: 10, isCorrect: true },
-          { id: 'LaiShyhBao3-2', text: 'Innovative and stimulating', points: 5, isCorrect: false },
-          { id: 'LaiShyhBao3-3', text: 'Structured and organized', points: 3, isCorrect: false },
-        ],
-      },
-      {
-        id: 'LaiShyhBao4',
-        text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
-        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
-        options: [
-          { id: 'LaiShyhBao4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 15, isCorrect: true },
-          { id: 'LaiShyhBao4-2', text: '給總召摸頭，一摸泯恩仇', points: 8, isCorrect: false },
-          { id: 'LaiShyhBao4-3', text: '和總召商量，號召大家一起去守夜', points: 5, isCorrect: false },
-        ],
-      },
-      {
-        id: 'LaiShyhBao5',
-        text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
-        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
-        options: [
-          { id: 'LaiShyhBao5-1', text: '增訂「藐視國會罪」', points: 12, isCorrect: true },
-          { id: 'LaiShyhBao5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
-          { id: 'LaiShyhBao5-3', text: '陽光來了，貪腐再見', points: 4, isCorrect: false },
-        ],
-      },
-      {
-        id: 'LaiShyhBao6',
-        text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的黨團立委，你會？',
-        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
-        options: [
-          { id: 'LaiShyhBao6-1', text: '動員外籍移工一起上街', points: 10, isCorrect: true },
-          { id: 'LaiShyhBao6-2', text: '去問問盧秀燕那天有沒有空', points: 5, isCorrect: false },
-          { id: 'LaiShyhBao6-3', text: '打電話給蔣萬安', points: 3, isCorrect: false },
-        ],
-      },
-      {
-        id: 'LaiShyhBao7',
         text: '上班時間總召邀你一起去中國查訪',
         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
-          { id: 'LaiShyhBao7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
-          { id: 'LaiShyhBao7-2', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 8, isCorrect: false },
-          { id: 'LaiShyhBao7-3', text: '不行，我要為民服務上班', points: 5, isCorrect: false },
+          { id: 'LaiShyhBao1-1', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 1450, isCorrect: true },
+          { id: 'LaiShyhBao1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 0, isCorrect: false },
+          { id: 'LaiShyhBao1-3', text: '我們是在立法院上班，立院總召不是統戰團行程總召好嗎？', points: 0, isCorrect: false },
         ],
+        explanation: {
+          text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
+          reference: 'https://www.cna.com.tw/news/aipl/202404260199.aspx'
+        }
       },
       {
-        id: 'LaiShyhBao8',
-        text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+        id: 'LaiShyhBao2',
+        text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
-          { id: 'LaiShyhBao8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
-          { id: 'LaiShyhBao8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 5, isCorrect: false },
-          { id: 'LaiShyhBao8-3', text: '其實中配待遇已經優於外籍配偶了，我持保留態度。', points: 3, isCorrect: false },
+          { id: 'LaiShyhBao2-1', text: '該開公聽會就開，該審慎就審慎，不然又被說是在搞立法獨裁。', points: 8, isCorrect: false },
+          { id: 'LaiShyhBao2-2', text: '理性討論，找到對台灣最有利的平衡點。', points: 6, isCorrect: false },
+          { id: 'LaiShyhBao2-3', text: '最後一秒上機密版本，一起舉手秒通過，爽。', points: 6287, isCorrect: true },
         ],
+        explanation: {
+          text: '2024/5/21在場外大批民要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
+          reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+        }
       },
       {
-        id: 'LaiShyhBao9',
-        text: '總召說不管怎樣，你們給我把預算都刪掉30%',
-        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',        
-        options: [
-          { id: 'LaiShyhBao9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了', points: 12, isCorrect: true },
-          { id: 'LaiShyhBao9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 6, isCorrect: false },
-          { id: 'LaiShyhBao9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
-        ],
-      },
-      {
-        id: 'LaiShyhBao10',
-        text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+        id: 'LaiShyhBao3',
+        text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
-          { id: 'LaiShyhBao10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
-          { id: 'LaiShyhBao10-2', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 5, isCorrect: false },
-          { id: 'LaiShyhBao10-3', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 3, isCorrect: false },
+          { id: 'LaiShyhBao3-1', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 6, isCorrect: false },
+          { id: 'LaiShyhBao3-2', text: '他們敢進來，我就燒立法院，看誰比較瘋。', points: 1969, isCorrect: true },
+          { id: 'LaiShyhBao3-3', text: '先冷靜協商啦，不然又要演全武行，對票倉傷很大。', points: 4, isCorrect: false },
         ],
+        explanation: {
+          text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
+          reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+        }
       },
       {
-        id: 'LaiShyhBao11',
+        id: 'LaiShyhBao4',
         text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
-          { id: 'LaiShyhBao11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 8, isCorrect: true },
-          { id: 'LaiShyhBao11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 4, isCorrect: false },
-          { id: 'LaiShyhBao11-3', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 2, isCorrect: false },
+          { id: 'LaiShyhBao4-1', text: '不行啦，這根本戒嚴2.0，連我媽都看不下去。', points: 15, isCorrect: false },
+          { id: 'LaiShyhBao4-2', text: '法案應該要公開討論，不是玩暗黑通關。', points: 8, isCorrect: false },
+          { id: 'LaiShyhBao4-3', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
         ],
+        explanation: {
+          text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
+          reference: 'https://news.pts.org.tw/article/729015'
+        }
       },
       {
-        id: 'LaiShyhBao12',
-        text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        id: 'LaiShyhBao5',
+        text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
         image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
         options: [
-          { id: 'LaiShyhBao12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
-          { id: 'LaiShyhBao12-2', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 10, isCorrect: false },
-          { id: 'LaiShyhBao12-3', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 5, isCorrect: false },
+          { id: 'LaiShyhBao5-1', text: '選票多才是真的好，以後感恩我們的中配會更多！', points: 6666, isCorrect: true },
+          { id: 'LaiShyhBao5-2', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 6, isCorrect: false },
+          { id: 'LaiShyhBao5-3', text: '我不能提這種幫中國洗人口的提案。', points: 4, isCorrect: false },
         ],
+        explanation: {
+          text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
+          reference: 'https://news.pts.org.tw/article/733781'
+        }
+      },
+      {
+        id: 'LaiShyhBao6',
+        text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+        options: [
+          { id: 'LaiShyhBao6-1', text: '反對，很多65歲以上是房東收租大戶，這提案會被罵爆。', points: 10, isCorrect: false },
+          { id: 'LaiShyhBao6-2', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
+          { id: 'LaiShyhBao6-3', text: '反對，沒事找事造成世代對立做啥', points: 3, isCorrect: false },
+        ],
+        explanation: {
+          text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
+          reference: 'https://news.pts.org.tw/article/731315'
+        }
+      },
+      {
+        id: 'LaiShyhBao7',
+        text: '台灣面對中共逐步的進逼，我應該怎麼做呢？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+        options: [
+          { id: 'LaiShyhBao7-1', text: '先要求國安單位端出計畫，不然我們只會在新聞裡喊緊張。', points: 15, isCorrect: false },
+          { id: 'LaiShyhBao7-2', text: '先把國防預算砍爆，再拿來當政績說「刪除新式戰機採購特別預算總額100%」', points: 913, isCorrect: true },
+          { id: 'LaiShyhBao7-3', text: '請國防部提合理裝備預算，我們要戰力也要嘎啦嘎啦。', points: 75, isCorrect: false },
+        ],
+        explanation: {
+          text: '賴士葆在景美捷運站2號出口對面的義美樓上刊登大篇幅的廣告，得意洋洋的宣傳他刪掉F-16購買的預算。刪除新式戰機採購特別預算總額100%',
+          reference: 'javascript:;'
+        }
+      },
+      {
+        id: 'LaiShyhBao8',
+        text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+        options: [
+          { id: 'LaiShyhBao8-1', text: '姊說什麼就是金門福音，我負責幫她舉手。', points: 1766, isCorrect: true },
+          { id: 'LaiShyhBao8-2', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 5, isCorrect: false },
+          { id: 'LaiShyhBao8-3', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 3, isCorrect: false },
+        ],
+        explanation: {
+          text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
+          reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+        }
+      },
+      {
+        id: 'LaiShyhBao9',
+        text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',        
+        options: [
+          { id: 'LaiShyhBao9-1', text: '不怕刪預算，但連衛福部都刪到剩一塊錢，這不是亂搞是什麼？', points: 12, isCorrect: false },
+          { id: 'LaiShyhBao9-2', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 6, isCorrect: false },
+          { id: 'LaiShyhBao9-3', text: '人不用醒，手能舉就好，投完再說。', points: 3838, isCorrect: true },
+        ],
+        explanation: {
+          text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
+          reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+        }
+      },
+      {
+        id: 'LaiShyhBao10',
+        text: '面對國民黨爆出「幽靈連署」事件，你怎麼看？',
+        image: 'https://images.pexels.com/photos/8850706/pexels-photo-8850706.jpeg',
+        options: [
+          { id: 'LaiShyhBao10-1', text: '誰那麼笨，抄名冊還被發現', points: 4925, isCorrect: false },
+          { id: 'LaiShyhBao10-2', text: '譴責黨內，怎麼可以抄寫死者個資', points: 2, isCorrect: false },
+          { id: 'LaiShyhBao10-3', text: '只是偽造文書而已，有這麼嚴重嗎', points: 3, isCorrect: true },
+        ],
+        explanation: {
+          text: '國民黨青年軍近日涉入多起罷免幽靈連署案件遭檢調搜索偵訊，國民黨立委賴士葆聲援時喊話，「他們即便犯了錯，那最多就偽造文書啊，你有看過過去偽造文書這麼嚴重嗎？偽造文書判非常輕啊！」',
+          reference: 'https://newtalk.tw/news/view/2025-04-17/965942'
+        }
       },
     ];
     //王鴻薇
