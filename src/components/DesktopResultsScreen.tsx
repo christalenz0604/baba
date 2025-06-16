@@ -274,7 +274,8 @@ const DesktopResultsScreen: React.FC = () => {
       {/* Email subscription form */}
       {/* add a div with a background color and a gradient to the bottom of the page */}
       <div className={`w-full mt-auto mx-auto justify-center bg-gradient-to-b from-transparent via-transparent ${getResult() === "成功" ? "to-[#fe3427]/90" : "to-[#1f31fe]/90"} py-8`}>
-        <div className="flex max-w-4xl">
+        <div className="flex max-w-4xl mx-auto">
+
           <div className="flex-shrink-0 w-1/5 p-2">
             <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
 
