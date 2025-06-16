@@ -242,65 +242,85 @@ const DesktopResultsScreen: React.FC = () => {
             </div>
           </div>
 
-          <div className={`flex flex-col items-center w-full justify-center ${getResult() === "成功" ? `bg-[url('/images/result_Board_WebSize_Win.png')]` : `bg-[url('/images/result_Board_WebSize_Fail.png')]`}`}>
-            <div className="flex flex-row items-center w-full content-center px-2 my-10">
-              <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                <p className="flex font-medium text-gray-200">你扮演的立委是：</p>
-                <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
-                <h3 className="flex font-semibold text-lg text-white">{character.name}</h3>
-              </div>
-              <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                <p className="flex font-medium text-gray-200">累積連署書</p>
-                <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
-              </div>
-              <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                <p className="flex font-medium text-gray-200">{getResultTitle()}</p>
-                <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
-              </div>
-            </div>
-            {/* add two buttons in a row. One is share and the other is restart. */}
-            {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
-            <div className="flex flex-row items-center mb-4 w-full justify-center">
-              <motion.button
-                onClick={async () => {
-                  if (showShare) {
-                    setShowShare(false); // 關閉分享選單
-                  } else {
-                    await handleScreenshotShare(); // 先截圖 → 再開啟分享
-                  }
-                }}
-                className="font-medium w-1/5 h-1/5 mx-4"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <img src={getResult() === "成功" ? getImagePath("/images/btn_Share_Success.png") : getImagePath("/images/btn_Share_Fail.png")} alt="share" className="w-full h-full object-cover" />
-              </motion.button>
+          {/* 改為圖片方式呈現背景 + 四角裝飾 */}
+          <div className="relative flex flex-col items-center w-full justify-center">
+            {/* 背景主圖 */}
+            <img
+              src={getResult() === "成功"
+                ? getImagePath("/images/result_Board_WebSize_Win.png")
+                : getImagePath("/images/result_Board_WebSize_Fail.png")}
+              className="w-full max-w-[900px] h-auto object-contain"
+              alt="結果底圖"
+            />
 
-              <motion.button
-                onClick={restartGame}
-                className="font-medium w-1/5 h-1/5 mx-4"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <img src={getResult() === "成功" ? getImagePath("/images/btn_Tryagain_Success.png") : getImagePath("/images/btn_Tryagain_Fail.png")} alt="restart" className="w-full h-full object-cover" />
-              </motion.button>
-            </div>
-            {
-              showShare && screenshotUrl && (
-                <div className="flex justify-center mt-4">
-                  <ShareDropdown
-                    shareUrl={shareUrl}
-                    shareText={shareText}
-                    imageData={screenshotUrl}
-                    open={showShare}
-                    setOpen={setShowShare}
-                  />
+            {/* 四個角落裝飾圖 - 疊在上方 */}
+            <img src={getImagePath("/images/corner_LT.png") } className="pointer-events-none absolute top-4 left-4 w-10 h-10 z-30" alt="LT" />
+            <img src={getImagePath("/images/corner_RT.png") } className="pointer-events-none absolute top-4 right-4 w-10 h-10 z-30" alt="RT" />
+            <img src={getImagePath("/images/corner_LB.png") } className="pointer-events-none absolute bottom-4 left-4 w-10 h-10 z-30" alt="LB" />
+            <img src={getImagePath("/images/corner_RB.png") } className="pointer-events-none absolute bottom-4 right-4 w-10 h-10 z-30" alt="RB" />
+
+            {/* 實際內容區域 */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20">
+
+              <div className="flex flex-row items-center w-full content-center px-2 my-10">
+                <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                  <p className="flex font-medium text-gray-200">你扮演的立委是：</p>
+                  <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
+                  <h3 className="flex font-semibold text-lg text-white">{character.name}</h3>
                 </div>
-              )
-            }
-          </div>
+                <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                  <p className="flex font-medium text-gray-200">累積連署書</p>
+                  <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
+                  <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
+                </div>
+                <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                  <p className="flex font-medium text-gray-200">{getResultTitle()}</p>
+                  <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
+                  <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
+                </div>
+              </div>
+              {/* add two buttons in a row. One is share and the other is restart. */}
+              {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
+              <div className="flex flex-row items-center mb-8 w-full justify-center z-40 min-h-[200px]">
+                <motion.button
+                  onClick={async () => {
+                    if (showShare) {
+                      setShowShare(false); // 關閉分享選單
+                    } else {
+                      await handleScreenshotShare(); // 先截圖 → 再開啟分享
+                    }
+                  }}
+                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[200px]"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <img src={getResult() === "成功" ? getImagePath("/images/btn_Share_Success.png") : getImagePath("/images/btn_Share_Fail.png")} alt="share" className="w-full h-full object-contain" />
+                </motion.button>
+
+                <motion.button
+                  onClick={restartGame}
+                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[200px]"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <img src={getResult() === "成功" ? getImagePath("/images/btn_Tryagain_Success.png") : getImagePath("/images/btn_Tryagain_Fail.png")} alt="restart" className="w-full h-full object-contain" />
+                </motion.button>
+              </div>
+              {
+                showShare && screenshotUrl && (
+                  <div className="flex justify-center mt-4">
+                    <ShareDropdown
+                      shareUrl={shareUrl}
+                      shareText={shareText}
+                      imageData={screenshotUrl}
+                      open={showShare}
+                      setOpen={setShowShare}
+                    />
+                  </div>
+                )
+              }
+            </div>
+		  </div>
         </motion.div>
       </div>
 
