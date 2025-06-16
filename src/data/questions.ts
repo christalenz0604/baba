@@ -339,7 +339,7 @@ import { Question, QuestionSet } from '../types';
         options: [
           { id: 'HSUCHIAOHSIN3-1', text: '我要以理服人，畢竟我也不想再被剪片嘲笑了。', points: 0, isCorrect: false },
           { id: 'HSUCHIAOHSIN3-2', text: '先找議事人員協助看看', points: 0, isCorrect: false },
-          { id: 'HSUCHIAOHSIN3-3', text: '油壓剪伺候，民主就是要剪開來用的！', points: 1111, isCorrect: true },
+          { id: 'HSUCHIAOHSIN3-3', text: '油壓剪伺候，民主就是要剪開來用的！', points: 5121, isCorrect: true },
         ],
         explanation: {
           text: '藍綠黨團在攻防時，因會議室所有門都被民進黨鎖住，藍委試圖以各種方式破門進入，而藍委徐巧芯助理、謝龍介姪子謝克洋則背著一包油壓剪等工具想送入議場，警衛見狀隨即阻攔，指袋子內是違禁品，不能進入議場，但謝克洋表示是他老闆要他帶進去的，警衛則要求他表明身份，出示證件，場面異常緊張。',
@@ -381,7 +381,7 @@ import { Question, QuestionSet } from '../types';
         options: [
           { id: 'HSUCHIAOHSIN6-1', text: '財政、國防、外交，三個都硬的才有快感。', points: 12, isCorrect: false },
           { id: 'HSUCHIAOHSIN6-2', text: '魔法部、忍者部，砍起來沒壓力。', points: 8, isCorrect: false },
-          { id: 'HSUCHIAOHSIN6-3', text: '數位部、NCC、陸委會，砍你們我有業績。', points: 5, isCorrect: true },
+          { id: 'HSUCHIAOHSIN6-3', text: '數位部、NCC、陸委會，砍你們我有業績。', points: 7878, isCorrect: true },
         ],
         explanation: {
           text: '身為穿著睡衣審預算、對鏡頭比著中指、說你們潛艇浮起來就有預算了，過往反對傅崐萁回黨，現在又哭倒在他懷中。不禁讓人覺得他只是在台上表演一個舔共立委的小丑。',
