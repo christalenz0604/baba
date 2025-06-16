@@ -73,7 +73,7 @@ const DesktopResultsScreen: React.FC = () => {
       if (score < 10000) return "黨意需服從，民意又擋不住，你選擇再睡一下。";
       return "為了忠黨卻不愛國，民意沸騰罷免你了！";
     }
-    
+
     if (characterType === 'HSUCHIAOHSIN') {
       if (score < 100) return "你努力在黨意和民意中拉扯～你被黨開除了";
       if (score < 10000) return "尚未安全，總召在盯著你！";
@@ -85,7 +85,7 @@ const DesktopResultsScreen: React.FC = () => {
       if (score < 10000) return "Intuitive Soul";
       return "Emotional Sage";
     }
-    
+
     if (characterType === 'wanghungwei') {
       if (score < 100) return "白X政策連署萌芽者，聲量微弱如昔日批評";
       if (score < 10000) return "昏暗A柱連署快閃隊，連署書突然暴增，讓人防不勝防";
@@ -178,146 +178,149 @@ const DesktopResultsScreen: React.FC = () => {
 
 
   return (
-    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/result_bg_Win.png')}')]` : `bg-[url('${getImagePath('/images/result_bg_Fail.png')}')]`} bg-cover py-10 px-4`}>
-      <div className="max-w-4xl mx-auto" >
+    // bg image url 需要調整
+    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? `bg-[url('/baba_test/images/result_bg_Win.png')]` : `bg-[url('/baba_test/images/result_bg_Fail.png')]`} bg-cover`}>
+      <div className="flex-frow max-w-4xl mx-auto" >
         <motion.div
           className="flex flex-col rounded-0 overflow-hidden justify-center my-4 relative"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-full z-10 justify-center ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/title_Ribbon_Win.png')}')]` : `bg-[url('${getImagePath('/images/title_Ribbon_Fail.png')}')]`} bg-cover`}>
-        <img src={getResult() === "成功" ? getImagePath("/images/title_Win.png") : getImagePath("/images/title_Fail.png")} alt="" className="w-1/3 h-auto object-cover content-center mx-auto" /> 
-      </div>
-      <div className={`flex flex-col items-center w-full justify-center z-0 ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/result_Board_phoneSize_Win.png')}')]` : `bg-[url('${getImagePath('/images/result_Board_phoneSize_Fail.png')}')]`} bg-cover relative`}>
+          <div className="relative flex justify-center items-center w-full h-[50px] mb-0 mt-10 overflow-visible">
+            {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
+            <img
+              src={getResult() === "成功" ? `${getImagePath('/images/title_Win.png')}` : `${getImagePath('/images/title_Fail.png')}`}
+              alt="result title"
+              className="absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none"
+            />
 
-          <div className="flex flex-row items-center w-full justify-center px-2">
-            <div className="flex w-1/2 h-auto rounded-full overflow-hidden border-2 border-indigo-500">
-              <img src={getResultCharacterImage()} alt={character.name} className="w-full h-full object-cover" />
-            </div>
-            <div className="flex flex-col w-1/2 h-auto">
-              <p className="flex w-full text-gray-200">你扮演的立委是：</p>
-              <h3 className="flex font-semibold text-lg text-white">{character.name}</h3>
+            {/* ribbon 背景 */}
+            <img
+              src={getResult() === "成功" ? `${getImagePath('/images/title_Ribbon_Win.png')}` : `${getImagePath('/images/title_Ribbon_Fail.png')}`}
+              alt="ribbon"
+              className="w-[100%] max-w-[480px] h-auto object-contain z-10"
+            />
+
+            {/* 插入文字在 ribbon 上 */}
+            <div className="absolute text-white font-pixel font-bold text-[clamp(1.5rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
+              {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
             </div>
           </div>
 
-          <div className="w-full flex flex-col px-2">
-            <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-2">
-              <div className="flex items-center mb-2 w-1/2 h-auto">
-                <img src={getPaperCountImage()} alt="" className="w-full h-full object-cover"/>
+          <div className={`flex flex-col items-center w-full justify-center ${getResult() === "成功" ? `bg-[url('/baba_test/images/result_Board_WebSize_Win.png')]` : `bg-[url('/baba_test/images/result_Board_WebSize_Fail.png')]`}`}>
+            <div className="flex flex-row items-center w-full content-center px-2 my-10">
+              <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                <p className="flex font-medium text-gray-200">你扮演的立委是：</p>
+                <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
+                <h3 className="flex font-semibold text-lg text-white">{character.name}</h3>
               </div>
-              <div className="flex-col w-1/2">
+              <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
                 <p className="flex font-medium text-gray-200">累積連署書</p>
+                <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
                 <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
               </div>
-            </div>
-          </div>
-
-          <div className="w-full flex flex-col px-2">
-            <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
-              <div className="flex items-center mb-2 w-1/2 h-auto">
-                <img src={getResultTitleImage()} alt="" className="w-full h-full object-cover"/>
-              </div>
-              <div className="flex-col w-1/2">
+              <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
                 <p className="flex font-medium text-gray-200">{getResultTitle()}</p>
+                <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
                 <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
               </div>
             </div>
-          </div>
-         </div>
-        </motion.div>
-        
-{/* add two buttons in a row. One is share and the other is restart. */}
-{/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
-        <div className="flex flex-row items-center mb-4 w-full justify-center">
-          <motion.button
-            onClick={async () => {
-              if (showShare) {
-                setShowShare(false); // 關閉分享選單
-              } else {
-                await handleScreenshotShare(); // 先截圖 → 再開啟分享
-              }
-            }}
-            className="font-medium w-1/2 h-1/2 mx-4"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-             <img src={getResult() === "成功" ? getImagePath("/images/btn_Share_Success.png") : getImagePath("/images/btn_Share_Fail.png")} alt="share" className="w-full h-full object-cover" />
-          </motion.button>
+            {/* add two buttons in a row. One is share and the other is restart. */}
+            {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
+            <div className="flex flex-row items-center mb-4 w-full justify-center">
+              <motion.button
+                onClick={async () => {
+                  if (showShare) {
+                    setShowShare(false); // 關閉分享選單
+                  } else {
+                    await handleScreenshotShare(); // 先截圖 → 再開啟分享
+                  }
+                }}
+                className="font-medium w-1/5 h-1/5 mx-4"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <img src={getResult() === "成功" ? getImagePath("/images/btn_Share_Success.png") : getImagePath("/images/btn_Share_Fail.png")} alt="share" className="w-full h-full object-cover" />
+              </motion.button>
 
-          <motion.button
-            onClick={restartGame}
-            className="font-medium w-1/2 h-1/2 mx-4"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <img src={getResult() === "成功" ? getImagePath("/images/btn_Tryagain_Success.png") : getImagePath("/images/btn_Tryagain_Fail.png")} alt="restart" className="w-full h-full object-cover" />
-          </motion.button>
-        </div>
-        {showShare && screenshotUrl && (
-          <div className="flex justify-center mt-4">
-            <ShareDropdown
-              shareUrl={shareUrl}
-              shareText={shareText}
-              imageData={screenshotUrl}
-              open={showShare}
-              setOpen={setShowShare}
-            />
-          </div>
-        )}
-
-{/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
-          {/* Email subscription form */}
-          <div className={`flex flex-row items-center w-full justify-center ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
-            <div className="flex w-full">
-              <div className="flex-shrink-0 w-1/5 p-2">
-                <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
-
-              </div>
-              <div className="flex flex-col w-4/5 p-2">
-                <div className="flex items-end w-full">
-                  <div className="flex w-1/4">
-                    <button className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
-                  </div>
-                  <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
-                    想收到更多相關資訊嗎？
-                  </h4>
-                </div>
-                <div className="flex mt-2">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="請輸入您的 Email"
-                    className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  />
-                  <button
-                    onClick={handleSubmitEmail}
-                    disabled={isSubmitting || !email}
-                    className={`px-4 py-2 font-medium ${
-                      isSubmitting || !email
-                        ? 'bg-[#d7005c] text-white cursor-not-allowed'
-                        : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
-                    }`}
-                  >
-                    {isSubmitting ? '提交中...' : '訂閱'}
-                  </button>
-                </div>
-                {submitStatus === 'success' && (
-                  <p className="mt-2 text-sm text-green-600">
-                    感謝訂閱！我們會寄送相關資訊給你。
-                  </p>
-                )}
-                {submitStatus === 'error' && (
-                  <p className="mt-2 text-sm text-red-600">
-                    抱歉，發生錯誤。請稍後再試。
-                  </p>
-                )}
-              </div>
+              <motion.button
+                onClick={restartGame}
+                className="font-medium w-1/5 h-1/5 mx-4"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <img src={getResult() === "成功" ? getImagePath("/images/btn_Tryagain_Success.png") : getImagePath("/images/btn_Tryagain_Fail.png")} alt="restart" className="w-full h-full object-cover" />
+              </motion.button>
             </div>
-          </div>   
+            {
+              showShare && screenshotUrl && (
+                <div className="flex justify-center mt-4">
+                  <ShareDropdown
+                    shareUrl={shareUrl}
+                    shareText={shareText}
+                    imageData={screenshotUrl}
+                    open={showShare}
+                    setOpen={setShowShare}
+                  />
+                </div>
+              )
+            }
+          </div>
+        </motion.div>
       </div>
-    </div>
+
+      {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
+      {/* Email subscription form */}
+      {/* add a div with a background color and a gradient to the bottom of the page */}
+      <div className={`w-full mt-auto mx-auto justify-center bg-gradient-to-b from-transparent via-transparent ${getResult() === "成功" ? "to-[#fe3427]/90" : "to-[#1f31fe]/90"} py-8`}>
+        <div className="flex max-w-4xl">
+          <div className="flex-shrink-0 w-1/5 p-2">
+            <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
+
+          </div>
+          <div className="flex flex-col w-4/5 p-2">
+            <div className="flex items-end w-full">
+              <div className="flex w-1/4">
+                <button className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
+              </div>
+              <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
+                想收到更多相關資訊嗎？
+              </h4>
+            </div>
+            <div className="flex mt-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="請輸入您的 Email"
+                className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+              <button
+                onClick={handleSubmitEmail}
+                disabled={isSubmitting || !email}
+                className={`px-4 py-2 font-medium ${isSubmitting || !email
+                  ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                  : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
+                  }`}
+              >
+                {isSubmitting ? '提交中...' : '訂閱'}
+              </button>
+            </div>
+            {submitStatus === 'success' && (
+              <p className="mt-2 text-sm text-green-600">
+                感謝訂閱！我們會寄送相關資訊給你。
+              </p>
+            )}
+            {submitStatus === 'error' && (
+              <p className="mt-2 text-sm text-red-600">
+                抱歉，發生錯誤。請稍後再試。
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div >
   );
 };
 
