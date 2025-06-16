@@ -5,6 +5,9 @@ import ShareDropdown from '../components/ShareDropdown.jsx';
 import html2canvas from 'html2canvas';
 import { getImagePath } from '../utils/pathUtils';
 
+import { launchConfetti } from '../utils/confetti';
+import { launchFirework } from '../utils/firework';
+
 const ResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
   const [email, setEmail] = useState('');
@@ -24,6 +27,23 @@ const ResultsScreen: React.FC = () => {
     if (score === characterScore) return "成功";
     return "失敗";
   };
+
+  useEffect(() => {
+    try {
+      if (getResult() === '成功') {
+        launchConfetti?.();
+        const interval = setInterval(() => {
+          launchFirework?.();
+        }, 1000);
+        return () => clearInterval(interval);
+      }
+    } catch (error) {
+      console.error("煙火或彩帶初始化錯誤：", error);
+    }
+  }, []);
+
+
+
 
   //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
   const getResultCharacterImage = () => {
@@ -179,6 +199,12 @@ const ResultsScreen: React.FC = () => {
 
   return (
     <div className={`min-h-screen bg-contain ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/result_bg_Win.png')}')]` : `bg-[url('${getImagePath('/images/result_bg_Fail.png')}')]`} bg-cover py-10 px-4`}>
+
+
+      <div className="fireworks-container" id="fireworks"></div>
+      <canvas id="confetti"></canvas>
+
+
       <div className="max-w-4xl mx-auto" >
         <motion.div
           className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
