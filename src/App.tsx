@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GameProvider, useGame } from './context/GameContext';
 import CharacterSelection from './components/CharacterSelection';
 import QuestionScreen from './components/QuestionScreen';
 import ResultsScreen from './components/ResultsScreen';
+import DesktopResultsScreen from './components/DesktopResultsScreen'; // 桌機專用
 import './styles/pixel.css';
+import { setImagePathVariables } from './utils/cssUtils';
 
 const GameContainer: React.FC = () => {
   const { gameState } = useGame();
-  
+  const [isDesktopLayout, setIsDesktopLayout] = useState(false);
+
+  useEffect(() => {
+    const checkLayout = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      // 橫式畫面（桌機或橫放平板）
+      setIsDesktopLayout(width > height);
+    };
+
+    checkLayout();
+    window.addEventListener('resize', checkLayout);
+    return () => window.removeEventListener('resize', checkLayout);
+  }, []);
+
   return (
     <div className="font-sans">
       {!gameState.selectedCharacter ? (
         <CharacterSelection />
       ) : gameState.isGameOver ? (
-        <ResultsScreen />
+        isDesktopLayout ? <DesktopResultsScreen /> : <ResultsScreen />
       ) : (
         <QuestionScreen />
       )}
@@ -22,6 +38,10 @@ const GameContainer: React.FC = () => {
 };
 
 function App() {
+  useEffect(() => {
+    setImagePathVariables();
+  }, []);
+
   return (
     <GameProvider>
       <GameContainer />

@@ -10,7 +10,7 @@ import react from '@vitejs/plugin-react';
 // });
 // define js
 export default defineConfig({
-  base: '/', // ← 這個是你 repo 名稱
+  base: '/', // Set to match GitHub Pages repository name
   plugins: [react()],
   server: {
   },

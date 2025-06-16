@@ -1,6 +1,7 @@
 import './App_landing.css';
 import useTypewriter from './useTypewriter';
 import { useState, useEffect } from 'react';
+import { getImagePath } from '../utils/pathUtils';
 
 function Landing() {
   const lines = ["穿越紅毯，朝小野大的全新國會正式拉開序幕，", 
@@ -28,8 +29,8 @@ function Landing() {
 
   useEffect(() => {
     if (clicked) {
-      // 這裡可以替換成 window.location.href 或 navigate()
-      window.location.href = '/#/main'; // ← 替換成你要導向的路徑
+      // Use the correct path for GitHub Pages
+      window.location.href = getImagePath('/#/main');
     }
   }, [clicked]);
 
@@ -41,9 +42,9 @@ function Landing() {
 
   return (
     <div className="container_landing" onClick={handleClick}>
-        <img src="images/議場.gif" alt="背景圖" className="background" />
+        <img src={getImagePath('images/議場.gif')} alt="背景圖" className="background" />
         <div className="foreground">
-            <img src="images/藍委跑步.gif" alt="動畫" className="gif" />
+            <img src={getImagePath('images/藍委跑步.gif')} alt="動畫" className="gif" />
             <div className="text">
                 {text.split('\n').map((line, idx) => (
                     <div key={idx}>{line}</div>
