@@ -1164,114 +1164,136 @@ const HungMongKaiQuestions: Question[] = [
 const LoMingTsaiQuestions: Question[] = [
   {
     id: 'LoMingTsai1',
-    text: '羅明才委員的反罷免之歌,由哪首著名兒歌所改編？',
+    text: '上班時間總召邀你一起去中國查訪',
     image: 'LoMingTsai1.jpg',
     options: [
-      { id: 'LoMingTsai1-1', text: '兩隻老虎', points: 10, isCorrect: true },
-      { id: 'LoMingTsai1-2', text: '三劍客', points: 5, isCorrect: false },
-      { id: 'LoMingTsai1-3', text: '三隻小豬', points: 100, isCorrect: false },
+      { id: 'LoMingTsai1-1', text: '總召叫我去哪我就去哪，不問、服從、不拖延！', points: 1450, isCorrect: true },
+      { id: 'LoMingTsai1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 5, isCorrect: false },
+      { id: 'LoMingTsai1-3', text: '我們是在立法院上班，立院總召不是統戰團行程總召好嗎？', points: 100, isCorrect: false },
     ],
+        explanation: {
+      text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
+      reference: 'https://www.cna.com.tw/news/aipl/202404260199.aspx'
+    }
   },
   {
     id: 'LoMingTsai2',
-    text: '立委（國）羅明才說：『我唱完團結就是力量，我往前面走的時候，你們會不會前進？』,你的回應？',
+    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
     image: 'LoMingTsai2.jpg',
     options: [
-      { id: 'LoMingTsai2-1', text: '會啊！！！哪次不會？！', points: 10, isCorrect: true },
-      { id: 'LoMingTsai2-2', text: '426站出來！426站出來！426站出來！', points: 7, isCorrect: false },
-      { id: 'LoMingTsai2-3', text: '微笑不語,默默退場', points: 4, isCorrect: false },
+      { id: 'LoMingTsai2-1', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 10, isCorrect: false },
+      { id: 'LoMingTsai2-2', text: '選票多才是真的好，以後感恩我們的中配會更多！', points: 6666, isCorrect: true },
+      { id: 'LoMingTsai2-3', text: '我不能提這種幫中國洗人口的提案。', points: 4, isCorrect: false },
     ],
+        explanation: {
+      text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
+      reference: 'https://news.pts.org.tw/article/733781'
+    }
   },
   {
     id: 'LoMingTsai3',
-    text: '缺專用題？',
+    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
     image: 'LoMingTsai3.jpg',
     options: [
-      { id: 'LoMingTsai3-1', text: '缺專用題？', points: 12, isCorrect: true },
-      { id: 'LoMingTsai3-2', text: '缺專用題？', points: 6, isCorrect: false },
-      { id: 'LoMingTsai3-3', text: '缺專用題？', points: 3, isCorrect: false },
+      { id: 'LoMingTsai3-1', text: '反對，沒事找事造成世代對立做啥', points: 12, isCorrect: true },
+      { id: 'LoMingTsai3-2', text: '反對，很多65歲以上是房東收租大戶，這提案會被罵爆。', points: 6, isCorrect: false },
+      { id: 'LoMingTsai3-3', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
     ],
+        explanation: {
+      text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
+      reference: 'https://news.pts.org.tw/article/731315'
+    }
   },
   {
     id: 'LoMingTsai4',
-    text: '在準備強行通過《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
     options: [
-      { id: 'LoMingTsai4-1', text: '大聲放話：「你們全部進去啦，我就把它燒掉。」', points: 8, isCorrect: true },
-      { id: 'LoMingTsai4-2', text: '和總召商量，號召大家一起去守夜', points: 5, isCorrect: false },
-      { id: 'LoMingTsai4-3', text: '給總召摸頭，一摸泯恩仇', points: 3, isCorrect: false },
+      { id: 'LoMingTsai4-1', text: '不行啦，這根本戒嚴2.0，連我媽都看不下去。', points: 28, isCorrect: false },
+      { id: 'LoMingTsai4-2', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
+      { id: 'LoMingTsai4-3', text: '法案應該要公開討論，不是玩暗黑通關。', points: 2, isCorrect: false },
     ],
+        explanation: {
+      text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
+      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+    }
   },
   {
     id: 'LoMingTsai5',
-    text: '關於藍白二黨所提出的《立法院職權行使法》條例，下列何者為貴黨的提案內容？',
+    text: '罷免我的二階段連署好像快過了，我該怎麼辦呢？',
     options: [
-      { id: 'LoMingTsai5-1', text: '增訂「藐視國會罪」', points: 10, isCorrect: true },
-      { id: 'LoMingTsai5-2', text: '立法院會議，須有立法委員總額三分之一出席，始得開會。', points: 6, isCorrect: false },
-      { id: 'LoMingTsai5-3', text: '陽光來了，貪腐再見', points: 4, isCorrect: false },
+      { id: 'LoMingTsai5-1', text: '直接開嗆！把「兩隻老虎」改成「不同意罷免」唱到他們崩潰。', points: 1994, isCorrect: true },
+      { id: 'LoMingTsai5-2', text: '開始勤跑地方，誰握最多手誰活得久。', points: 6, isCorrect: false },
+      { id: 'LoMingTsai5-3', text: '認真點啦，加強問政表現，至少讓中間選民猶豫一下。', points: 4, isCorrect: false },
     ],
+        explanation: {
+      text: '罷免羅明才的公民團體「拔羅波」今（9日）赴新北市選委會送交二階段連署書，達成率115％。罷團領銜人吳柏偉指出，這些連署書象徵著新店居民32年來對改變的渴望。對此，羅明才受訪時特別用童謠「兩隻老虎」改編成「不同意罷免」歌曲，手舞足蹈地呼籲民眾「不同意罷免」。並未對公民團體罷免連署改變的渴望做出積極正面回應。',
+      reference: 'https://www.ettoday.net/news/20250509/2957515.htm'
+    }
   },
   {
     id: 'LoMingTsai6',
-    text: '黨主席朱立倫邀請各位426上凱道「反綠共戰獨裁」，身為忠貞的立委，你會？',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
     options: [
-      { id: 'LoMingTsai6-1', text: '動員外籍移工一起上街', points: 12, isCorrect: true },
-      { id: 'LoMingTsai6-2', text: '去問問盧秀燕那天有沒有空', points: 8, isCorrect: false },
-      { id: 'LoMingTsai6-3', text: '打電話給蔣萬安', points: 5, isCorrect: false },
+      { id: 'LoMingTsai6-1', text: '不怕刪預算，但連衛福部都刪到剩一塊錢，這不是亂搞是什麼？', points: 12, isCorrect: false },
+      { id: 'LoMingTsai6-2', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 8, isCorrect: false },
+      { id: 'LoMingTsai6-3', text: '人不用醒，手能舉就好，投完再說。', points: 3838, isCorrect: true },
     ],
+        explanation: {
+      text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
+      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+    }
   },
   {
     id: 'LoMingTsai7',
-    text: '上班時間總召邀你一起去中國查訪',
+    text: '刪預算搞到民怨炸鍋，今天要去小學運動會致詞，你講什麼？',
     options: [
-      { id: 'LoMingTsai7-1', text: '好，總召說甚麼是甚麼', points: 15, isCorrect: true },
-      { id: 'LoMingTsai7-2', text: '不行，我要為民服務上班', points: 7, isCorrect: false },
-      { id: 'LoMingTsai7-3', text: '是立院總召還是統戰團總召，我有沒聽錯，當然要拒絕。', points: 4, isCorrect: false },
+      { id: 'LoMingTsai7-1', text: '開心最重要，其他等長大再煩。', points: 15, isCorrect: false },
+      { id: 'LoMingTsai7-2', text: '大家一人一萬，老師學生通通有獎，還我支持度(OS:不要罷免我)！', points: 3880, isCorrect: true },
+      { id: 'LoMingTsai7-3', text: '祝大家未來都走得比政府順。', points: 4, isCorrect: false },
     ],
+        explanation: {
+      text: '新北市新店區安坑國小在五月三日舉辦校慶活動，當地選區的國民黨立委羅明才受邀到場，他致詞說「一人領一萬元，現場小朋友都有」引發爭議。推動罷免羅明才的公民團體「拔羅波」批評，「校園不是政客的秀場」，勿利用孩子的校慶活動當作政績發表會',
+      reference: 'https://news.ltn.com.tw/news/politics/paper/1705072'
+    }
   },
   {
     id: 'LoMingTsai8',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
     options: [
-      { id: 'LoMingTsai8-1', text: '啊哈，正好，兩岸本一家，同意啊，以後還會多很多感恩戴德我這1%的99%選票。', points: 10, isCorrect: true },
-      { id: 'LoMingTsai8-2', text: '越來越多中配在抖音宣傳要武統台灣，太可惡了，我不能提這種幫中國洗人口的提案。', points: 6, isCorrect: false },
-      { id: 'LoMingTsai8-3', text: '其實中配待遇已經優於外籍配偶了，我持保留態度。', points: 3, isCorrect: false },
+      { id: 'LoMingTsai8-1', text: '理性討論，找到對台灣最有利的平衡點。', points: 10, isCorrect: false },
+      { id: 'LoMingTsai8-2', text: '最後一秒上機密版本，一起舉手秒通過，爽。', points: 6287, isCorrect: true },
+      { id: 'LoMingTsai8-3', text: '該開公聽會就開，該審慎就審慎，不然又被說是在搞立法獨裁。', points: 3, isCorrect: false },
     ],
+        explanation: {
+      text: '2024/5/21在場外大批民要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
+      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+    }
   },
   {
     id: 'LoMingTsai9',
-    text: '總召說不管怎樣，你們給我把預算都刪掉30%',
+    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
     options: [
-      { id: 'LoMingTsai9-1', text: '阿，我看不懂那些，隨便弄個理由刪除好了 ', points: 12, isCorrect: true },
-      { id: 'LoMingTsai9-2', text: '你腦子有洞，開班會也不是這樣舉手表決不討論阿。', points: 8, isCorrect: false },
-      { id: 'LoMingTsai9-3', text: '不行，我要認真審預算', points: 4, isCorrect: false },
+      { id: 'LoMingTsai9-1', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 12, isCorrect: false },
+      { id: 'LoMingTsai9-2', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 8, isCorrect: false },
+      { id: 'LoMingTsai9-3', text: '姊說什麼就是金門福音，我負責幫她舉手。', points: 1766, isCorrect: true },
     ],
+        explanation: {
+      text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
+      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+    }
   },
   {
     id: 'LoMingTsai10',
-    text: '金門坦克，不是啦，玉珍姐說為了金門發財..發展，我們要修改離島條例18條。',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
     options: [
-      { id: 'LoMingTsai10-1', text: '坦克...姊對金門最熟悉了，跟著他就對了。', points: 10, isCorrect: true },
-      { id: 'LoMingTsai10-2', text: '提案怪怪的ㄟ，開放大陸醫生、資源進入金門，這不就一帶一路的套路嗎?不行啦。', points: 7, isCorrect: false },
-      { id: 'LoMingTsai10-3', text: '只要是陳玉珍提的，一定就會吸引砲火讓我掉支持度，拒絕啦。', points: 5, isCorrect: false },
+      { id: 'LoMingTsai10-1', text: '先冷靜協商啦，不然又要演全武行，對票倉傷很大。', points: 10, isCorrect: false },
+      { id: 'LoMingTsai10-2', text: '他們敢進來，我就燒立法院，看誰比較瘋。', points: 1969, isCorrect: true },
+      { id: 'LoMingTsai10-3', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 5, isCorrect: false },
     ],
-  },
-  {
-    id: 'LoMingTsai11',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
-    options: [
-      { id: 'LoMingTsai11-1', text: '當然要鎖門自己審啊！懶得聽民進黨廢話，不愧是我的天才同事', points: 15, isCorrect: true },
-      { id: 'LoMingTsai11-2', text: '超不爽，這麼高調的做法跟戒嚴沒兩樣，會害我回地方很難跟選民交代', points: 8, isCorrect: false },
-      { id: 'LoMingTsai11-3', text: '不同聲音應經過充分討論，才是國會殿堂該有的民主精神', points: 5, isCorrect: false },
-    ],
-  },
-  {
-    id: 'LoMingTsai12',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
-    options: [
-      { id: 'LoMingTsai12-1', text: '薪水小偷我最會，跟著總召投票準沒錯！', points: 20, isCorrect: true },
-      { id: 'LoMingTsai12-2', text: '夭壽啊，怎麼有些法案要表決了提案還在改？我要去跟總召反應', points: 10, isCorrect: false },
-      { id: 'LoMingTsai12-3', text: '等等，好多都刪除中央的業務費，甚至有些部會刪到剩1元，政府還能運作嗎？', points: 5, isCorrect: false },
-    ],
+        explanation: {
+      text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
+      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+    }
   },
 ];
 //廖先翔 LIAOHsienHsiang
