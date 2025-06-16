@@ -179,7 +179,7 @@ const DesktopResultsScreen: React.FC = () => {
 
   return (
     // bg image url 需要調整
-    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? `bg-[url('/baba_test/images/result_bg_Win.png')]` : `bg-[url('/baba_test/images/result_bg_Fail.png')]`} bg-cover`}>
+    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/result_bg_Win.png')}')]` : `bg-[url('${getImagePath('/images/result_bg_Fail.png')}')]`} bg-cover`}>
       <div className="flex-frow max-w-4xl mx-auto" >
         <motion.div
           className="flex flex-col rounded-0 overflow-hidden justify-center my-4 relative"
@@ -208,7 +208,7 @@ const DesktopResultsScreen: React.FC = () => {
             </div>
           </div>
 
-          <div className={`flex flex-col items-center w-full justify-center ${getResult() === "成功" ? `bg-[url('/baba_test/images/result_Board_WebSize_Win.png')]` : `bg-[url('/baba_test/images/result_Board_WebSize_Fail.png')]`}`}>
+          <div className={`flex flex-col items-center w-full justify-center ${getResult() === "成功" ? `bg-[url('/images/result_Board_WebSize_Win.png')]` : `bg-[url('/images/result_Board_WebSize_Fail.png')]`}`}>
             <div className="flex flex-row items-center w-full content-center px-2 my-10">
               <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
                 <p className="flex font-medium text-gray-200">你扮演的立委是：</p>

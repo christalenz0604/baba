@@ -189,14 +189,14 @@ const ResultsScreen: React.FC = () => {
           <div className="relative flex justify-center items-center w-full h-[50px] mb-0 overflow-visible">
             {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
             <img
-            src={getResult() === "成功" ? "/images/title_Win.png" : "/images/title_Fail.png"}
+            src={getResult() === "成功" ? getImagePath("/images/title_Win.png") : getImagePath("/images/title_Fail.png")}
             alt="result title"
             className="absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none"
             />
 
             {/* ribbon 背景 */}
             <img
-              src={getResult() === "成功" ? "/images/title_Ribbon_Win.png" : "/images/title_Ribbon_Fail.png"}
+              src={getResult() === "成功" ? getImagePath("/images/title_Ribbon_Win.png") : getImagePath("/images/title_Ribbon_Fail.png")}
               alt="ribbon"
               className="w-[100%] max-w-[480px] h-auto object-contain z-10"
             />
