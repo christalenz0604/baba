@@ -12,6 +12,7 @@ const DesktopResultsScreen: React.FC = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showShare, setShowShare] = useState(false);
   const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
+  const [isEmailValid, setIsEmailValid] = useState(true);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const character = gameState.selectedCharacter;
@@ -45,20 +46,19 @@ const DesktopResultsScreen: React.FC = () => {
 
   const getResultTitleImage = () => {
     const score = gameState.score;
-    const characterScore = character.score;
-    if (score === characterScore) return getImagePath("/images/result_prettyName_Lv5.png");
     if (score < 100) return getImagePath("/images/result_prettyName_Lv1.png");
-    if (score < 1000) return getImagePath("/images/result_prettyName_Lv2.png");
-    if (score < 10000) return getImagePath("/images/result_prettyName_Lv3.png");
-    return getImagePath("/images/result_prettyName_Lv4.png");
+    if (score < 500) return getImagePath("/images/result_prettyName_Lv2.png");
+    if (score < 1000) return getImagePath("/images/result_prettyName_Lv3.png");
+    if (score < 10000) return getImagePath("/images/result_prettyName_Lv4.png");
+    return getImagePath("/images/result_prettyName_Lv5.png");
   };
   const getResultTitle = () => {
     const score = gameState.score;
     if (score < 100) return "選區裝飾品";
-    if (score < 500) return "提案複製機";
-    if (score < 1000) return "政黨特攻隊長";
-    if (score < 5000) return "國安漏洞製造者";
-    if (score < 10000) return "賣台第一把交椅";
+    if (score < 5000) return "提案複製機";
+    if (score < 10000) return "政黨特攻隊長";
+    if (score < 20000) return "國安漏洞製造者";
+    return "賣台第一把交椅";
   };
   const getPersonalityTrait = () => {
     const characterType = character.id;
@@ -141,8 +141,19 @@ const DesktopResultsScreen: React.FC = () => {
     return "該立委不予評論";
   };
 
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    setIsEmailValid(newEmail === '' || validateEmail(newEmail));
+  };
+
   const handleSubmitEmail = async () => {
-    if (!email || !character) return;
+    if (!email || !character || !validateEmail(email)) return;
     setIsSubmitting(true);
     setSubmitStatus('idle');
     try {
@@ -293,21 +304,29 @@ const DesktopResultsScreen: React.FC = () => {
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleEmailChange}
                 placeholder="請輸入您的 Email"
-                className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className={`flex-1 px-4 py-2 border ${
+                  isEmailValid ? 'border-gray-300' : 'border-red-500'
+                } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
               />
               <button
                 onClick={handleSubmitEmail}
-                disabled={isSubmitting || !email}
-                className={`px-4 py-2 font-medium ${isSubmitting || !email
-                  ? 'bg-[#d7005c] text-white cursor-not-allowed'
-                  : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
-                  }`}
+                disabled={isSubmitting || !email || !isEmailValid}
+                className={`px-4 py-2 font-medium ${
+                  isSubmitting || !email || !isEmailValid
+                    ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                    : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
+                }`}
               >
                 {isSubmitting ? '提交中...' : '訂閱'}
               </button>
             </div>
+            {!isEmailValid && email !== '' && (
+              <p className="mt-2 text-sm text-red-600">
+                請輸入有效的 Email 地址
+              </p>
+            )}
             {submitStatus === 'success' && (
               <p className="mt-2 text-sm text-green-600">
                 感謝訂閱！我們會寄送相關資訊給你。
