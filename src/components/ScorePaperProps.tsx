@@ -7,17 +7,6 @@ interface ScorePaperProps {
 }
 
 const ScoreTree: React.FC<ScorePaperProps> = ({ score, maxScore, level }) => {
-  // Calculate growth percentage (limit to 100%)
-  // const growthPercentage = Math.min((score / maxScore) * 100, 100);
-  
-  // Define tree states based on growth
-  // const getTreeState = () => {
-  //   if (growthPercentage < 20) return '無名小卒';
-  //   if (growthPercentage < 40) return '小有名氣';
-  //   if (growthPercentage < 60) return '樹大招風';
-  //   if (growthPercentage < 80) return '人人喊打';
-  //   return '天怒人怨';
-  // };
 
   return (
     <div className="flex flex-row p-4">
