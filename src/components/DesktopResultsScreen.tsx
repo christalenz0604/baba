@@ -46,20 +46,19 @@ const DesktopResultsScreen: React.FC = () => {
 
   const getResultTitleImage = () => {
     const score = gameState.score;
-    const characterScore = character.score;
-    if (score === characterScore) return getImagePath("/images/result_prettyName_Lv5.png");
     if (score < 100) return getImagePath("/images/result_prettyName_Lv1.png");
-    if (score < 1000) return getImagePath("/images/result_prettyName_Lv2.png");
-    if (score < 10000) return getImagePath("/images/result_prettyName_Lv3.png");
-    return getImagePath("/images/result_prettyName_Lv4.png");
+    if (score < 500) return getImagePath("/images/result_prettyName_Lv2.png");
+    if (score < 1000) return getImagePath("/images/result_prettyName_Lv3.png");
+    if (score < 10000) return getImagePath("/images/result_prettyName_Lv4.png");
+    return getImagePath("/images/result_prettyName_Lv5.png");
   };
   const getResultTitle = () => {
     const score = gameState.score;
     if (score < 100) return "選區裝飾品";
-    if (score < 500) return "提案複製機";
-    if (score < 1000) return "政黨特攻隊長";
-    if (score < 5000) return "國安漏洞製造者";
-    if (score < 10000) return "賣台第一把交椅";
+    if (score < 5000) return "提案複製機";
+    if (score < 10000) return "政黨特攻隊長";
+    if (score < 20000) return "國安漏洞製造者";
+    return "賣台第一把交椅";
   };
   const getPersonalityTrait = () => {
     const characterType = character.id;
