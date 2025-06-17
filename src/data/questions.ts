@@ -544,7 +544,7 @@ const LaiShyhBaoQuestions: Question[] = [
     ],
     explanation: {
       text: '賴士葆在景美捷運站2號出口對面的義美樓上刊登大篇幅的廣告，得意洋洋的宣傳他刪掉F-16購買的預算。刪除新式戰機採購特別預算總額100%',
-      reference: 'javascript:;'
+      reference: 'https://watchout.tw/reports/Ha31rPm5TEPAEp2Xaw7K'
     }
   },
   {
