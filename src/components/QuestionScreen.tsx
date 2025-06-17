@@ -117,7 +117,7 @@ const QuestionScreen: React.FC = () => {
         >
           <motion.button
             onClick={() => setIsLightboxOpen(true)}
-            className="absolute -top-12 right-6 w-20 h-20 bg-[url('/images/aboutmore_2.png')] bg-contain bg-center bg-no-repeat text-white transition-colors duration-200 flex items-center justify-center font-medium"
+            className="absolute -top-12 right-6 w-20 h-20 bg-[url('/images/aboutmore_2.gif')] bg-contain bg-center bg-no-repeat text-white transition-colors duration-200 flex items-center justify-center font-medium"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.99 }}
           />

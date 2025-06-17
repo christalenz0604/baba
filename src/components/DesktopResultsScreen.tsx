@@ -15,6 +15,7 @@ const DesktopResultsScreen: React.FC = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showShare, setShowShare] = useState(false);
   const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
+  const [isEmailValid, setIsEmailValid] = useState(true);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const character = gameState.selectedCharacter;
@@ -64,20 +65,19 @@ const DesktopResultsScreen: React.FC = () => {
 
   const getResultTitleImage = () => {
     const score = gameState.score;
-    const characterScore = character.score;
-    if (score === characterScore) return getImagePath("/images/result_prettyName_Lv5.png");
     if (score < 100) return getImagePath("/images/result_prettyName_Lv1.png");
-    if (score < 1000) return getImagePath("/images/result_prettyName_Lv2.png");
-    if (score < 10000) return getImagePath("/images/result_prettyName_Lv3.png");
-    return getImagePath("/images/result_prettyName_Lv4.png");
+    if (score < 500) return getImagePath("/images/result_prettyName_Lv2.png");
+    if (score < 1000) return getImagePath("/images/result_prettyName_Lv3.png");
+    if (score < 10000) return getImagePath("/images/result_prettyName_Lv4.png");
+    return getImagePath("/images/result_prettyName_Lv5.png");
   };
   const getResultTitle = () => {
     const score = gameState.score;
     if (score < 100) return "選區裝飾品";
-    if (score < 500) return "提案複製機";
-    if (score < 1000) return "政黨特攻隊長";
-    if (score < 5000) return "國安漏洞製造者";
-    if (score < 10000) return "賣台第一把交椅";
+    if (score < 5000) return "提案複製機";
+    if (score < 10000) return "政黨特攻隊長";
+    if (score < 20000) return "國安漏洞製造者";
+    return "賣台第一把交椅";
   };
   const getPersonalityTrait = () => {
     const characterType = character.id;
@@ -160,8 +160,19 @@ const DesktopResultsScreen: React.FC = () => {
     return "該立委不予評論";
   };
 
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    setIsEmailValid(newEmail === '' || validateEmail(newEmail));
+  };
+
   const handleSubmitEmail = async () => {
-    if (!email || !character) return;
+    if (!email || !character || !validateEmail(email)) return;
     setIsSubmitting(true);
     setSubmitStatus('idle');
     try {
@@ -237,7 +248,7 @@ const DesktopResultsScreen: React.FC = () => {
             />
 
             {/* 插入文字在 ribbon 上 */}
-            <div className="absolute text-white font-pixel font-bold text-[clamp(1.5rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
+            <div className="absolute text-white font-pixel font-bold text-[clamp(2rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
               {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
             </div>
           </div>
@@ -249,13 +260,13 @@ const DesktopResultsScreen: React.FC = () => {
               src={getResult() === "成功"
                 ? getImagePath("/images/result_Board_WebSize_Win.png")
                 : getImagePath("/images/result_Board_WebSize_Fail.png")}
-              className="w-full max-w-[900px] h-auto object-contain"
+              className="w-full max-w-[900px] h-auto object-contain transition-all duration-300 -mt-16"
               alt="結果底圖"
             />
 
             {/* 四個角落裝飾圖 - 疊在上方 */}
-            <img src={getImagePath("/images/corner_LT.png") } className="pointer-events-none absolute top-4 left-4 w-10 h-10 z-30" alt="LT" />
-            <img src={getImagePath("/images/corner_RT.png") } className="pointer-events-none absolute top-4 right-4 w-10 h-10 z-30" alt="RT" />
+            <img src={getImagePath("/images/corner_LT.png") } className="pointer-events-none absolute top-4 left-4 w-10 h-10 z-30 -mt-16" alt="LT" />
+            <img src={getImagePath("/images/corner_RT.png") } className="pointer-events-none absolute top-4 right-4 w-10 h-10 z-30 -mt-16" alt="RT" />
             <img src={getImagePath("/images/corner_LB.png") } className="pointer-events-none absolute bottom-4 left-4 w-10 h-10 z-30" alt="LB" />
             <img src={getImagePath("/images/corner_RB.png") } className="pointer-events-none absolute bottom-4 right-4 w-10 h-10 z-30" alt="RB" />
 
@@ -264,17 +275,17 @@ const DesktopResultsScreen: React.FC = () => {
 
               <div className="flex flex-row items-center w-full content-center px-2 my-10">
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-gray-200">你扮演的立委是：</p>
-                  <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
-                  <h3 className="flex font-semibold text-lg text-white">{character.name}</h3>
+                  <p className="flex font-medium text-gray-200 -mt-6">你扮演的立委是</p>
+                  <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover mt-10" />
+                  <h3 className="flex font-semibold text-lg text-white mt-8">{character.name}</h3>
                 </div>
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-gray-200">累積連署書</p>
+                  <p className="flex font-medium text-gray-200 -mt-8">累積連署書</p>
                   <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
                   <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
                 </div>
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-gray-200">{getResultTitle()}</p>
+                  <p className="flex font-medium text-gray-200 -mt-2">{getResultTitle()}</p>
                   <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
                   <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
                 </div>
@@ -351,29 +362,42 @@ const DesktopResultsScreen: React.FC = () => {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="請輸入您的 Email"
-              className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-            <button
-              onClick={handleSubmitEmail}
-              disabled={isSubmitting || !email}
-              className={`px-4 py-2 font-medium ${isSubmitting || !email
-                ? 'bg-[#d7005c] text-white cursor-not-allowed'
-                : 'bg-[#5b00d7] text-white hover:bg-indigo-700'}`}
-            >
-              {isSubmitting ? '提交中...' : '訂閱'}
-            </button>
+              onChange={handleEmailChange}
+                placeholder="請輸入您的 Email"
+                className={`flex-1 px-4 py-2 border ${
+                  isEmailValid ? 'border-gray-300' : 'border-red-500'
+                } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+              />
+              <button
+                onClick={handleSubmitEmail}
+                disabled={isSubmitting || !email || !isEmailValid}
+                className={`px-4 py-2 font-medium ${
+                  isSubmitting || !email || !isEmailValid
+                    ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                    : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
+                }`}
+              >
+                {isSubmitting ? '提交中...' : '訂閱'}
+              </button>
+            </div>
+            {!isEmailValid && email !== '' && (
+              <p className="mt-2 text-sm text-red-600">
+                請輸入有效的 Email 地址
+              </p>
+            )}
+            {submitStatus === 'success' && (
+              <p className="mt-2 text-sm text-green-600">
+                感謝訂閱！我們會寄送相關資訊給你。
+              </p>
+            )}
+            {submitStatus === 'error' && (
+              <p className="mt-2 text-sm text-red-600">
+                抱歉，發生錯誤。請稍後再試。
+              </p>
+            )}
           </div>
-          {submitStatus === 'success' && (
-            <p className="mt-2 text-sm text-green-600">感謝訂閱！我們會寄送相關資訊給你。</p>
-          )}
-          {submitStatus === 'error' && (
-            <p className="mt-2 text-sm text-red-600">抱歉，發生錯誤。請稍後再試。</p>
-          )}
         </div>
       </div>
-    </div>
     </div >
   );
 };
