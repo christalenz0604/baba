@@ -266,17 +266,17 @@ const DesktopResultsScreen: React.FC = () => {
 
               <div className="flex flex-row items-center w-full content-center px-2 my-10">
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-gray-200 -mt-6">你扮演的立委是</p>
-                  <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover mt-10" />
-                  <h3 className="flex font-semibold text-lg text-white mt-8">{character.name}</h3>
+                  <p className="flex font-medium text-2xl text-gray-200 -mt-6">你扮演的立委是</p>
+                  <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
+                  <h3 className="flex font-semibold text-4xl text-white">{character.name}</h3>
                 </div>
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-gray-200 -mt-8">累積連署書</p>
+                  <p className="flex font-medium text-2xl text-gray-200 -mt-8">累積連署書</p>
                   <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                  <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
+                  <p className="flex text-4xl font-bold text-white">x {gameState.score}</p>
                 </div>
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-gray-200 -mt-2">{getResultTitle()}</p>
+                  <p className="flex font-medium text-2xl text-gray-200 -mt-2">{getResultTitle()}</p>
                   <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
                   <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
                 </div>
@@ -325,7 +325,7 @@ const DesktopResultsScreen: React.FC = () => {
 		  </div>
         </motion.div>
       </div>
-      <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
+      <div className="relative flex flex-row w-full mx-auto justify-center my-2 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
               <p className="text-center">投下同意罷免，下架惡質立委！</p>
         </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}

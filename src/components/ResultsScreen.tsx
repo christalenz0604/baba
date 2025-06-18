@@ -278,13 +278,13 @@ const ResultsScreen: React.FC = () => {
               <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20 mt-10">
 
 
-                <div className="flex flex-row items-center w-full justify-center">
+                <div className="flex flex-row items-center w-full justify-center pt-4">
                   <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
                     <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
                   </div>
                   <div className="flex flex-col w-1/2 h-auto">
-                    <p className="flex w-full px-6 pr-0 text-gray-200 text-base xs:text-sm">你扮演的立委是</p>
-                    <h3 className="flex font-semibold px-6 text-2xl xs:text-xl text-white">{character.name}</h3>
+                    <p className="flex w-full pl-6 text-gray-200 text-base xs:text-sm">你扮演的立委是</p>
+                    <h3 className="flex font-semibold pl-6 text-4xl xs:text-xl text-white">{character.name}</h3>
                   </div>
                 </div>
 
@@ -294,20 +294,20 @@ const ResultsScreen: React.FC = () => {
                       <img src={getPaperCountImage()} alt="" className="w-3/4 h-3/4 object-cover" />
                     </div>
                     <div className="flex-col w-1/2">
-                      <p className="flex font-medium text-gray-200 px-6 pr-0">累積連署書</p>
-                      <p className="flex text-2xl font-bold text-white px-6 pr-0">x {gameState.score}</p>
+                      <p className="flex font-medium text-gray-200 pl-6">累積連署書</p>
+                      <p className="flex text-2xl font-bold text-white pl-6">x {gameState.score}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col pb-4">
                   <div className="flex flex-row justify-center items-center rounded-0 -mt-6">
-                    <div className="flex items-center mb-2 w-1/2 h-auto">
+                    <div className="flex items-center mb-2 w-1/2 h-auto p-2">
                       <img src={getResultTitleImage()} alt="" className="w-3/4 h-3/4 object-cover" />
                     </div>
                     <div className="flex-col w-1/2">
-                      <p className="flex font-medium text-gray-200 px-6 pr-0 text-xl xs:text-base">{getResultTitle()}</p>
-                      <p className="flex text-l font-bold text-white px-6 pr-0 text-sm xs:text-xs">{getPersonalityTrait()}</p>
+                      <p className="flex font-medium text-gray-200 pl-6 text-2xl xs:text-lg tracking-wide">{getResultTitle()}</p>
+                      <p className="flex text-l font-bold text-white pl-6 text-sm xs:text-xs">{getPersonalityTrait()}</p>
                     </div>
                   </div>
                 </div>
@@ -356,7 +356,7 @@ const ResultsScreen: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="flex flex-row w-full mx-auto my-2 text-white text-3xl font-bold">
+      <div className="relative flex flex-row w-full justify-center mx-auto my-2 text-white text-xl font-bold z-12">
       <p className="text-center">投下同意罷免，下架惡質立委！</p>
       </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
