@@ -17,9 +17,11 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
   if (!character) return null;
   
   const text = [
-    `${character.name} 歡迎進入國會派對！`,
+    `歡迎進入國會派對！`,
+    `你將以 ${character.name} 的角色前進國會，`,
     "接下來你將面對各種關於國會生涯的重要抉擇。",
-    `請試著用 ${character.name} 的角度思考，在國會活到最後一刻！`
+    `請試著用 ${character.name} 的角度思考，`,
+    "在國會活到最後一刻！"
   ];
   
   const introText = useTypewriter(
