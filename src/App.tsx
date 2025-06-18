@@ -3,11 +3,7 @@ import { GameProvider, useGame } from './context/GameContext';
 import CharacterSelection from './components/CharacterSelection';
 import QuestionScreen from './components/QuestionScreen';
 import ResultsScreen from './components/ResultsScreen';
-<<<<<<< HEAD
-import DesktopResultsScreen from './components/DesktopResultsScreen'; // æ¡Œæ©Ÿå°ˆç”¨
-=======
-import DesktopResultsScreen from './components/DesktopResultsScreen'; // ®à¾÷±M¥Î
->>>>>>> gmain
+import DesktopResultsScreen from './components/DesktopResultsScreen'; // For Desktop PC size
 import './styles/pixel.css';
 import { setImagePathVariables } from './utils/cssUtils';
 
@@ -19,11 +15,7 @@ const GameContainer: React.FC = () => {
     const checkLayout = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
-<<<<<<< HEAD
-      // æ©«å¼ç•«é¢ï¼ˆæ¡Œæ©Ÿæˆ–æ©«æ”¾å¹³æ¿ï¼‰
-=======
-      // ¾î¦¡µe­±¡]®à¾÷©Î¾î©ñ¥­ªO¡^
->>>>>>> gmain
+      // for Desktop PC size
       setIsDesktopLayout(width > height);
     };
 
