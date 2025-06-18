@@ -3,7 +3,7 @@ import { GameProvider, useGame } from './context/GameContext';
 import CharacterSelection from './components/CharacterSelection';
 import QuestionScreen from './components/QuestionScreen';
 import ResultsScreen from './components/ResultsScreen';
-import DesktopResultsScreen from './components/DesktopResultsScreen'; // Desktop Screen Size
+import DesktopResultsScreen from './components/DesktopResultsScreen'; // For Desktop PC size
 import './styles/pixel.css';
 import { setImagePathVariables } from './utils/cssUtils';
 
@@ -15,6 +15,7 @@ const GameContainer: React.FC = () => {
     const checkLayout = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
+      // for Desktop PC size
       setIsDesktopLayout(width > height);
     };
 
