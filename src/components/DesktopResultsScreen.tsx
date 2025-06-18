@@ -201,7 +201,7 @@ const DesktopResultsScreen: React.FC = () => {
   return (
     // bg image url 需要調整
     <div
-      className="min-h-screen bg-contain bg-cover py-4 px-4"
+      className="flex flex-col min-h-screen bg-contain bg-cover py-4 px-4"
       style={{
         backgroundImage: `url(${getImagePath(
           getResult() === '成功'
@@ -210,6 +210,8 @@ const DesktopResultsScreen: React.FC = () => {
         )})`
       }}
     >
+	
+	
 	
       <div className="fireworks-container" id="fireworks"></div>
       <canvas id="confetti"></canvas>
@@ -292,7 +294,7 @@ const DesktopResultsScreen: React.FC = () => {
                       await handleScreenshotShare(); // 先截圖 → 再開啟分享
                     }
                   }}
-                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[200px]"
+                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[160px] md:h-[160px] lg:w-[240px] lg:h-[200px]"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -301,7 +303,7 @@ const DesktopResultsScreen: React.FC = () => {
 
                 <motion.button
                   onClick={restartGame}
-                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[200px]"
+                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[160px] md:h-[160px] lg:w-[240px] lg:h-[200px]"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -325,7 +327,7 @@ const DesktopResultsScreen: React.FC = () => {
 		  </div>
         </motion.div>
       </div>
-      <div className="absolute flex flex-row w-full mx-auto justify-center -my-5 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
+      <div className="flex flex-row w-full mx-auto justify-center -my-5 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
               <p className="text-center">投下同意罷免，下架惡質立委！</p>
         </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
