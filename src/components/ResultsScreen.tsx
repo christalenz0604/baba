@@ -276,6 +276,9 @@ const ResultsScreen: React.FC = () => {
           </div>
         )}
 
+        <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
+              投下同意罷免，下架惡質立委！
+        </div>
 {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
           {/* Email subscription form */}
           <div className={`flex flex-row items-center w-full justify-center ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>

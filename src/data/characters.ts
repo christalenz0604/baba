@@ -81,7 +81,7 @@ export const characters: Character[] = [
   {
     id: 'LEEYEHSIU',//人物id
     name: '李彥秀',
-    districts:'臺北市第ˋ選區',
+    districts:'臺北市第4選區',
     avatar: getImagePath('/images/LEEYEHSIU_pic.png?auto=compress&cs=tinysrgb&w=300'),
     description: '疑美是工作 移美是生活',
     questionSetId: 'LEEYEHSIU',//對應問題系列
