@@ -51,7 +51,12 @@ const CharacterSelection: React.FC = () => {
             </div>
           </motion.div>
 
-          <div className="h-48 overflow-hidden office-character">
+          <div 
+            style={{
+              backgroundImage: `url(${getImagePath("/images/office_bg.gif")})`
+            }}     
+		    className="h-48 overflow-hidden office-character"
+		  >
             <img
               src={character.avatar}
               alt={character.name}

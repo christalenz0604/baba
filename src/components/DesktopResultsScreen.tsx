@@ -219,8 +219,8 @@ const DesktopResultsScreen: React.FC = () => {
       style={{
         backgroundImage: `url(${getImagePath(
           getResult() === '成功'
-          ? '/images/result_bg_Win.png'
-          : '/images/result_bg_Fail.png'
+          ? getImagePath("/images/result_bg_Win.png")
+          : getImagePath("/images/result_bg_Fail.png")
         )})`
       }}
     >

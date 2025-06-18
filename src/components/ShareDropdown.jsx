@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getImagePath } from '../utils/pathUtils';
 import {
   FaFacebookF,
   FaLine,
@@ -165,13 +166,13 @@ const ShareDropdown = ({
             </p>
 
             <img
-              src="/images/share_1200x630.png"
+              src={getImagePath("/images/share_1200x630.png")}
               alt="分享圖片"
               className="w-full rounded-lg mb-4 border"
             />
 
             <a
-              href="/images/share_1200x630.png"
+              href={getImagePath("/images/share_1200x630.png")}
               download="分享圖.png"
               className="inline-block mb-3 px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition"
             >

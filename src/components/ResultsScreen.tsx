@@ -221,8 +221,8 @@ const ResultsScreen: React.FC = () => {
       style={{
         backgroundImage: `url(${getImagePath(
           getResult() === '成功'
-          ? '/images/result_bg_Win.png'
-          : '/images/result_bg_Fail.png'
+          ? getImagePath("/images/result_bg_Win.png")
+          : getImagePath("/images/result_bg_Fail.png")
         )})`
       }}
     >
@@ -366,7 +366,7 @@ const ResultsScreen: React.FC = () => {
 
             {/* logo */}
             <div className="flex-shrink-0 w-[72px] h-[72px] flex items-center">
-              <img src="/images/logo.png" className="w-full h-auto object-contain" />
+              <img src={getImagePath("/images/logo.png")} className="w-full h-auto object-contain" />
             </div>
 
             {/* right section */}
@@ -374,6 +374,9 @@ const ResultsScreen: React.FC = () => {
               <div className="flex items-center justify-start gap-0">
                 <button
                   onClick={() => setIsAboutUsOpen(true)}				
+                  style={{
+                    backgroundImage: `url(${getImagePath("/images/result_bb.gif")})`
+                  }}  
 				  className="w-24 h-10 result-bb"></button>
                 <h4 className="text-sm sm:text-base xs:text-xs font-semibold text-white whitespace-nowrap">
                   想收到更多相關資訊嗎？
