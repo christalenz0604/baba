@@ -81,7 +81,7 @@ export const characters: Character[] = [
   {
     id: 'LEEYEHSIU',//人物id
     name: '李彥秀',
-    districts:'臺北市第ˋ選區',
+    districts:'臺北市第4選區',
     avatar: getImagePath('/images/LEEYEHSIU_pic.png?auto=compress&cs=tinysrgb&w=300'),
     description: '疑美是工作 移美是生活',
     questionSetId: 'LEEYEHSIU',//對應問題系列
@@ -148,7 +148,7 @@ export const characters: Character[] = [
     avatar: getImagePath('/images/LoMingTsai_pic.png?auto=compress&cs=tinysrgb&w=300'),
     description: '2024年亦成為目前立法院黨團中最資深的「八連霸」立委，其父羅福助為天道盟創辦人，2012年獲罪潛逃大陸並被通緝至今。',
     questionSetId: 'LoMingTsai',//對應問題系列
-    score: 34000,
+    score: 34076,
     resultCharacterImages: {
       success: getImagePath('/images/LoMingTsai_pic.png?auto=compress&cs=tinysrgb&w=300'),
       happy: getImagePath('/images/LoMingTsai_pic.png?auto=compress&cs=tinysrgb&w=300'),

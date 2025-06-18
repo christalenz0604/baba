@@ -80,9 +80,9 @@ const ResultsScreen: React.FC = () => {
     }
 
     if (characterType === 'LaiShyhBao') {
-      if (score < 100) return "Developing Empath";
-      if (score < 10000) return "Intuitive Soul";
-      return "Emotional Sage";
+      if (score < 100) return "白X政策連署萌芽者，聲量微弱如昔日批評";
+      if (score < 10000) return "昏暗A柱連署快閃隊，連署書突然暴增，讓人防不勝防";
+      return "民主絕命轟炸機，嘎啦嘎啦";
     }
     
     if (characterType === 'wanghungwei') {
@@ -276,6 +276,9 @@ const ResultsScreen: React.FC = () => {
           </div>
         )}
 
+        <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
+              投下同意罷免，下架惡質立委！
+        </div>
 {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
           {/* Email subscription form */}
           <div className={`flex flex-row items-center w-full justify-center ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
