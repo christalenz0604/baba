@@ -27,16 +27,16 @@ const CharacterSelection: React.FC = () => {
       <img
         src={getImagePath('images/logo.png')}
         alt="logo"
-        className="mx-auto w-80 h-auto my-4"
+        className="mx-auto w-80 h-auto mb-2 mt-2 sm:mt-4 sm:mb-4 max-[392px]:w-60"
       />
 
       {/* ✅ 下方角色選擇區 */}
-      <div className="flex-grow flex flex-col justify-center items-center w-full px-4">
+      <div className="flex-grow flex flex-col justify-start items-center w-full px-4">
         <div className="relative max-w-md w-full">
 
           <motion.div
             key={character.id}
-            className="mx-auto w-full overflow-hidden mb-4"
+            className="mx-auto w-full overflow-hidden mb-4 min-h-[170px]"
           >
             <div className="p-2 font-pixel dialog-box relative">
               {/* 四個角圖片 */}
@@ -51,7 +51,12 @@ const CharacterSelection: React.FC = () => {
             </div>
           </motion.div>
 
-          <div className="h-48 overflow-hidden office-character">
+          <div 
+            style={{
+              backgroundImage: `url(${getImagePath("/images/office_bg.gif")})`
+            }}     
+		    className="h-48 overflow-hidden office-character"
+		  >
             <img
               src={character.avatar}
               alt={character.name}

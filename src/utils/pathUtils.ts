@@ -9,6 +9,9 @@ export const getImagePath = (path: string): string => {
   // If path starts with /baba_test/, replace it with stagRelativePath
   if (path.startsWith('/baba_test/')) {
     return path.replace('/baba_test/', stagRelativePath);
+  // If path starts with /, replace it with stagRelativePath
+  // if (path.startsWith('/')) {
+  //   return path.replace('/', stagRelativePath);
   }
   
   // Otherwise, just prepend stagRelativePath
