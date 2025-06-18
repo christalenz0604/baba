@@ -55,11 +55,10 @@ const ResultsScreen: React.FC = () => {
   //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
   const getResultCharacterImage = () => {
     const score = gameState.score;
-    const characterScore = character.score;
-    if (score === characterScore) return character.resultCharacterImages.success;
-    if (score < 100) return character.resultCharacterImages.happy;
-    return character.resultCharacterImages.normal;
+    if (score < 20000) return character.resultCharacterImages.fail;
+    return character.resultCharacterImages.success;
   };
+
 
   //Get Paper Count Image if score is less than 100 show 100.png if the score is between 100 and character.score show 10000.png if the score is between 10000 and character.score show 100000.png
   const getPaperCountImage = () => {
@@ -72,9 +71,9 @@ const ResultsScreen: React.FC = () => {
   const getResultTitleImage = () => {
     const score = gameState.score;
     if (score < 100) return getImagePath("/images/result_prettyName_Lv1.png");
-    if (score < 500) return getImagePath("/images/result_prettyName_Lv2.png");
-    if (score < 1000) return getImagePath("/images/result_prettyName_Lv3.png");
-    if (score < 10000) return getImagePath("/images/result_prettyName_Lv4.png");
+    if (score < 5000) return getImagePath("/images/result_prettyName_Lv2.png");
+    if (score < 10000) return getImagePath("/images/result_prettyName_Lv3.png");
+    if (score < 20000) return getImagePath("/images/result_prettyName_Lv4.png");
     return getImagePath("/images/result_prettyName_Lv5.png");
   };
   const getResultTitle = () => {

@@ -12,9 +12,8 @@ export const characters: Character[] = [
     score: 36140,
     //images according to the score
     resultCharacterImages: {
-      success: getImagePath('/images/ChangChihLun_pic.png'),
-      happy: getImagePath('/images/ChangChihLun_pic.png'),
-      normal: getImagePath('/images/ChangChihLun_pic.png')
+      success: getImagePath('/images/results/avatar/ChangChihLun_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/ChangChihLun_pic_Sad.gif'),
     }
   },
   {
@@ -26,9 +25,8 @@ export const characters: Character[] = [
     questionSetId: 'linTeFu',//對應問題系列
     score: 29474,
     resultCharacterImages: {
-      success: getImagePath('/images/linTeFu_pic.png'),
-      happy: getImagePath('/images/linTeFu_pic.png'),
-      normal: getImagePath('/images/linTeFu_pic.png')
+      success: getImagePath('/images/results/avatar/linTeFu_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/linTeFu_pic_Sad.gif'),
     }
   },
   //徐巧芯HSUCHIAOHSIN_題目OK
@@ -41,9 +39,8 @@ export const characters: Character[] = [
     questionSetId: 'HSUCHIAOHSIN',//對應問題系列
     score: 41201,
     resultCharacterImages: {
-      success: getImagePath('/images/HSUCHIAOHSIN_pic.png'),
-      happy: getImagePath('/images/HSUCHIAOHSIN_pic.png'),
-      normal: getImagePath('/images/HSUCHIAOHSIN_pic.png')
+      success: getImagePath('/images/results/avatar/HSUCHIAOHSIN_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/HSUCHIAOHSIN_pic_Sad.gif'),
     }
   },
   
@@ -57,9 +54,8 @@ export const characters: Character[] = [
     questionSetId: 'LaiShyhBao',//對應問題系列
     score: 34040,
     resultCharacterImages: {
-      success: getImagePath('/images/LaiShyhBao_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      happy: getImagePath('/images/LaiShyhBao_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      normal: getImagePath('/images/LaiShyhBao_pic.png?auto=compress&cs=tinysrgb&w=300')
+      success: getImagePath('/images/results/avatar/LaiShyhBao_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/LaiShyhBao_pic_Sad.gif'),
     }
   },
 //王鴻薇wanghungwei
@@ -72,9 +68,8 @@ export const characters: Character[] = [
     questionSetId: 'wanghungwei',//對應問題系列
     score: 45818,
     resultCharacterImages: {
-      success: getImagePath('/images/wanghungwei_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      happy: getImagePath('/images/wanghungwei_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      normal: getImagePath('/images/wanghungwei_pic.png?auto=compress&cs=tinysrgb&w=300')
+      success: getImagePath('/images/results/avatar/wanghungwei_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/wanghungwei_pic_Sad.gif'),
     }
   },
 //李彥秀LEEYEHSIU
@@ -87,9 +82,8 @@ export const characters: Character[] = [
     questionSetId: 'LEEYEHSIU',//對應問題系列
     score: 45183,
     resultCharacterImages: {
-      success: getImagePath('/images/LEEYEHSIU_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      happy: getImagePath('/images/LEEYEHSIU_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      normal: getImagePath('/images/LEEYEHSIU_pic.png?auto=compress&cs=tinysrgb&w=300')
+      success: getImagePath('/images/results/avatar/LEEYEHSIU_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/LEEYEHSIU_pic_Sad.gif'),
     }
   },
 //陳玉珍ChenYuJen
@@ -111,9 +105,8 @@ export const characters: Character[] = [
     questionSetId: 'YEHYUANCHIH',//對應問題系列
     score: 32236,
     resultCharacterImages: {
-      success: getImagePath('/images/YEHYUANCHIH_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      happy: getImagePath('/images/YEHYUANCHIH_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      normal: getImagePath('/images/YEHYUANCHIH_pic.png?auto=compress&cs=tinysrgb&w=300')
+      success: getImagePath('/images/results/avatar/YEHYUANCHIH_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/YEHYUANCHIH_pic_Sad.gif'),
     }
   },
 //傅崐萁FUKUNCHI
@@ -135,9 +128,8 @@ export const characters: Character[] = [
     questionSetId: 'HungMongKai',//對應問題系列
     score: 54916,
     resultCharacterImages: {
-      success: getImagePath('/images/HungMongKai_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      happy: getImagePath('/images/HungMongKai_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      normal: getImagePath('/images/HungMongKai_pic.png?auto=compress&cs=tinysrgb&w=300')
+      success: getImagePath('/images/results/avatar/HungMongKai_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/HungMongKai_pic_Sad.gif'),
     }
   },
 //羅明才
@@ -150,9 +142,8 @@ export const characters: Character[] = [
     questionSetId: 'LoMingTsai',//對應問題系列
     score: 34076,
     resultCharacterImages: {
-      success: getImagePath('/images/LoMingTsai_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      happy: getImagePath('/images/LoMingTsai_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      normal: getImagePath('/images/LoMingTsai_pic.png?auto=compress&cs=tinysrgb&w=300')
+      success: getImagePath('/images/results/avatar/LoMingTsai_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/LoMingTsai_pic_Sad.gif'),
     }
   },
 //廖先翔
@@ -165,9 +156,8 @@ export const characters: Character[] = [
     questionSetId: 'LIAOHsienHsiang',//對應問題系列
     score: 36399,
     resultCharacterImages: {
-      success: getImagePath('/images/LIAOHsienHsiang_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      happy: getImagePath('/images/LIAOHsienHsiang_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      normal: getImagePath('/images/LIAOHsienHsiang_pic.png?auto=compress&cs=tinysrgb&w=300')
+      success: getImagePath('/images/results/avatar/LIAOHsienHsiang_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/LIAOHsienHsiang_pic_Sad.gif'),
     }
   },
 //羅智強
@@ -180,9 +170,8 @@ export const characters: Character[] = [
     questionSetId: 'LOCHIHCHIANG',//對應問題系列
     score: 36398,
     resultCharacterImages: {
-      success: getImagePath('/images/LOCHIHCHIANG_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      happy: getImagePath('/images/LOCHIHCHIANG_pic.png?auto=compress&cs=tinysrgb&w=300'),
-      normal: getImagePath('/images/LOCHIHCHIANG_pic.png?auto=compress&cs=tinysrgb&w=300')
+      success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+      fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
     }
   },
   

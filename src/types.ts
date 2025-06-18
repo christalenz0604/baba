@@ -10,8 +10,7 @@ export interface Character {
 }
 export interface ResultCharacterImage {
   success: string;
-  happy: string;
-  normal: string;
+  fail: string;
 }
 
 export interface Option {
