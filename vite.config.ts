@@ -10,7 +10,7 @@ import react from '@vitejs/plugin-react';
 // });
 // define js
 export default defineConfig({
-  base: '/', // Set to match Playbaba.tw Pages repository name
+  base: '/baba_test/', // Set to match gh-pages Pages repository name
   plugins: [react()],
   server: {
   },
