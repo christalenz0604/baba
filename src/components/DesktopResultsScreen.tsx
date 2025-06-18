@@ -1,9 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
 import html2canvas from 'html2canvas';
 import ShareDropdown from './ShareDropdown';
 import { getImagePath } from '../utils/pathUtils';
+
+import { launchConfetti } from '../utils/confetti';
+import { launchFirework } from '../utils/firework';
+
+import { X } from 'lucide-react';
 
 const DesktopResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
@@ -13,6 +18,9 @@ const DesktopResultsScreen: React.FC = () => {
   const [showShare, setShowShare] = useState(false);
   const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
   const [isEmailValid, setIsEmailValid] = useState(true);
+
+  const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
+
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const character = gameState.selectedCharacter;
@@ -25,6 +33,22 @@ const DesktopResultsScreen: React.FC = () => {
     if (score === characterScore) return "成功";
     return "失敗";
   };
+
+
+  useEffect(() => {
+    try {
+      if (getResult() === '成功') {
+        launchConfetti?.();
+        const interval = setInterval(() => {
+          launchFirework?.();
+        }, 1000);
+        return () => clearInterval(interval);
+      }
+    } catch (error) {
+      console.error("煙火或彩帶初始化錯誤：", error);
+    }
+  }, []);
+
 
   //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
   const getResultCharacterImage = () => {
@@ -190,15 +214,30 @@ const DesktopResultsScreen: React.FC = () => {
 
   return (
     // bg image url 需要調整
-    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? `bg-[url('/baba_test/images/result_bg_Win.png')]` : `bg-[url('/baba_test/images/result_bg_Fail.png')]`} bg-cover`}>
+    <div
+      className="min-h-screen bg-contain bg-cover py-4 px-4"
+      style={{
+        backgroundImage: `url(${getImagePath(
+          getResult() === '成功'
+          ? getImagePath("/images/result_bg_Win.png")
+          : getImagePath("/images/result_bg_Fail.png")
+        )})`
+      }}
+    >
+	
+      <div className="fireworks-container" id="fireworks"></div>
+      <canvas id="confetti"></canvas>
+
+
+
       <div className="flex-frow max-w-4xl mx-auto" >
         <motion.div
-          className="flex flex-col rounded-0 overflow-hidden justify-center my-4 relative"
+          className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="relative flex justify-center items-center w-full h-[50px] mb-0 mt-10 overflow-visible">
+          <div className="relative flex justify-center items-center w-full mt-10 overflow-visible">
             {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
             <img
               src={getResult() === "成功" ? `${getImagePath('/images/title_Win.png')}` : `${getImagePath('/images/title_Fail.png')}`}
@@ -214,70 +253,90 @@ const DesktopResultsScreen: React.FC = () => {
             />
 
             {/* 插入文字在 ribbon 上 */}
-            <div className="absolute text-white font-pixel font-bold text-[clamp(1.5rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
+            <div className="absolute text-white font-pixel font-bold text-[clamp(2rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
               {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
             </div>
           </div>
 
-          <div className={`flex flex-col items-center w-full justify-center ${getResult() === "成功" ? `bg-[url('/baba_test/images/result_Board_WebSize_Win.png')]` : `bg-[url('/baba_test/images/result_Board_WebSize_Fail.png')]`}`}>
-            <div className="flex flex-row items-center w-full content-center px-2 my-10">
-              <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                <p className="flex font-medium text-gray-200">你扮演的立委是：</p>
-                <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
-                <h3 className="flex font-semibold text-lg text-white">{character.name}</h3>
-              </div>
-              <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                <p className="flex font-medium text-gray-200">累積連署書</p>
-                <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
-              </div>
-              <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                <p className="flex font-medium text-gray-200">{getResultTitle()}</p>
-                <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
-              </div>
-            </div>
-            {/* add two buttons in a row. One is share and the other is restart. */}
-            {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
-            <div className="flex flex-row items-center mb-4 w-full justify-center">
-              <motion.button
-                onClick={async () => {
-                  if (showShare) {
-                    setShowShare(false); // 關閉分享選單
-                  } else {
-                    await handleScreenshotShare(); // 先截圖 → 再開啟分享
-                  }
-                }}
-                className="font-medium w-1/5 h-1/5 mx-4"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <img src={getResult() === "成功" ? getImagePath("/images/btn_Share_Success.png") : getImagePath("/images/btn_Share_Fail.png")} alt="share" className="w-full h-full object-cover" />
-              </motion.button>
+          {/* 改為圖片方式呈現背景 + 四角裝飾 */}
+          <div className="relative flex flex-col items-center w-full justify-center">
+            {/* 背景主圖 */}
+            <img
+              src={getResult() === "成功"
+                ? getImagePath("/images/result_Board_WebSize_Win.png")
+                : getImagePath("/images/result_Board_WebSize_Fail.png")}
+              className="w-full max-w-[900px] h-auto object-contain transition-all duration-300 -mt-16"
+              alt="結果底圖"
+            />
 
-              <motion.button
-                onClick={restartGame}
-                className="font-medium w-1/5 h-1/5 mx-4"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <img src={getResult() === "成功" ? getImagePath("/images/btn_Tryagain_Success.png") : getImagePath("/images/btn_Tryagain_Fail.png")} alt="restart" className="w-full h-full object-cover" />
-              </motion.button>
-            </div>
-            {
-              showShare && screenshotUrl && (
-                <div className="flex justify-center mt-4">
-                  <ShareDropdown
-                    shareUrl={shareUrl}
-                    shareText={shareText}
-                    imageData={screenshotUrl}
-                    open={showShare}
-                    setOpen={setShowShare}
-                  />
+            {/* 四個角落裝飾圖 - 疊在上方 */}
+            <img src={getImagePath("/images/corner_LT.png") } className="pointer-events-none absolute top-4 left-4 w-10 h-10 z-30 -mt-16" alt="LT" />
+            <img src={getImagePath("/images/corner_RT.png") } className="pointer-events-none absolute top-4 right-4 w-10 h-10 z-30 -mt-16" alt="RT" />
+            <img src={getImagePath("/images/corner_LB.png") } className="pointer-events-none absolute bottom-4 left-4 w-10 h-10 z-30" alt="LB" />
+            <img src={getImagePath("/images/corner_RB.png") } className="pointer-events-none absolute bottom-4 right-4 w-10 h-10 z-30" alt="RB" />
+
+            {/* 實際內容區域 */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20">
+
+              <div className="flex flex-row items-center w-full content-center px-2 my-10">
+                <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                  <p className="flex font-medium text-gray-200 -mt-6">你扮演的立委是</p>
+                  <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover mt-10" />
+                  <h3 className="flex font-semibold text-lg text-white mt-8">{character.name}</h3>
                 </div>
-              )
-            }
-          </div>
+                <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                  <p className="flex font-medium text-gray-200 -mt-8">累積連署書</p>
+                  <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
+                  <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
+                </div>
+                <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                  <p className="flex font-medium text-gray-200 -mt-2">{getResultTitle()}</p>
+                  <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
+                  <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
+                </div>
+              </div>
+              {/* add two buttons in a row. One is share and the other is restart. */}
+              {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
+              <div className="flex flex-row items-center mb-8 w-full justify-center z-40 min-h-[200px]">
+                <motion.button
+                  onClick={async () => {
+                    if (showShare) {
+                      setShowShare(false); // 關閉分享選單
+                    } else {
+                      await handleScreenshotShare(); // 先截圖 → 再開啟分享
+                    }
+                  }}
+                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[200px]"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <img src={getResult() === "成功" ? getImagePath("/images/btn_Share_Success.png") : getImagePath("/images/btn_Share_Fail.png")} alt="share" className="w-full h-full object-contain" />
+                </motion.button>
+
+                <motion.button
+                  onClick={restartGame}
+                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[200px]"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <img src={getResult() === "成功" ? getImagePath("/images/btn_Tryagain_Success.png") : getImagePath("/images/btn_Tryagain_Fail.png")} alt="restart" className="w-full h-full object-contain" />
+                </motion.button>
+              </div>
+              {
+                showShare && screenshotUrl && (
+                  <div className="flex justify-center mt-4">
+                    <ShareDropdown
+                      shareUrl={shareUrl}
+                      shareText={shareText}
+                      imageData={screenshotUrl}
+                      open={showShare}
+                      setOpen={setShowShare}
+                    />
+                  </div>
+                )
+              }
+            </div>
+		  </div>
         </motion.div>
       </div>
       <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
@@ -286,27 +345,33 @@ const DesktopResultsScreen: React.FC = () => {
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
       {/* add a div with a background color and a gradient to the bottom of the page */}
-      <div className={`w-full mt-auto mx-auto justify-center bg-gradient-to-b from-transparent via-transparent ${getResult() === "成功" ? "to-[#fe3427]/90" : "to-[#1f31fe]/90"} py-8`}>
-        <div className="flex max-w-4xl mx-auto">
+      <div className="relative w-full overflow-hidden" style={{ minHeight: '0vh' }}>
+      {/* Gradient background fixed to bottom to cover entire footer */}
+      <div
+        className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
+      ></div>
 
-          <div className="flex-shrink-0 w-1/5 p-2">
-            <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
-
-          </div>
-          <div className="flex flex-col w-4/5 p-2">
-            <div className="flex items-end w-full">
-              <div className="flex w-1/4">
-                <button className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
-              </div>
-              <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
-                想收到更多相關資訊嗎？
-              </h4>
+      {/* Footer subscription section */}
+      <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4">
+        <div className="flex-shrink-0 w-1/5 p-2">
+          <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
+        </div>
+        <div className="flex flex-col w-4/5 p-2">
+          <div className="flex items-end w-full">
+            <div className="flex w-1/4">
+              <button 
+			    onClick={() => setIsAboutUsOpen(true)} 
+			    className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
             </div>
-            <div className="flex mt-2">
-              <input
-                type="email"
-                value={email}
-                onChange={handleEmailChange}
+            <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
+              想收到更多相關資訊嗎？
+            </h4>
+          </div>
+          <div className="flex mt-2">
+            <input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
                 placeholder="請輸入您的 Email"
                 className={`flex-1 px-4 py-2 border ${
                   isEmailValid ? 'border-gray-300' : 'border-red-500'
@@ -342,6 +407,37 @@ const DesktopResultsScreen: React.FC = () => {
           </div>
         </div>
       </div>
+{isAboutUsOpen && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+    onClick={() => setIsAboutUsOpen(false)}
+  >
+    <motion.div
+      initial={{ scale: 0.95 }}
+      animate={{ scale: 1 }}
+      exit={{ scale: 0.95 }}
+      className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+      onClick={e => e.stopPropagation()}
+    >
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-xl font-semibold text-gray-800">關於我們</h3>
+        <button
+          onClick={() => setIsAboutUsOpen(false)}
+          className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+        >
+          <X className="w-6 h-6 text-gray-500" />
+        </button>
+      </div>
+      <div className="space-y-4 text-gray-700 text-base">
+        <p>我們是新北市雙和公民參與協會。</p>
+        <p>迪奧爵士請收下我的膝蓋！女王大人萬歲！莫布大大最高！馬可大大好棒！</p>
+      </div>
+    </motion.div>
+  </motion.div>
+)}
     </div >
   );
 };

@@ -1,9 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
+import ShareDropdown from '../components/ShareDropdown.jsx';
 import html2canvas from 'html2canvas';
-import ShareDropdown from './ShareDropdown';
 import { getImagePath } from '../utils/pathUtils';
+
+import { launchConfetti } from '../utils/confetti';
+import { launchFirework } from '../utils/firework';
+
+import { X } from 'lucide-react';
 
 const ResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
@@ -13,7 +18,11 @@ const ResultsScreen: React.FC = () => {
   const [showShare, setShowShare] = useState(false);
   const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
   const [isEmailValid, setIsEmailValid] = useState(true);
+
+  const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
+
   const resultsRef = useRef<HTMLDivElement>(null);
+
 
   const character = gameState.selectedCharacter;
   if (!character) return null;
@@ -25,6 +34,23 @@ const ResultsScreen: React.FC = () => {
     if (score === characterScore) return "成功";
     return "失敗";
   };
+
+  useEffect(() => {
+    try {
+      if (getResult() === '成功') {
+        launchConfetti?.();
+        const interval = setInterval(() => {
+          launchFirework?.();
+        }, 1000);
+        return () => clearInterval(interval);
+      }
+    } catch (error) {
+      console.error("煙火或彩帶初始化錯誤：", error);
+    }
+  }, []);
+
+
+
 
   //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
   const getResultCharacterImage = () => {
@@ -72,7 +98,7 @@ const ResultsScreen: React.FC = () => {
       if (score < 10000) return "黨意需服從，民意又擋不住，你選擇再睡一下。";
       return "為了忠黨卻不愛國，民意沸騰罷免你了！";
     }
-    
+
     if (characterType === 'HSUCHIAOHSIN') {
       if (score < 100) return "你努力在黨意和民意中拉扯～你被黨開除了";
       if (score < 10000) return "尚未安全，總召在盯著你！";
@@ -84,7 +110,7 @@ const ResultsScreen: React.FC = () => {
       if (score < 10000) return "昏暗A柱連署快閃隊，連署書突然暴增，讓人防不勝防";
       return "民主絕命轟炸機，嘎啦嘎啦";
     }
-    
+
     if (characterType === 'wanghungwei') {
       if (score < 100) return "白X政策連署萌芽者，聲量微弱如昔日批評";
       if (score < 10000) return "昏暗A柱連署快閃隊，連署書突然暴增，讓人防不勝防";
@@ -188,156 +214,245 @@ const ResultsScreen: React.FC = () => {
 
 
   return (
-    <div className={`min-h-screen bg-contain ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/result_bg_Win.png')}')]` : `bg-[url('${getImagePath('/images/result_bg_Fail.png')}')]`} bg-cover py-10 px-4`}>
-      <div className="max-w-4xl mx-auto" >
-        <motion.div
-          className="flex flex-col rounded-0 overflow-hidden justify-center my-4 relative"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-full z-10 justify-center ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/title_Ribbon_Win.png')}')]` : `bg-[url('${getImagePath('/images/title_Ribbon_Fail.png')}')]`} bg-cover`}>
-        <img src={getResult() === "成功" ? getImagePath("/images/title_Win.png") : getImagePath("/images/title_Fail.png")} alt="" className="w-1/3 h-auto object-cover content-center mx-auto" /> 
-      </div>
-      <div className={`flex flex-col items-center w-full justify-center z-0 ${getResult() === "成功" ? `bg-[url('${getImagePath('/images/result_Board_phoneSize_Win.png')}')]` : `bg-[url('${getImagePath('/images/result_Board_phoneSize_Fail.png')}')]`} bg-cover relative`}>
+    <div className={showShare ? "pb-20" : ""}>
+      <div
+        className="min-h-screen bg-contain bg-cover py-10 px-4"
+        style={{
+          backgroundImage: `url(${getImagePath(
+            getResult() === '成功'
+              ? getImagePath("/images/result_bg_Win.png")
+              : getImagePath("/images/result_bg_Fail.png")
+          )})`
+        }}
+      >
 
-          <div className="flex flex-row items-center w-full justify-center px-2">
-            <div className="flex w-1/2 h-auto rounded-full overflow-hidden border-2 border-indigo-500">
-              <img src={getResultCharacterImage()} alt={character.name} className="w-full h-full object-cover" />
-            </div>
-            <div className="flex flex-col w-1/2 h-auto">
-              <p className="flex w-full text-gray-200">你扮演的立委是：</p>
-              <h3 className="flex font-semibold text-lg text-white">{character.name}</h3>
-            </div>
-          </div>
+        <div className="fireworks-container" id="fireworks"></div>
+        <canvas id="confetti"></canvas>
 
-          <div className="w-full flex flex-col px-2">
-            <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-2">
-              <div className="flex items-center mb-2 w-1/2 h-auto">
-                <img src={getPaperCountImage()} alt="" className="w-full h-full object-cover"/>
-              </div>
-              <div className="flex-col w-1/2">
-                <p className="flex font-medium text-gray-200">累積連署書</p>
-                <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
-              </div>
-            </div>
-          </div>
 
-          <div className="w-full flex flex-col px-2">
-            <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-6">
-              <div className="flex items-center mb-2 w-1/2 h-auto">
-                <img src={getResultTitleImage()} alt="" className="w-full h-full object-cover"/>
-              </div>
-              <div className="flex-col w-1/2">
-                <p className="flex font-medium text-gray-200">{getResultTitle()}</p>
-                <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
+        <div className="max-w-4xl mx-auto" >
+          <motion.div
+            className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}>
+
+            <div className="relative flex justify-center items-center w-full h-[50px] mb-0 overflow-visible">
+              {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
+              <img
+                src={getResult() === "成功" ? getImagePath("/images/title_Win.png") : getImagePath("/images/title_Fail.png")}
+                alt="result title"
+                className="absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none -mt-2"
+              />
+
+              {/* ribbon 背景 */}
+              <img
+                src={getResult() === "成功" ? getImagePath("/images/title_Ribbon_Win.png") : getImagePath("/images/title_Ribbon_Fail.png")}
+                alt="ribbon"
+                className="w-[100%] max-w-[480px] h-auto object-contain z-10 mt-4"
+              />
+
+              {/* 插入文字在 ribbon 上 */}
+              <div className="absolute text-white font-pixel font-bold text-[clamp(1.5rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
+                {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
               </div>
             </div>
-          </div>
-         </div>
-        </motion.div>
-        
-{/* add two buttons in a row. One is share and the other is restart. */}
-{/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
-        <div className="flex flex-row items-center mb-4 w-full justify-center">
-          <motion.button
-            onClick={async () => {
-              if (showShare) {
-                setShowShare(false); // 關閉分享選單
-              } else {
-                await handleScreenshotShare(); // 先截圖 → 再開啟分享
-              }
-            }}
-            className="font-medium w-1/2 h-1/2 mx-4"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-             <img src={getResult() === "成功" ? getImagePath("/images/btn_Share_Success.png") : getImagePath("/images/btn_Share_Fail.png")} alt="share" className="w-full h-full object-cover" />
-          </motion.button>
 
-          <motion.button
-            onClick={restartGame}
-            className="font-medium w-1/2 h-1/2 mx-4"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <img src={getResult() === "成功" ? getImagePath("/images/btn_Tryagain_Success.png") : getImagePath("/images/btn_Tryagain_Fail.png")} alt="restart" className="w-full h-full object-cover" />
-          </motion.button>
-        </div>
-        {showShare && screenshotUrl && (
-          <div className="flex justify-center mt-4">
-            <ShareDropdown
-              shareUrl={shareUrl}
-              shareText={shareText}
-              imageData={screenshotUrl}
-              open={showShare}
-              setOpen={setShowShare}
-            />
-          </div>
-        )}
+            {/* 改為圖片方式呈現背景 + 四角裝飾 */}
+            <div className="relative flex flex-col items-center w-full justify-center">
+              {/* 背景主圖 */}
+              <img
+                src={getResult() === "成功"
+                  ? getImagePath("/images/result_Board_phoneSize_Win.png")
+                  : getImagePath("/images/result_Board_phoneSize_Fail.png")}
+                className="w-full max-w-[900px] h-auto object-contain transition-all duration-300 mt-2 sm:mt-4 xs:mt-2"
+                alt="結果底圖"
+              />
 
-        <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
-              投下同意罷免，下架惡質立委！
-        </div>
-{/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
-          {/* Email subscription form */}
-          <div className={`flex flex-row items-center w-full justify-center ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
-            <div className="flex w-full">
-              <div className="flex-shrink-0 w-1/5 p-2">
-                <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
+              {/* 四個角落裝飾圖 - 疊在上方 */}
+              <img src={getImagePath("/images/corner_LT.png")} className="pointer-events-none absolute top-8 left-2 w-10 h-10 z-30" alt="LT" />
+              <img src={getImagePath("/images/corner_RT.png")} className="pointer-events-none absolute top-8 right-2 w-10 h-10 z-30" alt="RT" />
+              <img src={getImagePath("/images/corner_LB.png")} className="pointer-events-none absolute bottom-2 left-2 w-10 h-10 z-30" alt="LB" />
+              <img src={getImagePath("/images/corner_RB.png")} className="pointer-events-none absolute bottom-2 right-2 w-10 h-10 z-30" alt="RB" />
 
-              </div>
-              <div className="flex flex-col w-4/5 p-2">
-                <div className="flex items-end w-full">
-                  <div className="flex w-1/4">
-                    <button className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
+              {/* 實際內容區域 */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20 mt-10">
+
+
+                <div className="flex flex-row items-center w-full justify-center">
+                  <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
+                    <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
                   </div>
-                  <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
-                    想收到更多相關資訊嗎？
-                  </h4>
+                  <div className="flex flex-col w-1/2 h-auto">
+                    <p className="flex w-full px-6 pr-0 text-gray-200 text-base xs:text-sm">你扮演的立委是</p>
+                    <h3 className="flex font-semibold px-6 text-2xl xs:text-xl text-white">{character.name}</h3>
+                  </div>
                 </div>
-                <div className="flex mt-2">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={handleEmailChange}
-                    placeholder="請輸入您的 Email"
-                    className={`flex-1 px-4 py-2 border ${
-                      isEmailValid ? 'border-gray-300' : 'border-red-500'
-                    } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
-                  />
-                  <button
-                    onClick={handleSubmitEmail}
-                    disabled={isSubmitting || !email || !isEmailValid}
-                    className={`px-4 py-2 font-medium ${
-                      isSubmitting || !email || !isEmailValid
-                        ? 'bg-[#d7005c] text-white cursor-not-allowed'
-                        : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
-                    }`}
-                  >
-                    {isSubmitting ? '提交中...' : '訂閱'}
-                  </button>
+
+                <div className="w-full flex flex-col">
+                  <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-2">
+                    <div className="flex items-center mb-2 w-1/2 h-auto px-2 sm:px-4">
+                      <img src={getPaperCountImage()} alt="" className="w-3/4 h-3/4 object-cover" />
+                    </div>
+                    <div className="flex-col w-1/2">
+                      <p className="flex font-medium text-gray-200 px-6 pr-0">累積連署書</p>
+                      <p className="flex text-2xl font-bold text-white px-6 pr-0">x {gameState.score}</p>
+                    </div>
+                  </div>
                 </div>
-                {!isEmailValid && email !== '' && (
-                  <p className="mt-2 text-sm text-red-600">
-                    請輸入有效的 Email 地址
-                  </p>
-                )}
-                {submitStatus === 'success' && (
-                  <p className="mt-2 text-sm text-green-600">
-                    感謝訂閱！我們會寄送相關資訊給你。
-                  </p>
-                )}
-                {submitStatus === 'error' && (
-                  <p className="mt-2 text-sm text-red-600">
-                    抱歉，發生錯誤。請稍後再試。
-                  </p>
-                )}
+
+                <div className="w-full flex flex-col">
+                  <div className="flex flex-row justify-center items-center rounded-0 -mt-6">
+                    <div className="flex items-center mb-2 w-1/2 h-auto">
+                      <img src={getResultTitleImage()} alt="" className="w-3/4 h-3/4 object-cover" />
+                    </div>
+                    <div className="flex-col w-1/2">
+                      <p className="flex font-medium text-gray-200 px-6 pr-0 text-xl xs:text-base">{getResultTitle()}</p>
+                      <p className="flex text-l font-bold text-white px-6 pr-0 text-sm xs:text-xs">{getPersonalityTrait()}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>   
+          </motion.div>
+
+          {/* add two buttons in a row. One is share and the other is restart. */}
+          {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
+          <div className="flex flex-row items-center mb-4 w-full justify-center px-4 xs:px-2 gap-4">
+            <motion.button
+              onClick={async () => {
+                if (showShare) {
+                  setShowShare(false); // 關閉分享選單
+                } else {
+                  await handleScreenshotShare(); // 先截圖 → 再開啟分享
+                }
+              }}
+              className="font-medium w-1/2 h-1/2 mx-4 max-[376px]:w-[30%] max-[376px]:mx-2"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <img src={getResult() === "成功" ? getImagePath("/images/btn_Share_Success.png") : getImagePath("/images/btn_Share_Fail.png")} alt="share" className="w-full h-full object-cover" />
+            </motion.button>
+
+            <motion.button
+              onClick={restartGame}
+              className="font-medium w-1/2 h-1/2 mx-4 max-[376px]:w-[30%] max-[376px]:mx-2"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <img src={getResult() === "成功" ? getImagePath("/images/btn_Tryagain_Success.png") : getImagePath("/images/btn_Tryagain_Fail.png")} alt="restart" className="w-full h-full object-cover" />
+            </motion.button>
+          </div>
+
+          {screenshotUrl && (
+            <div className="flex justify-center mt-4">
+              <ShareDropdown
+                shareUrl={shareUrl}
+                shareText={shareText}
+                imageData={screenshotUrl}
+                open={showShare}
+                setOpen={setShowShare}
+              />
+            </div>
+          )}
+        </div>
       </div>
+      <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
+        投下同意罷免，下架惡質立委！
+      </div>
+      {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
+      {/* Email subscription form */}
+      <div className={`fixed left-0 right-0 bottom-0 z-50  ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
+        <div className="flex w-full max-w-7xl mx-auto items-center justify-between px-4 sm:px-6 py-2">
+
+
+          {/* logo */}
+          <div className="flex-shrink-0 w-[72px] h-[72px] flex items-center">
+            <img src={getImagePath("/images/logo.png")} className="w-full h-auto object-contain" />
+          </div>
+
+          {/* right section */}
+          <div className="flex flex-col w-full px-2">
+            <div className="flex items-center justify-start gap-0">
+              <button
+                onClick={() => setIsAboutUsOpen(true)}
+                style={{
+                  backgroundImage: `url(${getImagePath("/images/result_bb.gif")})`
+                }}
+                className="w-24 h-10 result-bb"></button>
+              <h4 className="text-sm sm:text-base xs:text-xs font-semibold text-white whitespace-nowrap">
+                想收到更多相關資訊嗎？
+              </h4>
+            </div>
+
+            <div className="flex items-center mt-2 gap-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="請輸入您的 Email"
+                className="flex-1 px-2 py-1 text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+              <button
+                onClick={handleSubmitEmail}
+                disabled={isSubmitting || !email}
+                className={`px-3 py-1 text-sm font-medium ${isSubmitting || !email
+                    ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                    : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
+                  }`}
+              >
+                {isSubmitting ? '提交中...' : '訂閱'}
+              </button>
+            </div>
+            {!isEmailValid && email !== '' && (
+              <p className="mt-2 text-sm text-red-600">
+                請輸入有效的 Email 地址
+              </p>
+            )}
+            {submitStatus === 'success' && (
+              <p className="text-xs text-green-200 mt-1">感謝訂閱！我們會寄送相關資訊給你。</p>
+            )}
+            {submitStatus === 'error' && (
+              <p className="text-xs text-yellow-200 mt-1">抱歉，發生錯誤。請稍後再試。</p>
+            )}
+          </div>
+        </div>
+      </div>
+      {isAboutUsOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+          onClick={() => setIsAboutUsOpen(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.95 }}
+            className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-semibold text-gray-800">關於我們</h3>
+              <button
+                onClick={() => setIsAboutUsOpen(false)}
+                className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              >
+                <X className="w-6 h-6 text-gray-500" />
+              </button>
+            </div>
+            <div className="space-y-4 text-gray-700 text-base">
+              <p>我們是新北市雙和公民參與協會。</p>
+              <p>女王大人萬歲！莫布大大最高！馬可大大好棒！</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </div>
+
+
+
   );
 };
 

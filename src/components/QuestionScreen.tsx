@@ -62,11 +62,21 @@ const QuestionScreen: React.FC = () => {
   const maxScore = 200;
 
   return (
-    <div className="min-h-screen bg-[url('/images/background_event.png')] bg-repeat-x bg-[length:auto_100%] bg-top bg-local py-6 px-4 font-pixel">
+    <div 
+      style={{
+        backgroundImage: `url(${getImagePath("/images/background_event.png")})`
+	  }}
+      className="min-h-screen bg-repeat-x bg-[length:auto_100%] bg-top bg-local py-6 px-4 font-pixel"
+	>
       <div className="max-w-xl mx-auto">
         <div className="flex flex-row justify-between items-center flex-wrap">
           <div className="flex items-center mr-4">
-            <div className="w-16 h-16 rounded-0 overflow-hidden bg-[url('/images/Char_base.png')] bg-contain bg-cover bg-center">
+            <div 
+              style={{
+                backgroundImage: `url(${getImagePath("/images/Char_base.png")})`
+	          }}              
+			  className="w-16 h-16 rounded-0 overflow-hidden bg-contain bg-cover bg-center"
+			>
               <img src={character.avatar} alt={character.name} className="w-full h-full object-cover" />
             </div>
             <div className="ml-4 font-pixel">
@@ -117,7 +127,10 @@ const QuestionScreen: React.FC = () => {
         >
           <motion.button
             onClick={() => setIsLightboxOpen(true)}
-            className="absolute -top-12 right-6 w-20 h-20 bg-[url('/images/aboutmore_2.png')] bg-contain bg-center bg-no-repeat text-white transition-colors duration-200 flex items-center justify-center font-medium"
+            style={{
+              backgroundImage: `url(${getImagePath("/images/aboutmore_2.gif")})`
+            }}              
+            className="absolute -top-12 right-6 w-20 h-20 bg-contain bg-center bg-no-repeat text-white transition-colors duration-200 flex items-center justify-center font-medium"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.99 }}
           />
