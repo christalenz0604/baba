@@ -431,7 +431,7 @@ const DesktopResultsScreen: React.FC = () => {
       </div>
       <div className="space-y-4 text-gray-700 text-base">
         <p>我們是新北市雙和公民參與協會。</p>
-        <p>女王大人萬歲！莫布大大最高！馬克大大好棒！</p>
+        <p>女王大人萬歲！莫布大大最高！馬可大大好棒！</p>
       </div>
     </motion.div>
   </motion.div>
