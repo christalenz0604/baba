@@ -105,9 +105,9 @@ const DesktopResultsScreen: React.FC = () => {
     }
 
     if (characterType === 'LaiShyhBao') {
-      if (score < 100) return "Developing Empath";
-      if (score < 10000) return "Intuitive Soul";
-      return "Emotional Sage";
+      if (score < 100) return "白X政策連署萌芽者，聲量微弱如昔日批評";
+      if (score < 10000) return "昏暗A柱連署快閃隊，連署書突然暴增，讓人防不勝防";
+      return "民主絕命轟炸機，嘎啦嘎啦";
     }
 
     if (characterType === 'wanghungwei') {
@@ -339,7 +339,9 @@ const DesktopResultsScreen: React.FC = () => {
 		  </div>
         </motion.div>
       </div>
-
+      <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
+              投下同意罷免，下架惡質立委！
+        </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
       {/* add a div with a background color and a gradient to the bottom of the page */}
@@ -431,7 +433,7 @@ const DesktopResultsScreen: React.FC = () => {
       </div>
       <div className="space-y-4 text-gray-700 text-base">
         <p>我們是新北市雙和公民參與協會。</p>
-        <p>女王大人萬歲！莫布大大最高！馬可大大好棒！</p>
+        <p>迪奧爵士請收下我的膝蓋！女王大人萬歲！莫布大大最高！馬可大大好棒！</p>
       </div>
     </motion.div>
   </motion.div>

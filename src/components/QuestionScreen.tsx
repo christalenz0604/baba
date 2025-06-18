@@ -93,7 +93,7 @@ const QuestionScreen: React.FC = () => {
         <hr className="dotted-line" />
         <div className="flex flex-row justify-center gap-2 my-2">
           <p className="text-gray-100 font-pixel text-l flex items-center font-semibold">
-            生存進度
+            關卡進度
             {Array(totalQuestions).fill(null).map((_, index) => (
               <img
                 key={index}
