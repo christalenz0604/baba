@@ -8,6 +8,8 @@ import { getImagePath } from '../utils/pathUtils';
 import { launchConfetti } from '../utils/confetti';
 import { launchFirework } from '../utils/firework';
 
+import { X } from 'lucide-react';
+
 const DesktopResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
   const [email, setEmail] = useState('');
@@ -16,6 +18,9 @@ const DesktopResultsScreen: React.FC = () => {
   const [showShare, setShowShare] = useState(false);
   const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
   const [isEmailValid, setIsEmailValid] = useState(true);
+
+  const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
+
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const character = gameState.selectedCharacter;
@@ -352,7 +357,9 @@ const DesktopResultsScreen: React.FC = () => {
         <div className="flex flex-col w-4/5 p-2">
           <div className="flex items-end w-full">
             <div className="flex w-1/4">
-              <button className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
+              <button 
+			    onClick={() => setIsAboutUsOpen(true)} 
+			    className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
             </div>
             <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
               想收到更多相關資訊嗎？
@@ -398,6 +405,37 @@ const DesktopResultsScreen: React.FC = () => {
           </div>
         </div>
       </div>
+{isAboutUsOpen && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+    onClick={() => setIsAboutUsOpen(false)}
+  >
+    <motion.div
+      initial={{ scale: 0.95 }}
+      animate={{ scale: 1 }}
+      exit={{ scale: 0.95 }}
+      className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+      onClick={e => e.stopPropagation()}
+    >
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-xl font-semibold text-gray-800">關於我們</h3>
+        <button
+          onClick={() => setIsAboutUsOpen(false)}
+          className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+        >
+          <X className="w-6 h-6 text-gray-500" />
+        </button>
+      </div>
+      <div className="space-y-4 text-gray-700 text-base">
+        <p>我們是新北市雙和公民參與協會。</p>
+        <p>女王大人萬歲！莫布大大最高！馬克大大好棒！</p>
+      </div>
+    </motion.div>
+  </motion.div>
+)}
     </div >
   );
 };

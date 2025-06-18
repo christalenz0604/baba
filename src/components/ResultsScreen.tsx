@@ -8,6 +8,8 @@ import { getImagePath } from '../utils/pathUtils';
 import { launchConfetti } from '../utils/confetti';
 import { launchFirework } from '../utils/firework';
 
+import { X } from 'lucide-react';
+
 const ResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
   const [email, setEmail] = useState('');
@@ -16,7 +18,11 @@ const ResultsScreen: React.FC = () => {
   const [showShare, setShowShare] = useState(false);
   const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
   const [isEmailValid, setIsEmailValid] = useState(true);
+
+  const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
+
   const resultsRef = useRef<HTMLDivElement>(null);
+
 
   const character = gameState.selectedCharacter;
   if (!character) return null;
@@ -359,14 +365,16 @@ const ResultsScreen: React.FC = () => {
 
 
             {/* logo */}
-            <div className="flex-shrink-0 w-[72px] h-[72px] px-1 flex items-center">
+            <div className="flex-shrink-0 w-[72px] h-[72px] flex items-center">
               <img src="/images/logo.png" className="w-full h-auto object-contain" />
             </div>
 
             {/* right section */}
             <div className="flex flex-col w-full px-2">
               <div className="flex items-center justify-start gap-0">
-                <button className="w-24 h-10 result-bb"></button>
+                <button
+                  onClick={() => setIsAboutUsOpen(true)}				
+				  className="w-24 h-10 result-bb"></button>
                 <h4 className="text-sm sm:text-base xs:text-xs font-semibold text-white whitespace-nowrap">
                   想收到更多相關資訊嗎？
                 </h4>
@@ -407,7 +415,37 @@ const ResultsScreen: React.FC = () => {
           </div>
         </div>
 
-
+{isAboutUsOpen && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+    onClick={() => setIsAboutUsOpen(false)}
+  >
+    <motion.div
+      initial={{ scale: 0.95 }}
+      animate={{ scale: 1 }}
+      exit={{ scale: 0.95 }}
+      className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+      onClick={e => e.stopPropagation()}
+    >
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-xl font-semibold text-gray-800">關於我們</h3>
+        <button
+          onClick={() => setIsAboutUsOpen(false)}
+          className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+        >
+          <X className="w-6 h-6 text-gray-500" />
+        </button>
+      </div>
+      <div className="space-y-4 text-gray-700 text-base">
+        <p>我們是新北市雙和公民參與協會。</p>
+        <p>女王大人萬歲！莫布大大最高！馬克大大好棒！</p>
+      </div>
+    </motion.div>
+  </motion.div>
+)}
     </div>
 
 
