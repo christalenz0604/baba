@@ -5,8 +5,8 @@ import html2canvas from 'html2canvas';
 import ShareDropdown from './ShareDropdown';
 import { getImagePath } from '../utils/pathUtils';
 
-import { launchConfetti } from '../utils/confetti';
-import { launchFirework } from '../utils/firework';
+  // import { launchConfetti } from '../utils/confetti';
+  // import { launchFirework } from '../utils/firework';
 
 import { X } from 'lucide-react';
 
@@ -38,9 +38,9 @@ const DesktopResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        launchConfetti?.();
+        // launchConfetti?.();
         const interval = setInterval(() => {
-          launchFirework?.();
+          // launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }
@@ -53,10 +53,8 @@ const DesktopResultsScreen: React.FC = () => {
   //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
   const getResultCharacterImage = () => {
     const score = gameState.score;
-    const characterScore = character.score;
-    if (score === characterScore) return character.resultCharacterImages.success;
-    if (score < 100) return character.resultCharacterImages.happy;
-    return character.resultCharacterImages.normal;
+    if (score < 20000) return character.resultCharacterImages.fail;
+    return character.resultCharacterImages.success;
   };
 
   //Get Paper Count Image if score is less than 100 show 100.png if the score is between 100 and character.score show 10000.png if the score is between 10000 and character.score show 100000.png
@@ -71,9 +69,9 @@ const DesktopResultsScreen: React.FC = () => {
   const getResultTitleImage = () => {
     const score = gameState.score;
     if (score < 100) return getImagePath("/images/result_prettyName_Lv1.png");
-    if (score < 500) return getImagePath("/images/result_prettyName_Lv2.png");
-    if (score < 1000) return getImagePath("/images/result_prettyName_Lv3.png");
-    if (score < 10000) return getImagePath("/images/result_prettyName_Lv4.png");
+    if (score < 5000) return getImagePath("/images/result_prettyName_Lv2.png");
+    if (score < 10000) return getImagePath("/images/result_prettyName_Lv3.png");
+    if (score < 20000) return getImagePath("/images/result_prettyName_Lv4.png");
     return getImagePath("/images/result_prettyName_Lv5.png");
   };
   const getResultTitle = () => {
@@ -111,32 +109,20 @@ const DesktopResultsScreen: React.FC = () => {
     }
 
     if (characterType === 'wanghungwei') {
-      if (score < 100) return "白X政策連署萌芽者，聲量微弱如昔日批評";
-      if (score < 10000) return "昏暗A柱連署快閃隊，連署書突然暴增，讓人防不勝防";
-      return "民主絕命轟炸機，嘎啦嘎啦";
+      if (score < 100) return "你努力在黨意和民意中拉扯～你被黨開除了";
+      if (score < 10000) return "尚未安全，總召在盯著你！";
+      return "就沒在怕罷免的嘛～民意沸騰準備罷免妳囉！";
     }
     if (characterType === 'LEEYEHSIU') {
       if (score < 100) return "你努力在黨意和民意中拉扯～你被黨開除了";
       if (score < 10000) return "尚未安全，總召在盯著你！";
-      return "就沒在怕罷免的嘛～民意沸騰準備罷免妳囉！";
-    }
-
-    if (characterType === 'ChenYuJen') {
-      if (score < 100) return "你努力在黨意和民意中拉扯～你被黨開除了";
-      if (score < 10000) return "尚未安全，總召在盯著你！";
-      return "就沒在怕罷免的嘛～民意沸騰準備罷免妳囉！";
+      return "你在黨的國會裡生存下來，但人民要罷免你了！";
     }
 
     if (characterType === 'YEHYUANCHIH') {
       if (score < 100) return "看起來大家對我做的事情沒什麼感覺，那好像還可以繼續不做事上通告爽領每月20萬";
       if (score < 10000) return "想罷我？看我使用迴轉招式「反罷免」，哎呀！怎麼黨裡的同志都被起訴了！";
       return "破130%又還沒確定被罷免！我來上節目繼續酸嗆聲學生，看到「同意」罷免選票才是真得啦！";
-    }
-
-    if (characterType === 'FUKUNCHI') {
-      if (score < 100) return "努力在黨意和民意中拉扯～被黨開除了";
-      if (score < 10000) return "尚未安全，聖上習皇帝在盯著你！";
-      return "你遵從聖意生存下來，但人民要罷免你了！";
     }
 
     if (characterType === 'HungMongKai') {
@@ -280,17 +266,17 @@ const DesktopResultsScreen: React.FC = () => {
 
               <div className="flex flex-row items-center w-full content-center px-2 my-10">
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-gray-200 -mt-6">你扮演的立委是</p>
-                  <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover mt-10" />
-                  <h3 className="flex font-semibold text-lg text-white mt-8">{character.name}</h3>
+                  <p className="flex font-medium text-2xl text-gray-200 -mt-6">你扮演的立委是</p>
+                  <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
+                  <h3 className="flex font-semibold text-4xl text-white">{character.name}</h3>
                 </div>
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-gray-200 -mt-8">累積連署書</p>
+                  <p className="flex font-medium text-2xl text-gray-200 -mt-8">累積連署書</p>
                   <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                  <p className="flex text-2xl font-bold text-white">x {gameState.score}</p>
+                  <p className="flex text-4xl font-bold text-white">x {gameState.score}</p>
                 </div>
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-gray-200 -mt-2">{getResultTitle()}</p>
+                  <p className="flex font-medium text-2xl text-gray-200 -mt-2">{getResultTitle()}</p>
                   <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
                   <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
                 </div>
@@ -339,8 +325,8 @@ const DesktopResultsScreen: React.FC = () => {
 		  </div>
         </motion.div>
       </div>
-      <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
-              投下同意罷免，下架惡質立委！
+      <div className="relative flex flex-row w-full mx-auto justify-center my-2 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
+              <p className="text-center">投下同意罷免，下架惡質立委！</p>
         </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}

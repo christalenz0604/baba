@@ -5,8 +5,8 @@ import ShareDropdown from '../components/ShareDropdown.jsx';
 import html2canvas from 'html2canvas';
 import { getImagePath } from '../utils/pathUtils';
 
-import { launchConfetti } from '../utils/confetti';
-import { launchFirework } from '../utils/firework';
+// import { launchConfetti } from '../utils/confetti';
+// import { launchFirework } from '../utils/firework';
 
 import { X } from 'lucide-react';
 
@@ -38,9 +38,9 @@ const ResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        launchConfetti?.();
+        // launchConfetti?.();
         const interval = setInterval(() => {
-          launchFirework?.();
+          // launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }
@@ -55,11 +55,10 @@ const ResultsScreen: React.FC = () => {
   //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
   const getResultCharacterImage = () => {
     const score = gameState.score;
-    const characterScore = character.score;
-    if (score === characterScore) return character.resultCharacterImages.success;
-    if (score < 100) return character.resultCharacterImages.happy;
-    return character.resultCharacterImages.normal;
+    if (score < 20000) return character.resultCharacterImages.fail;
+    return character.resultCharacterImages.success;
   };
+
 
   //Get Paper Count Image if score is less than 100 show 100.png if the score is between 100 and character.score show 10000.png if the score is between 10000 and character.score show 100000.png
   const getPaperCountImage = () => {
@@ -72,9 +71,9 @@ const ResultsScreen: React.FC = () => {
   const getResultTitleImage = () => {
     const score = gameState.score;
     if (score < 100) return getImagePath("/images/result_prettyName_Lv1.png");
-    if (score < 500) return getImagePath("/images/result_prettyName_Lv2.png");
-    if (score < 1000) return getImagePath("/images/result_prettyName_Lv3.png");
-    if (score < 10000) return getImagePath("/images/result_prettyName_Lv4.png");
+    if (score < 5000) return getImagePath("/images/result_prettyName_Lv2.png");
+    if (score < 10000) return getImagePath("/images/result_prettyName_Lv3.png");
+    if (score < 20000) return getImagePath("/images/result_prettyName_Lv4.png");
     return getImagePath("/images/result_prettyName_Lv5.png");
   };
   const getResultTitle = () => {
@@ -279,13 +278,13 @@ const ResultsScreen: React.FC = () => {
               <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20 mt-10">
 
 
-                <div className="flex flex-row items-center w-full justify-center">
+                <div className="flex flex-row items-center w-full justify-center pt-4">
                   <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
                     <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
                   </div>
                   <div className="flex flex-col w-1/2 h-auto">
-                    <p className="flex w-full px-6 pr-0 text-gray-200 text-base xs:text-sm">你扮演的立委是</p>
-                    <h3 className="flex font-semibold px-6 text-2xl xs:text-xl text-white">{character.name}</h3>
+                    <p className="flex w-full pl-6 text-gray-200 text-base xs:text-sm">你扮演的立委是</p>
+                    <h3 className="flex font-semibold pl-6 text-4xl xs:text-xl text-white">{character.name}</h3>
                   </div>
                 </div>
 
@@ -295,20 +294,20 @@ const ResultsScreen: React.FC = () => {
                       <img src={getPaperCountImage()} alt="" className="w-3/4 h-3/4 object-cover" />
                     </div>
                     <div className="flex-col w-1/2">
-                      <p className="flex font-medium text-gray-200 px-6 pr-0">累積連署書</p>
-                      <p className="flex text-2xl font-bold text-white px-6 pr-0">x {gameState.score}</p>
+                      <p className="flex font-medium text-gray-200 pl-6">累積連署書</p>
+                      <p className="flex text-2xl font-bold text-white pl-6">x {gameState.score}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="w-full flex flex-col">
+                <div className="w-full flex flex-col pb-4">
                   <div className="flex flex-row justify-center items-center rounded-0 -mt-6">
-                    <div className="flex items-center mb-2 w-1/2 h-auto">
+                    <div className="flex items-center mb-2 w-1/2 h-auto p-2">
                       <img src={getResultTitleImage()} alt="" className="w-3/4 h-3/4 object-cover" />
                     </div>
                     <div className="flex-col w-1/2">
-                      <p className="flex font-medium text-gray-200 px-6 pr-0 text-xl xs:text-base">{getResultTitle()}</p>
-                      <p className="flex text-l font-bold text-white px-6 pr-0 text-sm xs:text-xs">{getPersonalityTrait()}</p>
+                      <p className="flex font-medium text-gray-200 pl-6 text-2xl xs:text-lg tracking-wide">{getResultTitle()}</p>
+                      <p className="flex text-l font-bold text-white pl-6 text-sm xs:text-xs">{getPersonalityTrait()}</p>
                     </div>
                   </div>
                 </div>
@@ -357,8 +356,8 @@ const ResultsScreen: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
-        投下同意罷免，下架惡質立委！
+      <div className="relative flex flex-row w-full justify-center mx-auto my-2 text-white text-xl font-bold z-12">
+      <p className="text-center">投下同意罷免，下架惡質立委！</p>
       </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
