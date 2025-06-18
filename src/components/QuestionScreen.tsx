@@ -107,19 +107,19 @@ const QuestionScreen: React.FC = () => {
         <hr className="dotted-line mb-2" />
 
         {currentQuestion.image && (
-          <div className="relative w-3/4 mx-auto h-40 overflow-hidden">
-            <div className="absolute inset-0 m-auto aspect-[4/3] h-full">
+          <div className="relative w-3/4 mx-auto h-42 md:h-64 overflow-hidden">
+            <div className="absolute inset-0 m-auto h-full z-0">
               <img
                 src={currentQuestion.image}
                 alt={currentQuestion.text + '圖片'}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
           </div>
         )}
 
         <motion.div
-          className="relative question-color p-6 my-2"
+          className="relative question-color p-6 my-2 z-10 -top-2"
           key={currentQuestion.id}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

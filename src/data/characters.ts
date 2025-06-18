@@ -6,7 +6,7 @@ export const characters: Character[] = [
     id: 'ChangChihLun',//人物id
     name: '張智倫',
     districts:'新北市第8選區',
-    avatar: getImagePath('/images/character/ChangChihLun_pic_Pickup.png'),
+    avatar: getImagePath('/images/character/ChangChihLun_pic_Pickup.gif'),
     description: '張家二兒子，爸爸是張慶忠AKA半分鐘通過服貿那位。媽媽是陳錦錠，有時都分不清楚政績是媽媽的還是誰的。',
     questionSetId: 'ChangChihLun',//對應問題系列
     score: 36140,
