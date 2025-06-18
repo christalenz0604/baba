@@ -35,7 +35,7 @@ const ShareDropdown = ({
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
 
   const quote = shareText;
-  const hashtag = "#派對遊戲";
+  const hashtag = "#國會派對";
 
 
 
@@ -71,11 +71,11 @@ const ShareDropdown = ({
 
   const handleThreadsShare = async () => {
     try {
-      await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+      await navigator.clipboard.writeText(`${shareText}\n${shareUrl}\n${hashtag}`);
       alert("已複製分享內容，即將前往 Threads，請貼上後發文");
       window.open('https://www.threads.net/', '_blank');
     } catch (err) {
-      alert("複製失敗，請手動貼上內容：\n" + `${shareText}\n${shareUrl}`);
+      alert("複製失敗，請手動貼上內容：\n" + `${shareText}\n${shareUrl}\n${hashtag}`);
     } finally {
       setOpen(false);
     }
