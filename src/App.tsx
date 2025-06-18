@@ -3,7 +3,7 @@ import { GameProvider, useGame } from './context/GameContext';
 import CharacterSelection from './components/CharacterSelection';
 import QuestionScreen from './components/QuestionScreen';
 import ResultsScreen from './components/ResultsScreen';
-import DesktopResultsScreen from './components/DesktopResultsScreen'; // ����M��
+import DesktopResultsScreen from './components/DesktopResultsScreen'; // Desktop Screen Size
 import './styles/pixel.css';
 import { setImagePathVariables } from './utils/cssUtils';
 
