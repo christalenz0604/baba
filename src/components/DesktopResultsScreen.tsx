@@ -111,32 +111,20 @@ const DesktopResultsScreen: React.FC = () => {
     }
 
     if (characterType === 'wanghungwei') {
-      if (score < 100) return "白X政策連署萌芽者，聲量微弱如昔日批評";
-      if (score < 10000) return "昏暗A柱連署快閃隊，連署書突然暴增，讓人防不勝防";
-      return "民主絕命轟炸機，嘎啦嘎啦";
+      if (score < 100) return "你努力在黨意和民意中拉扯～你被黨開除了";
+      if (score < 10000) return "尚未安全，總召在盯著你！";
+      return "就沒在怕罷免的嘛～民意沸騰準備罷免妳囉！";
     }
     if (characterType === 'LEEYEHSIU') {
       if (score < 100) return "你努力在黨意和民意中拉扯～你被黨開除了";
       if (score < 10000) return "尚未安全，總召在盯著你！";
-      return "就沒在怕罷免的嘛～民意沸騰準備罷免妳囉！";
-    }
-
-    if (characterType === 'ChenYuJen') {
-      if (score < 100) return "你努力在黨意和民意中拉扯～你被黨開除了";
-      if (score < 10000) return "尚未安全，總召在盯著你！";
-      return "就沒在怕罷免的嘛～民意沸騰準備罷免妳囉！";
+      return "你在黨的國會裡生存下來，但人民要罷免你了！";
     }
 
     if (characterType === 'YEHYUANCHIH') {
       if (score < 100) return "看起來大家對我做的事情沒什麼感覺，那好像還可以繼續不做事上通告爽領每月20萬";
       if (score < 10000) return "想罷我？看我使用迴轉招式「反罷免」，哎呀！怎麼黨裡的同志都被起訴了！";
       return "破130%又還沒確定被罷免！我來上節目繼續酸嗆聲學生，看到「同意」罷免選票才是真得啦！";
-    }
-
-    if (characterType === 'FUKUNCHI') {
-      if (score < 100) return "努力在黨意和民意中拉扯～被黨開除了";
-      if (score < 10000) return "尚未安全，聖上習皇帝在盯著你！";
-      return "你遵從聖意生存下來，但人民要罷免你了！";
     }
 
     if (characterType === 'HungMongKai') {
