@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
 import html2canvas from 'html2canvas';
-import ShareDropdown from './ShareDropdown';
+import ShareDropdown from './ShareDropdown.jsx';
 import { getImagePath } from '../utils/pathUtils';
 
-  // import { launchConfetti } from '../utils/confetti';
-  // import { launchFirework } from '../utils/firework';
+import { launchConfetti } from '../utils/confetti';
+import { launchFirework } from '../utils/firework';
 
 import { X } from 'lucide-react';
 
@@ -38,9 +38,9 @@ const DesktopResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        // launchConfetti?.();
+        launchConfetti?.();
         const interval = setInterval(() => {
-          // launchFirework?.();
+          launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }
@@ -309,7 +309,7 @@ const DesktopResultsScreen: React.FC = () => {
                 </motion.button>
               </div>
               {
-                showShare && screenshotUrl && (
+                screenshotUrl && (
                   <div className="flex justify-center mt-4">
                     <ShareDropdown
                       shareUrl={shareUrl}
@@ -325,7 +325,7 @@ const DesktopResultsScreen: React.FC = () => {
 		  </div>
         </motion.div>
       </div>
-      <div className="relative flex flex-row w-full mx-auto justify-center my-2 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
+      <div className="absolute flex flex-row w-full mx-auto justify-center -my-5 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
               <p className="text-center">投下同意罷免，下架惡質立委！</p>
         </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
@@ -347,6 +347,7 @@ const DesktopResultsScreen: React.FC = () => {
             <div className="flex w-1/4">
               <button 
 			    onClick={() => setIsAboutUsOpen(true)} 
+
 			    className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
             </div>
             <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">

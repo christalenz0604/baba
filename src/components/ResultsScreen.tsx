@@ -5,8 +5,8 @@ import ShareDropdown from '../components/ShareDropdown.jsx';
 import html2canvas from 'html2canvas';
 import { getImagePath } from '../utils/pathUtils';
 
-// import { launchConfetti } from '../utils/confetti';
-// import { launchFirework } from '../utils/firework';
+import { launchConfetti } from '../utils/confetti';
+import { launchFirework } from '../utils/firework';
 
 import { X } from 'lucide-react';
 
@@ -38,9 +38,9 @@ const ResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        // launchConfetti?.();
+        launchConfetti?.();
         const interval = setInterval(() => {
-          // launchFirework?.();
+          launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }
@@ -213,69 +213,69 @@ const ResultsScreen: React.FC = () => {
 
 
   return (
-    <div className={showShare ? "pb-20" : ""}>
-      <div
-        className="min-h-screen bg-contain bg-cover py-10 px-4"
-        style={{
-          backgroundImage: `url(${getImagePath(
-            getResult() === '成功'
-              ? getImagePath("/images/result_bg_Win.png")
-              : getImagePath("/images/result_bg_Fail.png")
-          )})`
-        }}
-      >
+<div className={showShare ? "pb-20" : ""}>
+    <div
+      className="min-h-[100dvh] bg-contain bg-cover py-10 px-2 overflow-hidden"
+      style={{
+        backgroundImage: `url(${getImagePath(
+          getResult() === '成功'
+          ? getImagePath("/images/result_bg_Win.png")
+          : getImagePath("/images/result_bg_Fail.png")
+        )})`
+      }}
+    >
 
-        <div className="fireworks-container" id="fireworks"></div>
-        <canvas id="confetti"></canvas>
+      <div className="fireworks-container" id="fireworks"></div>
+      <canvas id="confetti"></canvas>
 
 
-        <div className="max-w-4xl mx-auto" >
-          <motion.div
-            className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}>
+      <div className="max-w-4xl mx-auto" >
+        <motion.div
+          className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}>
 
-            <div className="relative flex justify-center items-center w-full h-[50px] mb-0 overflow-visible">
-              {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
-              <img
-                src={getResult() === "成功" ? getImagePath("/images/title_Win.png") : getImagePath("/images/title_Fail.png")}
-                alt="result title"
-                className="absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none -mt-2"
-              />
+          <div className="relative flex justify-center items-center w-full h-[50px] mb-0 overflow-visible">
+            {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
+            <img
+            src={getResult() === "成功" ? getImagePath("/images/title_Win.png") : getImagePath("/images/title_Fail.png")}
+            alt="result title"
+            className="absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none -mt-2"
+            />
 
-              {/* ribbon 背景 */}
-              <img
-                src={getResult() === "成功" ? getImagePath("/images/title_Ribbon_Win.png") : getImagePath("/images/title_Ribbon_Fail.png")}
-                alt="ribbon"
-                className="w-[100%] max-w-[480px] h-auto object-contain z-10 mt-4"
-              />
+            {/* ribbon 背景 */}
+            <img
+              src={getResult() === "成功" ? getImagePath("/images/title_Ribbon_Win.png") : getImagePath("/images/title_Ribbon_Fail.png")}
+              alt="ribbon"
+              className="w-[100%] max-w-[480px] h-auto object-contain z-10 mt-4"
+            />
 
-              {/* 插入文字在 ribbon 上 */}
-              <div className="absolute text-white font-pixel font-bold text-[clamp(1.5rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
-                {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
-              </div>
+            {/* 插入文字在 ribbon 上 */}
+            <div className="absolute text-white font-pixel font-bold text-[clamp(1.5rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
+              {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
             </div>
+          </div>
 
-            {/* 改為圖片方式呈現背景 + 四角裝飾 */}
-            <div className="relative flex flex-col items-center w-full justify-center">
-              {/* 背景主圖 */}
-              <img
-                src={getResult() === "成功"
-                  ? getImagePath("/images/result_Board_phoneSize_Win.png")
-                  : getImagePath("/images/result_Board_phoneSize_Fail.png")}
-                className="w-full max-w-[900px] h-auto object-contain transition-all duration-300 mt-2 sm:mt-4 xs:mt-2"
-                alt="結果底圖"
-              />
+          {/* 改為圖片方式呈現背景 + 四角裝飾 */}
+          <div className="relative flex flex-col items-center w-full justify-center">
+            {/* 背景主圖 */}
+            <img
+              src={getResult() === "成功"
+              ? getImagePath("/images/result_Board_phoneSize_Win.png")
+              : getImagePath("/images/result_Board_phoneSize_Fail.png")}
+              className="w-full max-w-[900px] h-auto object-contain transition-all duration-300 mt-2 sm:mt-4 xs:mt-2"
+              alt="結果底圖"
+            />
 
-              {/* 四個角落裝飾圖 - 疊在上方 */}
-              <img src={getImagePath("/images/corner_LT.png")} className="pointer-events-none absolute top-8 left-2 w-10 h-10 z-30" alt="LT" />
-              <img src={getImagePath("/images/corner_RT.png")} className="pointer-events-none absolute top-8 right-2 w-10 h-10 z-30" alt="RT" />
-              <img src={getImagePath("/images/corner_LB.png")} className="pointer-events-none absolute bottom-2 left-2 w-10 h-10 z-30" alt="LB" />
-              <img src={getImagePath("/images/corner_RB.png")} className="pointer-events-none absolute bottom-2 right-2 w-10 h-10 z-30" alt="RB" />
+            {/* 四個角落裝飾圖 - 疊在上方 */}
+            <img src={getImagePath("/images/corner_LT.png") } className="pointer-events-none absolute top-8 left-2 w-10 h-10 z-30" alt="LT" />
+            <img src={getImagePath("/images/corner_RT.png") } className="pointer-events-none absolute top-8 right-2 w-10 h-10 z-30" alt="RT" />
+            <img src={getImagePath("/images/corner_LB.png") } className="pointer-events-none absolute bottom-2 left-2 w-10 h-10 z-30" alt="LB" />
+            <img src={getImagePath("/images/corner_RB.png") } className="pointer-events-none absolute bottom-2 right-2 w-10 h-10 z-30" alt="RB" />
 
-              {/* 實際內容區域 */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20 mt-10">
+            {/* 實際內容區域 */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20 mt-10">
 
 
                 <div className="flex flex-row items-center w-full justify-center pt-4">
@@ -356,10 +356,14 @@ const ResultsScreen: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="relative flex flex-row w-full justify-center mx-auto my-2 text-white text-xl font-bold z-12">
-      <p className="text-center">投下同意罷免，下架惡質立委！</p>
-      </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
+     <div className="fixed bottom-[80px] left-0 right-0 flex justify-center z-[60]">
+       <p className="text-white tracking-wider text-xl md:text-4xl font-bold text-center bg-transparent py-8">
+         投下同意罷免，下架惡質立委！
+       </p>
+     </div>
+
+
       {/* Email subscription form */}
       <div className={`fixed left-0 right-0 bottom-0 z-50  ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
         <div className="flex w-full max-w-7xl mx-auto items-center justify-between px-4 sm:px-6 py-2">
@@ -375,9 +379,7 @@ const ResultsScreen: React.FC = () => {
             <div className="flex items-center justify-start gap-0">
               <button
                 onClick={() => setIsAboutUsOpen(true)}
-                style={{
-                  backgroundImage: `url(${getImagePath("/images/result_bb.gif")})`
-                }}
+
                 className="w-24 h-10 result-bb"></button>
               <h4 className="text-sm sm:text-base xs:text-xs font-semibold text-white whitespace-nowrap">
                 想收到更多相關資訊嗎？
