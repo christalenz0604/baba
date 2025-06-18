@@ -107,7 +107,7 @@ const QuestionScreen: React.FC = () => {
         <hr className="dotted-line mb-2" />
 
         {currentQuestion.image && (
-          <div className="relative w-3/4 mx-auto h-42 md:h-64 overflow-hidden">
+          <div className="relative w-3/4 mx-auto h-40 md:h-64 overflow-hidden">
             <div className="absolute inset-0 m-auto h-full z-0">
               <img
                 src={currentQuestion.image}
@@ -194,14 +194,14 @@ const QuestionScreen: React.FC = () => {
           <div className="absolute -top-3 -left-3 bg-black px-3 py-1 shadow-md rounded-lg">
             <h2 className="text-xl font-semibold">事件{gameState.currentQuestionIndex + 1}</h2>
           </div>
-          <p className="text-lg mb-4">{currentQuestion.text}</p>
+          <p className="text-lg">{currentQuestion.text}</p>
         </motion.div>
 
         {showOptions && (
           <AnimatePresence mode="wait">
             <motion.div
               key={`options-${questionKey}`}
-              className="w-3/4 mx-auto space-y-4"
+              className="w-4/5 mx-auto space-y-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -211,7 +211,7 @@ const QuestionScreen: React.FC = () => {
                 const isSelected = selectedOption === option.id;
                 const isHovered = hoveredOption === option.id && !isSelected;
 
-                const baseClass = "relative p-4 question-option-color cursor-pointer transition-all duration-300";
+                const baseClass = "relative p-2 question-option-color cursor-pointer transition-all duration-300";
                 const stateClass = isSelected
                   ? "shadow-[6px_6px_0px_#878787] bg-[#ffffff] border-[#65dbff]"
                   : isHovered
@@ -229,7 +229,7 @@ const QuestionScreen: React.FC = () => {
                     onTouchEnd={() => setHoveredOption(null)}
                     whileTap={{ scale: 0.99 }}
                   >
-                    <p className="text-gray-700">{option.text}</p>
+                    <p className="text-gray-700 text-base md:text-lg">{option.text}</p>
                     <AnimatePresence>
                       {showPoints && isSelected && (
                         <motion.div
