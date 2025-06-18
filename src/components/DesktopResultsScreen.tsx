@@ -5,8 +5,8 @@ import html2canvas from 'html2canvas';
 import ShareDropdown from './ShareDropdown';
 import { getImagePath } from '../utils/pathUtils';
 
-import { launchConfetti } from '../utils/confetti';
-import { launchFirework } from '../utils/firework';
+  // import { launchConfetti } from '../utils/confetti';
+  // import { launchFirework } from '../utils/firework';
 
 import { X } from 'lucide-react';
 
@@ -38,9 +38,9 @@ const DesktopResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        launchConfetti?.();
+        // launchConfetti?.();
         const interval = setInterval(() => {
-          launchFirework?.();
+          // launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }
@@ -326,7 +326,7 @@ const DesktopResultsScreen: React.FC = () => {
         </motion.div>
       </div>
       <div className="flex flex-row w-full mx-auto my-2 text-white text-5xl font-bold">
-              投下同意罷免，下架惡質立委！
+              <p className="text-center">投下同意罷免，下架惡質立委！</p>
         </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
