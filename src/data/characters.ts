@@ -148,7 +148,7 @@ export const characters: Character[] = [
     avatar: getImagePath('/images/LoMingTsai_pic.png?auto=compress&cs=tinysrgb&w=300'),
     description: '2024年亦成為目前立法院黨團中最資深的「八連霸」立委，其父羅福助為天道盟創辦人，2012年獲罪潛逃大陸並被通緝至今。',
     questionSetId: 'LoMingTsai',//對應問題系列
-    score: 34000,
+    score: 34076,
     resultCharacterImages: {
       success: getImagePath('/images/LoMingTsai_pic.png?auto=compress&cs=tinysrgb&w=300'),
       happy: getImagePath('/images/LoMingTsai_pic.png?auto=compress&cs=tinysrgb&w=300'),
