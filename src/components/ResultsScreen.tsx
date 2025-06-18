@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
-import ShareDropdown from '../components/ShareDropdown.jsx';
+// import ShareDropdown from '../components/ShareDropdown.jsx';
 import html2canvas from 'html2canvas';
 import { getImagePath } from '../utils/pathUtils';
 
-import { launchConfetti } from '../utils/confetti';
-import { launchFirework } from '../utils/firework';
+// import { launchConfetti } from '../utils/confetti';
+// import { launchFirework } from '../utils/firework';
 
 import { X } from 'lucide-react';
 
@@ -38,9 +38,9 @@ const ResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        launchConfetti?.();
+        // launchConfetti?.();
         const interval = setInterval(() => {
-          launchFirework?.();
+          // launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }
@@ -345,17 +345,17 @@ const ResultsScreen: React.FC = () => {
 
           {screenshotUrl && (
             <div className="flex justify-center mt-4">
-              <ShareDropdown
+              {/* <ShareDropdown
                 shareUrl={shareUrl}
                 shareText={shareText}
                 imageData={screenshotUrl}
                 open={showShare}
                 setOpen={setShowShare}
-              />
+              /> */}
             </div>
           )}
         </div>
-        <div className="fixed bottom-[80px] left-0 right-0 flex justify-center z-[60]">
+        <div className="fixed bottom-[80px] left-0 right-0 flex justify-center z-48">
           <p className="text-white tracking-wider text-xl md:text-4xl font-bold text-center bg-transparent py-8">
             投下同意罷免，下架惡質立委！
           </p>
@@ -363,7 +363,7 @@ const ResultsScreen: React.FC = () => {
       </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
-      <div className={`fixed left-0 right-0 bottom-0 z-50  ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
+      <div className={`fixed left-0 right-0 bottom-0 z-45  ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
         <div className="flex w-full max-w-7xl mx-auto items-center justify-between px-4 sm:px-6 py-2">
 
 
@@ -433,7 +433,7 @@ const ResultsScreen: React.FC = () => {
             onClick={e => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-4">
-              <h3 className="text-xl font-semibold text-gray-800">關於我們</h3>
+              <h3 className="text-xl font-semibold text-gray-800">製作團隊</h3>
               <button
                 onClick={() => setIsAboutUsOpen(false)}
                 className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
@@ -441,9 +441,69 @@ const ResultsScreen: React.FC = () => {
                 <X className="w-6 h-6 text-gray-500" />
               </button>
             </div>
-            <div className="space-y-4 text-gray-700 text-base">
-              <p>我們是新北市雙和公民參與協會。</p>
-              <p>女王大人萬歲！莫布大大最高！馬可大大好棒！</p>
+            <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">雙和罷免團隊</div>
+            <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">（新北市雙和公民參與協會）</div>
+            <div className="w-full mx-auto">
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">專案發想</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">mini</div>
+                  <div className="mr-2">先西</div>
+                  <div className="mr-2">Kate</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">專案進度</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">馬可詠嘆師</div>
+                  <div className="mr-2">希斯特莉雅</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">網頁技術</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">馬可詠嘆師</div>
+                  <div className="mr-2">迪奧</div>
+                  <div className="mr-2">希斯特莉雅</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">文本</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">羅丹</div>
+                  <div className="mr-2">Phoebe</div>
+                  <div className="mr-2">希斯特莉雅</div>
+                  <div className="mr-2">Kate</div>
+                  <div className="mr-2">先西</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">美術</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">阿柔</div>
+                  <div className="mr-2">阿瑋</div>
+                  <div className="mr-2">小鄒鄒</div>
+                  <div className="mr-2">永和哈比人</div>
+                  <div className="mr-2">AK</div>
+                  <div className="mr-2">威哥</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">影片</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">Amber</div>
+                  <div className="mr-2">先西</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">法律諮詢</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">賈碧</div>
+                </div>
+              </div>
+            </div>
+            <div className="text-gray-700 text-lg my-4">
+              <p>感謝所有罷團夥伴，薪偷之餘還能快速生出一個小遊戲，就算沒有直接背景，也使出渾身解術壓DDL製作！</p>
             </div>
           </motion.div>
         </motion.div>
