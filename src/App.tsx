@@ -17,7 +17,7 @@ const GameContainer: React.FC = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
       // for Desktop PC size
-      setIsDesktopLayout(width > height);
+      setIsDesktopLayout(width > 767);
     };
 
     checkLayout();

@@ -1,13 +1,21 @@
 import { useEffect, useState } from 'react';
 
-export default function useTypewriter(lines = [], delay = 75, pause = 1000, loop = true, onFinish = () => {}) {
+export default function useTypewriter(lines = [], delay = 75, pause = 1000, loop = true, onFinish = () => {}, skip = false) {
   const [displayed, setDisplayed] = useState('');
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
+
+    if (skip) {
+		setDisplayed(lines.join('\n'));
+		onFinish();
+		return;
+	}
+
+
     if (lineIndex >= lines.length) {
-      onFinish(); // 🎯 加這行！
+      onFinish(); 
       if (loop) {
         setTimeout(() => {
           setDisplayed('');
@@ -33,7 +41,7 @@ export default function useTypewriter(lines = [], delay = 75, pause = 1000, loop
       }, pause);
       return () => clearTimeout(timeout);
     }
-  }, [charIndex, lineIndex]);
+  }, [charIndex, lineIndex, skip]);
 
   return displayed;
 }

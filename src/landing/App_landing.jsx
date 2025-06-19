@@ -11,13 +11,15 @@ function Landing() {
   const [done, setDone] = useState(false);
   const [allowClick, setAllowClick] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [skip, setSkip] = useState(false);
 
   const text = useTypewriter(
     lines,
     75,
     1000,
     false, // 不 loop
-    () => setDone(true) // 動畫完成後呼叫
+    () => setDone(true), // 動畫完成後呼叫
+	skip    // skip status
   );
 
   useEffect(() => {
@@ -34,6 +36,7 @@ function Landing() {
     }
   }, [clicked]);
 
+  // next page or skip animation when clicked
   const handleClick = () => {
     if (allowClick) {
       setClicked(true);
@@ -42,6 +45,17 @@ function Landing() {
 
   return (
     <div className="container_landing" onClick={handleClick}>
+        {!done && (
+            <button className="skip-button" onClick={(e) => {
+                e.stopPropagation(); // 不觸發 container 的 onClick
+                setSkip(true);
+                setDone(true);
+                setAllowClick(true);
+            }}>
+                Skip
+            </button>
+        )}
+
         <img src={getImagePath('images/議場.gif')} alt="背景圖" className="background" />
         <div className="foreground">
             <img src={getImagePath('images/藍委跑步.gif')} alt="動畫" className="gif" />
