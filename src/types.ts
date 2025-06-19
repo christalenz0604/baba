@@ -10,8 +10,7 @@ export interface Character {
 }
 export interface ResultCharacterImage {
   success: string;
-  happy: string;
-  normal: string;
+  fail: string;
 }
 
 export interface Option {
@@ -47,4 +46,5 @@ export interface GameState {
   score: number;
   isGameOver: boolean;
   questionSetId: string | null;
+  hasStartedGame: boolean;
 }

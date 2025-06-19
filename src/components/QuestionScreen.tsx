@@ -62,11 +62,21 @@ const QuestionScreen: React.FC = () => {
   const maxScore = 200;
 
   return (
-    <div className="min-h-screen bg-[url('/images/background_event.png')] bg-repeat-x bg-[length:auto_100%] bg-top bg-local py-6 px-4 font-pixel">
+    <div 
+      style={{
+        backgroundImage: `url(${getImagePath("/images/background_event.png")})`
+	  }}
+      className="min-h-screen bg-repeat-x bg-[length:auto_100%] bg-top bg-local py-6 px-4 font-pixel"
+	>
       <div className="max-w-xl mx-auto">
         <div className="flex flex-row justify-between items-center flex-wrap">
           <div className="flex items-center mr-4">
-            <div className="w-16 h-16 rounded-0 overflow-hidden bg-[url('/images/Char_base.png')] bg-contain bg-cover bg-center">
+            <div 
+              style={{
+                backgroundImage: `url(${getImagePath("/images/Char_base.png")})`
+	          }}              
+			  className="w-16 h-16 rounded-0 overflow-hidden bg-contain bg-cover bg-center"
+			>
               <img src={character.avatar} alt={character.name} className="w-full h-full object-cover" />
             </div>
             <div className="ml-4 font-pixel">
@@ -97,19 +107,19 @@ const QuestionScreen: React.FC = () => {
         <hr className="dotted-line mb-2" />
 
         {currentQuestion.image && (
-          <div className="relative w-3/4 mx-auto h-40 overflow-hidden">
-            <div className="absolute inset-0 m-auto aspect-[4/3] h-full">
+          <div className="relative w-3/4 mx-auto h-40 md:h-64 overflow-hidden">
+            <div className="absolute inset-0 m-auto h-full z-0">
               <img
                 src={currentQuestion.image}
                 alt={currentQuestion.text + '圖片'}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
           </div>
         )}
 
         <motion.div
-          className="relative question-color p-6 my-2"
+          className="relative question-color p-6 my-2 z-10 -top-2"
           key={currentQuestion.id}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,7 +127,10 @@ const QuestionScreen: React.FC = () => {
         >
           <motion.button
             onClick={() => setIsLightboxOpen(true)}
-            className="absolute -top-12 right-6 w-20 h-20 bg-[url('/images/aboutmore_2.png')] bg-contain bg-center bg-no-repeat text-white transition-colors duration-200 flex items-center justify-center font-medium"
+            style={{
+              backgroundImage: `url(${getImagePath("/images/aboutmore_2.gif")})`
+            }}              
+            className="absolute -top-12 right-6 w-20 h-20 bg-contain bg-center bg-no-repeat text-white transition-colors duration-200 flex items-center justify-center font-medium"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.99 }}
           />
@@ -181,14 +194,14 @@ const QuestionScreen: React.FC = () => {
           <div className="absolute -top-3 -left-3 bg-black px-3 py-1 shadow-md rounded-lg">
             <h2 className="text-xl font-semibold">事件{gameState.currentQuestionIndex + 1}</h2>
           </div>
-          <p className="text-lg mb-4">{currentQuestion.text}</p>
+          <p className="text-lg">{currentQuestion.text}</p>
         </motion.div>
 
         {showOptions && (
           <AnimatePresence mode="wait">
             <motion.div
               key={`options-${questionKey}`}
-              className="w-3/4 mx-auto space-y-4"
+              className="w-4/5 mx-auto space-y-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -198,7 +211,7 @@ const QuestionScreen: React.FC = () => {
                 const isSelected = selectedOption === option.id;
                 const isHovered = hoveredOption === option.id && !isSelected;
 
-                const baseClass = "relative p-4 question-option-color cursor-pointer transition-all duration-300";
+                const baseClass = "relative p-2 question-option-color cursor-pointer transition-all duration-300";
                 const stateClass = isSelected
                   ? "shadow-[6px_6px_0px_#878787] bg-[#ffffff] border-[#65dbff]"
                   : isHovered
@@ -216,7 +229,7 @@ const QuestionScreen: React.FC = () => {
                     onTouchEnd={() => setHoveredOption(null)}
                     whileTap={{ scale: 0.99 }}
                   >
-                    <p className="text-gray-700">{option.text}</p>
+                    <p className="text-gray-700 text-base md:text-lg">{option.text}</p>
                     <AnimatePresence>
                       {showPoints && isSelected && (
                         <motion.div

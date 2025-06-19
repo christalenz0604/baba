@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getImagePath } from '../utils/pathUtils';
 import {
   FaFacebookF,
   FaLine,
@@ -34,7 +35,7 @@ const ShareDropdown = ({
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
 
   const quote = shareText;
-  const hashtag = "#派對遊戲";
+  const hashtag = "#國會派對";
 
 
 
@@ -70,20 +71,32 @@ const ShareDropdown = ({
 
   const handleThreadsShare = async () => {
     try {
-      await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+      await navigator.clipboard.writeText(`${shareText}\n${shareUrl}\n${hashtag}`);
       alert("已複製分享內容，即將前往 Threads，請貼上後發文");
       window.open('https://www.threads.net/', '_blank');
     } catch (err) {
-      alert("複製失敗，請手動貼上內容：\n" + `${shareText}\n${shareUrl}`);
+      alert("複製失敗，請手動貼上內容：\n" + `${shareText}\n${shareUrl}\n${hashtag}`);
     } finally {
       setOpen(false);
     }
   };
 
-  const handleIGShare = () => {
-    navigator.clipboard.writeText(messageText);
-    setShowIGModal(true);
-    setOpen(false);
+  const handleIGShare = async () => {
+    try {
+      await navigator.clipboard.writeText(messageText);
+      setShowIGModal(true);
+
+      // 延遲 300ms 才關閉 dropdown，避免 modal 跳不出來
+      setTimeout(() => {
+        setOpen(false);
+      }, 300);
+    } catch (err) {
+      alert("複製失敗，請手動貼上內容：\n" + messageText);
+      setShowIGModal(true);
+      setTimeout(() => {
+        setOpen(false);
+      }, 300);
+    }
   };
 
   useEffect(() => {
@@ -98,68 +111,99 @@ const ShareDropdown = ({
 
   return (
     <>
-        <div className="relative inline-block text-left" ref={dropdownRef}>
-        {/* 不再顯示小小的分享按鈕 */}
-        {open && (
-          <div className="mt-2 w-64 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 p-2 space-y-1">
-            <button
-              onClick={handleFacebookShare}
-              className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg w-full text-left"
-            >
-              <FaFacebookF /> 分享到 Facebook
-            </button>
+    {open && (
+      <div
+        className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+        onClick={() => setOpen(false)}
+      >
+      <div
+        className="bg-white p-6 rounded-xl shadow-lg text-center w-full max-w-sm"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h2 className="text-xl font-bold mb-4 text-gray-800">分享到社群</h2>
 
-            <a
-              href={lineShareUrl}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => setOpen(false)}
-              className="flex items-center gap-2 px-4 py-2 text-green-600 hover:bg-green-50 rounded-lg"
-            >
-              <FaLine /> 分享到 LINE
-            </a>
-
-            <button
-              onClick={handleTwitterShare}
-              className="flex items-center gap-2 px-4 py-2 text-blue-400 hover:bg-blue-50 rounded-lg w-full text-left"
-            >
-              <FaTwitter /> 分享到 Twitter
-            </button>
-
-            <button
-              onClick={handleThreadsShare}
-              className="flex items-center gap-2 px-4 py-2 text-black hover:bg-gray-100 rounded-lg w-full text-left"
-            >
-              <FaThreads /> 分享到 Threads
-            </button>
-
-            <button
-              onClick={handleIGShare}
-              className="flex items-center gap-2 px-4 py-2 text-pink-600 hover:bg-pink-50 rounded-lg w-full text-left"
-            >
-              <FaInstagram /> 分享到 Instagram
-            </button>
-          </div>
-        )}
-      </div>
-
-      {showIGModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-xl shadow-lg text-center max-w-sm w-full">
-            <h2 className="text-lg font-bold mb-2">Instagram 分享說明</h2>
-            <p className="mb-4 text-gray-700">分享文字已自動複製，請長按下方圖片儲存，然後到 Instagram 發文。</p>
-            <img src="/images/share.jpg" alt="分享圖片" className="w-full rounded-lg mb-4" />
-            <button
-              onClick={() => setShowIGModal(false)}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              關閉
-            </button>
-          </div>
+        <div className="flex justify-around items-center space-x-2">
+          <button onClick={handleFacebookShare} className="hover:scale-110 transition-transform">
+            <FaFacebookF className="text-blue-600 w-8 h-8" />
+          </button>
+          <a
+            href={lineShareUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setOpen(false)}
+            className="hover:scale-110 transition-transform"
+          >
+            <FaLine className="text-green-600 w-8 h-8" />
+          </a>
+          <button onClick={handleTwitterShare} className="hover:scale-110 transition-transform">
+            <FaTwitter className="text-blue-400 w-8 h-8" />
+          </button>
+          <button onClick={handleThreadsShare} className="hover:scale-110 transition-transform">
+            <FaThreads className="text-black w-8 h-8" />
+          </button>
+          <button onClick={handleIGShare} className="hover:scale-110 transition-transform">
+            <FaInstagram className="text-pink-500 w-8 h-8" />
+          </button>
         </div>
-      )}
+
+        <button
+          onClick={() => setOpen(false)}
+          className="mt-6 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg w-full"
+        >
+          關閉
+        </button>
+      </div>
+    </div>
+  )}
+
+    {showIGModal && (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="bg-white p-6 rounded-xl shadow-lg text-center max-w-sm w-full">
+          <h2 className="text-xl font-bold mb-4">Instagram 分享說明</h2>
+          <p className="mb-3 text-gray-700">
+            ✅ 分享文字已自動複製。<br />
+            ⬇️ 點下方儲存圖片，再前往 Instagram 發文貼上內容。
+          </p>
+
+          <img
+            src={getImagePath("/images/share_1200x630.png")}
+            alt="分享圖片"
+            className="w-full rounded-lg mb-4 border"
+          />
+
+          <a
+            href={getImagePath("/images/share_1200x630.png")}
+            download="分享圖.png"
+            className="inline-block mb-3 px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition"
+          >
+            ⬇️ 儲存圖片
+          </a>
+
+          <br />
+
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block mb-3 px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition"
+          >
+            前往 Instagram
+          </a>
+
+          <br />
+
+          <button
+            onClick={() => setShowIGModal(false)}
+            className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          >
+            關閉
+          </button>
+        </div>
+      </div>
+    )}
     </>
   );
+  
 };
 
 export default ShareDropdown;

@@ -8,6 +8,7 @@ interface GameContextType {
   answerQuestion: (points: number, isCorrect: boolean) => void;
   getCurrentQuestion: () => Question | null;
   restartGame: () => void;
+  startGame: () => void;
 }
 
 const initialGameState: GameState = {
@@ -16,6 +17,7 @@ const initialGameState: GameState = {
   score: 0,
   isGameOver: false,
   questionSetId: null,
+  hasStartedGame: false,
 };
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
@@ -28,6 +30,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       ...initialGameState,
       selectedCharacter: character,
       questionSetId: character.questionSetId,
+      hasStartedGame: false,
     });
   };
 
@@ -72,6 +75,13 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setGameState(initialGameState);
   };
 
+  const startGame = () => {
+    setGameState((prevState) => ({
+      ...prevState,
+      hasStartedGame: true,
+    }));
+  };
+
   return (
     <GameContext.Provider 
       value={{ 
@@ -79,7 +89,8 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         selectCharacter, 
         answerQuestion, 
         getCurrentQuestion, 
-        restartGame 
+        restartGame,
+        startGame
       }}
     >
       {children}
