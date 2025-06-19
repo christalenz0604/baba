@@ -51,8 +51,9 @@ const DesktopResultsScreen: React.FC = () => {
   //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
   const getResultCharacterImage = () => {
     const score = gameState.score;
-    if (score < 20000) return character.resultCharacterImages.fail;
-    return character.resultCharacterImages.success;
+    const characterScore = character.score;
+    if (score === characterScore) return character.resultCharacterImages.success;
+    return character.resultCharacterImages.fail;
   };
 
   //Get Paper Count Image if score is less than 100 show 100.png if the score is between 100 and character.score show 10000.png if the score is between 10000 and character.score show 100000.png
