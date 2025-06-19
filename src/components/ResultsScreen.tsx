@@ -4,10 +4,8 @@ import { motion } from 'framer-motion';
 import ShareDropdown from '../components/ShareDropdown.jsx';
 import html2canvas from 'html2canvas';
 import { getImagePath } from '../utils/pathUtils';
-
 import { launchConfetti } from '../utils/confetti';
 import { launchFirework } from '../utils/firework';
-
 import { X } from 'lucide-react';
 
 const ResultsScreen: React.FC = () => {
@@ -227,9 +225,8 @@ const ResultsScreen: React.FC = () => {
 
         <div className="fireworks-container" id="fireworks"></div>
         <canvas id="confetti"></canvas>
-
-
         <div className="max-w-4xl mx-auto" >
+
           <motion.div
             className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
             initial={{ opacity: 0, y: 20 }}
@@ -355,11 +352,7 @@ const ResultsScreen: React.FC = () => {
             </div>
           )}
         </div>
-        <div className="fixed bottom-[80px] left-0 right-0 flex justify-center z-48">
-          <p className="text-white tracking-wider text-xl md:text-4xl font-bold text-center bg-transparent py-8">
-            投下同意罷免，下架惡質立委！
-          </p>
-        </div>
+
       </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
@@ -377,11 +370,15 @@ const ResultsScreen: React.FC = () => {
             <div className="flex items-center justify-start gap-0">
               <button
                 onClick={() => setIsAboutUsOpen(true)}
-
                 className="w-24 h-10 result-bb"></button>
-              <h4 className="text-sm sm:text-base xs:text-xs font-semibold text-white whitespace-nowrap">
-                想收到更多相關資訊嗎？
-              </h4>
+              <div className="flex flex-col w-full">
+                <p className="flex text-white tracking-wider sm:text-base xs:text-xs  md:text-4xl font-bold bg-transparent">
+                  投下同意罷免，下架惡質立委！
+                </p>
+                <h4 className="flex text-sm sm:text-base xs:text-xs font-semibold text-white whitespace-nowrap">
+                  想收到更多相關資訊嗎？
+                </h4>
+              </div>
             </div>
 
             <div className="flex items-center mt-2 gap-2">

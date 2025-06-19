@@ -4,10 +4,8 @@ import { motion } from 'framer-motion';
 import html2canvas from 'html2canvas';
 import ShareDropdown from './ShareDropdown.jsx';
 import { getImagePath } from '../utils/pathUtils';
-
 import { launchConfetti } from '../utils/confetti';
 import { launchFirework } from '../utils/firework';
-
 import { X } from 'lucide-react';
 
 const DesktopResultsScreen: React.FC = () => {
