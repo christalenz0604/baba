@@ -54,7 +54,7 @@ hr.dotted-line {
     border-top: 4px dashed rgb(226, 226, 226);
   }
 .office-character {
-    background-image: url('/images/office_bg.gif');
+    /* background-image: url('/images/office_bg.gif'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

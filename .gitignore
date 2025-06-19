@@ -23,6 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 .env
+*.jpg
+*.png
+*.sh
+src/data/f_qtext_images.csv
 
 # co-folders
 baba_test/

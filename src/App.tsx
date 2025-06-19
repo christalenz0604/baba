@@ -3,20 +3,21 @@ import { GameProvider, useGame } from './context/GameContext';
 import CharacterSelection from './components/CharacterSelection';
 import QuestionScreen from './components/QuestionScreen';
 import ResultsScreen from './components/ResultsScreen';
-import DesktopResultsScreen from './components/DesktopResultsScreen'; // 桌機專用
+import DesktopResultsScreen from './components/DesktopResultsScreen'; // For Desktop PC size
 import './styles/pixel.css';
 import { setImagePathVariables } from './utils/cssUtils';
+import IntroGuide from './components/IntroGuide';
 
 const GameContainer: React.FC = () => {
-  const { gameState } = useGame();
+  const { gameState, startGame } = useGame();
   const [isDesktopLayout, setIsDesktopLayout] = useState(false);
 
   useEffect(() => {
     const checkLayout = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
-      // 橫式畫面（桌機或橫放平板）
-      setIsDesktopLayout(width > height);
+      // for Desktop PC size
+      setIsDesktopLayout(width > 767);
     };
 
     checkLayout();
@@ -28,6 +29,8 @@ const GameContainer: React.FC = () => {
     <div className="font-sans">
       {!gameState.selectedCharacter ? (
         <CharacterSelection />
+      ) : !gameState.hasStartedGame ? (
+        <IntroGuide onContinue={startGame} />
       ) : gameState.isGameOver ? (
         isDesktopLayout ? <DesktopResultsScreen /> : <ResultsScreen />
       ) : (
