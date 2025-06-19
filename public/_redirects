@@ -1,3 +1,2 @@
-/#/main 401
 /share/:id   /.netlify/functions/share  200
-/*           200
+/              /.netlify/functions/home   200
