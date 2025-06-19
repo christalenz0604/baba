@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import ShareDropdown from '../components/ShareDropdown.jsx';
 import html2canvas from 'html2canvas';
 import { getImagePath } from '../utils/pathUtils';
-
 import { launchConfetti } from '../utils/confetti';
 import { launchFirework } from '../utils/firework';
 
@@ -38,9 +37,9 @@ const ResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        launchConfetti?.();
+        // launchConfetti?.();
         const interval = setInterval(() => {
-          launchFirework?.();
+          // launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }
@@ -213,69 +212,69 @@ const ResultsScreen: React.FC = () => {
 
 
   return (
-<div className={showShare ? "pb-20" : ""}>
-    <div
-      className="min-h-[100dvh] bg-contain bg-cover py-10 px-2 overflow-hidden"
-      style={{
-        backgroundImage: `url(${getImagePath(
-          getResult() === '成功'
-          ? getImagePath("/images/result_bg_Win.png")
-          : getImagePath("/images/result_bg_Fail.png")
-        )})`
-      }}
-    >
+    <div className={showShare ? "pb-20" : ""}>
+      <div
+        className="min-h-[100dvh] bg-contain bg-cover py-10 px-2 overflow-hidden"
+        style={{
+          backgroundImage: `url(${getImagePath(
+            getResult() === '成功'
+              ? getImagePath("/images/result_bg_Win.png")
+              : getImagePath("/images/result_bg_Fail.png")
+          )})`
+        }}
+      >
 
-      <div className="fireworks-container" id="fireworks"></div>
-      <canvas id="confetti"></canvas>
+        <div className="fireworks-container" id="fireworks"></div>
+        <canvas id="confetti"></canvas>
 
 
-      <div className="max-w-4xl mx-auto" >
-        <motion.div
-          className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}>
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}>
 
-          <div className="relative flex justify-center items-center w-full h-[50px] mb-0 overflow-visible">
-            {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
-            <img
-            src={getResult() === "成功" ? getImagePath("/images/title_Win.png") : getImagePath("/images/title_Fail.png")}
-            alt="result title"
-            className="absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none -mt-2"
-            />
+            <div className="relative flex justify-center items-center w-full h-[50px] mb-0 overflow-visible">
+              {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
+              <img
+                src={getResult() === "成功" ? getImagePath("/images/title_Win.png") : getImagePath("/images/title_Fail.png")}
+                alt="result title"
+                className="absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none -mt-2"
+              />
 
-            {/* ribbon 背景 */}
-            <img
-              src={getResult() === "成功" ? getImagePath("/images/title_Ribbon_Win.png") : getImagePath("/images/title_Ribbon_Fail.png")}
-              alt="ribbon"
-              className="w-[100%] max-w-[480px] h-auto object-contain z-10 mt-4"
-            />
+              {/* ribbon 背景 */}
+              <img
+                src={getResult() === "成功" ? getImagePath("/images/title_Ribbon_Win.png") : getImagePath("/images/title_Ribbon_Fail.png")}
+                alt="ribbon"
+                className="w-[100%] max-w-[480px] h-auto object-contain z-10 mt-4"
+              />
 
-            {/* 插入文字在 ribbon 上 */}
-            <div className="absolute text-white font-pixel font-bold text-[clamp(1.5rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
-              {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
+              {/* 插入文字在 ribbon 上 */}
+              <div className="absolute text-white font-pixel font-bold text-[clamp(1.5rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]">
+                {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
+              </div>
             </div>
-          </div>
 
-          {/* 改為圖片方式呈現背景 + 四角裝飾 */}
-          <div className="relative flex flex-col items-center w-full justify-center">
-            {/* 背景主圖 */}
-            <img
-              src={getResult() === "成功"
-              ? getImagePath("/images/result_Board_phoneSize_Win.png")
-              : getImagePath("/images/result_Board_phoneSize_Fail.png")}
-              className="w-full max-w-[900px] h-auto object-contain transition-all duration-300 mt-2 sm:mt-4 xs:mt-2"
-              alt="結果底圖"
-            />
+            {/* 改為圖片方式呈現背景 + 四角裝飾 */}
+            <div className="relative flex flex-col items-center w-full justify-center">
+              {/* 背景主圖 */}
+              <img
+                src={getResult() === "成功"
+                  ? getImagePath("/images/result_Board_phoneSize_Win.png")
+                  : getImagePath("/images/result_Board_phoneSize_Fail.png")}
+                className="w-full max-w-[900px] h-auto object-contain transition-all duration-300 mt-2 sm:mt-4 xs:mt-2"
+                alt="結果底圖"
+              />
 
-            {/* 四個角落裝飾圖 - 疊在上方 */}
-            <img src={getImagePath("/images/corner_LT.png") } className="pointer-events-none absolute top-8 left-2 w-10 h-10 z-30" alt="LT" />
-            <img src={getImagePath("/images/corner_RT.png") } className="pointer-events-none absolute top-8 right-2 w-10 h-10 z-30" alt="RT" />
-            <img src={getImagePath("/images/corner_LB.png") } className="pointer-events-none absolute bottom-2 left-2 w-10 h-10 z-30" alt="LB" />
-            <img src={getImagePath("/images/corner_RB.png") } className="pointer-events-none absolute bottom-2 right-2 w-10 h-10 z-30" alt="RB" />
+              {/* 四個角落裝飾圖 - 疊在上方 */}
+              <img src={getImagePath("/images/corner_LT.png")} className="pointer-events-none absolute top-8 left-2 w-10 h-10 z-30" alt="LT" />
+              <img src={getImagePath("/images/corner_RT.png")} className="pointer-events-none absolute top-8 right-2 w-10 h-10 z-30" alt="RT" />
+              <img src={getImagePath("/images/corner_LB.png")} className="pointer-events-none absolute bottom-2 left-2 w-10 h-10 z-30" alt="LB" />
+              <img src={getImagePath("/images/corner_RB.png")} className="pointer-events-none absolute bottom-2 right-2 w-10 h-10 z-30" alt="RB" />
 
-            {/* 實際內容區域 */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20 mt-10">
+              {/* 實際內容區域 */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20 mt-10">
 
 
                 <div className="flex flex-row items-center w-full justify-center pt-4">
@@ -345,27 +344,20 @@ const ResultsScreen: React.FC = () => {
 
           {screenshotUrl && (
             <div className="flex justify-center mt-4">
-              <ShareDropdown
+              {<ShareDropdown
                 shareUrl={shareUrl}
                 shareText={shareText}
                 imageData={screenshotUrl}
                 open={showShare}
                 setOpen={setShowShare}
-              />
+              />} 
             </div>
           )}
         </div>
       </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
-     <div className="fixed bottom-[80px] left-0 right-0 flex justify-center z-[60]">
-       <p className="text-white tracking-wider text-xl md:text-4xl font-bold text-center bg-transparent py-8">
-         投下同意罷免，下架惡質立委！
-       </p>
-     </div>
-
-
       {/* Email subscription form */}
-      <div className={`fixed left-0 right-0 bottom-0 z-50  ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
+      <div className={`fixed left-0 right-0 bottom-0 z-45  ${getResult() === "成功" ? "bg-[#fe3427]" : "bg-[#1f31fe]"}`}>
         <div className="flex w-full max-w-7xl mx-auto items-center justify-between px-4 sm:px-6 py-2">
 
 
@@ -381,9 +373,14 @@ const ResultsScreen: React.FC = () => {
                 onClick={() => setIsAboutUsOpen(true)}
 
                 className="w-24 h-10 result-bb"></button>
-              <h4 className="text-sm sm:text-base xs:text-xs font-semibold text-white whitespace-nowrap">
-                想收到更多相關資訊嗎？
-              </h4>
+              <div className="flex flex-col w-full">
+                <p className="flex text-white tracking-wider sm:text-base xs:text-xs  md:text-4xl font-bold bg-transparent">
+                  投下同意罷免，下架惡質立委！
+                </p>
+                <h4 className="flex text-sm sm:text-base xs:text-xs font-semibold text-white whitespace-nowrap">
+                  想收到更多相關資訊嗎？
+                </h4>
+              </div>
             </div>
 
             <div className="flex items-center mt-2 gap-2">
@@ -398,8 +395,8 @@ const ResultsScreen: React.FC = () => {
                 onClick={handleSubmitEmail}
                 disabled={isSubmitting || !email}
                 className={`px-3 py-1 text-sm font-medium ${isSubmitting || !email
-                    ? 'bg-[#d7005c] text-white cursor-not-allowed'
-                    : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
+                  ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                  : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
                   }`}
               >
                 {isSubmitting ? '提交中...' : '訂閱'}
@@ -435,7 +432,7 @@ const ResultsScreen: React.FC = () => {
             onClick={e => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-4">
-              <h3 className="text-xl font-semibold text-gray-800">關於我們</h3>
+              <h3 className="text-xl font-semibold text-gray-800">製作團隊</h3>
               <button
                 onClick={() => setIsAboutUsOpen(false)}
                 className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
@@ -443,9 +440,69 @@ const ResultsScreen: React.FC = () => {
                 <X className="w-6 h-6 text-gray-500" />
               </button>
             </div>
-            <div className="space-y-4 text-gray-700 text-base">
-              <p>我們是新北市雙和公民參與協會。</p>
-              <p>女王大人萬歲！莫布大大最高！馬可大大好棒！</p>
+            <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">雙和罷免團隊</div>
+            <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">（新北市雙和公民參與協會）</div>
+            <div className="w-full mx-auto">
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">專案發想</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">mini</div>
+                  <div className="mr-2">先西</div>
+                  <div className="mr-2">Kate</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">專案進度</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">馬可詠嘆師</div>
+                  <div className="mr-2">希斯特莉雅</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">網頁技術</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">馬可詠嘆師</div>
+                  <div className="mr-2">迪奧</div>
+                  <div className="mr-2">希斯特莉雅</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">文本</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">羅丹</div>
+                  <div className="mr-2">Phoebe</div>
+                  <div className="mr-2">希斯特莉雅</div>
+                  <div className="mr-2">Kate</div>
+                  <div className="mr-2">先西</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">美術</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">阿柔</div>
+                  <div className="mr-2">阿瑋</div>
+                  <div className="mr-2">小鄒鄒</div>
+                  <div className="mr-2">永和哈比人</div>
+                  <div className="mr-2">AK</div>
+                  <div className="mr-2">威哥</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">影片</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">Amber</div>
+                  <div className="mr-2">先西</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4 mb-2">
+                <div className="flex w-full font-semibold">法律諮詢</div>
+                <div className="flex flex-wrap justify-start">
+                  <div className="mr-2">賈碧</div>
+                </div>
+              </div>
+            </div>
+            <div className="text-gray-700 text-lg my-4">
+              <p>感謝所有罷團夥伴，薪偷之餘還能快速生出一個小遊戲，就算沒有直接背景，也使出渾身解術壓DDL製作！</p>
             </div>
           </motion.div>
         </motion.div>

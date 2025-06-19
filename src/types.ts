@@ -3,6 +3,7 @@ export interface Character {
   name: string;
   districts: string;
   avatar: string;
+  portrait: string;
   description: string;
   questionSetId: string;
   score: number;

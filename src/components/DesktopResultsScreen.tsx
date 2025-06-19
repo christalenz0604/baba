@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import html2canvas from 'html2canvas';
 import ShareDropdown from './ShareDropdown.jsx';
 import { getImagePath } from '../utils/pathUtils';
-
 import { launchConfetti } from '../utils/confetti';
 import { launchFirework } from '../utils/firework';
 
@@ -38,9 +37,9 @@ const DesktopResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        launchConfetti?.();
+        // launchConfetti?.();
         const interval = setInterval(() => {
-          launchFirework?.();
+          // launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }
@@ -205,13 +204,11 @@ const DesktopResultsScreen: React.FC = () => {
       style={{
         backgroundImage: `url(${getImagePath(
           getResult() === '成功'
-          ? getImagePath("/images/result_bg_Win.png")
-          : getImagePath("/images/result_bg_Fail.png")
+            ? getImagePath("/images/result_bg_Win.png")
+            : getImagePath("/images/result_bg_Fail.png")
         )})`
       }}
     >
-	
-	
 	
       <div className="fireworks-container" id="fireworks"></div>
       <canvas id="confetti"></canvas>
@@ -258,10 +255,10 @@ const DesktopResultsScreen: React.FC = () => {
             />
 
             {/* 四個角落裝飾圖 - 疊在上方 */}
-            <img src={getImagePath("/images/corner_LT.png") } className="pointer-events-none absolute top-4 left-4 w-10 h-10 z-30 -mt-16" alt="LT" />
-            <img src={getImagePath("/images/corner_RT.png") } className="pointer-events-none absolute top-4 right-4 w-10 h-10 z-30 -mt-16" alt="RT" />
-            <img src={getImagePath("/images/corner_LB.png") } className="pointer-events-none absolute bottom-4 left-4 w-10 h-10 z-30" alt="LB" />
-            <img src={getImagePath("/images/corner_RB.png") } className="pointer-events-none absolute bottom-4 right-4 w-10 h-10 z-30" alt="RB" />
+            <img src={getImagePath("/images/corner_LT.png")} className="pointer-events-none absolute top-4 left-4 w-10 h-10 z-30 -mt-16" alt="LT" />
+            <img src={getImagePath("/images/corner_RT.png")} className="pointer-events-none absolute top-4 right-4 w-10 h-10 z-30 -mt-16" alt="RT" />
+            <img src={getImagePath("/images/corner_LB.png")} className="pointer-events-none absolute bottom-4 left-4 w-10 h-10 z-30" alt="LB" />
+            <img src={getImagePath("/images/corner_RB.png")} className="pointer-events-none absolute bottom-4 right-4 w-10 h-10 z-30" alt="RB" />
 
             {/* 實際內容區域 */}
             <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20">
@@ -313,18 +310,18 @@ const DesktopResultsScreen: React.FC = () => {
               {
                 screenshotUrl && (
                   <div className="flex justify-center mt-4">
-                    <ShareDropdown
+                    {<ShareDropdown
                       shareUrl={shareUrl}
                       shareText={shareText}
                       imageData={screenshotUrl}
                       open={showShare}
                       setOpen={setShowShare}
-                    />
+                    />}
                   </div>
                 )
               }
             </div>
-		  </div>
+          </div>
         </motion.div>
       </div>
       <div className="flex flex-row w-full mx-auto justify-center -my-5 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
@@ -334,46 +331,44 @@ const DesktopResultsScreen: React.FC = () => {
       {/* Email subscription form */}
       {/* add a div with a background color and a gradient to the bottom of the page */}
       <div className="relative w-full overflow-hidden" style={{ minHeight: '0vh' }}>
-      {/* Gradient background fixed to bottom to cover entire footer */}
-      <div
-        className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
-      ></div>
+        {/* Gradient background fixed to bottom to cover entire footer */}
+        <div
+          className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
+        ></div>
 
-      {/* Footer subscription section */}
-      <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4">
-        <div className="flex-shrink-0 w-1/5 p-2">
-          <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
-        </div>
-        <div className="flex flex-col w-4/5 p-2">
-          <div className="flex items-end w-full">
-            <div className="flex w-1/4">
-              <button 
-			    onClick={() => setIsAboutUsOpen(true)} 
-
-			    className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
-            </div>
-            <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
-              想收到更多相關資訊嗎？
-            </h4>
+        {/* Footer subscription section */}
+        <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4">
+          <div className="flex-shrink-0 w-1/5 p-2">
+            <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
           </div>
-          <div className="flex mt-2">
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
+          <div className="flex flex-col w-4/5 p-2">
+            <div className="flex items-end w-full">
+              <div className="flex w-1/4">
+                <button
+                  onClick={() => setIsAboutUsOpen(true)}
+
+                  className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
+              </div>
+              <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
+                想收到更多相關資訊嗎？
+              </h4>
+            </div>
+            <div className="flex mt-2">
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
                 placeholder="請輸入您的 Email"
-                className={`flex-1 px-4 py-2 border ${
-                  isEmailValid ? 'border-gray-300' : 'border-red-500'
-                } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                className={`flex-1 px-4 py-2 border ${isEmailValid ? 'border-gray-300' : 'border-red-500'
+                  } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
               />
               <button
                 onClick={handleSubmitEmail}
                 disabled={isSubmitting || !email || !isEmailValid}
-                className={`px-4 py-2 font-medium ${
-                  isSubmitting || !email || !isEmailValid
-                    ? 'bg-[#d7005c] text-white cursor-not-allowed'
-                    : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
-                }`}
+                className={`px-4 py-2 font-medium ${isSubmitting || !email || !isEmailValid
+                  ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                  : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
+                  }`}
               >
                 {isSubmitting ? '提交中...' : '訂閱'}
               </button>
@@ -396,37 +391,96 @@ const DesktopResultsScreen: React.FC = () => {
           </div>
         </div>
       </div>
-{isAboutUsOpen && (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-    onClick={() => setIsAboutUsOpen(false)}
-  >
-    <motion.div
-      initial={{ scale: 0.95 }}
-      animate={{ scale: 1 }}
-      exit={{ scale: 0.95 }}
-      className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-      onClick={e => e.stopPropagation()}
-    >
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-xl font-semibold text-gray-800">關於我們</h3>
-        <button
+      {isAboutUsOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
           onClick={() => setIsAboutUsOpen(false)}
-          className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
         >
-          <X className="w-6 h-6 text-gray-500" />
-        </button>
-      </div>
-      <div className="space-y-4 text-gray-700 text-base">
-        <p>我們是新北市雙和公民參與協會。</p>
-        <p>迪奧爵士請收下我的膝蓋！女王大人萬歲！莫布大大最高！馬可大大好棒！</p>
-      </div>
-    </motion.div>
-  </motion.div>
-)}
+          <motion.div
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.95 }}
+            className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-semibold text-gray-800">製作團隊</h3>
+              <button
+                onClick={() => setIsAboutUsOpen(false)}
+                className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              >
+                <X className="w-6 h-6 text-gray-500" />
+              </button>
+            </div>
+            <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">雙和罷免團隊（新北市雙和公民參與協會）</div>
+            <div className="w-3/4 mx-auto pl-2">
+              <div className="text-gray-700 text-lg my-4">
+                <div className="flex w-full font-semibold">專案發想</div>
+                <div className="flex flex-row justify-start gap-7">
+                  <div>mini</div>
+                  <div>先西</div>
+                  <div>Kate</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4">
+                <div className="flex w-full font-semibold">專案進度</div>
+                <div className="flex flex-row justify-start gap-7">
+                  <div>馬可詠嘆師</div>
+                  <div>希斯特莉雅</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4">
+                <div className="flex w-full font-semibold">網頁技術</div>
+                <div className="flex flex-row justify-start gap-7">
+                  <div>馬可詠嘆師</div>
+                  <div>迪奧</div>
+                  <div>希斯特莉雅</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4">
+                <div className="flex w-full font-semibold">文本</div>
+                <div className="flex flex-row justify-start gap-7">
+                  <div>羅丹</div>
+                  <div>Phoebe</div>
+                  <div>希斯特莉雅</div>
+                  <div>Kate</div>
+                  <div>先西</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4">
+                <div className="flex w-full font-semibold">美術</div>
+                <div className="flex flex-row justify-start gap-7">
+                  <div>阿柔</div>
+                  <div>阿瑋</div>
+                  <div>小鄒鄒</div>
+                  <div>永和哈比人</div>
+                  <div>AK</div>
+                  <div>威哥</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4">
+                <div className="flex w-full font-semibold">影片</div>
+                <div className="flex flex-row justify-start gap-7">
+                  <div>Amber</div>
+                  <div>先西</div>
+                </div>
+              </div>
+              <div className="text-gray-700 text-lg my-4">
+                <div className="flex w-full font-semibold">法律諮詢</div>
+                <div className="flex flex-row justify-start gap-7">
+                  <div>賈碧</div>
+                </div>
+              </div>
+            </div>
+            <div className="text-gray-700 text-lg my-4">
+              <p>感謝所有罷團夥伴，薪偷之餘還能快速生出一個小遊戲，就算沒有直接背景，也使出渾身解術壓DDL製作！</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </div >
   );
 };
