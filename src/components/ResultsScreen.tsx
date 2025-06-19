@@ -4,10 +4,8 @@ import { motion } from 'framer-motion';
 import ShareDropdown from '../components/ShareDropdown.jsx';
 import html2canvas from 'html2canvas';
 import { getImagePath } from '../utils/pathUtils';
-
-// import { launchConfetti } from '../utils/confetti';
-// import { launchFirework } from '../utils/firework';
-
+import { launchConfetti } from '../utils/confetti';
+import { launchFirework } from '../utils/firework';
 import { X } from 'lucide-react';
 
 const ResultsScreen: React.FC = () => {
@@ -227,9 +225,8 @@ const ResultsScreen: React.FC = () => {
 
         <div className="fireworks-container" id="fireworks"></div>
         <canvas id="confetti"></canvas>
+        <div className="max-w-4xl mx-auto" >
 
-
-        <div className="max-w-4xl mx-auto">
           <motion.div
             className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
             initial={{ opacity: 0, y: 20 }}
@@ -345,16 +342,17 @@ const ResultsScreen: React.FC = () => {
 
           {screenshotUrl && (
             <div className="flex justify-center mt-4">
-              { {<ShareDropdown
+              {<ShareDropdown
                 shareUrl={shareUrl}
                 shareText={shareText}
                 imageData={screenshotUrl}
                 open={showShare}
                 setOpen={setShowShare}
-              />} }
+              />}
             </div>
           )}
         </div>
+
       </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
@@ -372,7 +370,6 @@ const ResultsScreen: React.FC = () => {
             <div className="flex items-center justify-start gap-0">
               <button
                 onClick={() => setIsAboutUsOpen(true)}
-
                 className="w-24 h-10 result-bb"></button>
               <div className="flex flex-col w-full">
                 <p className="flex text-white tracking-wider sm:text-base xs:text-xs  md:text-4xl font-bold bg-transparent">

@@ -2,12 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
 import html2canvas from 'html2canvas';
-// import ShareDropdown from './ShareDropdown.jsx';
+import ShareDropdown from './ShareDropdown.jsx';
 import { getImagePath } from '../utils/pathUtils';
-
-// import { launchConfetti } from '../utils/confetti';
-// import { launchFirework } from '../utils/firework';
-
+import { launchConfetti } from '../utils/confetti';
+import { launchFirework } from '../utils/firework';
 import { X } from 'lucide-react';
 
 const DesktopResultsScreen: React.FC = () => {
@@ -311,13 +309,13 @@ const DesktopResultsScreen: React.FC = () => {
               {
                 screenshotUrl && (
                   <div className="flex justify-center mt-4">
-                    {/* {<ShareDropdown
+                    {<ShareDropdown
                       shareUrl={shareUrl}
                       shareText={shareText}
                       imageData={screenshotUrl}
                       open={showShare}
                       setOpen={setShowShare}
-                    />} */}
+                    />}
                   </div>
                 )
               }
