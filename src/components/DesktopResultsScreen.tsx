@@ -471,7 +471,7 @@ const DesktopResultsScreen: React.FC = () => {
               <div className="text-gray-700 text-lg my-4">
                 <div className="flex w-full font-semibold">法律諮詢</div>
                 <div className="flex flex-row justify-start gap-7">
-                  <div>賈碧</div>
+                  <div>雞仔</div>
                 </div>
               </div>
             </div>

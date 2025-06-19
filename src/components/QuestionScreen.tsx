@@ -77,7 +77,7 @@ const QuestionScreen: React.FC = () => {
 	          }}              
 			  className="w-16 h-16 rounded-0 overflow-hidden bg-contain bg-cover bg-center"
 			>
-              <img src={character.avatar} alt={character.name} className="w-full h-full object-cover" />
+              <img src={character.portrait} alt={character.name} className="w-full h-full object-cover" />
             </div>
             <div className="ml-4 font-pixel">
               <p className="text-gray-100 font-medium">{character.districts}</p>

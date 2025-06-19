@@ -494,7 +494,7 @@ const ResultsScreen: React.FC = () => {
               <div className="text-gray-700 text-lg my-4 mb-2">
                 <div className="flex w-full font-semibold">法律諮詢</div>
                 <div className="flex flex-wrap justify-start">
-                  <div className="mr-2">賈碧</div>
+                  <div className="mr-2">雞仔</div>
                 </div>
               </div>
             </div>
