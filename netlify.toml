@@ -1,0 +1,13 @@
+[build]
+  publish = "dist"
+  command = "vite build"
+
+[functions]
+  directory = "netlify/functions"
+
+[edge_functions]
+  directory = "netlify/edge-functions"
+
+[[edge_functions]]
+  path = "/main"
+  function = "auth"
