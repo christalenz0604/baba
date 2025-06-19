@@ -6,7 +6,6 @@ import ShareDropdown from './ShareDropdown.jsx';
 import { getImagePath } from '../utils/pathUtils';
 import { launchConfetti } from '../utils/confetti';
 import { launchFirework } from '../utils/firework';
-
 import { X } from 'lucide-react';
 
 const DesktopResultsScreen: React.FC = () => {
