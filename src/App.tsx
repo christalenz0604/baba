@@ -6,9 +6,10 @@ import ResultsScreen from './components/ResultsScreen';
 import DesktopResultsScreen from './components/DesktopResultsScreen'; // For Desktop PC size
 import './styles/pixel.css';
 import { setImagePathVariables } from './utils/cssUtils';
+import IntroGuide from './components/IntroGuide';
 
 const GameContainer: React.FC = () => {
-  const { gameState } = useGame();
+  const { gameState, startGame } = useGame();
   const [isDesktopLayout, setIsDesktopLayout] = useState(false);
 
   useEffect(() => {
@@ -28,6 +29,8 @@ const GameContainer: React.FC = () => {
     <div className="font-sans">
       {!gameState.selectedCharacter ? (
         <CharacterSelection />
+      ) : !gameState.hasStartedGame ? (
+        <IntroGuide onContinue={startGame} />
       ) : gameState.isGameOver ? (
         isDesktopLayout ? <DesktopResultsScreen /> : <ResultsScreen />
       ) : (

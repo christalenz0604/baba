@@ -46,4 +46,5 @@ export interface GameState {
   score: number;
   isGameOver: boolean;
   questionSetId: string | null;
+  hasStartedGame: boolean;
 }
