@@ -226,7 +226,6 @@ const ResultsScreen: React.FC = () => {
         <div className="fireworks-container" id="fireworks"></div>
         <canvas id="confetti"></canvas>
         <div className="max-w-4xl mx-auto" >
-
           <motion.div
             className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
             initial={{ opacity: 0, y: 20 }}
@@ -348,11 +347,10 @@ const ResultsScreen: React.FC = () => {
                 imageData={screenshotUrl}
                 open={showShare}
                 setOpen={setShowShare}
-              />}
+              />} 
             </div>
           )}
         </div>
-
       </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
