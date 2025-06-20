@@ -275,7 +275,7 @@ const DesktopResultsScreen: React.FC = () => {
                   <p className="flex text-4xl font-bold text-white">x {gameState.score}</p>
                 </div>
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-2xl text-gray-200 -mt-2">{getResultTitle()}</p>
+                  <p className="flex font-medium text-2xl text-gray-200 -mt-2 md:mt-0">{getResultTitle()}</p>
                   <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
                   <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
                 </div>
@@ -324,13 +324,13 @@ const DesktopResultsScreen: React.FC = () => {
           </div>
         </motion.div>
       </div>
-      <div className="flex flex-row w-full mx-auto justify-center -my-5 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
+      <div className="flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
               <p className="text-center">投下同意罷免，下架惡質立委！</p>
         </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
       {/* add a div with a background color and a gradient to the bottom of the page */}
-      <div className="relative w-full overflow-hidden" style={{ minHeight: '0vh' }}>
+      <div className="fixed bottom-0 w-full overflow-hidden z-50" style={{ minHeight: '0vh' }}>
         {/* Gradient background fixed to bottom to cover entire footer */}
         <div
           className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
