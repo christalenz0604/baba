@@ -1,6 +1,6 @@
 :root {
-  --result-bb-image: url('/images/result_bb.gif');
-  --result-bb-hover-image: url('/images/result_bb_hover.gif');
+  --result-bb-image: url('/images/results/objects/result_bb.gif');
+  --result-bb-hover-image: url('/images/results/objects/result_bb_hover.gif');
 }
 
 .result-bb {
