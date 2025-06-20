@@ -212,7 +212,7 @@ const ResultsScreen: React.FC = () => {
 
 
   return (
-    <div className={showShare ? "pb-20" : ""}>
+    <div className={showShare ? "" : ""}>
       <div
         className="min-h-[100dvh] bg-contain bg-cover py-10 px-2 overflow-hidden"
         style={{
