@@ -234,7 +234,7 @@ const linTeFuQuestions: Question[] = [
     text: '80歲以上免醫療評估請看護被批會出事，要不要煞車？',
     image: getImagePath("/images/question/linTeFu_q_pic_01.webp"),
     options: [
-      { id: 'linTeFu6-1', text: '黨說過了沒問題，我還能比黨懂醫療？', points: 1323, isCorrect: true },
+      { id: 'linTeFu6-1', text: '黨說過了沒問題，我還能比黨懂醫療？', points: 1050, isCorrect: true },
       { id: 'linTeFu6-2', text: '我...我想睡一下，明天再想。', points: 555, isCorrect: false },
       { id: 'linTeFu6-3', text: '不煞會翻車，我喊暫停！', points: 3, isCorrect: false },
     ],
@@ -580,9 +580,9 @@ const LaiShyhBaoQuestions: Question[] = [
     text: '面對國民黨爆出「幽靈連署」事件，你怎麼看？',
     image: getImagePath("/images/question/LaiShyhBao_q_pic_02.webp"),
     options: [
-      { id: 'LaiShyhBao10-1', text: '誰那麼笨，抄名冊還被發現', points: 4925, isCorrect: false },
+      { id: 'LaiShyhBao10-1', text: '誰那麼笨，抄名冊還被發現', points: 3, isCorrect: false },
       { id: 'LaiShyhBao10-2', text: '譴責黨內，怎麼可以抄寫死者個資', points: 2, isCorrect: false },
-      { id: 'LaiShyhBao10-3', text: '只是偽造文書而已，有這麼嚴重嗎', points: 3, isCorrect: true },
+      { id: 'LaiShyhBao10-3', text: '只是偽造文書而已，有這麼嚴重嗎', points: 4925, isCorrect: true },
     ],
     explanation: {
       text: '國民黨青年軍近日涉入多起罷免幽靈連署案件遭檢調搜索偵訊，國民黨立委賴士葆聲援時喊話，「他們即便犯了錯，那最多就偽造文書啊，你有看過過去偽造文書這麼嚴重嗎？偽造文書判非常輕啊！」',
@@ -1174,7 +1174,7 @@ const LoMingTsaiQuestions: Question[] = [
       { id: 'LoMingTsai1-3', text: '我們是在立法院上班，立院總召不是統戰團行程總召好嗎？', points: 100, isCorrect: false },
     ],
     explanation: {
-      text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
+      text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
       reference: 'https://www.cna.com.tw/news/aipl/202404260199.aspx'
     }
   },
@@ -1355,11 +1355,11 @@ const LIAOHsienHsiangQuestions: Question[] = [
     image: getImagePath("/images/question/LIAOHsienHsiang_q_pic_01.webp"),
     options: [
       { id: 'LIAOHsienHsiang4-1', text: '搞清楚計畫背景和編列邏輯，才知道該不該砍。', points: 10, isCorrect: false },
-      { id: 'LIAOHsienHsiang4-2', text: '「連鹹酥雞都沒有，這也叫生活圈？」1.24億直接砍！', points: 4188, isCorrect: true },
+      { id: 'LIAOHsienHsiang4-2', text: '「連鹹酥雞都沒有，這也叫生活圈？」1.24億直接砍！', points: 4218, isCorrect: true },
       { id: 'LIAOHsienHsiang4-3', text: '先評估連外道路規劃，不然住進去會像被流放。', points: 3, isCorrect: false },
     ],
     explanation: {
-      text: '國民黨立委廖先翔提案刪除「白匏湖運動休閒生態園區暨社會住宅興建計劃」預算1億5900萬。廖先翔今天表示，他支持社宅政策，但一個連鹹酥雞都買不到的地點誰要住！',
+      text: '國民黨立委廖先翔提案刪除「白匏湖運動休閒生態園區暨社會住宅興建計劃」預算1.24億。廖先翔今天表示，他支持社宅政策，但一個連鹹酥雞都買不到的地點誰要住！',
       reference: 'https://udn.com/news/story/124338/8502406'
     }
   },
@@ -1456,7 +1456,7 @@ const LOCHIHCHIANGQuestions: Question[] = [
     image: getImagePath("/images/question/LOCHIHCHIANG_q_pic_01.webp"),
     options: [
       { id: 'LOCHIHCHIANG1-1', text: '先反省一下我的道德觀。', points: 10, isCorrect: false },
-      { id: 'LOCHIHCHIANG1-2', text: '你知道問什麼問題嗎？', points: 5, isCorrect: true },
+      { id: 'LOCHIHCHIANG1-2', text: '你知道問什麼問題嗎？', points: 4175, isCorrect: true },
       { id: 'LOCHIHCHIANG1-3', text: '出難題讓他腦袋打結。', points: 3, isCorrect: false },
     ],
     explanation: {
@@ -1469,7 +1469,7 @@ const LOCHIHCHIANGQuestions: Question[] = [
     text: '公督盟希望我自主提供利益迴避相關資料作為國會改革透明依據，我要怎麼回應呢？',
     image: getImagePath("/images/question/LOCHIHCHIANG_q_pic_02.webp"),
     options: [
-      { id: 'LOCHIHCHIANG2-1', text: '看到公文直接寫「滾」，還拍照發文說：「透明就這麼透明！」', points: 12, isCorrect: true },
+      { id: 'LOCHIHCHIANG2-1', text: '看到公文直接寫「滾」，還拍照發文說：「透明就這麼透明！」', points: 4021, isCorrect: true },
       { id: 'LOCHIHCHIANG2-2', text: '我問心無愧，資料我整理好雙手奉上。', points: 6, isCorrect: false },
       { id: 'LOCHIHCHIANG2-3', text: '他們跟我立場不同，我就婉轉拒絕，這叫政治智慧。', points: 4, isCorrect: false },
     ],

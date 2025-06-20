@@ -134,7 +134,7 @@ export const characters: Character[] = [
     portrait: getImagePath('/images/portraits/HungMongKai_pic_small.gif'),
     description: '媽寶立委;擅長跳針與甩鍋，專精無邏輯辯護術，出招自帶迷因效果',
     questionSetId: 'HungMongKai',//對應問題系列
-    score: 54916,
+    score: 54888,
     resultCharacterImages: {
       success: getImagePath('/images/results/avatar/HungMongKai_pic_Happy.gif'),
       fail: getImagePath('/images/results/avatar/HungMongKai_pic_Sad.gif'),
@@ -164,7 +164,7 @@ export const characters: Character[] = [
     portrait: getImagePath('/images/portraits/LIAOHsienHsiang_pic_small.gif'),
     description: '被稱為廖先蝦。因刪減外交部預算，用超蝦理由：「中國」未依約採購宏都拉斯白蝦。還主動提案刪除汐止當地社宅計畫。再加林林總總的疑似國土侵占疑雲，被認為不懂人間疾苦。',
     questionSetId: 'LIAOHsienHsiang',//對應問題系列
-    score: 36399,
+    score: 36774,
     resultCharacterImages: {
       success: getImagePath('/images/results/avatar/LIAOHsienHsiang_pic_Happy.gif'),
       fail: getImagePath('/images/results/avatar/LIAOHsienHsiang_pic_Sad.gif'),
