@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'PixelFont';
   src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -148,4 +152,21 @@ hr.dotted-line {
 @keyframes explode {
   0% { transform: scale(1); opacity: 1; }
   100% { transform: scale(5); opacity: 0; }
+}
+
+@layer utilities {
+  @media (max-height: 667px) {
+    .h-screen-small {
+      height: 75% !important;
+    }
+    .w-screen-small {
+      width: 75% !important;
+    }
+    .move-up-small {
+      margin-top: -0.5rem !important;
+    }
+    .move-right-small {
+      margin-left: 0.5rem !important; /* 你可以調整為 1rem / 32px / 10% 等 */
+    }
+  }
 }

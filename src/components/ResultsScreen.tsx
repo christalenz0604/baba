@@ -327,7 +327,7 @@ const ResultsScreen: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Share_Success.webp") : getImagePath("/images/results/objects/btn_Share_Fail.webp")} alt="share" className="w-full h-full object-cover" />
+              <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Share_Success.webp") : getImagePath("/images/results/objects/btn_Share_Fail.webp")} alt="share" className="w-full h-full object-cover h-screen-small w-screen-small move-up-small move-right-small" />
             </motion.button>
 
             <motion.button
@@ -336,7 +336,7 @@ const ResultsScreen: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Tryagain_Success.webp") : getImagePath("/images/results/objects/btn_Tryagain_Fail.webp")} alt="restart" className="w-full h-full object-cover" />
+              <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Tryagain_Success.webp") : getImagePath("/images/results/objects/btn_Tryagain_Fail.webp")} alt="restart" className="w-full h-full object-cover  h-screen-small w-screen-small move-up-small move-right-small " />
             </motion.button>
           </div>
 
