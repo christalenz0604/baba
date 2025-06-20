@@ -270,7 +270,7 @@ const DesktopResultsScreen: React.FC = () => {
                   <h3 className="flex font-semibold text-4xl text-white">{character.name}</h3>
                 </div>
                 <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                  <p className="flex font-medium text-2xl text-gray-200 -mt-8">累積連署書</p>
+                  <p className="flex font-medium text-2xl text-gray-200 -mt-5">累積連署書</p>
                   <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
                   <p className="flex text-4xl font-bold text-white">x {gameState.score}</p>
                 </div>
