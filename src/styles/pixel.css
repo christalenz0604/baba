@@ -108,7 +108,7 @@ hr.dotted-line {
     color: white;
 }
 .result-bb {
-    background-image: url('/images/result_bb.gif');
+    background-image: url('/images/results/objects/result_bb.gif');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -116,7 +116,7 @@ hr.dotted-line {
     width: 100%;
 }
 .result-bb:hover{
-    background-image: url('/images/result_bb_hover.gif');
+    background-image: url('/images/results/objects/result_bb_hover.gif');
 }
 
 .corner-img {
