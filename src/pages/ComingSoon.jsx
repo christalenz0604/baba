@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ComingSoon.css';
 import '../styles/pixel.css';
 
-const PASSWORD = 'baba2024';
+const PASSWORD = 'baba19890604baba';
 
 export default function ComingSoon() {
   const [input, setInput] = useState('');
@@ -11,12 +11,26 @@ export default function ComingSoon() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const access = localStorage.getItem('baba_access_granted') === 'yes';
+    const timestamp = parseInt(localStorage.getItem('baba_access_time') || '0', 10);
+    const now = Date.now();
+    const expired = now - timestamp > 3 * 60 * 60 * 1000; // 3 小時
+
+    if (access && !expired) {
+      navigate('/landing');
+    }
+  }, [navigate]);
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
     setTimeout(() => {
       if (input === PASSWORD) {
+        localStorage.setItem('baba_access_granted', 'yes');
+		localStorage.setItem('baba_access_time', Date.now().toString());
         navigate('/landing');
       } else {
         setError('密碼錯誤，請再試一次');

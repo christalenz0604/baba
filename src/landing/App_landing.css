@@ -25,7 +25,7 @@ html, body, #root, #root > * {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("images/background_landing.png");
+  background-image: url("/images/background_landing.webp");
   background-repeat: repeat-x;         /* 水平重複 */
   background-size: auto 100%;          /* 自動寬度，但高度填滿畫面 */
   background-position: bottom left;    /* 從左下角開始貼圖 */

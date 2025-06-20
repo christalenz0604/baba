@@ -2,6 +2,7 @@ import './App_landing.css';
 import useTypewriter from './useTypewriter';
 import { useState, useEffect } from 'react';
 import { getImagePath } from '../utils/pathUtils';
+import { useNavigate } from 'react-router-dom';
 
 function Landing() {
   const lines = ["穿越紅毯，朝小野大的全新國會正式拉開序幕，",
@@ -12,6 +13,7 @@ function Landing() {
   const [allowClick, setAllowClick] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [skip, setSkip] = useState(false);
+  const navigate = useNavigate(); 
 
   const text = useTypewriter(
     lines,
@@ -21,6 +23,21 @@ function Landing() {
     () => setDone(true), // 動畫完成後呼叫
     skip    // skip status
   );
+
+  useEffect(() => {
+    const access = localStorage.getItem('baba_access_granted') === 'yes';
+    const timestamp = parseInt(localStorage.getItem('baba_access_time') || '0', 10);
+    const now = Date.now();
+    const expired = now - timestamp > 3 * 60 * 60 * 1000; // 三小時
+
+    if (!access || expired) {
+      localStorage.removeItem('baba_access_granted');
+      localStorage.removeItem('baba_access_time');
+      navigate('/'); // 轉回登入頁
+    }
+  }, [navigate]);
+
+
 
   useEffect(() => {
     if (done) {
