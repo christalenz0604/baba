@@ -144,7 +144,31 @@ const ShareDropdown = ({
           <button onClick={handleIGShare} className="hover:scale-110 transition-transform">
             <FaInstagram className="text-pink-500 w-8 h-8" />
           </button>
+
+        {/* 📷 儲存圖片 */}
+        {imageData && (
+          <button
+            onClick={() => {
+            const link = document.createElement('a');
+            link.href = imageData;
+            link.download = 'playbaba_results.png';
+            link.click();
+            }}
+            className="hover:scale-110 transition-transform"
+            title="儲存圖片"
+          >
+            <img
+              src={getImagePath("/images/results/objects/image-download.webp")} // 假設你把它放在 public/images/
+              alt="儲存圖片"
+              className="w-8 h-8"
+            />
+          </button>
+        )}
+
+
+
         </div>
+
 
         <button
           onClick={() => setOpen(false)}
