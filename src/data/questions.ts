@@ -1467,7 +1467,7 @@ const LOCHIHCHIANGQuestions: Question[] = [
   {
     id: 'LOCHIHCHIANG2',
     text: '公督盟希望我自主提供利益迴避相關資料作為國會改革透明依據，我要怎麼回應呢？',
-    image: getImagePath("/images/question/common_q_pic_0.webp"),
+    image: getImagePath("/images/question/LOCHIHCHIANG_q_pic_02.webp"),
     options: [
       { id: 'LOCHIHCHIANG2-1', text: '看到公文直接寫「滾」，還拍照發文說：「透明就這麼透明！」', points: 12, isCorrect: true },
       { id: 'LOCHIHCHIANG2-2', text: '我問心無愧，資料我整理好雙手奉上。', points: 6, isCorrect: false },
