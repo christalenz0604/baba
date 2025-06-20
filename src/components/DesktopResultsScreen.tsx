@@ -60,18 +60,18 @@ const DesktopResultsScreen: React.FC = () => {
   const getPaperCountImage = () => {
     const score = gameState.score;
     const characterScore = character.score;
-    if (score === characterScore) return getImagePath("/images/result_staement_lv3.png");
-    if (score < 100) return getImagePath("/images/result_staement_lv1.png");
-    return getImagePath("/images/result_staement_lv2.png");
+    if (score === characterScore) return getImagePath("/images/results/objects/result_staement_lv3.webp");
+    if (score < 100) return getImagePath("/images/results/objects/result_staement_lv1.webp");
+    return getImagePath("/images/results/objects/result_staement_lv2.webp");
   };
 
   const getResultTitleImage = () => {
     const score = gameState.score;
-    if (score < 100) return getImagePath("/images/result_prettyName_Lv1.png");
-    if (score < 5000) return getImagePath("/images/result_prettyName_Lv2.png");
-    if (score < 10000) return getImagePath("/images/result_prettyName_Lv3.png");
-    if (score < 20000) return getImagePath("/images/result_prettyName_Lv4.png");
-    return getImagePath("/images/result_prettyName_Lv5.png");
+    if (score < 100) return getImagePath("/images/results/objects/result_prettyName_Lv1.webp");
+    if (score < 5000) return getImagePath("/images/results/objects/result_prettyName_Lv2.webp");
+    if (score < 10000) return getImagePath("/images/results/objects/result_prettyName_Lv3.webp");
+    if (score < 20000) return getImagePath("/images/results/objects/result_prettyName_Lv4.webp");
+    return getImagePath("/images/results/objects/result_prettyName_Lv5.webp");
   };
   const getResultTitle = () => {
     const score = gameState.score;
@@ -204,8 +204,8 @@ const DesktopResultsScreen: React.FC = () => {
       style={{
         backgroundImage: `url(${getImagePath(
           getResult() === '成功'
-            ? getImagePath("/images/result_bg_Win.png")
-            : getImagePath("/images/result_bg_Fail.png")
+            ? getImagePath("/images/results/objects/result_bg_Win.webp")
+            : getImagePath("/images/results/objects/result_bg_Fail.webp")
         )})`
       }}
     >
@@ -225,14 +225,14 @@ const DesktopResultsScreen: React.FC = () => {
           <div className="relative flex justify-center items-center w-full mt-10 overflow-visible">
             {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
             <img
-              src={getResult() === "成功" ? `${getImagePath('/images/title_Win.png')}` : `${getImagePath('/images/title_Fail.png')}`}
+              src={getResult() === "成功" ? `${getImagePath('/images/results/objects/title_Win.webp')}` : `${getImagePath('/images/results/objects/title_Fail.webp')}`}
               alt="result title"
               className="absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none"
             />
 
             {/* ribbon 背景 */}
             <img
-              src={getResult() === "成功" ? `${getImagePath('/images/title_Ribbon_Win.png')}` : `${getImagePath('/images/title_Ribbon_Fail.png')}`}
+              src={getResult() === "成功" ? `${getImagePath('/images/results/objects/title_Ribbon_Win.webp')}` : `${getImagePath('/images/results/objects/title_Ribbon_Fail.webp')}`}
               alt="ribbon"
               className="w-[100%] max-w-[480px] h-auto object-contain z-10"
             />
@@ -248,17 +248,17 @@ const DesktopResultsScreen: React.FC = () => {
             {/* 背景主圖 */}
             <img
               src={getResult() === "成功"
-                ? getImagePath("/images/result_Board_WebSize_Win.png")
-                : getImagePath("/images/result_Board_WebSize_Fail.png")}
+                ? getImagePath("/images/results/objects/result_Board_WebSize_Win.webp")
+                : getImagePath("/images/results/objects/result_Board_WebSize_Fail.webp")}
               className="w-full max-w-[900px] h-auto object-contain transition-all duration-300 -mt-16"
               alt="結果底圖"
             />
 
             {/* 四個角落裝飾圖 - 疊在上方 */}
-            <img src={getImagePath("/images/corner_LT.png")} className="pointer-events-none absolute top-4 left-4 w-10 h-10 z-30 -mt-16" alt="LT" />
-            <img src={getImagePath("/images/corner_RT.png")} className="pointer-events-none absolute top-4 right-4 w-10 h-10 z-30 -mt-16" alt="RT" />
-            <img src={getImagePath("/images/corner_LB.png")} className="pointer-events-none absolute bottom-4 left-4 w-10 h-10 z-30" alt="LB" />
-            <img src={getImagePath("/images/corner_RB.png")} className="pointer-events-none absolute bottom-4 right-4 w-10 h-10 z-30" alt="RB" />
+            <img src={getImagePath("/images/corner_LT.webp")} className="pointer-events-none absolute top-4 left-4 w-10 h-10 z-30 -mt-16" alt="LT" />
+            <img src={getImagePath("/images/corner_RT.webp")} className="pointer-events-none absolute top-4 right-4 w-10 h-10 z-30 -mt-16" alt="RT" />
+            <img src={getImagePath("/images/corner_LB.webp")} className="pointer-events-none absolute bottom-4 left-4 w-10 h-10 z-30" alt="LB" />
+            <img src={getImagePath("/images/corner_RB.webp")} className="pointer-events-none absolute bottom-4 right-4 w-10 h-10 z-30" alt="RB" />
 
             {/* 實際內容區域 */}
             <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20">
@@ -295,7 +295,7 @@ const DesktopResultsScreen: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <img src={getResult() === "成功" ? getImagePath("/images/btn_Share_Success.png") : getImagePath("/images/btn_Share_Fail.png")} alt="share" className="w-full h-full object-contain" />
+                  <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Share_Success.webp") : getImagePath("/images/results/objects/btn_Share_Fail.webp")} alt="share" className="w-full h-full object-contain" />
                 </motion.button>
 
                 <motion.button
@@ -304,7 +304,7 @@ const DesktopResultsScreen: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <img src={getResult() === "成功" ? getImagePath("/images/btn_Tryagain_Success.png") : getImagePath("/images/btn_Tryagain_Fail.png")} alt="restart" className="w-full h-full object-contain" />
+                  <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Tryagain_Success.webp") : getImagePath("/images/results/objects/btn_Tryagain_Fail.webp")} alt="restart" className="w-full h-full object-contain" />
                 </motion.button>
               </div>
               {
@@ -339,7 +339,7 @@ const DesktopResultsScreen: React.FC = () => {
         {/* Footer subscription section */}
         <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4">
           <div className="flex-shrink-0 w-1/5 p-2">
-            <img src={getImagePath("/images/logo.png")} className="w-full h-full object-contain" />
+            <img src={getImagePath("/images/logo.webp")} className="w-full h-full object-contain" />
           </div>
           <div className="flex flex-col w-4/5 p-2">
             <div className="flex items-end w-full">

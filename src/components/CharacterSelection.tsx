@@ -20,12 +20,12 @@ const CharacterSelection: React.FC = () => {
   const character = characters[currentIndex];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start bg-[url('/images/background.png')] bg-repeat-x bg-[length:auto_100%] bg-top bg-scroll font-pixel relative">
+    <div className="min-h-screen flex flex-col items-center justify-start bg-[url('/images/background.webp')] bg-repeat-x bg-[length:auto_100%] bg-top bg-scroll font-pixel relative">
 
       
       {/* ✅ 固定 logo */}
       <img
-        src={getImagePath('images/logo.png')}
+        src={getImagePath('images/logo.webp')}
         alt="logo"
         className="mx-auto w-80 h-auto mb-2 mt-2 sm:mt-4 sm:mb-4 max-[392px]:w-60"
       />
@@ -40,10 +40,10 @@ const CharacterSelection: React.FC = () => {
           >
             <div className="p-2 font-pixel dialog-box relative">
               {/* 四個角圖片 */}
-              <img src={getImagePath('images/corner_LT.png')} className="absolute top-0 left-0 w-20 h-20 corner-img" alt="Top Left" />
-              <img src={getImagePath('images/corner_RT.png')} className="absolute top-0 right-0 w-20 h-20 corner-img" alt="Top Right" />
-              <img src={getImagePath('images/corner_LB.png')} className="absolute bottom-0 left-0 w-20 h-20 corner-img" alt="Bottom Left" />
-              <img src={getImagePath('images/corner_RB.png')} className="absolute bottom-0 right-0 w-20 h-20 corner-img" alt="Bottom Right" />
+              <img src={getImagePath('images/corner_LT.webp')} className="absolute top-0 left-0 w-20 h-20 corner-img" alt="Top Left" />
+              <img src={getImagePath('images/corner_RT.webp')} className="absolute top-0 right-0 w-20 h-20 corner-img" alt="Top Right" />
+              <img src={getImagePath('images/corner_LB.webp')} className="absolute bottom-0 left-0 w-20 h-20 corner-img" alt="Bottom Left" />
+              <img src={getImagePath('images/corner_RB.webp')} className="absolute bottom-0 right-0 w-20 h-20 corner-img" alt="Bottom Right" />
 
               <p className="text-gray-600 p-2" style={{ whiteSpace: 'pre-line' }}>
                 {character.description}

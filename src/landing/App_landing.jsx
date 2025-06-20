@@ -56,9 +56,9 @@ function Landing() {
         </button>
       )}
 
-      <img src={getImagePath('images/議場.gif')} alt="背景圖" className="background" />
+      <img src={getImagePath('images/legislature.gif')} alt="立法院背景圖" className="background" />
       <div className="foreground">
-        <img src={getImagePath('images/藍委跑步.gif')} alt="動畫" className="gif" />
+        <img src={getImagePath('images/blue_lawmaker.gif')} alt="穿著藍色衣服的立法委員動畫" className="gif" />
         <div className="text">
           {text.split('\n').map((line, idx) => (
             <div key={idx}>{line}</div>

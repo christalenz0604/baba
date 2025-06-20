@@ -64,7 +64,7 @@ const QuestionScreen: React.FC = () => {
   return (
     <div 
       style={{
-        backgroundImage: `url(${getImagePath("/images/background_event.png")})`
+        backgroundImage: `url(${getImagePath("/images/background_event.webp")})`
 	  }}
       className="min-h-screen bg-repeat-x bg-[length:auto_100%] bg-top bg-local py-6 px-4 font-pixel"
 	>
@@ -73,7 +73,7 @@ const QuestionScreen: React.FC = () => {
           <div className="flex items-center mr-4">
             <div 
               style={{
-                backgroundImage: `url(${getImagePath("/images/Char_base.png")})`
+                backgroundImage: `url(${getImagePath("/images/Char_base.webp")})`
 	          }}              
 			  className="w-16 h-16 rounded-0 overflow-hidden bg-contain bg-cover bg-center"
 			>
@@ -97,7 +97,7 @@ const QuestionScreen: React.FC = () => {
             {Array(totalQuestions).fill(null).map((_, index) => (
               <img
                 key={index}
-                src={getImagePath(`/images/${index < gameState.currentQuestionIndex ? 'heart_red' : 'heart_white'}.png`)}
+                src={getImagePath(`/images/${index < gameState.currentQuestionIndex ? 'heart_red' : 'heart_white'}.webp`)}
                 alt={`Heart ${index + 1}`}
                 className="w-5 h-5 ml-1"
               />
