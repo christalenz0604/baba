@@ -27,7 +27,7 @@ const CharacterSelection: React.FC = () => {
       <img
         src={getImagePath('images/logo.webp')}
         alt="logo"
-        className="mx-auto w-80 h-auto mb-2 mt-2 sm:mt-4 sm:mb-4 max-[392px]:w-60"
+        className="mx-auto w-80 h-auto mb-2 mt-2 sm:mt-4 sm:mb-4 max-[392px]:w-60 max-[375px]:w-40"
       />
 
       {/* ✅ 下方角色選擇區 */}
@@ -55,7 +55,7 @@ const CharacterSelection: React.FC = () => {
             style={{
               backgroundImage: `url(${getImagePath("/images/office_bg.gif")})`
             }}     
-		    className="h-48 overflow-hidden office-character"
+		    className="h-48 overflow-hidden office-character max-[375px]:h-32"
 		  >
             <img
               src={character.avatar}
@@ -99,7 +99,7 @@ const CharacterSelection: React.FC = () => {
           <div className="relative px-5 mx-auto text-center">
             <button
               onClick={() => selectCharacter(character)}
-              className="btn-pixel w-3/4 py-3 px-4 tracking-wider text-lg"
+              className="btn-pixel w-3/4 py-3 px-4 tracking-wider text-lg max-[375px]:py-1"
             >
               確認角色
             </button>

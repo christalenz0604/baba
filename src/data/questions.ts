@@ -63,7 +63,7 @@ const ChangChihLunQuestions: Question[] = [
     image: getImagePath("/images/question/ChangChihLun_q_pic_01.webp"),
     options: [
       { id: 'ChangChihLun4-1', text: '哎呀，我之前好像才刪了29億⋯⋯（尷尬逃跑）', points: 1698, isCorrect: true },
-      { id: 'ChangChihLun4-2', text: '立刻爭預算！讓弟兄有船、有甲、有假期。', points: 100, isCorrect: false },
+      { id: 'ChangChihLun4-2', text: '立刻爭預算！讓弟兄有船、有裝備、有假期。', points: 100, isCorrect: false },
       { id: 'ChangChihLun4-3', text: '加薪啦，不然怎麼冒險？', points: 0, isCorrect: false },
     ],
     explanation: {

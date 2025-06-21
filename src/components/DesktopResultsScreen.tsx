@@ -24,6 +24,29 @@ const DesktopResultsScreen: React.FC = () => {
   const character = gameState.selectedCharacter;
   if (!character) return null;
 
+
+  const [showIntroVideo, setShowIntroVideo] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play();
+      video.onended = () => {
+        setShowIntroVideo(false);
+      };
+    }
+  }, []);
+
+  const skipIntro = () => {
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
+    }
+    setShowIntroVideo(false);
+  };
+
+
   // Get Result Page Title if gameState.score is the same as the character's score show Sucessed if not show Failed
   const getResult = () => {
     const score = gameState.score;
@@ -198,7 +221,28 @@ const DesktopResultsScreen: React.FC = () => {
 
 
   return (
-    // bg image url 需要調整
+  <div>
+  {showIntroVideo && (
+    <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
+      <video
+        ref={videoRef}
+        src={getResult() === "成功" ? `${getImagePath('/media/results_anime_success.mp4')}` : `${getImagePath('/media/results_anime_fail.mp4')}`}
+
+        className="max-w-full max-h-full w-auto h-auto object-contain"
+        muted
+        playsInline
+      />
+      <button
+        onClick={skipIntro}
+        className="absolute bottom-6 right-6 px-4 py-2 bg-white bg-opacity-80 rounded-lg text-black font-bold hover:bg-opacity-100 transition-all"
+      >
+        Skip
+      </button>
+    </div>
+  )}
+
+  {!showIntroVideo && (
+    <div> 
     <div
       className="flex flex-col min-h-screen bg-contain bg-cover py-4 px-4"
       style={{
@@ -482,6 +526,9 @@ const DesktopResultsScreen: React.FC = () => {
         </motion.div>
       )}
     </div >
+    </div>
+  )}
+  </div>
   );
 };
 
