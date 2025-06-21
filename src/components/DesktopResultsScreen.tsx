@@ -104,6 +104,7 @@ const DesktopResultsScreen: React.FC = () => {
     if (score < 20000) return "國安漏洞製造者";
     return "賣台第一把交椅";
   };
+  const getCharacterType = () => character?.id !== 'LoMingTsai';
   const getPersonalityTrait = () => {
     const characterType = character.id;
     const score = gameState.score;
@@ -261,7 +262,7 @@ const DesktopResultsScreen: React.FC = () => {
 
       <div className="flex-frow max-w-4xl mx-auto" >
         <motion.div
-          className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative"
+          className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative mx-auto lg:w-[90%]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -369,12 +370,12 @@ const DesktopResultsScreen: React.FC = () => {
         </motion.div>
       </div>
       <div className="flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
-              <p className="text-center">投下同意罷免，下架惡質立委！</p>
-        </div>
+              <p className="text-center">{getCharacterType()? "7月26日(六)出門投票，同意罷免，終結國會之亂！" : "投下同意罷免，下架惡質立委！"}</p>
+      </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
       {/* add a div with a background color and a gradient to the bottom of the page */}
-      <div className="fixed bottom-0 w-full overflow-hidden z-50" style={{ minHeight: '0vh' }}>
+      <div className="fixed bottom-0 w-full overflow-hidden z-50 left-0 " style={{ minHeight: '0vh' }}>
         {/* Gradient background fixed to bottom to cover entire footer */}
         <div
           className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}

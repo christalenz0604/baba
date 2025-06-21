@@ -106,6 +106,8 @@ const ResultsScreen: React.FC = () => {
     if (score < 20000) return "國安漏洞製造者";
     return "賣台第一把交椅";
   };
+  const getCharacterType = () => character?.id !== 'LoMingTsai';
+
   const getPersonalityTrait = () => {
     const characterType = character.id;
     const score = gameState.score;
@@ -416,7 +418,7 @@ const ResultsScreen: React.FC = () => {
                 className="w-24 h-10 result-bb"></button>
               <div className="flex flex-col w-full">
                 <p className="flex text-white tracking-wider sm:text-base xs:text-xs  md:text-4xl font-bold bg-transparent">
-                  投下同意罷免，下架惡質立委！
+                    {getCharacterType()? "7月26日(六)出門投票，同意罷免，終結國會之亂！" : "投下同意罷免，下架惡質立委！"}
                 </p>
                 <h4 className="flex text-sm sm:text-base xs:text-xs font-semibold text-white whitespace-nowrap">
                   想收到更多相關資訊嗎？
