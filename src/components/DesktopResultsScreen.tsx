@@ -81,6 +81,7 @@ const DesktopResultsScreen: React.FC = () => {
     if (score < 20000) return "國安漏洞製造者";
     return "賣台第一把交椅";
   };
+  const getCharacterType = () => character?.id !== 'LoMingTsai';
   const getPersonalityTrait = () => {
     const characterType = character.id;
     const score = gameState.score;
@@ -325,8 +326,8 @@ const DesktopResultsScreen: React.FC = () => {
         </motion.div>
       </div>
       <div className="flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12">
-              <p className="text-center">投下同意罷免，下架惡質立委！</p>
-        </div>
+              <p className="text-center">{getCharacterType()? "投下同意罷免，下架惡質立委！" : "7月26日(六)出門投票，同意罷免，終結國會之亂！"}</p>
+      </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
       {/* add a div with a background color and a gradient to the bottom of the page */}
