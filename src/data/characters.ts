@@ -23,7 +23,7 @@ export const characters: Character[] = [
     districts:'新北市第9選區',
     avatar: getImagePath('/images/character/linTeFu_pic_Pickup.gif'),
     portrait: getImagePath('/images/portraits/linTeFu_pic_small.gif'),
-    description: '在永和經歷過市議員市長到立法委員已超過30個年頭，讓永和人最有感的是在國會殿堂閉目養神',
+    description: '在永和經歷過市民代表、市長到立法委員已將近40個年頭，讓永和人最有感的是在國會殿堂閉目養神',
     questionSetId: 'linTeFu',//對應問題系列
     score: 29474,
     resultCharacterImages: {
@@ -69,7 +69,7 @@ export const characters: Character[] = [
     districts:'臺北市第3選區',
     avatar: getImagePath('/images/character/wanghungwei_pic_Pickup.gif'),
     portrait: getImagePath('/images/portraits/wanghungwei_pic_small.gif'),
-    description: '曾加入新黨、擔任台北市議員時是中國央視熱門來賓、不避諱表態親中立場，專長技能：肉搜並曝光罷免自己的公民個資。',
+    description: '曾加入新黨、擔任台北市議員時是中國央視熱門來賓、不避諱表態親中立場，專長技能：花是造謠、肉搜並曝光罷免自己的公民個資。',
     questionSetId: 'wanghungwei',//對應問題系列
     score: 45818,
     resultCharacterImages: {
