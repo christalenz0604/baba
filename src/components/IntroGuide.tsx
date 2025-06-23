@@ -58,43 +58,66 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
         <AnimatePresence>
             {!fadeOut && (
                 <div className="full-height flex flex-col bg-[#90a5c2] overflow-hidden">
-                <motion.div
+                  <motion.div
                     className="flex flex-col flex-grow relative"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                >
-                    <div className="flex flex-col items-center justify-between w-full flex-grow bg-[#90a5c2]">
-                        <div className="w-full flex flex-col px-4 py-6 font-pixel text-white bg-no-repeat bg-center bg-contain items-center justify-center w-full h-full" style={{ backgroundImage: `url(${getImagePath('/images/intro/intro_bg.webp')})` }}>
-                            <div className="relative flex w-32 h-auto justify-center">
-                                <img src={character.portrait} alt="avater img" className="w-full flex-grow object-cover" />
-                            </div>
-                            <h1 className="relative flex text-3xl font-bold mb-4">遊戲說明</h1>
-                            <p className="relative flex flex-col text-lg mb-6 text-center max-w-xl whitespace-pre-wrap leading-relaxed">
-                                {introText.split('\n').map((line, index, arr) => (
-                                    <span key={index} className="inline-block">
-                                        {line}
-                                        {/* 只在最後一行加上游標 */}
-                                        {index === arr.length - 1 && !done && <span className="animate-pulse">▍</span>}
-                                    </span>
-                                ))}
-                            </p>
-                            <div className="absolute bottom-2 md:bottom-4 right-10 md:right-[28vw]">
-                                <img src={getImagePath('/images/intro/KMT_Rolling.gif')} alt="kmt_rolling" className="w-full flex-grow object-cover" />
-                            </div>
+                  >
+                    <div className="flex flex-col items-center justify-center w-full h-full bg-[#90a5c2]">
+                      {/* 背景圖與內容 */}
+                      <div
+                        className="flex flex-col items-center justify-center w-full h-full px-4 font-pixel text-white"
+                        style={{
+                          backgroundImage: `url(${getImagePath('/images/intro/intro_bg.webp')})`,
+                          backgroundRepeat: 'no-repeat',
+                          backgroundPosition: 'center',
+                          backgroundSize: 'contain',
+                          paddingTop: 'env(safe-area-inset-top)',
+                          paddingBottom: 'env(safe-area-inset-bottom)',
+                        }}
+                      >
+                        <div className="w-32 h-auto mb-4">
+                          <img
+                            src={character.portrait}
+                            alt="avater img"
+                            className="w-full h-full object-contain"
+                          />
                         </div>
+
+                        <h1 className="text-3xl font-bold mb-4">遊戲說明</h1>
+
+                        <p className="text-lg text-center max-w-xl whitespace-pre-wrap leading-relaxed mb-6">
+                          {introText.split('\n').map((line, index, arr) => (
+                            <span key={index} className="inline-block">
+                              {line}
+                              {index === arr.length - 1 && !done && <span className="animate-pulse">▍</span>}
+                            </span>
+                          ))}
+                        </p>
+
+                        <div className="w-16 h-16 absolute bottom-2 md:bottom-4 right-10 md:right-[28vw]">
+                          <img
+                            src={getImagePath('/images/intro/KMT_Rolling.gif')}
+                            alt="kmt_rolling"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                      </div>
                     </div>
+
                     {/* Skip Button */}
-                    <div className="absolute bottom-2 w-full flex justify-center">
-                    <button
+                    <div className="absolute bottom-4 w-full flex justify-center">
+                      <button
                         onClick={handleSkip}
-                        className="absolute bottom-12 px-4 py-2 bg-gray-600 text-white hover:bg-gray-700 transition-colors text-sm font-pixel safe-footer"
-                    >
-                        Skip
-                    </button>
-					</div>
-                </motion.div>
+                        className="px-4 py-2 bg-gray-600 text-white hover:bg-gray-700 transition-colors text-sm font-pixel"
+                        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+                      >
+                      跳過
+                      </button>
+                    </div>
+                  </motion.div>
 				</div>
             )}
         </AnimatePresence>
