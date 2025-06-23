@@ -8,7 +8,7 @@ export const characters: Character[] = [
     districts:'新北市第8選區',
     avatar: getImagePath('/images/character/ChangChihLun_pic_Pickup.gif'),
     portrait: getImagePath('/images/portraits/ChangChihLun_pic_small.gif'),
-    description: '張家二兒子，爸爸是張慶忠AKA半分鐘通過服貿那位。媽媽是陳錦錠，有時都分不清楚政績是媽媽的還是誰的。',
+    description: '張家二兒子，爸爸是張慶忠AKA半分鐘通過服貿那位。媽媽是陳錦錠，有時都分不清楚政績是他的還是他媽的。',
     questionSetId: 'ChangChihLun',//對應問題系列
     score: 36140,
     //images according to the score
@@ -147,7 +147,7 @@ export const characters: Character[] = [
     districts:'新北市第11選區',
     avatar: getImagePath('/images/character/LoMingTsai_pic_Pickup.gif'),
     portrait: getImagePath('/images/portraits/LoMingTsai_pic_small.gif'),
-    description: '2024年亦成為目前立法院黨團中最資深的「八連霸」立委，其父羅福助為天道盟創辦人，2012年獲罪潛逃大陸並被通緝至今。',
+    description: '2024年亦成為目前立法院黨團中最資深的「八連霸」立委，其父羅福助為「台灣最大黑道幫派——天道盟」創辦人，2012年獲罪潛逃中國並被通緝至今。',
     questionSetId: 'LoMingTsai',//對應問題系列
     score: 34076,
     resultCharacterImages: {
