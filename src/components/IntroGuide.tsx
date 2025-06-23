@@ -57,6 +57,7 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
     return (
         <AnimatePresence>
             {!fadeOut && (
+                <div className="full-height">
                 <motion.div
                     className="flex flex-col items-center justify-center h-screen relative"
                     initial={{ opacity: 0 }}
@@ -92,6 +93,7 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
                         跳過
                     </button>
                 </motion.div>
+				</div>
             )}
         </AnimatePresence>
     );

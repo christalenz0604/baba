@@ -40,7 +40,7 @@ export default function ComingSoon() {
   };
 
   return (
-    <div className="comingsoon-container font-pixel">
+    <div className="full-height comingsoon-container font-pixel">
       <h1 className="comingsoon-title">
         Coming Soon
         <span className="dot-animate">...</span>

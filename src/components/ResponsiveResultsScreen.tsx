@@ -86,6 +86,7 @@ const ResponsiveResultsScreen: React.FC = () => {
   const boardImage = getImagePath(`/images/results/objects/result_Board_${baseImagePrefix}_${getResult() === '成功' ? 'Win' : 'Fail'}.webp`);
 
   return (
+    <div className="full-height">
     <div className="min-h-[100dvh] bg-contain bg-cover px-2 py-4 overflow-hidden" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="fireworks-container" id="fireworks"></div>
       <canvas id="confetti"></canvas>
@@ -118,8 +119,8 @@ const ResponsiveResultsScreen: React.FC = () => {
       </div>
 
       {/* Gradient + Footer */}
-      <div className="fixed bottom-0 w-full overflow-hidden z-50">
-        <div className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`} />
+      <div className="fixed bottom-0 w-full overflow-hidden z-50 safe-footer">
+        <div className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent safe-footer ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`} />
         <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4">
           <div className="flex-shrink-0 w-1/5 p-2">
             <img src={getImagePath('/images/logo.webp')} className="w-full h-full object-contain" />
@@ -189,6 +190,7 @@ const ResponsiveResultsScreen: React.FC = () => {
         </motion.div>
       )}
     </div>
+	</div>
   );
 };
 

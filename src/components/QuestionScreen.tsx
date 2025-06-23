@@ -62,6 +62,7 @@ const QuestionScreen: React.FC = () => {
   const maxScore = 200;
 
   return (
+    <div className="full-height">
     <div 
       style={{
         backgroundImage: `url(${getImagePath("/images/background_event.webp")})`
@@ -251,6 +252,7 @@ const QuestionScreen: React.FC = () => {
         )}
       </div>
     </div>
+	</div>
   );
 };
 

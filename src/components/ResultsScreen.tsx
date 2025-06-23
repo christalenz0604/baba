@@ -239,6 +239,7 @@ const ResultsScreen: React.FC = () => {
   return (
   <div>
   {showIntroVideo && (
+    <div className="full-height">
     <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
       <video
         ref={videoRef}
@@ -254,10 +255,11 @@ const ResultsScreen: React.FC = () => {
         Skip
       </button>
     </div>
+	</div>
   )}
 
   {!showIntroVideo && (
-    <div> 
+    <div className="full-height"> 
     <div className={showShare ? "" : ""}>
       <div
         className="min-h-[100dvh] bg-contain bg-cover py-10 px-2 overflow-hidden"

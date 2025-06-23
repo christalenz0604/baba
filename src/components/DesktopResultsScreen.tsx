@@ -224,7 +224,8 @@ const DesktopResultsScreen: React.FC = () => {
   return (
   <div>
   {showIntroVideo && (
-    <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
+    <div className="full-height">
+    <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center safe-footer">
       <video
         ref={videoRef}
         src={getResult() === "成功" ? `${getImagePath('/media/results_anime_success.mp4')}` : `${getImagePath('/media/results_anime_fail.mp4')}`}
@@ -240,10 +241,11 @@ const DesktopResultsScreen: React.FC = () => {
         Skip
       </button>
     </div>
+	</div>
   )}
 
   {!showIntroVideo && (
-    <div> 
+    <div className="full-height"> 
     <div
       className="flex flex-col min-h-screen bg-contain bg-cover py-4 px-4"
       style={{
@@ -375,10 +377,10 @@ const DesktopResultsScreen: React.FC = () => {
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}
       {/* add a div with a background color and a gradient to the bottom of the page */}
-      <div className="fixed bottom-0 w-full overflow-hidden z-50 left-0 " style={{ minHeight: '0vh' }}>
+      <div className="fixed bottom-0 w-full overflow-hidden z-50 left-0 safe-footer" style={{ minHeight: '0vh' }}>
         {/* Gradient background fixed to bottom to cover entire footer */}
         <div
-          className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
+          className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent safe-footer ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
         ></div>
 
         {/* Footer subscription section */}

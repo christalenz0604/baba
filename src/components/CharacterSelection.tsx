@@ -20,7 +20,7 @@ const CharacterSelection: React.FC = () => {
   const character = characters[currentIndex];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start bg-[url('/images/background.webp')] bg-repeat-x bg-[length:auto_100%] bg-top bg-scroll font-pixel relative">
+    <div className="full-height min-h-screen flex flex-col items-center justify-start bg-[url('/images/background.webp')] bg-repeat-x bg-[length:auto_100%] bg-top bg-scroll font-pixel relative">
 
       
       {/* ✅ 固定 logo */}

@@ -13,6 +13,18 @@
     font-style: normal;
 }
 
+.full-height {
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.safe-footer {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-header {
+  padding-top: env(safe-area-inset-top);
+}
+
 .font-pixel {
   font-family: 'Unifont-JP', 'PixelFont', system-ui, -apple-system, sans-serif;
   image-rendering: pixelated;

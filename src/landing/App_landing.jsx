@@ -61,7 +61,7 @@ function Landing() {
   };
 
   return (
-    <div className="container_landing" onClick={handleClick}>
+    <div className="full-height container_landing" onClick={handleClick}>
       {!done && (
         <button className="skip-button" onClick={(e) => {
           e.stopPropagation(); // 不觸發 container 的 onClick
