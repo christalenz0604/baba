@@ -1,127 +1,129 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useGame } from '../context/GameContext';
 import useTypewriter from '../context/Typewriter';
 import { AnimatePresence, motion } from 'framer-motion';
 import { getImagePath } from '../utils/pathUtils';
 
 interface IntroGuideProps {
-    onContinue: () => void;
+  onContinue: () => void;
 }
 
 const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
-    const { gameState } = useGame();
-    const character = gameState.selectedCharacter;
-    const [done, setDone] = useState(false);
-    const [fadeOut, setFadeOut] = useState(false);
-    const [skipAnimation, setSkipAnimation] = useState(false);
+  const { gameState } = useGame();
+  const character = gameState.selectedCharacter;
+  const [done, setDone] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [skipAnimation, setSkipAnimation] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
-    if (!character) return null;
+  const imageWrapperRef = useRef<HTMLDivElement>(null);
 
-    const text = [
-        `歡迎進入國會派對！`,
-        `你將以 ${character.name} 的角色前進國會。`,
-        "面對各種關於國會生涯的重要抉擇，",
-        `請試著用 ${character.name} 的角度思考，`,
-        "努力在國會活到最後一刻！"
-    ];
+  if (!character) return null;
 
-    const introText = useTypewriter(
-        text,
-        75,
-        1000,
-        false, // 不 loop
-        () => setDone(true) // 動畫完成後呼叫
-    );
+  const text = [
+    `歡迎進入國會派對！`,
+    `你將以 ${character.name} 的角色前進國會。`,
+    "面對各種關於國會生涯的重要抉擇，",
+    `請試著用 ${character.name} 的角度思考，`,
+    "努力在國會活到最後一刻！"
+  ];
 
-    const handleSkip = () => {
-        setSkipAnimation(true);
-        setDone(true);
-        setFadeOut(true);
-    };
+  const introText = useTypewriter(text, 75, 1000, false, () => setDone(true));
 
-    // 自動觸發轉場動畫再進入下一頁
-    useEffect(() => {
-        if (done && !skipAnimation) {
-            setTimeout(() => setFadeOut(true), 1000);
-        }
-    }, [done, skipAnimation]);
+  const handleSkip = () => {
+    setSkipAnimation(true);
+    setDone(true);
+    setFadeOut(true);
+  };
 
-    useEffect(() => {
-        if (fadeOut) {
-            setTimeout(() => {
-                onContinue();
-            }, 800);
-        }
-    }, [fadeOut, onContinue]);
+  useEffect(() => {
+    if (done && !skipAnimation) {
+      setTimeout(() => setFadeOut(true), 1000);
+    }
+  }, [done, skipAnimation]);
 
-    return (
-        <AnimatePresence>
-            {!fadeOut && (
-                <div className="full-height flex flex-col bg-[#90a5c2] overflow-hidden">
-                  <motion.div
-                    className="flex flex-col flex-grow relative"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="flex flex-col items-center justify-center w-full h-full bg-[#90a5c2]">
-                      {/* 背景圖與內容 */}
-                      <div
-                        className="flex flex-col items-center justify-center w-full h-full px-4 font-pixel text-white"
-                        style={{
-                          backgroundImage: `url(${getImagePath('/images/intro/intro_bg.webp')})`,
-                          backgroundRepeat: 'no-repeat',
-                          backgroundPosition: 'center',
-                          backgroundSize: 'contain',
-                          paddingTop: 'env(safe-area-inset-top)',
-                          paddingBottom: 'env(safe-area-inset-bottom)',
-                        }}
-                      >
-                        <div className="w-32 h-auto mb-4">
-                          <img
-                            src={character.portrait}
-                            alt="avater img"
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
+  useEffect(() => {
+    if (fadeOut) {
+      setTimeout(() => {
+        onContinue();
+      }, 800);
+    }
+  }, [fadeOut, onContinue]);
 
-                        <h1 className="text-3xl font-bold mb-4">遊戲說明</h1>
+  return (
+    <AnimatePresence>
+      {!fadeOut && (
+        <div className="h-[calc(var(--vh,1vh)_*100)] flex flex-col bg-[#90a5c2] overflow-hidden">
+          <motion.div
+            className="flex flex-col flex-grow relative"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="w-full h-full flex items-center justify-center px-4 font-pixel text-white">
+              <div className="relative w-full max-w-screen-md" ref={imageWrapperRef}>
+                <img
+                  src={getImagePath('/images/intro/intro_bg.webp')}
+                  alt="intro_bg"
+                  className="w-full h-auto object-contain pointer-events-none"
+                  onLoad={() => setImageLoaded(true)}
+                />
 
-                        <p className="text-lg text-center max-w-xl whitespace-pre-wrap leading-relaxed mb-6">
-                          {introText.split('\n').map((line, index, arr) => (
-                            <span key={index} className="inline-block">
-                              {line}
-                              {index === arr.length - 1 && !done && <span className="animate-pulse">▍</span>}
-                            </span>
-                          ))}
-                        </p>
-
-                        <div className="w-16 h-16 absolute bottom-2 md:bottom-4 right-10 md:right-[28vw]">
-                          <img
-                            src={getImagePath('/images/intro/KMT_Rolling.gif')}
-                            alt="kmt_rolling"
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                      </div>
+                {imageLoaded && (
+                  <>
+                    {/* .gif 放進圖片內部右下角 */}
+                    <div className="absolute bottom-0 right-0 w-16 h-16">
+                      <img
+                        src={getImagePath('/images/intro/KMT_Rolling.gif')}
+                        alt="kmt_rolling"
+                        className="w-full h-full object-contain"
+                      />
                     </div>
+                  </>
+                )}
 
-                    {/* Skip Button */}
-                    <div className="absolute bottom-4 w-full flex justify-center">
-                      <button
-                        onClick={handleSkip}
-                        className="w-28 h-10 flex items-center justify-center bg-gray-600 text-white hover:bg-gray-700 transition-colors text-sm font-pixel"
-                        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
-                      >
-                      Skip
-                      </button>
-                    </div>
-                  </motion.div>
-				</div>
-            )}
-        </AnimatePresence>
-    );
+                {/* 內容置中 */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                  <div className="w-32 mb-4">
+                    <img
+                      src={character.portrait}
+                      alt="avatar"
+                      className="w-full object-contain"
+                    />
+                  </div>
+
+                  <h1 className="text-3xl font-bold mb-4">遊戲說明</h1>
+
+                  <p className="text-lg max-w-xl whitespace-pre-wrap leading-relaxed mb-6">
+                    {introText.split('\n').map((line, index, arr) => (
+                      <span key={index} className="inline-block">
+                        {line}
+                        {index === arr.length - 1 && !done && (
+                          <span className="animate-pulse">◍</span>
+                        )}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Skip button */}
+            <div className="absolute bottom-4 w-full flex justify-center">
+              <button
+                onClick={handleSkip}
+                className="w-28 h-10 flex items-center justify-center bg-gray-600 text-white hover:bg-gray-700 transition-colors text-sm font-pixel"
+                style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+              >
+                Skip
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
 };
 
 export default IntroGuide;
