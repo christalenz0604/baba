@@ -20,7 +20,7 @@ const CharacterSelection: React.FC = () => {
   const character = characters[currentIndex];
 
   return (
-    <div className="full-height flex flex-col">
+    <div className="flex flex-col">
     <div className="flex flex-col items-center justify-start bg-[url('/images/background.webp')] bg-repeat-x bg-[length:auto_100%] bg-top bg-scroll font-pixel relative">
 
       
@@ -28,7 +28,7 @@ const CharacterSelection: React.FC = () => {
       <img
         src={getImagePath('images/logo.webp')}
         alt="logo"
-        className="mx-auto w-60 h-auto mb-2 mt-2 sm:mt-4 sm:mb-4 max-[392px]:w-60 max-[375px]:w-40"
+        className="mx-auto w-80 h-auto mb-2 mt-2 sm:mt-4 sm:mb-4 xs:w-60 max-[392px]:w-60 max-[375px]:w-40"
       />
 
       {/* ✅ 下方角色選擇區 */}
@@ -56,7 +56,7 @@ const CharacterSelection: React.FC = () => {
             style={{
               backgroundImage: `url(${getImagePath("/images/office_bg.gif")})`
             }}     
-		    className="h-48 overflow-hidden office-character max-[375px]:h-32"
+		    className="h-48 overflow-hidden office-character xs:h-32 max-[375px]:h-32"
 		  >
             <img
               src={character.avatar}
@@ -100,7 +100,7 @@ const CharacterSelection: React.FC = () => {
           <div className="relative px-5 mx-auto text-center">
             <button
               onClick={() => selectCharacter(character)}
-              className="btn-pixel w-3/4 py-3 px-4 tracking-wider text-lg max-[375px]:py-1"
+              className="btn-pixel w-3/4 py-3 px-4 tracking-wider text-lg xs:py-1 max-[375px]:py-1"
             >
               確認角色
             </button>
