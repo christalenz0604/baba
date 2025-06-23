@@ -28,7 +28,7 @@ const CharacterSelection: React.FC = () => {
       <img
         src={getImagePath('images/logo.webp')}
         alt="logo"
-        className="mx-auto w-80 h-auto mb-2 mt-2 sm:mt-4 sm:mb-4 max-[392px]:w-60 max-[375px]:w-40"
+        className="mx-auto w-60 h-auto mb-2 mt-2 sm:mt-4 sm:mb-4 max-[392px]:w-60 max-[375px]:w-40"
       />
 
       {/* ✅ 下方角色選擇區 */}
