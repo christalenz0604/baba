@@ -20,7 +20,7 @@ const CharacterSelection: React.FC = () => {
   const character = characters[currentIndex];
 
   return (
-    <div className="flex flex-col">
+    <div className="full-height flex flex-col overflow-hidden">
     <div className="flex flex-col items-center justify-start bg-[url('/images/background.webp')] bg-repeat-x bg-[length:auto_100%] bg-top bg-scroll font-pixel relative">
 
       
@@ -32,7 +32,7 @@ const CharacterSelection: React.FC = () => {
       />
 
       {/* ✅ 下方角色選擇區 */}
-      <div className="flex-grow flex flex-col justify-start items-center w-full px-4">
+      <div className="flex-grow flex flex-col justify-start items-center w-full px-4 overflow-auto">
         <div className="relative max-w-md w-full">
 
           <motion.div
