@@ -5,6 +5,7 @@ export default {
     extend: {
       screens: {
         'xs': '375px', // for iPhone SE and below
+        'se': { 'raw': '(max-height: 667px)' },
       },
     },
   },

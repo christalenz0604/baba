@@ -20,19 +20,19 @@ const CharacterSelection: React.FC = () => {
   const character = characters[currentIndex];
 
   return (
-    <div className="full-height flex flex-col overflow-hidden">
-    <div className="flex flex-col items-center justify-start bg-[url('/images/background.webp')] bg-repeat-x bg-[length:auto_100%] bg-top bg-scroll font-pixel relative">
+    <div className="full-height flex flex-col overflow-auto">
+    <div className="flex flex-col items-center justify-start flex-grow bg-[url('/images/background.webp')] bg-top bg-repeat-x bg-[length:auto_100%] bg-scroll font-pixel relative">
 
       
       {/* ✅ 固定 logo */}
       <img
         src={getImagePath('images/logo.webp')}
         alt="logo"
-        className="mx-auto w-80 h-auto mb-2 mt-2 sm:mt-4 sm:mb-4 xs:w-60 max-[392px]:w-60 max-[375px]:w-40"
+        className="mx-auto h-auto mb-2 mt-2 w-[clamp(10rem,20vw,15rem)]"
       />
 
       {/* ✅ 下方角色選擇區 */}
-      <div className="flex-grow flex flex-col justify-start items-center w-full px-4 overflow-auto">
+      <div className="flex flex-col justify-start items-center w-full px-4">
         <div className="relative max-w-md w-full">
 
           <motion.div
@@ -41,10 +41,10 @@ const CharacterSelection: React.FC = () => {
           >
             <div className="p-2 font-pixel dialog-box relative">
               {/* 四個角圖片 */}
-              <img src={getImagePath('images/corner_LT.webp')} className="absolute top-0 left-0 w-20 h-20 corner-img" alt="Top Left" />
-              <img src={getImagePath('images/corner_RT.webp')} className="absolute top-0 right-0 w-20 h-20 corner-img" alt="Top Right" />
-              <img src={getImagePath('images/corner_LB.webp')} className="absolute bottom-0 left-0 w-20 h-20 corner-img" alt="Bottom Left" />
-              <img src={getImagePath('images/corner_RB.webp')} className="absolute bottom-0 right-0 w-20 h-20 corner-img" alt="Bottom Right" />
+              <img src={getImagePath('images/corner_LT.webp')} className="absolute top-0 left-0 aspect-[1] corner-img" alt="Top Left" />
+              <img src={getImagePath('images/corner_RT.webp')} className="absolute top-0 right-0 aspect-[1] corner-img" alt="Top Right" />
+              <img src={getImagePath('images/corner_LB.webp')} className="absolute bottom-0 left-0 aspect-[1] corner-img" alt="Bottom Left" />
+              <img src={getImagePath('images/corner_RB.webp')} className="absolute bottom-0 right-0 aspect-[1] corner-img" alt="Bottom Right" />
 
               <p className="text-gray-600 p-2" style={{ whiteSpace: 'pre-line' }}>
                 {character.description}
@@ -56,7 +56,7 @@ const CharacterSelection: React.FC = () => {
             style={{
               backgroundImage: `url(${getImagePath("/images/office_bg.gif")})`
             }}     
-		    className="h-48 overflow-hidden office-character xs:h-40 max-[375px]:h-32"
+		    className="h-1/3 overflow-hidden office-character se:h-1/5"
 		  >
             <img
               src={character.avatar}
