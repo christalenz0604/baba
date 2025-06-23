@@ -90,7 +90,7 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
                         onClick={handleSkip}
                         className="absolute bottom-12 px-4 py-2 bg-gray-600 text-white hover:bg-gray-700 transition-colors text-sm font-pixel"
                     >
-                        跳過
+                        Skip
                     </button>
                 </motion.div>
 				</div>
