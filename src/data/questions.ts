@@ -240,7 +240,7 @@ const linTeFuQuestions: Question[] = [
     ],
     explanation: {
       text: '2024年底立法院三讀通過就業服務法條文，明定年滿80歲以上免經醫療評估（巴氏量表）即可申請外籍看護，修法後恐讓外籍看護市場供需失衡，根據中央社報導，家庭照護者關懷總會指出免評標準是另類年齡歧視，嚴重衝擊現有23萬需要外籍看護照顧重癱、臥床、多重障礙等長照家庭權益。',
-      reference: 'https://www.familycare.org.tw/news/11785'
+      reference: 'https://www.cna.com.tw/news/ahel/202412300215.aspx'
     }
   },
   {
