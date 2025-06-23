@@ -383,7 +383,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                 </div>
 				</> )
                 :
-                ( <div className="mt-44">
+                ( <div className="mt-44 xs:mt-20">
                 <div className="flex flex-row items-center w-full justify-center pt-4">
                   <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
                     <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
@@ -435,7 +435,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                       await handleScreenshotShare(); // 先截圖 → 再開啟分享
                     }
                   }}
-                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[160px] md:h-[160px] lg:w-[240px] lg:h-[200px]"
+                  className="font-medium mx-4 h-36 md:h-36 lg:h-40 xs:h-20 xs:mt-4"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -444,7 +444,7 @@ const ResponsiveResultsScreen: React.FC = () => {
 
                 <motion.button
                   onClick={restartGame}
-                  className="font-medium mx-4 w-[160px] h-[200px] md:w-[160px] md:h-[160px] lg:w-[240px] lg:h-[200px]"
+                  className="font-medium mx-4 h-36 md:h-36 lg:h-40 xs:h-20 xs:mt-4"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -473,7 +473,7 @@ const ResponsiveResultsScreen: React.FC = () => {
         className={`${
           isDesktop
           ? "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12"
-		  : "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12 mt-40"
+		  : "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12 mt-20"
 		}`}
       >
         <p className="text-center">{getCharacterType()? "7月26日(六)出門投票，同意罷免，終結國會之亂！" : "投下同意罷免，下架惡質立委！"}</p>
