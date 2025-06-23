@@ -59,9 +59,9 @@ const DesktopResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        // launchConfetti?.();
+         launchConfetti?.();
         const interval = setInterval(() => {
-          // launchFirework?.();
+           launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }
@@ -251,8 +251,8 @@ const DesktopResultsScreen: React.FC = () => {
       style={{
         backgroundImage: `url(${getImagePath(
           getResult() === '成功'
-            ? getImagePath("/images/results/objects/result_bg_Win.webp")
-            : getImagePath("/images/results/objects/result_bg_Fail.webp")
+            ? "/images/results/objects/result_bg_Win.webp"
+            : "/images/results/objects/result_bg_Fail.webp"
         )})`
       }}
     >

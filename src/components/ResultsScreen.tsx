@@ -59,9 +59,9 @@ const ResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if (getResult() === '成功') {
-        // launchConfetti?.();
+         launchConfetti?.();
         const interval = setInterval(() => {
-          // launchFirework?.();
+           launchFirework?.();
         }, 1000);
         return () => clearInterval(interval);
       }

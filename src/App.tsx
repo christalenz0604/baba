@@ -5,6 +5,7 @@ import CharacterSelection from './components/CharacterSelection';
 import QuestionScreen from './components/QuestionScreen';
 import ResultsScreen from './components/ResultsScreen';
 import DesktopResultsScreen from './components/DesktopResultsScreen'; // For Desktop PC size
+import ResponsiveResultsScreen from './components/ResponsiveResultsScreen'; // merge the results
 import './styles/pixel.css';
 import { setImagePathVariables } from './utils/cssUtils';
 import IntroGuide from './components/IntroGuide';
@@ -48,7 +49,7 @@ const GameContainer: React.FC = () => {
       ) : !gameState.hasStartedGame ? (
         <IntroGuide onContinue={startGame} />
       ) : gameState.isGameOver ? (
-        isDesktopLayout ? <DesktopResultsScreen /> : <ResultsScreen />
+        <ResponsiveResultsScreen />
       ) : (
         <QuestionScreen />
       )}
