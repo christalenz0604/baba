@@ -57,16 +57,16 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
     return (
         <AnimatePresence>
             {!fadeOut && (
-                <div className="full-height">
+                <div className="h-[calc(var(--vh)_*100)] flex flex-col overflow-hidden">
                 <motion.div
-                    className="flex flex-col items-center justify-center relative"
+                    className="flex-1 flex flex-col items-center justify-center overflow-auto relative"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
                 >
                     <div className="flex flex-col items-center justify-center w-full flex-grow bg-[#90a5c2]">
-                        <div className="relative w-full h-[300px] md:h-[600px] flex flex-col items-center justify-center font-pixel text-white bg-no-repeat bg-center bg-contain" style={{ backgroundImage: `url(${getImagePath('/images/intro/intro_bg.webp')})` }}>
+                        <div className="relative w-full max-h-[85vh] flex flex-col items-center justify-center font-pixel text-white bg-no-repeat bg-center bg-contain overflow-auto" style={{ backgroundImage: `url(${getImagePath('/images/intro/intro_bg.webp')})` }}>
                             <div className="relative flex w-32 h-auto justify-center">
                                 <img src={character.portrait} alt="avater img" className="w-full flex-grow object-cover" />
                             </div>
