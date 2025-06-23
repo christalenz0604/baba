@@ -111,10 +111,10 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
                     <div className="absolute bottom-4 w-full flex justify-center">
                       <button
                         onClick={handleSkip}
-                        className="px-4 py-2 bg-gray-600 text-white hover:bg-gray-700 transition-colors text-sm font-pixel"
+                        className="w-28 h-10 flex items-center justify-center bg-gray-600 text-white hover:bg-gray-700 transition-colors text-sm font-pixel"
                         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
                       >
-                      跳過
+                      Skip
                       </button>
                     </div>
                   </motion.div>
