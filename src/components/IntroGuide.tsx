@@ -59,14 +59,14 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
             {!fadeOut && (
                 <div className="full-height flex flex-col bg-[#90a5c2] overflow-hidden">
                 <motion.div
-                    className="flex-1 flex flex-col items-center justify-center relative"
+                    className="flex flex-col flex-grow relative"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <div className="flex flex-col items-center justify-center w-full flex-grow bg-[#90a5c2]">
-                        <div className="w-full flex flex-col items-center justify-center px-4 py-6 font-pixel text-white bg-no-repeat bg-center bg-contain" style={{ backgroundImage: `url(${getImagePath('/images/intro/intro_bg.webp')})` }}>
+                    <div className="flex flex-col items-center justify-between w-full flex-grow bg-[#90a5c2]">
+                        <div className="w-full flex flex-col px-4 py-6 font-pixel text-white bg-no-repeat bg-center bg-contain items-center justify-center w-full h-full" style={{ backgroundImage: `url(${getImagePath('/images/intro/intro_bg.webp')})` }}>
                             <div className="relative flex w-32 h-auto justify-center">
                                 <img src={character.portrait} alt="avater img" className="w-full flex-grow object-cover" />
                             </div>
@@ -86,12 +86,14 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
                         </div>
                     </div>
                     {/* Skip Button */}
+                    <div className="absolute bottom-2 w-full flex justify-center">
                     <button
                         onClick={handleSkip}
                         className="absolute bottom-12 px-4 py-2 bg-gray-600 text-white hover:bg-gray-700 transition-colors text-sm font-pixel safe-footer"
                     >
                         Skip
                     </button>
+					</div>
                 </motion.div>
 				</div>
             )}
