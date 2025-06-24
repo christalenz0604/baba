@@ -109,17 +109,18 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
               </div>
             </div>
 
+
+          </motion.div>
             {/* Skip button */}
-            <div className="absolute bottom-4 w-full flex justify-center">
+            <div>
               <button
                 onClick={handleSkip}
-                className="w-28 h-10 flex items-center justify-center bg-gray-600 text-white hover:bg-gray-700 transition-colors text-sm font-pixel"
-                style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+                className="skip-button"
               >
                 Skip
               </button>
             </div>
-          </motion.div>
+
         </div>
       )}
     </AnimatePresence>

@@ -142,7 +142,7 @@ html, body, #root, #root > * {
   font-size: 14px;
   font-weight: bold;
   font-family: 'Unifont-JP', monospace;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   border-radius: 6px;
@@ -152,5 +152,5 @@ html, body, #root, #root > * {
 }
 
 .skip-button:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
 }

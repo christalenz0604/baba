@@ -218,8 +218,8 @@ const ResponsiveResultsScreen: React.FC = () => {
 
   const apiDomain = import.meta.env.VITE_API_DOMAIN;
   const shareUrl = `${apiDomain}/share/default`;
-  const shareText = `該如何在立法院生存呢？\n一起來玩小遊戲吧！\n立法院生存指南上線囉！`;
-
+  const shareText = `#雙和罷免團隊 全新企劃第二彈 來囉！\n隆重獻上「#國會派對：生存之亂」 playbaba.tw\n讓你扮演國民黨立委深入當今 #國會亂象！\n是要 #跟隨民意，還是要 #聽從黨意？\n快上 playbaba.tw 試試看！\n各位 #政治冷感 的朋朋們快來體驗國會亂象！`;
+  
   const handleScreenshotShare = async () => {
     const canvas = await html2canvas(document.body); // 你可以改成特定區域
     const dataUrl = canvas.toDataURL();
@@ -252,7 +252,10 @@ const ResponsiveResultsScreen: React.FC = () => {
             />
             <button
               onClick={skipIntro}
-              className="absolute bottom-6 right-6 px-4 py-2 bg-white bg-opacity-80 rounded-lg text-black font-bold hover:bg-opacity-100 transition-all"
+              className="skip-button"
+			  style = {{
+				border: "2px solid white"  
+			  }}
             >
               Skip
             </button>
