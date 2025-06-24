@@ -492,7 +492,7 @@ const ResponsiveResultsScreen: React.FC = () => {
           <div className="w-1/5 flex justify-center items-center py-2">
             <img src={getImagePath("/images/logo.webp")} className="w-[clamp(10rem,20vw,15rem)] h-auto object-contain" />
           </div>
-          <div className="flex flex-col w-4/5 p-2">
+          <div className="flex flex-col p-1">
             <div className="flex items-end w-full">
               <div className="flex w-1/4">
                 <button
