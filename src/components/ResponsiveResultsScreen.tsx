@@ -383,7 +383,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                 </div>
 				</> )
                 :
-                ( <div className="mt-44 xs:mt-20">
+                ( <div className="mt-44 xs:mt-20 se:mt-16">
                 <div className="flex flex-row items-center w-full justify-center pt-4">
                   <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
                     <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
@@ -435,7 +435,12 @@ const ResponsiveResultsScreen: React.FC = () => {
                       await handleScreenshotShare(); // 先截圖 → 再開啟分享
                     }
                   }}
-                  className="font-medium mx-4 h-36 md:h-36 lg:h-40 xs:h-20 xs:mt-4"
+                  className={`${
+                    isDesktop
+                    ? "font-medium mx-4 h-36"
+				    : "font-medium mx-4 h-16 se:mt-4"
+			      }`}
+
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -444,7 +449,12 @@ const ResponsiveResultsScreen: React.FC = () => {
 
                 <motion.button
                   onClick={restartGame}
-                  className="font-medium mx-4 h-36 md:h-36 lg:h-40 xs:h-20 xs:mt-4"
+                  className={`${
+                    isDesktop
+                    ? "font-medium mx-4 h-36"
+				    : "font-medium mx-4 h-16 se:mt-4"
+			      }`}
+
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -473,7 +483,7 @@ const ResponsiveResultsScreen: React.FC = () => {
         className={`${
           isDesktop
           ? "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12"
-		  : "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl xs:text-sm md:text-4xl font-bold z-12 mt-20"
+		  : "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl xs:text-sm md:text-4xl font-bold z-12 mt-20 se:mt-16"
 		}`}
       >
         <p className="text-center">{getCharacterType()? "7月26日(六)出門投票，同意罷免，終結國會之亂！" : "投下同意罷免，下架惡質立委！"}</p>
@@ -488,19 +498,19 @@ const ResponsiveResultsScreen: React.FC = () => {
         ></div>
 
         {/* Footer subscription section */}
-        <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4 xs:px-2">
-          <div className="w-1/5 flex justify-center items-center py-2">
-            <img src={getImagePath("/images/logo.webp")} className="w-[clamp(10rem,20vw,15rem)] h-auto object-contain" />
+        <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4">
+          <div className="flex-shrink-0 w-1/5 p-2 se:mt-5">
+            <img src={getImagePath("/images/logo.webp")} className="w-full h-full object-contain" />
           </div>
-          <div className="flex flex-col p-1">
+          <div className="flex flex-col w-4/5 p-2">
             <div className="flex items-end w-full">
               <div className="flex w-1/4">
                 <button
                   onClick={() => setIsAboutUsOpen(true)}
 
-                  className="w-32 h-12 xs:h-10 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
+                  className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
               </div>
-              <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
+              <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2 se:text-sm">
                 想收到更多相關資訊嗎？
               </h4>
             </div>
@@ -510,13 +520,13 @@ const ResponsiveResultsScreen: React.FC = () => {
                 value={email}
                 onChange={handleEmailChange}
                 placeholder="請輸入您的 Email"
-                className={`flex-1 px-4 py-2 border ${isEmailValid ? 'border-gray-300' : 'border-red-500'
+                className={`se:px-2 se:py-1 se:w-20 flex-1 px-4 py-2 border ${isEmailValid ? 'border-gray-300' : 'border-red-500'
                   } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
               />
               <button
                 onClick={handleSubmitEmail}
                 disabled={isSubmitting || !email || !isEmailValid}
-                className={`px-4 py-2 font-medium ${isSubmitting || !email || !isEmailValid
+                className={`se:px-2 se:py-1 se:w-20 px-4 py-2 font-medium ${isSubmitting || !email || !isEmailValid
                   ? 'bg-[#d7005c] text-white cursor-not-allowed'
                   : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
                   }`}
