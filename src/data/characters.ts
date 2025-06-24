@@ -69,7 +69,7 @@ export const characters: Character[] = [
     districts:'臺北市第3選區',
     avatar: getImagePath('/images/character/wanghungwei_pic_Pickup.gif'),
     portrait: getImagePath('/images/portraits/wanghungwei_pic_small.gif'),
-    description: '曾加入新黨、擔任台北市議員時是中國央視熱門來賓、不避諱表態親中立場，專長技能：花是造謠、肉搜並曝光罷免自己的公民個資。',
+    description: '曾加入新黨、擔任台北市議員時是中國央視熱門來賓、不避諱表態親中立場，專長技能：花式造謠、肉搜並曝光罷免自己的公民個資。',
     questionSetId: 'wanghungwei',//對應問題系列
     score: 45818,
     resultCharacterImages: {
