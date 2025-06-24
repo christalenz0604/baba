@@ -22,7 +22,7 @@ const ResponsiveResultsScreen: React.FC = () => {
   const [isEmailValid, setIsEmailValid] = useState(true);
 
   const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
-  
+
   const [canPlayConfetti, setCanPlayConfetti] = useState(false);
 
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -66,7 +66,7 @@ const ResponsiveResultsScreen: React.FC = () => {
   useEffect(() => {
     try {
       if ((getResult() === '成功') && canPlayConfetti) {
-          launchConfetti?.();
+        launchConfetti?.();
         const interval = setInterval(() => {
           launchFirework?.();
         }, 1000);
@@ -238,494 +238,481 @@ const ResponsiveResultsScreen: React.FC = () => {
   const boardImage = getImagePath(`/images/results/objects/result_Board_${isDesktop ? 'WebSize' : 'phoneSize'}_${getResult() === '成功' ? 'Win' : 'Fail'}.webp`);
 
   return (
-  <div>
-  {showIntroVideo && (
-    <div className="full-height">
-    <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center safe-footer">
-      <video
-        ref={videoRef}
-        src={getResult() === "成功" ? `${getImagePath('/media/results_anime_success.mp4')}` : `${getImagePath('/media/results_anime_fail.mp4')}`}
+    <div>
+      {showIntroVideo && (
+        <div className="full-height">
+          <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center safe-footer">
+            <video
+              ref={videoRef}
+              src={getResult() === "成功" ? `${getImagePath('/media/results_anime_success.mp4')}` : `${getImagePath('/media/results_anime_fail.mp4')}`}
 
-        className="max-w-full max-h-full w-auto h-auto object-contain"
-        muted
-        playsInline
-      />
-      <button
-        onClick={skipIntro}
-        className="absolute bottom-6 right-6 px-4 py-2 bg-white bg-opacity-80 rounded-lg text-black font-bold hover:bg-opacity-100 transition-all"
-      >
-        Skip
-      </button>
-    </div>
-	</div>
-  )}
-
-  {!showIntroVideo && (
-    <div className="full-height"> 
-    <div
-      className={`${
-        isDesktop
-        ? "flex flex-col min-h-screen bg-cover py-4 px-4"
-        : "min-h-[100dvh] bg-cover py-10 px-2 overflow-hidden"
-      }`}
-      style={{
-        backgroundImage: `url(${bgImage})`
-      }}
-    >
-	
-      <div className="fireworks-container" id="fireworks"></div>
-      <canvas id="confetti"></canvas>
-
-
-
-      <div className="flex-frow max-w-4xl mx-auto" >
-        <motion.div
-          className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative mx-auto lg:w-[90%]"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className={`${
-            isDesktop
-            ? "relative flex justify-center items-center w-full mt-10 overflow-visible"
-            : "relative flex justify-center items-center w-full mt-0 overflow-visible"
-		  }`}>
-            {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
-            <img
-              src={getResult() === "成功" ? `${getImagePath('/images/results/objects/title_Win.webp')}` : `${getImagePath('/images/results/objects/title_Fail.webp')}`}
-              alt="result title"
-              className={`${
-                isDesktop
-				? "absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none"
-                : "absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none"
-			  }`}
+              className="max-w-full max-h-full w-auto h-auto object-contain"
+              muted
+              playsInline
             />
-
-            {/* ribbon 背景 */}
-            <img
-              src={getResult() === "成功" ? `${getImagePath('/images/results/objects/title_Ribbon_Win.webp')}` : `${getImagePath('/images/results/objects/title_Ribbon_Fail.webp')}`}
-              alt="ribbon"
-              className={`${
-                isDesktop
-				? "w-[100%] max-w-[480px] h-auto object-contain z-10"
-                : "w-[100%] max-w-[480px] h-auto object-contain z-10"
-			  }`}
-            />
-
-            {/* 插入文字在 ribbon 上 */}
-            <div className={`${
-              isDesktop
-			  ? "absolute text-white font-pixel font-bold text-[clamp(2rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]"
-              : "absolute text-white font-pixel font-bold text-[clamp(2rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]"
-			}`}
+            <button
+              onClick={skipIntro}
+              className="absolute bottom-6 right-6 px-4 py-2 bg-white bg-opacity-80 rounded-lg text-black font-bold hover:bg-opacity-100 transition-all"
             >
-            
-              {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
-            </div>
-          </div>
-
-          {/* 改為圖片方式呈現背景 + 四角裝飾 */}
-          <div className="relative flex flex-col items-center w-full justify-center">
-            {/* 背景主圖 */}
-            <img
-              src={boardImage}
-              className={`${
-				isDesktop
-				? "w-full max-w-[900px] h-auto object-contain transition-all duration-300 -mt-16"
-				: "w-full max-w-[900px] h-auto object-contain transition-all duration-300 -mt-4"
-              }`}
-              alt="結果底圖"
-            />
-
-            {/* 四個角落裝飾圖 - 疊在上方 */}
-            <img src={getImagePath("/images/corner_LT.webp")} 
-			  className={`${
-                isDesktop
-                ? "pointer-events-none absolute top-4 left-4 w-10 h-10 z-30 -mt-16"
-				: "pointer-events-none absolute top-8 left-2 w-10 h-10 z-30 -mt-6"
-			  }`}
-			  alt="LT" />
-            <img src={getImagePath("/images/corner_RT.webp")} 
-  			  className={`${
-                isDesktop
-                ? "pointer-events-none absolute top-4 right-4 w-10 h-10 z-30 -mt-16"
-				: "pointer-events-none absolute top-8 right-2 w-10 h-10 z-30 -mt-6"
-			  }`}
-			  alt="RT" />
-            <img src={getImagePath("/images/corner_LB.webp")} 
-  			  className={`${
-                isDesktop
-                ? "pointer-events-none absolute bottom-4 left-4 w-10 h-10 z-30"
-				: "pointer-events-none absolute bottom-2 left-2 w-10 h-10 z-30"
-			  }`}
-              alt="LB" />
-            <img src={getImagePath("/images/corner_RB.webp")} 
-   			  className={`${
-                isDesktop
-                ? "pointer-events-none absolute bottom-4 right-4 w-10 h-10 z-30"
-				: "pointer-events-none absolute bottom-2 right-2 w-10 h-10 z-30"
-			  }`}
-			  alt="RB" />
-
-            {/* 實際內容區域 */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20">
-              
-			  { isDesktop ?
-				( <>
-                <div className="flex flex-row items-center w-full content-center px-2 my-10">
-                  <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                    <p className="flex font-medium text-2xl text-gray-200 -mt-6">你扮演的立委是</p>
-                    <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
-                    <h3 className="flex font-semibold text-4xl text-white">{character.name}</h3>
-                  </div>
-                  <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                    <p className="flex font-medium text-2xl text-gray-200 -mt-5">累積連署書</p>
-                    <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                    <p className="flex text-4xl font-bold text-white">x {gameState.score}</p>
-                  </div>
-                  <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                    <p className="flex font-medium text-2xl text-gray-200 -mt-2 md:mt-0">{getResultTitle()}</p>
-                    <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                    <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
-                  </div>
-                </div>
-				</> )
-                :
-                ( <div className="mt-44 xs:mt-20 se:mt-16">
-                <div className="flex flex-row items-center w-full justify-center pt-4">
-                  <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
-                    <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
-                  </div>
-                  <div className="flex flex-col w-1/2 h-auto">
-                    <p className="flex w-full pl-6 text-gray-200 text-base xs:text-sm">你扮演的立委是</p>
-                    <h3 className="flex font-semibold pl-6 text-4xl xs:text-xl text-white">{character.name}</h3>
-                  </div>
-                </div>
-                <div className="w-full flex flex-col">
-                  <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-2">
-                    <div className="flex items-center mb-2 w-1/2 h-auto px-2 sm:px-4">
-                      <img src={getPaperCountImage()} alt="" className="w-3/4 h-3/4 object-cover" />
-                    </div>
-                    <div className="flex-col w-1/2">
-                      <p className="flex font-medium text-gray-200 pl-6">累積連署書</p>
-                      <p className="flex text-2xl font-bold text-white pl-6">x {gameState.score}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-full flex flex-col pb-4">
-                  <div className="flex flex-row justify-center items-center rounded-0 -mt-6">
-                    <div className="flex items-center mb-2 w-1/2 h-auto p-2">
-                      <img src={getResultTitleImage()} alt="" className="w-3/4 h-3/4 object-cover" />
-                    </div>
-                    <div className="flex-col w-1/2">
-                      <p className="flex font-medium text-gray-200 pl-6 text-2xl xs:text-lg tracking-wide">{getResultTitle()}</p>
-                      <p className="flex text-l font-bold text-white pl-6 text-sm xs:text-xs">{getPersonalityTrait()}</p>
-                    </div>
-                  </div>
-                </div>
-				</div> )
-			  }
-			  
-              {/* add two buttons in a row. One is share and the other is restart. */}
-              {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
-              <div 
-                className={`${
-                  isDesktop
-                  ? "flex flex-row items-center mb-8 w-full justify-center z-40 min-h-[200px]"
-				  : "flex flex-row items-center mb-4 w-full justify-center z-40 -mt-10"
-			    }`}
-              >
-                <motion.button
-                  onClick={async () => {
-                    if (showShare) {
-                      setShowShare(false); // 關閉分享選單
-                    } else {
-                      await handleScreenshotShare(); // 先截圖 → 再開啟分享
-                    }
-                  }}
-                  className={`${
-                    isDesktop
-                    ? "font-medium mx-4 h-36"
-				    : "font-medium mx-4 h-16 se:mt-4"
-			      }`}
-
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Share_Success.webp") : getImagePath("/images/results/objects/btn_Share_Fail.webp")} alt="share" className="w-full h-full object-contain" />
-                </motion.button>
-
-                <motion.button
-                  onClick={restartGame}
-                  className={`${
-                    isDesktop
-                    ? "font-medium mx-4 h-36"
-				    : "font-medium mx-4 h-16 se:mt-4"
-			      }`}
-
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Tryagain_Success.webp") : getImagePath("/images/results/objects/btn_Tryagain_Fail.webp")} alt="restart" className="w-full h-full object-contain" />
-                </motion.button>
-              </div>
-              {
-                screenshotUrl && (
-                  <div className="flex justify-center mt-4">
-                    {<ShareDropdown
-                      shareUrl={shareUrl}
-                      shareText={shareText}
-                      imageData={screenshotUrl}
-                      open={showShare}
-                      setOpen={setShowShare}
-                    />}
-                  </div>
-                )
-              }
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      <div 
-        className={`${
-          isDesktop
-          ? "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12"
-		  : "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl xs:text-sm md:text-4xl font-bold z-12 mt-20 se:mt-16"
-		}`}
-      >
-        <p className={`${
-			getResult() === "成功"
-			? "text-center text-black"
-            : "text-center"
-		}`}
-		
-		
-		>{getCharacterType()? "7月26日(六)出門投票，同意罷免，終結國會之亂！" : "投下同意罷免，下架惡質立委！"}</p>
-      </div>
-      {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
-      {/* Email subscription form */}
-      {/* add a div with a background color and a gradient to the bottom of the page */}
-      <div className="fixed bottom-0 w-full overflow-hidden z-50 left-0 safe-footer" style={{ minHeight: '0vh' }}>
-        {/* Gradient background fixed to bottom to cover entire footer */}
-        <div
-          className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] xs:h-[40vh] z-0 bg-gradient-to-b from-transparent via-transparent safe-footer ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
-        ></div>
-
-        {/* Footer subscription section */}
-        <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4">
-          <div className="flex-shrink-0 w-1/5 p-2 se:mt-5">
-            <img src={getImagePath("/images/logo.webp")} className="w-full h-full object-contain" />
-          </div>
-          <div className="flex flex-col w-4/5 p-2">
-            <div className="flex items-end w-full">
-              <div className="flex w-1/4">
-                <button
-                  onClick={() => setIsAboutUsOpen(true)}
-
-                  className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
-              </div>
-              <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2 se:text-sm">
-                想收到更多相關資訊嗎？
-              </h4>
-            </div>
-            <div className="flex mt-2">
-              <input
-                type="email"
-                value={email}
-                onChange={handleEmailChange}
-                placeholder="請輸入您的 Email"
-                className={`se:px-2 se:py-1 se:w-20 flex-1 px-4 py-2 border ${isEmailValid ? 'border-gray-300' : 'border-red-500'
-                  } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
-              />
-              <button
-                onClick={handleSubmitEmail}
-                disabled={isSubmitting || !email || !isEmailValid}
-                className={`se:px-2 se:py-1 se:w-20 px-4 py-2 font-medium ${isSubmitting || !email || !isEmailValid
-                  ? 'bg-[#d7005c] text-white cursor-not-allowed'
-                  : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
-                  }`}
-              >
-                {isSubmitting ? '提交中...' : '訂閱'}
-              </button>
-            </div>
-            {!isEmailValid && email !== '' && (
-              <p className="mt-2 text-sm text-red-600">
-                請輸入有效的 Email 地址
-              </p>
-            )}
-            {submitStatus === 'success' && (
-              <p className="mt-2 text-sm text-green-600">
-                感謝訂閱！我們會寄送相關資訊給你。
-              </p>
-            )}
-            {submitStatus === 'error' && (
-              <p className="mt-2 text-sm text-red-600">
-                抱歉，發生錯誤。請稍後再試。
-              </p>
-            )}
+              Skip
+            </button>
           </div>
         </div>
-      </div>
-      {isAboutUsOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className={`${
-            isDesktop
-            ? "fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-		    : "fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-		  }`}
-          onClick={() => setIsAboutUsOpen(false)}
-        >
-          <motion.div
-            initial={{ scale: 0.95 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.95 }}
-            className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-xl font-semibold text-gray-800">製作團隊</h3>
-              <button
-                onClick={() => setIsAboutUsOpen(false)}
-                className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
-              >
-                <X className="w-6 h-6 text-gray-500" />
-              </button>
-            </div>
-            { isDesktop
-              ? (
-			  <>
-                <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">雙和罷免團隊（新北市雙和公民參與協會）</div>
-
-              </>
-			  )
-              : (  
-			  <>
-                <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">雙和罷免團隊</div>
-                <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">（新北市雙和公民參與協會）</div>
-			  </>
-			)}
-			
-            <div 
-              className={`${
-              isDesktop
-              ? "w-3/4 mx-auto pl-2"
-		      : "w-full mx-auto"
-		      }`}
-            >
-              <div className="text-gray-700 text-lg my-4">
-                <div className="flex w-full font-semibold">專案發想</div>
-                <div 
-                  className={`${
-                  isDesktop
-                  ? "flex flex-row justify-start gap-7"
-		          : "flex flex-wrap justify-start gap-2"
-		          }`}
-                >
-                  <div>mini</div>
-                  <div>先西</div>
-                  <div>Kate</div>
-                </div>
-              </div>
-              <div className="text-gray-700 text-lg my-4">
-                <div className="flex w-full font-semibold">專案進度</div>
-                <div 
-                  className={`${
-                  isDesktop
-                  ? "flex flex-row justify-start gap-7"
-		          : "flex flex-wrap justify-start gap-2"
-		          }`}
-                >
-                  <div>馬可詠嘆師</div>
-                  <div>希斯特莉雅</div>
-                </div>
-              </div>
-              <div className="text-gray-700 text-lg my-4">
-                <div className="flex w-full font-semibold">網頁技術</div>
-                <div 
-                  className={`${
-                  isDesktop
-                  ? "flex flex-row justify-start gap-7"
-		          : "flex flex-wrap justify-start gap-2"
-		          }`}
-                >
-                  <div>馬可詠嘆師</div>
-                  <div>迪奧</div>
-                  <div>希斯特莉雅</div>
-                </div>
-              </div>
-              <div className="text-gray-700 text-lg my-4">
-                <div className="flex w-full font-semibold">文本</div>
-                <div 
-                  className={`${
-                  isDesktop
-                  ? "flex flex-row justify-start gap-7"
-		          : "flex flex-wrap justify-start gap-2"
-		          }`}
-                >
-                  <div>羅丹</div>
-                  <div>Phoebe</div>
-                  <div>希斯特莉雅</div>
-                  <div>Kate</div>
-                  <div>先西</div>
-                </div>
-              </div>
-              <div className="text-gray-700 text-lg my-4">
-                <div className="flex w-full font-semibold">美術</div>
-                <div 
-                  className={`${
-                  isDesktop
-                  ? "flex flex-row justify-start gap-7"
-		          : "flex flex-wrap justify-start gap-2"
-		          }`}
-                >
-                  <div>阿柔</div>
-                  <div>阿瑋</div>
-                  <div>小鄒鄒</div>
-                  <div>永和哈比人</div>
-                  <div>AK</div>
-                  <div>威哥</div>
-                </div>
-              </div>
-              <div className="text-gray-700 text-lg my-4">
-                <div className="flex w-full font-semibold">影片</div>
-                <div 
-                  className={`${
-                  isDesktop
-                  ? "flex flex-row justify-start gap-7"
-		          : "flex flex-wrap justify-start gap-2"
-		          }`}
-                >
-                  <div>Amber</div>
-                  <div>先西</div>
-                </div>
-              </div>
-              <div className="text-gray-700 text-lg my-4">
-                <div className="flex w-full font-semibold">法律諮詢</div>
-                <div 
-                  className={`${
-                  isDesktop
-                  ? "flex flex-row justify-start gap-7"
-		          : "flex flex-wrap justify-start gap-2"
-		          }`}
-                >
-                  <div>雞仔</div>
-                </div>
-              </div>
-            </div>
-            <div className="text-gray-700 text-lg my-4">
-              <p>感謝所有罷團夥伴，薪偷之餘還能快速生出一個小遊戲，就算沒有直接背景，也使出渾身解術壓DDL製作！</p>
-            </div>
-          </motion.div>
-        </motion.div>
       )}
-    </div >
+
+      {!showIntroVideo && (
+        <div className="full-height">
+          <div
+            className={`${isDesktop
+              ? "flex flex-col min-h-screen bg-cover py-4 px-4"
+              : "min-h-[100dvh] bg-cover py-10 px-2 overflow-hidden"
+              }`}
+            style={{
+              backgroundImage: `url(${bgImage})`
+            }}
+          >
+
+            <div className="fireworks-container" id="fireworks"></div>
+            <canvas id="confetti"></canvas>
+
+
+
+            <div className="flex-frow max-w-4xl mx-auto" >
+              <motion.div
+                className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative mx-auto lg:w-[90%]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className={`${isDesktop
+                  ? "relative flex justify-center items-center w-full mt-10 overflow-visible"
+                  : "relative flex justify-center items-center w-full mt-0 overflow-visible"
+                  }`}>
+                  {/* 上方 Game Over / You Win title 疊在 ribbon 上方一點點 */}
+                  <img
+                    src={getResult() === "成功" ? `${getImagePath('/images/results/objects/title_Win.webp')}` : `${getImagePath('/images/results/objects/title_Fail.webp')}`}
+                    alt="result title"
+                    className={`${isDesktop
+                      ? "absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none"
+                      : "absolute -top-10 w-[70%] max-w-[320px] h-auto object-contain z-30 pointer-events-none"
+                      }`}
+                  />
+
+                  {/* ribbon 背景 */}
+                  <img
+                    src={getResult() === "成功" ? `${getImagePath('/images/results/objects/title_Ribbon_Win.webp')}` : `${getImagePath('/images/results/objects/title_Ribbon_Fail.webp')}`}
+                    alt="ribbon"
+                    className={`${isDesktop
+                      ? "w-[100%] max-w-[480px] h-auto object-contain z-10"
+                      : "w-[100%] max-w-[480px] h-auto object-contain z-10"
+                      }`}
+                  />
+
+                  {/* 插入文字在 ribbon 上 */}
+                  <div className={`${isDesktop
+                    ? "absolute text-white font-pixel font-bold text-[clamp(2rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]"
+                    : "absolute text-white font-pixel font-bold text-[clamp(2rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]"
+                    }`}
+                  >
+
+                    {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
+                  </div>
+                </div>
+
+                {/* 改為圖片方式呈現背景 + 四角裝飾 */}
+                <div className="relative flex flex-col items-center w-full justify-center">
+                  {/* 背景主圖 */}
+                  <img
+                    src={boardImage}
+                    className={`${isDesktop
+                      ? "w-full max-w-[900px] h-auto object-contain transition-all duration-300 -mt-16"
+                      : "w-full max-w-[900px] h-auto object-contain transition-all duration-300 -mt-4"
+                      }`}
+                    alt="結果底圖"
+                  />
+
+                  {/* 四個角落裝飾圖 - 疊在上方 */}
+                  <img src={getImagePath("/images/corner_LT.webp")}
+                    className={`${isDesktop
+                      ? "pointer-events-none absolute top-4 left-4 w-10 h-10 z-30 -mt-16"
+                      : "pointer-events-none absolute top-8 left-2 w-10 h-10 z-30 -mt-6"
+                      }`}
+                    alt="LT" />
+                  <img src={getImagePath("/images/corner_RT.webp")}
+                    className={`${isDesktop
+                      ? "pointer-events-none absolute top-4 right-4 w-10 h-10 z-30 -mt-16"
+                      : "pointer-events-none absolute top-8 right-2 w-10 h-10 z-30 -mt-6"
+                      }`}
+                    alt="RT" />
+                  <img src={getImagePath("/images/corner_LB.webp")}
+                    className={`${isDesktop
+                      ? "pointer-events-none absolute bottom-4 left-4 w-10 h-10 z-30"
+                      : "pointer-events-none absolute bottom-2 left-2 w-10 h-10 z-30"
+                      }`}
+                    alt="LB" />
+                  <img src={getImagePath("/images/corner_RB.webp")}
+                    className={`${isDesktop
+                      ? "pointer-events-none absolute bottom-4 right-4 w-10 h-10 z-30"
+                      : "pointer-events-none absolute bottom-2 right-2 w-10 h-10 z-30"
+                      }`}
+                    alt="RB" />
+
+                  {/* 實際內容區域 */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-12 z-20">
+
+                    {isDesktop ?
+                      (<>
+                        <div className="flex flex-row items-center w-full content-center px-2 my-10">
+                          <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                            <p className="flex font-medium text-2xl text-gray-200 -mt-6">你扮演的立委是</p>
+                            <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
+                            <h3 className="flex font-semibold text-4xl text-white">{character.name}</h3>
+                          </div>
+                          <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                            <p className="flex font-medium text-2xl text-gray-200 -mt-5">累積連署書</p>
+                            <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
+                            <p className="flex text-4xl font-bold text-white">x {gameState.score}</p>
+                          </div>
+                          <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
+                            <p className="flex font-medium text-2xl text-gray-200 -mt-2 md:mt-0">{getResultTitle()}</p>
+                            <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
+                            <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
+                          </div>
+                        </div>
+                      </>)
+                      :
+                      (<div className="mt-44 xs:mt-20 se:mt-16">
+                        <div className="flex flex-row items-center w-full justify-center pt-4">
+                          <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
+                            <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
+                          </div>
+                          <div className="flex flex-col w-1/2 h-auto">
+                            <p className="flex w-full pl-6 text-gray-200 text-base xs:text-sm">你扮演的立委是</p>
+                            <h3 className="flex font-semibold pl-6 text-4xl xs:text-xl text-white">{character.name}</h3>
+                          </div>
+                        </div>
+                        <div className="w-full flex flex-col">
+                          <div className="flex flex-row justify-center items-center rounded-0 p-4 mb-2">
+                            <div className="flex items-center mb-2 w-1/2 h-auto px-2 sm:px-4">
+                              <img src={getPaperCountImage()} alt="" className="w-3/4 h-3/4 object-cover" />
+                            </div>
+                            <div className="flex-col w-1/2">
+                              <p className="flex font-medium text-gray-200 pl-6">累積連署書</p>
+                              <p className="flex text-2xl font-bold text-white pl-6">x {gameState.score}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="w-full flex flex-col pb-4">
+                          <div className="flex flex-row justify-center items-center rounded-0 -mt-6">
+                            <div className="flex items-center mb-2 w-1/2 h-auto p-2">
+                              <img src={getResultTitleImage()} alt="" className="w-3/4 h-3/4 object-cover" />
+                            </div>
+                            <div className="flex-col w-1/2">
+                              <p className="flex font-medium text-gray-200 pl-6 text-2xl xs:text-lg tracking-wide">{getResultTitle()}</p>
+                              <p className="flex text-l font-bold text-white pl-6 text-sm xs:text-xs">{getPersonalityTrait()}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>)
+                    }
+
+                    {/* add two buttons in a row. One is share and the other is restart. */}
+                    {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
+                    <div
+                      className={`${isDesktop
+                        ? "flex flex-row items-center mb-8 w-full justify-center z-40 min-h-[200px]"
+                        : "flex flex-row items-center mb-4 w-full justify-center z-40 mt-4"
+                        }`}
+                    >
+                      <motion.button
+                        onClick={async () => {
+                          if (showShare) {
+                            setShowShare(false); // 關閉分享選單
+                          } else {
+                            await handleScreenshotShare(); // 先截圖 → 再開啟分享
+                          }
+                        }}
+                        className={`${isDesktop
+                          ? "font-medium mx-4 w-1/3 lg:w-1/4"
+                          : "font-medium mx-4 w-1/3 lg:w-1/4 se:mt-4"
+                          }`}
+
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Share_Success.webp") : getImagePath("/images/results/objects/btn_Share_Fail.webp")} alt="share" className="w-full h-full object-contain" />
+                      </motion.button>
+
+                      <motion.button
+                        onClick={restartGame}
+                        className={`${isDesktop
+                          ? "font-medium mx-4 w-1/3 lg:w-1/4"
+                          : "font-medium mx-4 w-1/3 lg:w-1/4 se:mt-4"
+                          }`}
+
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Tryagain_Success.webp") : getImagePath("/images/results/objects/btn_Tryagain_Fail.webp")} alt="restart" className="w-full h-full object-contain" />
+                      </motion.button>
+                    </div>
+                    {
+                      screenshotUrl && (
+                        <div className="flex justify-center mt-4">
+                          {<ShareDropdown
+                            shareUrl={shareUrl}
+                            shareText={shareText}
+                            imageData={screenshotUrl}
+                            open={showShare}
+                            setOpen={setShowShare}
+                          />}
+                        </div>
+                      )
+                    }
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            {/* 桌機or筆電畫面 */}
+            <div
+              className={`${isDesktop
+                ? "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12"
+                : "hidden"
+                }`}
+            >
+              <p className={`${getResult() === "成功"
+                ? "text-center text-black"
+                : "text-center"
+                }`}
+              >{getCharacterType() ? "7月26日(六)出門投票，同意罷免，終結國會之亂！" : "投下同意罷免，下架惡質立委！"}</p>
+            </div>
+            {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
+            {/* Email subscription form */}
+            {/* add a div with a background color and a gradient to the bottom of the page */}
+            <div className="fixed bottom-0 w-full overflow-hidden z-50 left-0 safe-footer" style={{ minHeight: '0vh' }}>
+              {/* Gradient background fixed to bottom to cover entire footer */}
+              <div
+                className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] xs:h-[40vh] z-0 bg-gradient-to-b from-transparent via-transparent safe-footer ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
+              ></div>
+
+              {/* Footer subscription section */}
+              <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-0">
+                <div className="flex-shrink-0 w-1/5 py-2 pl-1 pr-0 se:mt-5">
+                  <img src={getImagePath("/images/logo.webp")} className="w-full h-full object-contain" />
+                </div>
+                <div className="flex flex-col w-4/5 p-2">
+                  <div className="flex items-end w-full">
+                    <div className="flex w-1/4">
+                      <button
+                        onClick={() => setIsAboutUsOpen(true)}
+                        className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
+                    </div>
+                    {/* 手機畫面 */}
+                    <div
+                      className={`${isDesktop
+                        ? "hidden"
+                        : "flex flex-col w-full text-pretty tracking-wider text-[clamp(0.75rem,4vw,1.5rem)] md:text-xl font-bold z-12"
+                        }`}
+                    >
+                      {getCharacterType() ? (
+                        <p className={`${getResult() === "成功" ? "text-black pl-2" : "text-white pl-2"}`}>
+                          7/26(六)<br></br>同意罷免，終結國會之亂！
+                        </p>
+                      ) : (
+                        <p className={`${getResult() === "成功" ? "text-black pl-2" : "text-white pl-2"}`}>
+                          同意罷免，下架惡質立委！
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex mt-2">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={handleEmailChange}
+                      placeholder="輸入 Email 獲得更多相關資訊"
+                      className={`px-2 py-1 se:w-20 flex-grow lg:px-4 md:py-2 border ${isEmailValid ? 'border-gray-300' : 'border-red-500'
+                        } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                    />
+                    <button
+                      onClick={handleSubmitEmail}
+                      disabled={isSubmitting || !email || !isEmailValid}
+                      className={`px-2 se:py-1 se:w-20 lg:px-4 py-2 shrink-0 font-medium ${isSubmitting || !email || !isEmailValid
+                        ? 'bg-[#d7005c] text-white cursor-not-allowed'
+                        : 'bg-[#5b00d7] text-white hover:bg-indigo-700'
+                        }`}
+                    >
+                      {isSubmitting ? '提交中...' : '訂閱'}
+                    </button>
+                  </div>
+                  {!isEmailValid && email !== '' && (
+                    <p className="mt-2 text-sm text-red-600">
+                      請輸入有效的 Email 地址
+                    </p>
+                  )}
+                  {submitStatus === 'success' && (
+                    <p className="mt-2 text-sm text-green-600">
+                      感謝訂閱！我們會寄送相關資訊給你。
+                    </p>
+                  )}
+                  {submitStatus === 'error' && (
+                    <p className="mt-2 text-sm text-red-600">
+                      抱歉，發生錯誤。請稍後再試。
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+            {isAboutUsOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className={`${isDesktop
+                  ? "fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+                  : "fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+                  }`}
+                onClick={() => setIsAboutUsOpen(false)}
+              >
+                <motion.div
+                  initial={{ scale: 0.95 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 0.95 }}
+                  className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+                  onClick={e => e.stopPropagation()}
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-semibold text-gray-800">製作團隊</h3>
+                    <button
+                      onClick={() => setIsAboutUsOpen(false)}
+                      className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                    >
+                      <X className="w-6 h-6 text-gray-500" />
+                    </button>
+                  </div>
+                  {isDesktop
+                    ? (
+                      <>
+                        <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">雙和罷免團隊（新北市雙和公民參與協會）</div>
+
+                      </>
+                    )
+                    : (
+                      <>
+                        <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">雙和罷免團隊</div>
+                        <div className="w-full text-center text-2xl font-bold text-gray-800 tracking-wider">（新北市雙和公民參與協會）</div>
+                      </>
+                    )}
+
+                  <div
+                    className={`${isDesktop
+                      ? "w-3/4 mx-auto pl-2"
+                      : "w-full mx-auto"
+                      }`}
+                  >
+                    <div className="text-gray-700 text-lg my-4">
+                      <div className="flex w-full font-semibold">專案發想</div>
+                      <div
+                        className={`${isDesktop
+                          ? "flex flex-row justify-start gap-7"
+                          : "flex flex-wrap justify-start gap-2"
+                          }`}
+                      >
+                        <div>mini</div>
+                        <div>先西</div>
+                        <div>Kate</div>
+                      </div>
+                    </div>
+                    <div className="text-gray-700 text-lg my-4">
+                      <div className="flex w-full font-semibold">專案進度</div>
+                      <div
+                        className={`${isDesktop
+                          ? "flex flex-row justify-start gap-7"
+                          : "flex flex-wrap justify-start gap-2"
+                          }`}
+                      >
+                        <div>馬可詠嘆師</div>
+                        <div>希斯特莉雅</div>
+                      </div>
+                    </div>
+                    <div className="text-gray-700 text-lg my-4">
+                      <div className="flex w-full font-semibold">網頁技術</div>
+                      <div
+                        className={`${isDesktop
+                          ? "flex flex-row justify-start gap-7"
+                          : "flex flex-wrap justify-start gap-2"
+                          }`}
+                      >
+                        <div>馬可詠嘆師</div>
+                        <div>迪奧</div>
+                        <div>希斯特莉雅</div>
+                      </div>
+                    </div>
+                    <div className="text-gray-700 text-lg my-4">
+                      <div className="flex w-full font-semibold">文本</div>
+                      <div
+                        className={`${isDesktop
+                          ? "flex flex-row justify-start gap-7"
+                          : "flex flex-wrap justify-start gap-2"
+                          }`}
+                      >
+                        <div>羅丹</div>
+                        <div>Phoebe</div>
+                        <div>希斯特莉雅</div>
+                        <div>Kate</div>
+                        <div>先西</div>
+                      </div>
+                    </div>
+                    <div className="text-gray-700 text-lg my-4">
+                      <div className="flex w-full font-semibold">美術</div>
+                      <div
+                        className={`${isDesktop
+                          ? "flex flex-row justify-start gap-7"
+                          : "flex flex-wrap justify-start gap-2"
+                          }`}
+                      >
+                        <div>阿柔</div>
+                        <div>阿瑋</div>
+                        <div>小鄒鄒</div>
+                        <div>永和哈比人</div>
+                        <div>AK</div>
+                        <div>威哥</div>
+                      </div>
+                    </div>
+                    <div className="text-gray-700 text-lg my-4">
+                      <div className="flex w-full font-semibold">影片</div>
+                      <div
+                        className={`${isDesktop
+                          ? "flex flex-row justify-start gap-7"
+                          : "flex flex-wrap justify-start gap-2"
+                          }`}
+                      >
+                        <div>Amber</div>
+                        <div>先西</div>
+                      </div>
+                    </div>
+                    <div className="text-gray-700 text-lg my-4">
+                      <div className="flex w-full font-semibold">法律諮詢</div>
+                      <div
+                        className={`${isDesktop
+                          ? "flex flex-row justify-start gap-7"
+                          : "flex flex-wrap justify-start gap-2"
+                          }`}
+                      >
+                        <div>雞仔</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-gray-700 text-lg my-4">
+                    <p>感謝所有罷團夥伴，薪偷之餘還能快速生出一個小遊戲，就算沒有直接背景，也使出渾身解術壓DDL製作！</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </div >
+        </div>
+      )}
     </div>
-  )}
-  </div>
   );
 };
 
