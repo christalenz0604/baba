@@ -9,6 +9,8 @@ import ResponsiveResultsScreen from './components/ResponsiveResultsScreen'; // m
 import './styles/pixel.css';
 import { setImagePathVariables } from './utils/cssUtils';
 import IntroGuide from './components/IntroGuide';
+import { needPassword } from './types.ts';
+
 
 const GameContainer: React.FC = () => {
   const { gameState, startGame } = useGame();
@@ -21,7 +23,7 @@ const GameContainer: React.FC = () => {
     const now = Date.now();
     const expired = now - timestamp > 3 * 60 * 60 * 1000; // 三小時
 
-    if (!access || expired) {
+    if ((!access || expired) && needPassword) {
       localStorage.removeItem('baba_access_granted');
       localStorage.removeItem('baba_access_time');
       navigate('/'); // 轉回登入頁

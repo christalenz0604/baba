@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './ComingSoon.css';
 import '../styles/pixel.css';
 
+import { needPassword } from '../types.ts';
+
 const PASSWORD = 'baba19890604baba';
 
 export default function ComingSoon() {
@@ -17,7 +19,7 @@ export default function ComingSoon() {
     const now = Date.now();
     const expired = now - timestamp > 3 * 60 * 60 * 1000; // 3 小時
 
-    if (access && !expired) {
+    if (!needPassword || (access && !expired)) {
       navigate('/landing');
     }
   }, [navigate]);

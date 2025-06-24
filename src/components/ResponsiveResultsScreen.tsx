@@ -22,6 +22,8 @@ const ResponsiveResultsScreen: React.FC = () => {
   const [isEmailValid, setIsEmailValid] = useState(true);
 
   const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
+  
+  const [canPlayConfetti, setCanPlayConfetti] = useState(false);
 
   const resultsRef = useRef<HTMLDivElement>(null);
 
@@ -38,6 +40,9 @@ const ResponsiveResultsScreen: React.FC = () => {
       video.play();
       video.onended = () => {
         setShowIntroVideo(false);
+        setTimeout(() => {
+          setCanPlayConfetti(true);
+        }, 200);
       };
     }
   }, []);
@@ -48,6 +53,9 @@ const ResponsiveResultsScreen: React.FC = () => {
       video.pause();
     }
     setShowIntroVideo(false);
+    setTimeout(() => {
+      setCanPlayConfetti(true);
+    }, 200);
   };
 
   // Get Result Page Title if gameState.score is the same as the character's score show Sucessed if not show Failed
@@ -57,7 +65,7 @@ const ResponsiveResultsScreen: React.FC = () => {
 
   useEffect(() => {
     try {
-      if (getResult() === '成功') {
+      if ((getResult() === '成功') && canPlayConfetti) {
           launchConfetti?.();
         const interval = setInterval(() => {
           launchFirework?.();
@@ -67,7 +75,7 @@ const ResponsiveResultsScreen: React.FC = () => {
     } catch (error) {
       console.error("煙火或彩帶初始化錯誤：", error);
     }
-  }, []);
+  }, [canPlayConfetti]);
 
 
   //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
@@ -486,7 +494,14 @@ const ResponsiveResultsScreen: React.FC = () => {
 		  : "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl xs:text-sm md:text-4xl font-bold z-12 mt-20 se:mt-16"
 		}`}
       >
-        <p className="text-center">{getCharacterType()? "7月26日(六)出門投票，同意罷免，終結國會之亂！" : "投下同意罷免，下架惡質立委！"}</p>
+        <p className={`${
+			getResult() === "成功"
+			? "text-center text-black"
+            : "text-center"
+		}`}
+		
+		
+		>{getCharacterType()? "7月26日(六)出門投票，同意罷免，終結國會之亂！" : "投下同意罷免，下架惡質立委！"}</p>
       </div>
       {/* if failed css background color is #1f31fe and if success css background color is #fe3427 */}
       {/* Email subscription form */}

@@ -49,3 +49,5 @@ export interface GameState {
   questionSetId: string | null;
   hasStartedGame: boolean;
 }
+
+export const needPassword = true;
