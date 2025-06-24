@@ -473,7 +473,7 @@ const ResponsiveResultsScreen: React.FC = () => {
         className={`${
           isDesktop
           ? "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12"
-		  : "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12 mt-20"
+		  : "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl xs:text-sm md:text-4xl font-bold z-12 mt-20"
 		}`}
       >
         <p className="text-center">{getCharacterType()? "7月26日(六)出門投票，同意罷免，終結國會之亂！" : "投下同意罷免，下架惡質立委！"}</p>
@@ -484,12 +484,12 @@ const ResponsiveResultsScreen: React.FC = () => {
       <div className="fixed bottom-0 w-full overflow-hidden z-50 left-0 safe-footer" style={{ minHeight: '0vh' }}>
         {/* Gradient background fixed to bottom to cover entire footer */}
         <div
-          className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] z-0 bg-gradient-to-b from-transparent via-transparent safe-footer ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
+          className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] xs:h-[40vh] z-0 bg-gradient-to-b from-transparent via-transparent safe-footer ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
         ></div>
 
         {/* Footer subscription section */}
-        <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4">
-          <div className="flex-shrink-0 w-1/5 p-2">
+        <div className="relative z-10 flex max-w-4xl mx-auto pb-0 px-4 xs:px-2">
+          <div className="w-1/5 flex justify-center items-center py-2">
             <img src={getImagePath("/images/logo.webp")} className="w-[clamp(10rem,20vw,15rem)] h-auto object-contain" />
           </div>
           <div className="flex flex-col w-4/5 p-2">
@@ -498,7 +498,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                 <button
                   onClick={() => setIsAboutUsOpen(true)}
 
-                  className="w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
+                  className="w-32 h-12 xs:h-10 sm:w-40 sm:h-14 md:w-48 md:h-16 result-bb"></button>
               </div>
               <h4 className="flex-grow text-[clamp(1rem,4vw,1.5rem)] font-semibold text-white leading-none px-2">
                 想收到更多相關資訊嗎？
