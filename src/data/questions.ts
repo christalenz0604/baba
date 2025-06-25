@@ -377,12 +377,12 @@ const HSUCHIAOHSINQuestions: Question[] = [
   },
   {
     id: 'HSUCHIAOHSIN6',
-    text: '我是黨意小尖兵，要砍預算，我應該砍哪些部門？',
+    text: '面對不斷的軍事威脅，台灣是海洋國家急需潛水艇。現國防部預算裡有海鯤號正在請款，所以你決定？',
     image: getImagePath("/images/question/HSUCHIAOHSIN_q_pic_02.webp"),
     options: [
-      { id: 'HSUCHIAOHSIN6-1', text: '財政、國防、外交，三個都硬的才有快感。', points: 12, isCorrect: false },
-      { id: 'HSUCHIAOHSIN6-2', text: '魔法部、忍者部，砍起來沒壓力。', points: 8, isCorrect: false },
-      { id: 'HSUCHIAOHSIN6-3', text: '數位部、NCC、陸委會，砍你們我有業績。', points: 7878, isCorrect: true },
+      { id: 'HSUCHIAOHSIN6-1', text: '當然沒問題，保衛國家預算很必要。', points: 12, isCorrect: false },
+      { id: 'HSUCHIAOHSIN6-2', text: '太支持了，所以我先凍結50%', points: 8, isCorrect: false },
+      { id: 'HSUCHIAOHSIN6-3', text: '你們海鯤號先浮起來就有錢了啦！', points: 7878, isCorrect: true },
     ],
     explanation: {
       text: '身為穿著睡衣審預算、對鏡頭比著中指、說你們潛艇浮起來就有預算了，過往反對傅崐萁回黨，現在又哭倒在他懷中。不禁讓人覺得他只是在台上表演一個舔共立委的小丑。',
