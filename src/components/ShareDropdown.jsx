@@ -199,12 +199,6 @@ const ShareDropdown = ({
             ⬇️ 點下方儲存圖片，再前往 Instagram 發文貼上內容。
           </p>
 
-          <img
-            src={imageData}
-            alt="分享圖片"
-            className="w-full rounded-lg mb-4 border"
-          />
-
           <a
             href={imageData}
             download="分享圖.png"
