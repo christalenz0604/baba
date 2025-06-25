@@ -175,15 +175,34 @@ const QuestionScreen: React.FC = () => {
                     {currentQuestion.explanation?.reference && (
                       <div className="pt-4 border-t">
                         <h4 className="font-medium text-gray-800 mb-2">參考資料</h4>
-                        <a
-                          href={currentQuestion.explanation.reference}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-indigo-600 hover:text-indigo-700 flex items-center"
-                        >
-                          <ExternalLink className="w-4 h-4 mr-1" />
-                          查看來源
-                        </a>
+                        {/* 單一連結 */}
+                        {typeof currentQuestion.explanation.reference === 'string' ? (
+                          <a
+                            href={currentQuestion.explanation.reference}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-indigo-600 hover:text-indigo-700 flex items-center"
+                          >
+                            <ExternalLink className="w-4 h-4 mr-1" />
+                            查看來源
+                          </a>
+                        ) : (
+                          // 多連結（陣列）
+                          <div className="flex flex-wrap gap-4">
+                            {currentQuestion.explanation.reference.map((ref, index) => (
+                              <a
+                                key={index}
+                                href={ref}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-indigo-600 hover:text-indigo-700 flex items-center"
+                              >
+                                <ExternalLink className="w-4 h-4 mr-1" />
+                                查看來源-{index + 1}
+                              </a>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>

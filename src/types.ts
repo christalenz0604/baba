@@ -24,7 +24,7 @@ export interface Option {
 export interface QuestionExplanation {
   image?: string;
   text?: string;
-  reference?: string;
+  reference?: string | string[];
 }
 
 export interface Question {
