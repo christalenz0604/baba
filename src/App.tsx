@@ -46,15 +46,14 @@ const GameContainer: React.FC = () => {
 
   return (
     <div className="font-sans">
-      {!gameState.selectedCharacter ? (
-        <CharacterSelection />
-      ) : !gameState.hasStartedGame ? (
-        <IntroGuide onContinue={startGame} />
-      ) : gameState.isGameOver ? (
-        <ResponsiveResultsScreen />
-      ) : (
-        <QuestionScreen />
-      )}
+      {!gameState.hasStartedGame 
+        ? (<IntroGuide onContinue={startGame} />)
+		: !gameState.selectedCharacter 
+	      ? (<CharacterSelection />)   
+		  : gameState.isGameOver 
+		    ? (<ResponsiveResultsScreen />) 
+			: (<QuestionScreen />)
+	  }
     </div>
   );
 };

@@ -30,7 +30,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       ...initialGameState,
       selectedCharacter: character,
       questionSetId: character.questionSetId,
-      hasStartedGame: false,
+      hasStartedGame: true,
     });
   };
 

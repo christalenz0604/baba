@@ -707,7 +707,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-gray-700 text-lg my-4">
-                    <p>感謝所有罷團夥伴，薪偷之餘還能快速生出一個小遊戲，就算沒有直接背景，也使出渾身解術壓DDL製作！</p>
+                    <p>感謝所有罷團夥伴，薪偷之餘還能快速生出一個小遊戲，就算沒有直接相關背景，也使出渾身解術加快腳步趕緊製作！</p>
                   </div>
                 </motion.div>
               </motion.div>

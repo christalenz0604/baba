@@ -18,13 +18,14 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
 
   const imageWrapperRef = useRef<HTMLDivElement>(null);
 
-  if (!character) return null;
+  //if (!character) return null;
+  
 
   const text = [
     `歡迎進入國會派對！`,
-    `你將以 ${character.name} 的角色前進國會。`,
+    `你將以立法委員的身分前進國會。`,
     "面對各種關於國會生涯的重要抉擇，",
-    `請試著用 ${character.name} 的角度思考，`,
+    `請試著用為黨為民的角度思考，`,
     "努力在國會活到最後一刻！"
   ];
 
@@ -87,7 +88,7 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                   <div className="w-32 mb-4">
                     <img
-                      src={character.portrait}
+                      src={getImagePath('/images/blue_lawmaker.gif')}
                       alt="avatar"
                       className="w-full object-contain"
                     />
