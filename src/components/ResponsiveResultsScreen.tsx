@@ -30,7 +30,9 @@ const ResponsiveResultsScreen: React.FC = () => {
   const character = gameState.selectedCharacter;
   if (!character) return null;
 
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 767);
+  const isDesktopWidth = 539;
+
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > isDesktopWidth);
   const [showIntroVideo, setShowIntroVideo] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -228,7 +230,7 @@ const ResponsiveResultsScreen: React.FC = () => {
   };
 
   useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth > 767);
+    const handleResize = () => setIsDesktop(window.innerWidth > isDesktopWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -365,26 +367,26 @@ const ResponsiveResultsScreen: React.FC = () => {
 
                     {isDesktop ?
                       (<>
-                        <div className="flex flex-row items-center w-full content-center px-2 my-10">
+                        <div className="flex flex-row items-start w-full content-center px-4 mt-5 md:mt-0">
                           <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                            <p className="flex font-medium text-2xl text-gray-200 -mt-6">你扮演的立委是</p>
+                            <p className="flex font-medium text-gray-200 text-base md:text-2xl">你扮演的立委是</p>
                             <img src={getResultCharacterImage()} alt={character.name} className="w-[60%] h-[60%] object-cover" />
-                            <h3 className="flex font-semibold text-4xl text-white">{character.name}</h3>
+                            <h3 className="flex font-semibold text-white text-2xl md:text-4xl">{character.name}</h3>
                           </div>
                           <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                            <p className="flex font-medium text-2xl text-gray-200 -mt-5">累積連署書</p>
+                            <p className="flex font-medium text-gray-200 text-base md:text-2xl">累積連署書</p>
                             <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                            <p className="flex text-4xl font-bold text-white">x {gameState.score}</p>
+                            <p className="flex text-4xl font-bold text-white xs:text-2xl">x {gameState.score}</p>
                           </div>
                           <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
-                            <p className="flex font-medium text-2xl text-gray-200 -mt-2 md:mt-0">{getResultTitle()}</p>
+                            <p className="flex font-medium text-gray-200 text-base md:text-2xl">{getResultTitle()}</p>
                             <img src={getResultTitleImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                            <p className="flex text-l font-bold text-white">{getPersonalityTrait()}</p>
+                            <p className="flex font-bold text-white text-xs md:text-base">{getPersonalityTrait()}</p>
                           </div>
                         </div>
                       </>)
                       :
-                      (<div className="mt-44 xs:mt-20 se:mt-16">
+                      (<div className="mt-40">
                         <div className="flex flex-row items-center w-full justify-center pt-4">
                           <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
                             <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
@@ -423,8 +425,8 @@ const ResponsiveResultsScreen: React.FC = () => {
                     {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
                     <div
                       className={`${isDesktop
-                        ? "flex flex-row items-center mb-8 w-full justify-center z-40 min-h-[200px]"
-                        : "flex flex-row items-center mb-4 w-full justify-center z-40 mt-4"
+                        ? "flex flex-row items-center w-full justify-center z-40 min-h-[150px] md:min-h-[200px] w-2/3 md:w-3/4 lg:w-full"
+                        : "flex flex-row items-center w-full justify-center z-40"
                         }`}
                     >
                       <motion.button
@@ -479,7 +481,7 @@ const ResponsiveResultsScreen: React.FC = () => {
             {/* 桌機or筆電畫面 */}
             <div
               className={`${isDesktop
-                ? "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-4xl font-bold z-12"
+                ? "flex flex-row w-full mx-auto justify-center -my-0 text-white tracking-wider text-xl md:text-3xl lg:text-4xl font-bold z-12"
                 : "hidden"
                 }`}
             >
