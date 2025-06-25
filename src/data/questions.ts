@@ -26,7 +26,7 @@ const ChangChihLunQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
@@ -170,7 +170,7 @@ const linTeFuQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
@@ -330,7 +330,7 @@ const HSUCHIAOHSINQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
@@ -460,7 +460,7 @@ const LaiShyhBaoQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
@@ -603,7 +603,7 @@ const wanghungweiQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
@@ -746,7 +746,7 @@ const LEEYEHSIUQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
@@ -889,7 +889,7 @@ const YEHYUANCHIHQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
@@ -1046,7 +1046,7 @@ const HungMongKaiQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
@@ -1175,7 +1175,7 @@ const LoMingTsaiQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
@@ -1444,7 +1444,7 @@ const LIAOHsienHsiangQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
 ];
@@ -1531,7 +1531,7 @@ const LOCHIHCHIANGQuestions: Question[] = [
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=54301&pid=239995','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
+      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
     }
   },
   {
