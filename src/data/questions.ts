@@ -267,8 +267,8 @@ const linTeFuQuestions: Question[] = [
       { id: 'linTeFu8-3', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
     ],
     explanation: {
-      text: '2024年底立法院三讀通過就業服務法條文，明定年滿80歲以上免經醫療評估（巴氏量表）即可申請外籍看護，修法後恐讓外籍看護市場供需失衡，根據中央社報導，家庭照護者關懷總會指出免平標準是另類年齡歧視，嚴重衝擊現有23萬需要外籍看護照顧重癱、臥床、多重障礙等長照家庭權益。',
-      reference: 'https://www.cna.com.tw/news/aipl/202412310099.aspx'
+      text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
+      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
     }
   },
   {
@@ -282,7 +282,7 @@ const linTeFuQuestions: Question[] = [
     ],
     explanation: {
       text: '沃草報導指出，中國國民黨立委林德福質詢除了照單全收中國國民黨的中央廚房設定的方向，也常常唸報紙社論當質詢，被許多國會助理和記者認為是沒有內涵和專業的立委，除了在國會擴權法案、選罷、憲訴、財劃等三大惡法和惡搞今年總預算都充當黨的投票部隊。',
-      reference: 'https://www.cna.com.tw/news/aipl/202412310099.aspx'
+      reference: 'https://watchout.tw/reports/XBEr7V7az6Hebe95nH5O'
     }
   },
   {
