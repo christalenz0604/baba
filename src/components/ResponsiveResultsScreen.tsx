@@ -321,7 +321,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                     }`}
                   >
 
-                    {getResult() === "成功" ? "恭喜你！成功了！" : "嘩～你失敗了"}
+                    {getResult() === "成功" ? "恭喜你！成功了！" : "失敗！你得跟隨黨意！"}
                   </div>
                 </div>
 
