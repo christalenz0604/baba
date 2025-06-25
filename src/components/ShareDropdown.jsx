@@ -157,22 +157,29 @@ const ShareDropdown = ({
 
         {/* 📷 儲存圖片 */}
         {imageData && (
-          <button
-            onClick={() => {
-            const link = document.createElement('a');
-            link.href = imageData;
-            link.download = 'playbaba_results.png';
-            link.click();
-            }}
-            className="hover:scale-110 transition-transform"
-            title="儲存圖片"
-          >
-            <img
-              src={getImagePath("/images/results/objects/image-download.webp")} // 假設你把它放在 public/images/
-              alt="儲存圖片"
-              className="w-8 h-8"
-            />
-          </button>
+          isMobile ? (
+            <div className="flex flex-col items-center">
+              <p className="text-sm text-white mb-2">📱 請長按下方圖片並選擇「儲存圖片」</p>
+              <img
+                src={imageData}
+                alt="長按儲存圖片"
+                className="w-64 rounded-lg border border-white"
+                onContextMenu={(e) => e.preventDefault()} // 防止右鍵選單干擾
+              />
+            </div>
+          ) : (
+            <a
+              href={imageData}
+              download="playbaba_results.png"
+              className="hover:scale-110 transition-transform"
+            >
+              <img
+                src={getImagePath("/images/results/objects/image-download.webp")}
+                alt="儲存圖片"
+                className="w-8 h-8"
+              />
+            </a>
+          )
         )}
 
 
