@@ -17,12 +17,12 @@ import { getImagePath } from '../utils/pathUtils';
 const ChangChihLunQuestions: Question[] = [
   {
     id: 'ChangChihLun1',
-    text: '上班時間總召邀你一起去中國查訪',
+    text: '總召邀你上班時間一起去中國查訪，你會？',
     image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'ChangChihLun1-1', text: '我比較想在立法院上班就好，不太想去查訪。', points: 0, isCorrect: false },
       { id: 'ChangChihLun1-2', text: '總召叫我去哪我就去哪，絕對服從！', points: 1450, isCorrect: true },
-      { id: 'ChangChihLun1-3', text: '謝謝總召，但我還是想認真開會為民服務。', points: 0, isCorrect: false },
+      { id: 'ChangChihLun1-3', text: '謝謝總召，但我不想去，怕被選民誤會', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
@@ -35,124 +35,124 @@ const ChangChihLunQuestions: Question[] = [
     image: getImagePath("/images/question/ChangChihLun_q_pic_02.webp"),
     options: [
       { id: 'ChangChihLun2-1', text: '錯位？可能要先千斤頂修復，後面再來處理其他相關交通問題！', points: 300, isCorrect: true },
-      { id: 'ChangChihLun2-2', text: '叫廠商來談談看，研究下當初合約怎麼寫的。', points: 130, isCorrect: false },
+      { id: 'ChangChihLun2-2', text: '研究一下合約內容，叫廠商來開會說明。', points: 130, isCorrect: false },
       { id: 'ChangChihLun2-3', text: '捷運局需要負責，不能甩鍋。', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '新北市中和環狀線捷運因為上午7.2強震，導致「軌道位移」而整個捷運環狀線因此癱瘓，恐怕要長期維修，但不敢確定問題，新北市立委張智倫到場視察，他表示，目前可能要先用「千斤頂」把受損的地方先恢復，其他相關交通，可能還要評估....',
-      reference: 'https://www.nownews.com/news/6397578?srsltid=AfmBOopBgND3_KPMilZZbMnTPfy027oInoLrDG-zOVLgHi10T4T5YlUe'
+      reference: ['https://www.chinatimes.com/realtimenews/20240502004430-260407?chdtv','https://www.nownews.com/news/6397578?srsltid=AfmBOopBgND3_KPMilZZbMnTPfy027oInoLrDG-zOVLgHi10T4T5YlUe']
     }
   },
   {
     id: 'ChangChihLun3',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你和你的同黨同事會如何因應？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
       { id: 'ChangChihLun3-1', text: '理性討論，找到對台灣最有利的平衡點。', points: 0, isCorrect: false },
       { id: 'ChangChihLun3-2', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 7827, isCorrect: true },
-      { id: 'ChangChihLun3-3', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 0, isCorrect: false },
+      { id: 'ChangChihLun3-3', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
     id: 'ChangChihLun4',
-    text: '中國灰色騷擾海域頻繁，你為海巡做什麼？',
+    text: '中國灰色騷擾海域頻繁，你該為海巡做什麼？',
     image: getImagePath("/images/question/ChangChihLun_q_pic_01.webp"),
     options: [
-      { id: 'ChangChihLun4-1', text: '哎呀，我之前好像才凍結了29億⋯⋯（尷尬逃跑）', points: 1698, isCorrect: true },
+      { id: 'ChangChihLun4-1', text: '在審查預算時，刪除凍結海巡署16億多的預算', points: 1698, isCorrect: true },
       { id: 'ChangChihLun4-2', text: '立刻爭預算！讓弟兄有船、有裝備、有假期。', points: 100, isCorrect: false },
-      { id: 'ChangChihLun4-3', text: '加薪啦，為海巡弟兄謀福利。', points: 0, isCorrect: false },
+      { id: 'ChangChihLun4-3', text: '加薪、加菜！為海巡弟兄謀福利！', points: 0, isCorrect: false },
     ],
     explanation: {
-      text: '張智倫參與多項海巡署、海委會預算相關連署，大幅度凍結相關業務，最離譜的凍結原因大概是「中國漁船越界捕撈翻覆，因海巡署為全程錄影被糾正，所以凍結...」然後再於灰色騷擾頻發期間關心海委會業務狀況。',
-      reference: 'https://www.ettoday.net/news/20250130/2899990.htm'
+      text: '張智倫參與多項海巡署、海委會預算相關連署，大幅度凍結相關裝備擴充、訓練等執勤業務預算，然後再於灰色騷擾頻發期間質詢海委會業務執行以及改善狀況。',
+      reference: ['https://liff.line.me/1454987169-1WAXAP3K/v2/article/kE61aW1','https://www.oac.gov.tw/ch/home.jsp?id=63&parentpath=0,6&mcustomize=news_view.jsp&dataserno=202502190002']
     }
   },
   {
     id: 'ChangChihLun5',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
       { id: 'ChangChihLun5-1', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 4, isCorrect: false },
       { id: 'ChangChihLun5-2', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 604, isCorrect: false },
-      { id: 'ChangChihLun5-3', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'ChangChihLun5-3', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
   {
     id: 'ChangChihLun6',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'ChangChihLun6-1', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
-      { id: 'ChangChihLun6-2', text: '法案應該要公開討論，不是玩暗黑通關。', points: 0, isCorrect: false },
-      { id: 'ChangChihLun6-3', text: '不行啦，這根本戒嚴2.0，我都看不下去。', points: 0, isCorrect: false },
+      { id: 'ChangChihLun6-1', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'ChangChihLun6-2', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 0, isCorrect: false },
+      { id: 'ChangChihLun6-3', text: '不會吧！三分鐘是要討論什麼？', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
     id: 'ChangChihLun7',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'ChangChihLun7-1', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 1450, isCorrect: false },
-      { id: 'ChangChihLun7-2', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
-      { id: 'ChangChihLun7-3', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 0, isCorrect: false },
+      { id: 'ChangChihLun7-1', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 0, isCorrect: false },
+      { id: 'ChangChihLun7-2', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
+      { id: 'ChangChihLun7-3', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
     id: 'ChangChihLun8',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'ChangChihLun8-1', text: '我不能提這種幫中國洗人口的提案。', points: 0, isCorrect: false },
-      { id: 'ChangChihLun8-2', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
-      { id: 'ChangChihLun8-3', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 0, isCorrect: false },
+      { id: 'ChangChihLun8-1', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 0, isCorrect: false },
+      { id: 'ChangChihLun8-2', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'ChangChihLun8-3', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'ChangChihLun9',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'ChangChihLun9-1', text: '65歲免健保費很合理啊，我強力支持。', points: 7777, isCorrect: true },
-      { id: 'ChangChihLun9-2', text: '健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 88, isCorrect: false },
-      { id: 'ChangChihLun9-3', text: '這版本恐怕太寬鬆了，要有一些配套措施才行。', points: 0, isCorrect: false },
+      { id: 'ChangChihLun9-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，再加上來依親中配的長輩，一定要通過法案拉攏這群民眾！', points: 7777, isCorrect: true },
+      { id: 'ChangChihLun9-2', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 88, isCorrect: false },
+      { id: 'ChangChihLun9-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
-      reference: 'https://news.pts.org.tw/article/731315'
+      reference: ['https://news.pts.org.tw/article/731315','https://www.cna.com.tw/news/ahel/202412300264.aspx','https://news.ttv.com.tw/news/11312260014400N/amp','https://news.pts.org.tw/article/730852']
     }
   },
   {
     id: 'ChangChihLun10',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'ChangChihLun10-1', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 0, isCorrect: true },
-      { id: 'ChangChihLun10-2', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 0, isCorrect: false },
-      { id: 'ChangChihLun10-3', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 2666, isCorrect: true },
+      { id: 'ChangChihLun10-1', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 0, isCorrect: false },
+      { id: 'ChangChihLun10-2', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 0, isCorrect: false },
+      { id: 'ChangChihLun10-3', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她，為她連署背書。', points: 2666, isCorrect: true },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
 ];
@@ -164,7 +164,7 @@ const linTeFuQuestions: Question[] = [
     text: '上班時間總召邀你一起去中國查訪',
     image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
-      { id: 'linTeFu1-1', text: '我比較想在立法院上班就好，不太想去查訪。', points: 0, isCorrect: false },
+      { id: 'linTeFu1-1', text: '謝謝總召，但我不想去，怕被選民誤會。', points: 0, isCorrect: false },
       { id: 'linTeFu1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 0, isCorrect: false },
       { id: 'linTeFu1-3', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 1450, isCorrect: true },
     ],
@@ -175,54 +175,54 @@ const linTeFuQuestions: Question[] = [
   },
   {
     id: 'linTeFu2',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
       { id: 'linTeFu2-1', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 7787, isCorrect: true },
       { id: 'linTeFu2-2', text: '理性討論，找到對台灣最有利的平衡點。', points: 0, isCorrect: false },
-      { id: 'linTeFu2-3', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 5, isCorrect: false },
+      { id: 'linTeFu2-3', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 5, isCorrect: false },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
     id: 'linTeFu3',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
       { id: 'linTeFu3-1', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 0, isCorrect: false },
-      { id: 'linTeFu3-2', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'linTeFu3-2', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
       { id: 'linTeFu3-3', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 604, isCorrect: false },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
   {
     id: 'linTeFu4',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'linTeFu4-1', text: '我不能提這種幫中國洗人口的提案。', points: 0, isCorrect: false },
-      { id: 'linTeFu4-2', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 5, isCorrect: false },
-      { id: 'linTeFu4-3', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 5166, isCorrect: true },
+      { id: 'linTeFu4-1', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 0, isCorrect: false },
+      { id: 'linTeFu4-2', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 5, isCorrect: false },
+      { id: 'linTeFu4-3', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 5166, isCorrect: true },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'linTeFu5',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'linTeFu5-1', text: '這版本恐怕太寬鬆了，要有一些配套措施才行。', points: 12, isCorrect: false },
-      { id: 'linTeFu5-2', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
-      { id: 'linTeFu5-3', text: '健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 4, isCorrect: false },
+      { id: 'linTeFu5-1', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 12, isCorrect: false },
+      { id: 'linTeFu5-2', text: '很好啊！這樣退休後的族群可以利用資產配置，讓所得稅低於20%，享用免健保費福利。', points: 4277, isCorrect: true },
+      { id: 'linTeFu5-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -245,40 +245,40 @@ const linTeFuQuestions: Question[] = [
   },
   {
     id: 'linTeFu7',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'linTeFu7-1', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
-      { id: 'linTeFu7-2', text: '法案應該要公開討論，不是玩暗黑通關。', points: 4, isCorrect: false },
-      { id: 'linTeFu7-3', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 6, isCorrect: false },
+      { id: 'linTeFu7-1', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'linTeFu7-2', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 4, isCorrect: false },
+      { id: 'linTeFu7-3', text: '不會吧！三分鐘是要討論什麼？', points: 6, isCorrect: false },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
     id: 'linTeFu8',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'linTeFu8-1', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 0, isCorrect: false },
-      { id: 'linTeFu8-2', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 0, isCorrect: false },
-      { id: 'linTeFu8-3', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
+      { id: 'linTeFu8-1', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 0, isCorrect: false },
+      { id: 'linTeFu8-2', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 0, isCorrect: false },
+      { id: 'linTeFu8-3', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
     id: 'linTeFu9',
-    text: '大家想罷免你，說你只聽黨不聽人，你怎麼回？',
+    text: '上班時間除了睡覺以外，你還會做什麼？',
     image: getImagePath("/images/question/linTeFu_q_pic_02.webp"),
     options: [
-      { id: 'linTeFu9-1', text: '我可是黨最忠誠的一把刀，這叫使命感。', points: 222, isCorrect: true },
-      { id: 'linTeFu9-2', text: '跟黨投一致不是壞事，那是紀律！', points: 22, isCorrect: false },
-      { id: 'linTeFu9-3', text: '修法砍預算，不是為人民，是為黨人民。', points: 22, isCorrect: false },
+      { id: 'linTeFu9-1', text: '我可是黨最忠誠的一把刀，黨要我做什麼就做什麼。', points: 222, isCorrect: true },
+      { id: 'linTeFu9-2', text: '研究相關法案，讓永和重現花園城市風情。', points: 22, isCorrect: false },
+      { id: 'linTeFu9-3', text: '幫永和畫黃線，讓汽機車有臨停空間！', points: 22, isCorrect: false },
     ],
     explanation: {
       text: '沃草報導指出，中國國民黨立委林德福質詢除了照單全收中國國民黨的中央廚房設定的方向，也常常唸報紙社論當質詢，被許多國會助理和記者認為是沒有內涵和專業的立委，除了在國會擴權法案、選罷、憲訴、財劃等三大惡法和惡搞今年總預算都充當黨的投票部隊。',
@@ -287,16 +287,16 @@ const linTeFuQuestions: Question[] = [
   },
   {
     id: 'linTeFu10',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'linTeFu10-1', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
-      { id: 'linTeFu10-2', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 0, isCorrect: false },
-      { id: 'linTeFu10-3', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 0, isCorrect: false },
+      { id: 'linTeFu10-1', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她，為她連署背書。', points: 1766, isCorrect: true },
+      { id: 'linTeFu10-2', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 0, isCorrect: false },
+      { id: 'linTeFu10-3', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
 ];
@@ -307,16 +307,16 @@ const linTeFuQuestions: Question[] = [
 const HSUCHIAOHSINQuestions: Question[] = [
   {
     id: 'HSUCHIAOHSIN1',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
       { id: 'HSUCHIAOHSIN1-1', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
-      { id: 'HSUCHIAOHSIN1-2', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 0, isCorrect: false },
+      { id: 'HSUCHIAOHSIN1-2', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 0, isCorrect: false },
       { id: 'HSUCHIAOHSIN1-3', text: '理性討論，找到對台灣最有利的平衡點。', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
@@ -324,9 +324,9 @@ const HSUCHIAOHSINQuestions: Question[] = [
     text: '上班時間總召邀你一起去中國查訪',
     image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
-      { id: 'HSUCHIAOHSIN2-1', text: '我比較想在立法院上班就好，不太想去查訪。', points: 0, isCorrect: false },
-      { id: 'HSUCHIAOHSIN2-2', text: '總召叫我去哪我就去哪，不問、服從、不拖延！', points: 1450, isCorrect: false },
-      { id: 'HSUCHIAOHSIN2-3', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 1450, isCorrect: true },
+      { id: 'HSUCHIAOHSIN2-1', text: '謝謝總召，但我不想去，怕被選民誤會。', points: 0, isCorrect: false },
+      { id: 'HSUCHIAOHSIN2-2', text: '總召叫我去哪我就去哪，不問、服從、不拖延！', points: 3250, isCorrect: false },
+      { id: 'HSUCHIAOHSIN2-3', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
@@ -335,7 +335,7 @@ const HSUCHIAOHSINQuestions: Question[] = [
   },
   {
     id: 'HSUCHIAOHSIN3',
-    text: '在周一國民黨團「委員會封門三分鐘修法」後，民進黨把議場鎖住不讓我們三讀，我該怎麼辦？',
+    text: '在週一國民黨團「委員會封門三分鐘修法」後，民進黨把議場鎖住不讓我們三讀，我該怎麼辦？',
     image: getImagePath("/images/question/HSUCHIAOHSIN_q_pic_01.webp"),
     options: [
       { id: 'HSUCHIAOHSIN3-1', text: '我要以理服人，畢竟我也不想再被剪片嘲笑了。', points: 0, isCorrect: false },
@@ -349,30 +349,30 @@ const HSUCHIAOHSINQuestions: Question[] = [
   },
   {
     id: 'HSUCHIAOHSIN4',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'HSUCHIAOHSIN4-1', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 4, isCorrect: false },
-      { id: 'HSUCHIAOHSIN4-2', text: '法案應該要公開討論，不是玩暗黑通關。', points: 60, isCorrect: false },
-      { id: 'HSUCHIAOHSIN4-3', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
+      { id: 'HSUCHIAOHSIN4-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 4, isCorrect: false },
+      { id: 'HSUCHIAOHSIN4-2', text: '不會吧！三分鐘是要討論什麼？', points: 60, isCorrect: false },
+      { id: 'HSUCHIAOHSIN4-3', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
     id: 'HSUCHIAOHSIN5',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'HSUCHIAOHSIN5-1', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 0, isCorrect: false },
-      { id: 'HSUCHIAOHSIN5-2', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
-      { id: 'HSUCHIAOHSIN5-3', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 0, isCorrect: false },
+      { id: 'HSUCHIAOHSIN5-1', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 0, isCorrect: false },
+      { id: 'HSUCHIAOHSIN5-2', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
+      { id: 'HSUCHIAOHSIN5-3', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
@@ -391,26 +391,26 @@ const HSUCHIAOHSINQuestions: Question[] = [
   },
   {
     id: 'HSUCHIAOHSIN7',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'HSUCHIAOHSIN7-1', text: '我不能提這種幫中國洗人口的提案。', points: 1, isCorrect: false },
-      { id: 'HSUCHIAOHSIN7-2', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
-      { id: 'HSUCHIAOHSIN7-3', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 2, isCorrect: false },
+      { id: 'HSUCHIAOHSIN7-1', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 1, isCorrect: false },
+      { id: 'HSUCHIAOHSIN7-2', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'HSUCHIAOHSIN7-3', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 2, isCorrect: false },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'HSUCHIAOHSIN8',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'HSUCHIAOHSIN8-1', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
-      { id: 'HSUCHIAOHSIN8-2', text: '反對，沒事找事造成世代對立做啥', points: 2, isCorrect: false },
-      { id: 'HSUCHIAOHSIN8-3', text: '反對，健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 0, isCorrect: false },
+      { id: 'HSUCHIAOHSIN8-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
+      { id: 'HSUCHIAOHSIN8-2', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 2, isCorrect: false },
+      { id: 'HSUCHIAOHSIN8-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -419,30 +419,30 @@ const HSUCHIAOHSINQuestions: Question[] = [
   },
   {
     id: 'HSUCHIAOHSIN9',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
-      { id: 'HSUCHIAOHSIN9-1', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'HSUCHIAOHSIN9-1', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
       { id: 'HSUCHIAOHSIN9-2', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 2, isCorrect: false },
       { id: 'HSUCHIAOHSIN9-3', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 128, isCorrect: false },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
   {
     id: 'HSUCHIAOHSIN10',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'HSUCHIAOHSIN10-1', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 10, isCorrect: false },
-      { id: 'HSUCHIAOHSIN10-2', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
-      { id: 'HSUCHIAOHSIN10-3', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 5, isCorrect: false },
+      { id: 'HSUCHIAOHSIN10-1', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 10, isCorrect: false },
+      { id: 'HSUCHIAOHSIN10-2', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她。', points: 1766, isCorrect: true },
+      { id: 'HSUCHIAOHSIN10-3', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 5, isCorrect: false },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
 ];
@@ -454,9 +454,9 @@ const LaiShyhBaoQuestions: Question[] = [
     text: '上班時間總召邀你一起去中國查訪',
     image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
-      { id: 'LaiShyhBao1-1', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 1450, isCorrect: true },
+      { id: 'LaiShyhBao1-1', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
       { id: 'LaiShyhBao1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 0, isCorrect: false },
-      { id: 'LaiShyhBao1-3', text: '我比較想在立法院上班就好，不太想去查訪。', points: 0, isCorrect: false },
+      { id: 'LaiShyhBao1-3', text: '總召叫我去哪我就去哪，絕對服從！', points: 8964, isCorrect: false },
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
@@ -465,68 +465,68 @@ const LaiShyhBaoQuestions: Question[] = [
   },
   {
     id: 'LaiShyhBao2',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
-      { id: 'LaiShyhBao2-1', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 8, isCorrect: false },
+      { id: 'LaiShyhBao2-1', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 8, isCorrect: false },
       { id: 'LaiShyhBao2-2', text: '理性討論，找到對台灣最有利的平衡點。', points: 6, isCorrect: false },
       { id: 'LaiShyhBao2-3', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
     id: 'LaiShyhBao3',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
       { id: 'LaiShyhBao3-1', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 6, isCorrect: false },
-      { id: 'LaiShyhBao3-2', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'LaiShyhBao3-2', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
       { id: 'LaiShyhBao3-3', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
   {
     id: 'LaiShyhBao4',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'LaiShyhBao4-1', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 15, isCorrect: false },
-      { id: 'LaiShyhBao4-2', text: '法案應該要公開討論，不是玩暗黑通關。', points: 8, isCorrect: false },
-      { id: 'LaiShyhBao4-3', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
+      { id: 'LaiShyhBao4-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 15, isCorrect: false },
+      { id: 'LaiShyhBao4-2', text: '不會吧！三分鐘是要討論什麼？', points: 8, isCorrect: false },
+      { id: 'LaiShyhBao4-3', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
     id: 'LaiShyhBao5',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'LaiShyhBao5-1', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
-      { id: 'LaiShyhBao5-2', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 6, isCorrect: false },
-      { id: 'LaiShyhBao5-3', text: '我不能提這種幫中國洗人口的提案。', points: 4, isCorrect: false },
+      { id: 'LaiShyhBao5-1', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'LaiShyhBao5-2', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 6, isCorrect: false },
+      { id: 'LaiShyhBao5-3', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'LaiShyhBao6',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'LaiShyhBao6-1', text: '反對，健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 10, isCorrect: false },
-      { id: 'LaiShyhBao6-2', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
-      { id: 'LaiShyhBao6-3', text: '反對，沒事找事造成世代對立做啥', points: 3, isCorrect: false },
+      { id: 'LaiShyhBao6-1', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 10, isCorrect: false },
+      { id: 'LaiShyhBao6-2', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
+      { id: 'LaiShyhBao6-3', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -539,7 +539,7 @@ const LaiShyhBaoQuestions: Question[] = [
     image: getImagePath("/images/question/LaiShyhBao_q_pic_01.webp"),
     options: [
       { id: 'LaiShyhBao7-1', text: '先要求國安單位端出計畫，不然我們只會在新聞裡喊緊張。', points: 15, isCorrect: false },
-      { id: 'LaiShyhBao7-2', text: '先把國防預算砍爆，再拿來當政績說「刪除新式戰機採購特別預算總額100%」', points: 913, isCorrect: true },
+      { id: 'LaiShyhBao7-2', text: '先把國防預算砍掉，再拿來當政績說「刪除新式戰機採購特別預算總額100%」', points: 913, isCorrect: true },
       { id: 'LaiShyhBao7-3', text: '請國防部提合理裝備預算，我們要戰力也要嘎啦嘎啦。', points: 75, isCorrect: false },
     ],
     explanation: {
@@ -549,30 +549,30 @@ const LaiShyhBaoQuestions: Question[] = [
   },
   {
     id: 'LaiShyhBao8',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'LaiShyhBao8-1', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
-      { id: 'LaiShyhBao8-2', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 5, isCorrect: false },
-      { id: 'LaiShyhBao8-3', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 3, isCorrect: false },
+      { id: 'LaiShyhBao8-1', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她。', points: 1766, isCorrect: true },
+      { id: 'LaiShyhBao8-2', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 5, isCorrect: false },
+      { id: 'LaiShyhBao8-3', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
   {
     id: 'LaiShyhBao9',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'LaiShyhBao9-1', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 12, isCorrect: false },
-      { id: 'LaiShyhBao9-2', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 6, isCorrect: false },
-      { id: 'LaiShyhBao9-3', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
+      { id: 'LaiShyhBao9-1', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 12, isCorrect: false },
+      { id: 'LaiShyhBao9-2', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 6, isCorrect: false },
+      { id: 'LaiShyhBao9-3', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
@@ -597,9 +597,9 @@ const wanghungweiQuestions: Question[] = [
     text: '上班時間總召邀你一起去中國查訪',
     image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
-      { id: 'wanghungwei1-1', text: '我比較想在立法院上班就好，不太想去查訪。', points: 0, isCorrect: false },
+      { id: 'wanghungwei1-1', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 20, isCorrect: false },
       { id: 'wanghungwei1-2', text: '總召叫我去哪我就去哪，不問、服從、不拖延！', points: 1450, isCorrect: true },
-      { id: 'wanghungwei1-3', text: '謝謝總召，但我還是想認真開會為民服務。', points: 0, isCorrect: false },
+      { id: 'wanghungwei1-3', text: '我很想參加，可惜剛好有事情！', points: 5, isCorrect: false },
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
@@ -622,68 +622,68 @@ const wanghungweiQuestions: Question[] = [
   },
   {
     id: 'wanghungwei3',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
       { id: 'wanghungwei3-1', text: '理性討論，找到對台灣最有利的平衡點。', points: 12, isCorrect: false },
-      { id: 'wanghungwei3-2', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 6, isCorrect: false },
+      { id: 'wanghungwei3-2', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 6, isCorrect: false },
       { id: 'wanghungwei3-3', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
     id: 'wanghungwei4',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'wanghungwei4-1', text: '我不能提這種幫中國洗人口的提案。', points: 8, isCorrect: false },
-      { id: 'wanghungwei4-2', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
-      { id: 'wanghungwei4-3', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 3, isCorrect: false },
+      { id: 'wanghungwei4-1', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 8, isCorrect: false },
+      { id: 'wanghungwei4-2', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'wanghungwei4-3', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'wanghungwei5',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'wanghungwei5-1', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 228, isCorrect: false },
-      { id: 'wanghungwei5-2', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
-      { id: 'wanghungwei5-3', text: '法案應該要公開討論，不是玩暗黑通關。', points: 2, isCorrect: false },
+      { id: 'wanghungwei5-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 228, isCorrect: false },
+      { id: 'wanghungwei5-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'wanghungwei5-3', text: '不會吧！三分鐘是要討論什麼？', points: 2, isCorrect: false },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
     id: 'wanghungwei6',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
-      { id: 'wanghungwei6-1', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'wanghungwei6-1', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
       { id: 'wanghungwei6-2', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 8, isCorrect: false },
       { id: 'wanghungwei6-3', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 5, isCorrect: false },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
   {
     id: 'wanghungwei7',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'wanghungwei7-1', text: '反對，沒事找事造成世代對立做啥', points: 15, isCorrect: false },
-      { id: 'wanghungwei7-2', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
-      { id: 'wanghungwei7-3', text: '反對，健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 4, isCorrect: false },
+      { id: 'wanghungwei7-1', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 15, isCorrect: false },
+      { id: 'wanghungwei7-2', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
+      { id: 'wanghungwei7-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -706,30 +706,30 @@ const wanghungweiQuestions: Question[] = [
   },
   {
     id: 'wanghungwei9',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'wanghungwei9-1', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 12, isCorrect: false },
-      { id: 'wanghungwei9-2', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 8, isCorrect: false },
-      { id: 'wanghungwei9-3', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
+      { id: 'wanghungwei9-1', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 12, isCorrect: false },
+      { id: 'wanghungwei9-2', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 8, isCorrect: false },
+      { id: 'wanghungwei9-3', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
     id: 'wanghungwei10',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'wanghungwei10-1', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 10, isCorrect: false },
-      { id: 'wanghungwei10-2', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 7, isCorrect: false },
-      { id: 'wanghungwei10-3', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
+      { id: 'wanghungwei10-1', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 10, isCorrect: false },
+      { id: 'wanghungwei10-2', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 7, isCorrect: false },
+      { id: 'wanghungwei10-3', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她。', points: 1766, isCorrect: true },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
 ];
@@ -741,7 +741,7 @@ const LEEYEHSIUQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'LEEYEHSIU1-1', text: '我比較想在立法院上班就好，不太想去查訪。', points: 10, isCorrect: false },
-      { id: 'LEEYEHSIU1-2', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 1450, isCorrect: true },
+      { id: 'LEEYEHSIU1-2', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
       { id: 'LEEYEHSIU1-3', text: '謝謝總召，但我還是想認真開會為民服務。', points: 3, isCorrect: false },
     ],
     explanation: {
@@ -751,30 +751,30 @@ const LEEYEHSIUQuestions: Question[] = [
   },
   {
     id: 'LEEYEHSIU2',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
       { id: 'LEEYEHSIU2-1', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
       { id: 'LEEYEHSIU2-2', text: '理性討論，找到對台灣最有利的平衡點。', points: 6, isCorrect: false },
-      { id: 'LEEYEHSIU2-3', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 4, isCorrect: false },
+      { id: 'LEEYEHSIU2-3', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
     id: 'LEEYEHSIU3',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
-      { id: 'LEEYEHSIU3-1', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'LEEYEHSIU3-1', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
       { id: 'LEEYEHSIU3-2', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 8, isCorrect: false },
       { id: 'LEEYEHSIU3-3', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 5, isCorrect: false },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
   {
@@ -793,54 +793,54 @@ const LEEYEHSIUQuestions: Question[] = [
   },
   {
     id: 'LEEYEHSIU5',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'LEEYEHSIU5-1', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
-      { id: 'LEEYEHSIU5-2', text: '法案應該要公開討論，不是玩暗黑通關。', points: 6, isCorrect: false },
-      { id: 'LEEYEHSIU5-3', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 4, isCorrect: false },
+      { id: 'LEEYEHSIU5-1', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'LEEYEHSIU5-2', text: '不會吧！三分鐘是要討論什麼？', points: 6, isCorrect: false },
+      { id: 'LEEYEHSIU5-3', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
     id: 'LEEYEHSIU6',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'LEEYEHSIU6-1', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 10, isCorrect: false },
-      { id: 'LEEYEHSIU6-2', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 5, isCorrect: false },
-      { id: 'LEEYEHSIU6-3', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
+      { id: 'LEEYEHSIU6-1', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 10, isCorrect: false },
+      { id: 'LEEYEHSIU6-2', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 5, isCorrect: false },
+      { id: 'LEEYEHSIU6-3', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
     id: 'LEEYEHSIU7',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'LEEYEHSIU7-1', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
-      { id: 'LEEYEHSIU7-2', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 4, isCorrect: false },
-      { id: 'LEEYEHSIU7-3', text: '我不能提這種幫中國洗人口的提案。', points: 2, isCorrect: false },
+      { id: 'LEEYEHSIU7-1', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'LEEYEHSIU7-2', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 4, isCorrect: false },
+      { id: 'LEEYEHSIU7-3', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 2, isCorrect: false },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'LEEYEHSIU8',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'LEEYEHSIU8-1', text: '反對，健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 12, isCorrect: false },
-      { id: 'LEEYEHSIU8-2', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
-      { id: 'LEEYEHSIU8-3', text: '反對，沒事找事造成世代對立做啥', points: 4, isCorrect: false },
+      { id: 'LEEYEHSIU8-1', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 12, isCorrect: false },
+      { id: 'LEEYEHSIU8-2', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
+      { id: 'LEEYEHSIU8-3', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -863,16 +863,16 @@ const LEEYEHSIUQuestions: Question[] = [
   },
   {
     id: 'LEEYEHSIU10',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'LEEYEHSIU10-1', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
-      { id: 'LEEYEHSIU10-2', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 5, isCorrect: false },
-      { id: 'LEEYEHSIU10-3', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 3, isCorrect: false },
+      { id: 'LEEYEHSIU10-1', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她。', points: 1766, isCorrect: true },
+      { id: 'LEEYEHSIU10-2', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 5, isCorrect: false },
+      { id: 'LEEYEHSIU10-3', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
 ];
@@ -883,7 +883,7 @@ const YEHYUANCHIHQuestions: Question[] = [
     text: '上班時間總召邀你一起去中國查訪',
     image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
-      { id: 'YEHYUANCHIH1-1', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 1450, isCorrect: true },
+      { id: 'YEHYUANCHIH1-1', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
       { id: 'YEHYUANCHIH1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 5, isCorrect: false },
       { id: 'YEHYUANCHIH1-3', text: '我比較想在立法院上班就好，不太想去查訪。', points: 100, isCorrect: false },
     ],
@@ -894,44 +894,44 @@ const YEHYUANCHIHQuestions: Question[] = [
   },
   {
     id: 'YEHYUANCHIH2',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'YEHYUANCHIH2-1', text: '法案應該要公開討論，不是玩暗黑通關。', points: 10, isCorrect: false },
-      { id: 'YEHYUANCHIH2-2', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
-      { id: 'YEHYUANCHIH2-3', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 4, isCorrect: false },
+      { id: 'YEHYUANCHIH2-1', text: '不會吧！三分鐘是要討論什麼？', points: 10, isCorrect: false },
+      { id: 'YEHYUANCHIH2-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'YEHYUANCHIH2-3', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
     id: 'YEHYUANCHIH3',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
-      { id: 'YEHYUANCHIH3-1', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'YEHYUANCHIH3-1', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
       { id: 'YEHYUANCHIH3-2', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 6, isCorrect: false },
       { id: 'YEHYUANCHIH3-3', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
   {
     id: 'YEHYUANCHIH4',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'YEHYUANCHIH4-1', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 8, isCorrect: false },
-      { id: 'YEHYUANCHIH4-2', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
-      { id: 'YEHYUANCHIH4-3', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 3, isCorrect: false },
+      { id: 'YEHYUANCHIH4-1', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 8, isCorrect: false },
+      { id: 'YEHYUANCHIH4-2', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她。', points: 1766, isCorrect: true },
+      { id: 'YEHYUANCHIH4-3', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
   {
@@ -940,7 +940,7 @@ const YEHYUANCHIHQuestions: Question[] = [
     image: getImagePath("/images/question/YEHYUANCHIH_q_pic_02.webp"),
     options: [
       { id: 'YEHYUANCHIH5-1', text: '先傳個Line：保重身體，等你回來一起作戰。', points: 10, isCorrect: false },
-      { id: 'YEHYUANCHIH5-2', text: '身體是你的，行程是大家的，交接一下再睡。', points: 6, isCorrect: false },
+      { id: 'YEHYUANCHIH5-2', text: '身體是你的，行程是大家的，交接一下再睡。凹一下～凹一下～', points: 6, isCorrect: false },
       { id: 'YEHYUANCHIH5-3', text: '今天不來？剛好，我正想換個人試試看。', points: 657, isCorrect: true },
     ],
     explanation: {
@@ -950,26 +950,26 @@ const YEHYUANCHIHQuestions: Question[] = [
   },
   {
     id: 'YEHYUANCHIH6',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'YEHYUANCHIH6-1', text: '我不能提這種幫中國洗人口的提案。', points: 12, isCorrect: false },
-      { id: 'YEHYUANCHIH6-2', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 8, isCorrect: false },
-      { id: 'YEHYUANCHIH6-3', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'YEHYUANCHIH6-1', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 12, isCorrect: false },
+      { id: 'YEHYUANCHIH6-2', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 8, isCorrect: false },
+      { id: 'YEHYUANCHIH6-3', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'YEHYUANCHIH7',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'YEHYUANCHIH7-1', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
-      { id: 'YEHYUANCHIH7-2', text: '反對，沒事找事造成世代對立做啥', points: 7, isCorrect: false },
-      { id: 'YEHYUANCHIH7-3', text: '反對，健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 4, isCorrect: false },
+      { id: 'YEHYUANCHIH7-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
+      { id: 'YEHYUANCHIH7-2', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 7, isCorrect: false },
+      { id: 'YEHYUANCHIH7-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -978,30 +978,30 @@ const YEHYUANCHIHQuestions: Question[] = [
   },
   {
     id: 'YEHYUANCHIH8',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
       { id: 'YEHYUANCHIH8-1', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
       { id: 'YEHYUANCHIH8-2', text: '理性討論，找到對台灣最有利的平衡點。', points: 6, isCorrect: false },
-      { id: 'YEHYUANCHIH8-3', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 3, isCorrect: false },
+      { id: 'YEHYUANCHIH8-3', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
     id: 'YEHYUANCHIH9',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'YEHYUANCHIH9-1', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 12, isCorrect: false },
-      { id: 'YEHYUANCHIH9-2', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 8, isCorrect: false },
-      { id: 'YEHYUANCHIH9-3', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
+      { id: 'YEHYUANCHIH9-1', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 12, isCorrect: false },
+      { id: 'YEHYUANCHIH9-2', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 8, isCorrect: false },
+      { id: 'YEHYUANCHIH9-3', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
@@ -1011,7 +1011,7 @@ const YEHYUANCHIHQuestions: Question[] = [
     options: [
       { id: 'YEHYUANCHIH10-1', text: '當然謹慎啊，萬一講錯話，飛彈就飛過來了。', points: 10, isCorrect: false },
       { id: 'YEHYUANCHIH10-2', text: '快衝主席台，領資料不能輸！政治生涯靠這一包了。', points: 7, isCorrect: false },
-      { id: 'YEHYUANCHIH10-3', text: '立刻開直播：「大家看，這就是他們說的秘密～」', points: 3377, isCorrect: true },
+      { id: 'YEHYUANCHIH10-3', text: '直播繼續放送：「大家看，這就是他們說的秘密～」', points: 3377, isCorrect: true },
     ],
     explanation: {
       text: '葉元之竟在審查114年國防機密預算期間開直播，直到讀完條例、要進行記名表決時，立法院副院長江啟臣突然問道：「手機有沒有沒收？」他才連忙切掉畫面，讓民進黨團總召柯建銘傻眼痛批其違反刑法及國安法，「關定了！」事後，葉元之居然還在節目上公開承認，自己根本沒看機密預算提案內容就直接表決，甚至脫口：「也不是只有我」，令人髮指。',
@@ -1040,7 +1040,7 @@ const HungMongKaiQuestions: Question[] = [
     text: '上班時間總召邀你一起去中國查訪',
     image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
-      { id: 'HungMongKai2-1', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 1450, isCorrect: true },
+      { id: 'HungMongKai2-1', text: '我很想參加，可惜我媽剛好有事情找我！', points: 1450, isCorrect: true },
       { id: 'HungMongKai2-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 6, isCorrect: false },
       { id: 'HungMongKai2-3', text: '我比較想在立法院上班就好，不太想去查訪。', points: 4, isCorrect: false },
     ],
@@ -1051,26 +1051,26 @@ const HungMongKaiQuestions: Question[] = [
   },
   {
     id: 'HungMongKai3',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'HungMongKai3-1', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 10, isCorrect: false },
-      { id: 'HungMongKai3-2', text: '我不能提這種幫中國洗人口的提案。', points: 5, isCorrect: false },
-      { id: 'HungMongKai3-3', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'HungMongKai3-1', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 10, isCorrect: false },
+      { id: 'HungMongKai3-2', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 5, isCorrect: false },
+      { id: 'HungMongKai3-3', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'HungMongKai4',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'HungMongKai4-1', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
-      { id: 'HungMongKai4-2', text: '反對，健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 8, isCorrect: false },
-      { id: 'HungMongKai4-3', text: '反對，沒事找事造成世代對立做啥', points: 5, isCorrect: false },
+      { id: 'HungMongKai4-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
+      { id: 'HungMongKai4-2', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 8, isCorrect: false },
+      { id: 'HungMongKai4-3', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 5, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -1079,30 +1079,30 @@ const HungMongKaiQuestions: Question[] = [
   },
   {
     id: 'HungMongKai5',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
-      { id: 'HungMongKai5-1', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 12, isCorrect: false },
+      { id: 'HungMongKai5-1', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 12, isCorrect: false },
       { id: 'HungMongKai5-2', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
       { id: 'HungMongKai5-3', text: '理性討論，找到對台灣最有利的平衡點。', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
     id: 'HungMongKai6',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'HungMongKai6-1', text: '法案應該要公開討論，不是玩暗黑通關。', points: 10, isCorrect: false },
-      { id: 'HungMongKai6-2', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
-      { id: 'HungMongKai6-3', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 3, isCorrect: false },
+      { id: 'HungMongKai6-1', text: '不會吧！三分鐘是要討論什麼？', points: 10, isCorrect: false },
+      { id: 'HungMongKai6-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'HungMongKai6-3', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
@@ -1121,44 +1121,44 @@ const HungMongKaiQuestions: Question[] = [
   },
   {
     id: 'HungMongKai8',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
       { id: 'HungMongKai8-1', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 10, isCorrect: false },
       { id: 'HungMongKai8-2', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 5, isCorrect: false },
-      { id: 'HungMongKai8-3', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'HungMongKai8-3', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
   {
     id: 'HungMongKai9',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'HungMongKai9-1', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 12, isCorrect: false },
-      { id: 'HungMongKai9-2', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 6, isCorrect: false },
-      { id: 'HungMongKai9-3', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
+      { id: 'HungMongKai9-1', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 12, isCorrect: false },
+      { id: 'HungMongKai9-2', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 6, isCorrect: false },
+      { id: 'HungMongKai9-3', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她。', points: 1766, isCorrect: true },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
   {
     id: 'HungMongKai10',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'HungMongKai10-1', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
-      { id: 'HungMongKai10-2', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 5, isCorrect: false },
-      { id: 'HungMongKai10-3', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 3, isCorrect: false },
+      { id: 'HungMongKai10-1', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
+      { id: 'HungMongKai10-2', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 5, isCorrect: false },
+      { id: 'HungMongKai10-3', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
 ];
@@ -1171,7 +1171,7 @@ const LoMingTsaiQuestions: Question[] = [
     options: [
       { id: 'LoMingTsai1-1', text: '總召叫我去哪我就去哪，絕對服從！', points: 1450, isCorrect: true },
       { id: 'LoMingTsai1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 5, isCorrect: false },
-      { id: 'LoMingTsai1-3', text: '我比較想在立法院上班就好，不太想去查訪。', points: 100, isCorrect: false },
+      { id: 'LoMingTsai1-3', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 100, isCorrect: false },
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
@@ -1180,26 +1180,26 @@ const LoMingTsaiQuestions: Question[] = [
   },
   {
     id: 'LoMingTsai2',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'LoMingTsai2-1', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 10, isCorrect: false },
-      { id: 'LoMingTsai2-2', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
-      { id: 'LoMingTsai2-3', text: '我不能提這種幫中國洗人口的提案。', points: 4, isCorrect: false },
+      { id: 'LoMingTsai2-1', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 10, isCorrect: false },
+      { id: 'LoMingTsai2-2', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'LoMingTsai2-3', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'LoMingTsai3',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'LoMingTsai3-1', text: '反對，沒事找事造成世代對立做啥', points: 12, isCorrect: true },
-      { id: 'LoMingTsai3-2', text: '反對，健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 6, isCorrect: false },
-      { id: 'LoMingTsai3-3', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
+      { id: 'LoMingTsai3-1', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 12, isCorrect: true },
+      { id: 'LoMingTsai3-2', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 6, isCorrect: false },
+      { id: 'LoMingTsai3-3', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -1208,16 +1208,16 @@ const LoMingTsaiQuestions: Question[] = [
   },
   {
     id: 'LoMingTsai4',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'LoMingTsai4-1', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 28, isCorrect: false },
-      { id: 'LoMingTsai4-2', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
-      { id: 'LoMingTsai4-3', text: '法案應該要公開討論，不是玩暗黑通關。', points: 2, isCorrect: false },
+      { id: 'LoMingTsai4-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 28, isCorrect: false },
+      { id: 'LoMingTsai4-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'LoMingTsai4-3', text: '不會吧！三分鐘是要討論什麼？', points: 2, isCorrect: false },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
@@ -1225,7 +1225,7 @@ const LoMingTsaiQuestions: Question[] = [
     text: '罷免我的二階段連署好像快過了，我該怎麼辦呢？',
     image: getImagePath("/images/question/LoMingTsai_q_pic_01.webp"),
     options: [  
-      { id: 'LoMingTsai5-1', text: '直接開嗆！把「兩隻老虎」改成「不同意罷免」唱到他們崩潰。', points: 1994, isCorrect: true },
+      { id: 'LoMingTsai5-1', text: '把「兩隻老虎」改成「不同意罷免」唱到他們崩潰。', points: 1994, isCorrect: true },
       { id: 'LoMingTsai5-2', text: '開始勤跑地方，誰握最多手誰活得久。', points: 6, isCorrect: false },
       { id: 'LoMingTsai5-3', text: '認真點啦，加強問政表現，至少讓中間選民猶豫一下。', points: 4, isCorrect: false },
     ],
@@ -1236,16 +1236,16 @@ const LoMingTsaiQuestions: Question[] = [
   },
   {
     id: 'LoMingTsai6',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'LoMingTsai6-1', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 12, isCorrect: false },
-      { id: 'LoMingTsai6-2', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 8, isCorrect: false },
-      { id: 'LoMingTsai6-3', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
+      { id: 'LoMingTsai6-1', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 12, isCorrect: false },
+      { id: 'LoMingTsai6-2', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 8, isCorrect: false },
+      { id: 'LoMingTsai6-3', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
@@ -1264,44 +1264,44 @@ const LoMingTsaiQuestions: Question[] = [
   },
   {
     id: 'LoMingTsai8',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
       { id: 'LoMingTsai8-1', text: '理性討論，找到對台灣最有利的平衡點。', points: 10, isCorrect: false },
       { id: 'LoMingTsai8-2', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
-      { id: 'LoMingTsai8-3', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 3, isCorrect: false },
+      { id: 'LoMingTsai8-3', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
     id: 'LoMingTsai9',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'LoMingTsai9-1', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 12, isCorrect: false },
-      { id: 'LoMingTsai9-2', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 8, isCorrect: false },
-      { id: 'LoMingTsai9-3', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
+      { id: 'LoMingTsai9-1', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 12, isCorrect: false },
+      { id: 'LoMingTsai9-2', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 8, isCorrect: false },
+      { id: 'LoMingTsai9-3', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她。', points: 1766, isCorrect: true },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
   {
     id: 'LoMingTsai10',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
       { id: 'LoMingTsai10-1', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 10, isCorrect: false },
-      { id: 'LoMingTsai10-2', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'LoMingTsai10-2', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
       { id: 'LoMingTsai10-3', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 5, isCorrect: false },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
 ];
@@ -1309,12 +1309,12 @@ const LoMingTsaiQuestions: Question[] = [
 const LIAOHsienHsiangQuestions: Question[] = [
   {
     id: 'LIAOHsienHsiang1',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'LIAOHsienHsiang1-1', text: '反對，沒事找事造成世代對立做啥', points: 10, isCorrect: false },
-      { id: 'LIAOHsienHsiang1-2', text: '反對，健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 5, isCorrect: false },
-      { id: 'LIAOHsienHsiang1-3', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
+      { id: 'LIAOHsienHsiang1-1', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 10, isCorrect: false },
+      { id: 'LIAOHsienHsiang1-2', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 5, isCorrect: false },
+      { id: 'LIAOHsienHsiang1-3', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -1323,30 +1323,30 @@ const LIAOHsienHsiangQuestions: Question[] = [
   },
   {
     id: 'LIAOHsienHsiang2',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'LIAOHsienHsiang2-1', text: '我不能提這種幫中國洗人口的提案。', points: 12, isCorrect: false },
-      { id: 'LIAOHsienHsiang2-2', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 6, isCorrect: false },
-      { id: 'LIAOHsienHsiang2-3', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'LIAOHsienHsiang2-1', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 12, isCorrect: false },
+      { id: 'LIAOHsienHsiang2-2', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 6, isCorrect: false },
+      { id: 'LIAOHsienHsiang2-3', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'LIAOHsienHsiang3',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'LIAOHsienHsiang3-1', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
-      { id: 'LIAOHsienHsiang3-2', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 8, isCorrect: false },
-      { id: 'LIAOHsienHsiang3-3', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 5, isCorrect: false },
+      { id: 'LIAOHsienHsiang3-1', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
+      { id: 'LIAOHsienHsiang3-2', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 8, isCorrect: false },
+      { id: 'LIAOHsienHsiang3-3', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 5, isCorrect: false },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
@@ -1360,7 +1360,7 @@ const LIAOHsienHsiangQuestions: Question[] = [
     ],
     explanation: {
       text: '國民黨立委廖先翔提案刪除「白匏湖運動休閒生態園區暨社會住宅興建計劃」預算1.24億。廖先翔今天表示，他支持社宅政策，但一個連鹹酥雞都買不到的地點誰要住！',
-      reference: 'https://udn.com/news/story/124338/8502406'
+      reference: ['https://www.cna.com.tw/news/aipl/202501200325.aspx','https://udn.com/news/story/124338/8502406']
     }
   },
   {
@@ -1369,7 +1369,7 @@ const LIAOHsienHsiangQuestions: Question[] = [
     image: getImagePath("/images/question/LIAOHsienHsiang_q_pic_02.webp"),
     options: [
       { id: 'LIAOHsienHsiang5-1', text: '中國不買白蝦，宏都拉斯也沒回來，那我砍外交預算不是剛好而已？', points: 4354, isCorrect: true },
-      { id: 'LIAOHsienHsiang5-2', text: '這根本不是我該碰的預算啦，我專業在高鐵不是外交會。', points: 6, isCorrect: false },
+      { id: 'LIAOHsienHsiang5-2', text: '這根本不是我該碰的預算啦，我專業在高鐵不是外交部。', points: 6, isCorrect: false },
       { id: 'LIAOHsienHsiang5-3', text: '先檢查一下外交部預算有沒有浮編，反正審預算不分你我他。', points: 4, isCorrect: false },
     ],
     explanation: {
@@ -1379,58 +1379,58 @@ const LIAOHsienHsiangQuestions: Question[] = [
   },
   {
     id: 'LIAOHsienHsiang6',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'LIAOHsienHsiang6-1', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 10, isCorrect: false },
-      { id: 'LIAOHsienHsiang6-2', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
-      { id: 'LIAOHsienHsiang6-3', text: '法案應該要公開討論，不是玩暗黑通關。', points: 3, isCorrect: false },
+      { id: 'LIAOHsienHsiang6-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 10, isCorrect: false },
+      { id: 'LIAOHsienHsiang6-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'LIAOHsienHsiang6-3', text: '不會吧！三分鐘是要討論什麼？', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
     id: 'LIAOHsienHsiang7',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
-      { id: 'LIAOHsienHsiang7-1', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'LIAOHsienHsiang7-1', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
       { id: 'LIAOHsienHsiang7-2', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 4, isCorrect: false },
       { id: 'LIAOHsienHsiang7-3', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 2, isCorrect: false },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
   {
     id: 'LIAOHsienHsiang8',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
       { id: 'LIAOHsienHsiang8-1', text: '理性討論，找到對台灣最有利的平衡點。', points: 15, isCorrect: false },
-      { id: 'LIAOHsienHsiang8-2', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 8, isCorrect: false },
+      { id: 'LIAOHsienHsiang8-2', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 8, isCorrect: false },
       { id: 'LIAOHsienHsiang8-3', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
     id: 'LIAOHsienHsiang9',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'LIAOHsienHsiang9-1', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 12, isCorrect: false },
-      { id: 'LIAOHsienHsiang9-2', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 6, isCorrect: false },
-      { id: 'LIAOHsienHsiang9-3', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
+      { id: 'LIAOHsienHsiang9-1', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 12, isCorrect: false },
+      { id: 'LIAOHsienHsiang9-2', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 6, isCorrect: false },
+      { id: 'LIAOHsienHsiang9-3', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她。', points: 1766, isCorrect: true },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
   {
@@ -1440,7 +1440,7 @@ const LIAOHsienHsiangQuestions: Question[] = [
     options: [
       { id: 'LIAOHsienHsiang10-1', text: '謝謝總召，但我還是想認真開會為民服務。', points: 10, isCorrect: false },
       { id: 'LIAOHsienHsiang10-2', text: '總召叫我去哪我就去哪，絕對服從！', points: 1450, isCorrect: true },
-      { id: 'LIAOHsienHsiang10-3', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 3, isCorrect: false },
+      { id: 'LIAOHsienHsiang10-3', text: '我很想參加，可惜剛好有事情！', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
@@ -1480,12 +1480,12 @@ const LOCHIHCHIANGQuestions: Question[] = [
   },
   {
     id: 'LOCHIHCHIANG3',
-    text: '立法院部分黨團提出了65歲以上免健保費一案，在深入研究後，我決定',
+    text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'LOCHIHCHIANG3-1', text: '研究什麼啦，按鈕在哪我就按哪。', points: 4277, isCorrect: true },
-      { id: 'LOCHIHCHIANG3-2', text: '反對，健保費已經捉襟見肘了，這提案大概會被罵爆。', points: 5, isCorrect: false },
-      { id: 'LOCHIHCHIANG3-3', text: '反對，沒事找事造成世代對立做啥', points: 3, isCorrect: false },
+      { id: 'LOCHIHCHIANG3-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
+      { id: 'LOCHIHCHIANG3-2', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 5, isCorrect: false },
+      { id: 'LOCHIHCHIANG3-3', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -1494,30 +1494,30 @@ const LOCHIHCHIANGQuestions: Question[] = [
   },
   {
     id: 'LOCHIHCHIANG4',
-    text: '不知道為什麼，黨團突然說要提案中配取得身分證年限從六年改為四年。',
+    text: '黨團突然說要提案中配取得身分證年限從六年改為四年。面對這項疑問，你應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_04.webp"),
     options: [
-      { id: 'LOCHIHCHIANG4-1', text: '我不能提這種幫中國洗人口的提案。', points: 15, isCorrect: false },
-      { id: 'LOCHIHCHIANG4-2', text: '本來就已經有特殊待遇，沒必要再開綠燈了。', points: 8, isCorrect: false },
-      { id: 'LOCHIHCHIANG4-3', text: '原本六年太久了，要照顧同源同胞，四年比較恰當。', points: 6666, isCorrect: true },
+      { id: 'LOCHIHCHIANG4-1', text: '我不能接受這種獨厚特定國家配偶的提案。', points: 15, isCorrect: false },
+      { id: 'LOCHIHCHIANG4-2', text: '相較其他外籍配偶，中國籍配偶還可以讓年滿70歲、未滿12歲直系親屬依親，沒必要再開綠燈了。', points: 8, isCorrect: false },
+      { id: 'LOCHIHCHIANG4-3', text: '原本六年太久了，要照顧我大中華民族，四年比較恰當。', points: 6666, isCorrect: true },
     ],
     explanation: {
       text: '國民黨立委提案修法擬將中國籍配偶取得身分證時間從6年縮短成4年，。現有政策為中配依親滿4年、連續長居2年即可申請身分證，不像外籍配偶須先放棄原有國籍才能取得我國身分證。還能讓親人來台享用健保，國民黨為何此時要縮短時程、啟人疑竇呢？',
-      reference: 'https://news.pts.org.tw/article/733781'
+      reference: ['https://news.pts.org.tw/article/733781','https://watchout.tw/reports/7JUZjXjrhzkKE7MHdynZ']
     }
   },
   {
     id: 'LOCHIHCHIANG5',
-    text: '黨團要修《立法院職權行使法》條例，你建議如何做？',
+    text: '黨團要修《立法院職權行使法》條例，你如何建議？',
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
-      { id: 'LOCHIHCHIANG5-1', text: '該開公聽會就開，該審慎就審慎，此事非同小可，不能忽視。', points: 12, isCorrect: false },
+      { id: 'LOCHIHCHIANG5-1', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 12, isCorrect: false },
       { id: 'LOCHIHCHIANG5-2', text: '理性討論，找到對台灣最有利的平衡點。', points: 6, isCorrect: false },
       { id: 'LOCHIHCHIANG5-3', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
     ],
     explanation: {
       text: '2024/5/21在場外大批民眾要求退回委員會重新審查《立法院職權行使法》狀況下，在最後一刻，藍白兩黨提出沒有被實質討論過的最高機密版本，並以舉手表決方式強行通過。被憲法法庭認定有諸多違憲的法案，該法案賦予立法院調查權，有權利要公私部門甚至個人提供這各種資訊，且設定禁止反質詢規定，問為什麼或拒絕提供就是處罰，在缺乏第三方制衡下，形同一種強力的空白授權。',
-      reference: 'https://watchout.tw/reports/KK9ll6K03prNMxllAru8'
+      reference: ['https://watchout.tw/reports/KK9ll6K03prNMxllAru8','https://www.twreporter.org/a/constitutional-court-rejects-most-expansions-of-expanding-legislative-powers','https://www.twreporter.org/a/legislature-voting-on-controversial-political-reforms','https://tfc-taiwan.org.tw/migration_article_105451_10635/']
     }
   },
   {
@@ -1526,7 +1526,7 @@ const LOCHIHCHIANGQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'LOCHIHCHIANG6-1', text: '總召叫我去哪我就去哪，絕對服從！', points: 8888, isCorrect: false },
-      { id: 'LOCHIHCHIANG6-2', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 1450, isCorrect: true },
+      { id: 'LOCHIHCHIANG6-2', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
       { id: 'LOCHIHCHIANG6-3', text: '謝謝總召，但我還是想認真開會為民服務。', points: 3, isCorrect: false },
     ],
     explanation: {
@@ -1536,58 +1536,58 @@ const LOCHIHCHIANGQuestions: Question[] = [
   },
   {
     id: 'LOCHIHCHIANG7',
-    text: '自稱金門坦克的玉珍姐說為了金門發財…發展，我們要修改離島條例18條。',
+    text: '自稱金門坦克的玉珍姐說為了金門發展，通知要修改離島建設條例18條。你該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_05.webp"),
     options: [
-      { id: 'LOCHIHCHIANG7-1', text: '沒有人比玉珍姐更懂金門，我一定大力支持她。', points: 1766, isCorrect: true },
-      { id: 'LOCHIHCHIANG7-2', text: '拒絕，這提案像極了一帶一路，包裝再好也不能偷渡統戰資源。', points: 8, isCorrect: false },
-      { id: 'LOCHIHCHIANG7-3', text: '只要玉珍開口，票一定掉，絕對不要讓我連署這種案。', points: 5, isCorrect: false },
+      { id: 'LOCHIHCHIANG7-1', text: '玉珍姐提出的法案一定是在照顧金門的同胞，我要大力支持她。', points: 1766, isCorrect: true },
+      { id: 'LOCHIHCHIANG7-2', text: '開放自由貿易區有可能為中國洗產地，屆時美國對台灣半導體相關產業免關稅的優惠可能會被取消，我反對這項提案。', points: 8, isCorrect: false },
+      { id: 'LOCHIHCHIANG7-3', text: '要明文規定大陸地區人民有點奇怪誒？我覺得需要再仔細研究。', points: 5, isCorrect: false },
     ],
     explanation: {
       text: '陳玉珍日前針對「離島建設條例」第18條之1的第6項提出修正草案，明定大陸地區人民、法人、團體、機構、資金、物品、商品、勞務及服務，進出離島自由貿易示範區，相關辦法由事業主管機關擬定；並於說明欄第7點述明，為便利「並適度鬆綁相關規定」。',
-      reference: 'https://www.cna.com.tw/news/aipl/202504110281.aspx'
+      reference: ['https://www.cna.com.tw/news/aipl/202504110281.aspx','https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00021.pdf']
     }
   },
   {
     id: 'LOCHIHCHIANG8',
-    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完七百多份提案，是在哭喔⋯⋯',
+    text: '這會期就快過了，中央政府總預算今天才要審，要熬夜表決完700多份提案⋯⋯',
     image: getImagePath("/images/question/common_q_pic_07.webp"),
     options: [
-      { id: 'LOCHIHCHIANG8-1', text: '本來就該把關預算，但連衛福部都刪到剩一塊錢有點太誇張了....', points: 10, isCorrect: true },
-      { id: 'LOCHIHCHIANG8-2', text: '提案應該都沒問題，快點表決完就好。', points: 3838, isCorrect: true },
-      { id: 'LOCHIHCHIANG8-3', text: '法案還改個沒完，怎麼讓我們正常表決？我要去抗議。', points: 3, isCorrect: false },
+      { id: 'LOCHIHCHIANG8-1', text: '不怕700多份提案，但為什麼衛福部被刪到剩一塊錢？', points: 10, isCorrect: true },
+      { id: 'LOCHIHCHIANG8-2', text: '沒關係，這不用動腦，只要記得跟著黨舉手表決就好！', points: 3838, isCorrect: true },
+      { id: 'LOCHIHCHIANG8-3', text: '提案內容怎麼邊表決邊修改，這樣我舉手通過的到底是哪個內容？', points: 3, isCorrect: false },
     ],
     explanation: {
       text: '國民黨及民眾黨合力提出案海攻勢，出現許多理由、金額和項目都令外界匪夷所思的提案。在民意壓力下整合至 700 多案進入表決大戰並在藍白聯手優勢人數下通過。期間更出現邊表決邊改提案、沒看到修正文字就表決等荒腔走板的議事失序。',
-      reference: 'https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh'
+      reference: ['https://watchout.tw/reports/tbHOpYA5buuRfEInq1Kh','https://pourquoi.tw/taiwan-news-20240114-4/']
     }
   },
   {
     id: 'LOCHIHCHIANG9',
-    text: '你同事徐欣瑩用鎖住會議室大絕招，用三分鐘把超嚴格選罷法提案送出委員會，你怎麼看？',
+    text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'LOCHIHCHIANG9-1', text: '鎖門是必要手段，太多雜音就會拖進度。', points: 1949, isCorrect: true },
-      { id: 'LOCHIHCHIANG9-2', text: '不行啦，這根本戒嚴2.0，我都看不下去', points: 6, isCorrect: false },
-      { id: 'LOCHIHCHIANG9-3', text: '法案應該要公開討論，不是玩暗黑通關。', points: 4, isCorrect: false },
+      { id: 'LOCHIHCHIANG9-1', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'LOCHIHCHIANG9-2', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 6, isCorrect: false },
+      { id: 'LOCHIHCHIANG9-3', text: '不會吧！三分鐘是要討論什麼？', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
-      reference: 'https://news.pts.org.tw/article/729015'
+      reference: ['https://news.pts.org.tw/article/729015','https://vip.udn.com/vip/story/122468/8428367','https://www.ettoday.net/news/20241216/2874343.htm']
     }
   },
   {
     id: 'LOCHIHCHIANG10',
-    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，民進黨立委說要摸黑闖入立法院，佔領主席台。你打算？',
+    text: '明天要審《選罷法》、《憲訴法》與《財劃法》三讀前夕，立場相左的黨派立委說要摸黑闖入立法院，佔領主席台。與你同黨的立委同事打算？',
     image: getImagePath("/images/question/common_q_pic_01.webp"),
     options: [
       { id: 'LOCHIHCHIANG10-1', text: '找總召討論，大家帶枕頭去守夜兼打地鋪。', points: 64, isCorrect: false },
       { id: 'LOCHIHCHIANG10-2', text: '先冷靜協商啦，不然又要演全武行，暴力行為不好。', points: 4, isCorrect: false },
-      { id: 'LOCHIHCHIANG10-3', text: '他們敢進來，我就燒立法院。', points: 1969, isCorrect: true },
+      { id: 'LOCHIHCHIANG10-3', text: '他們敢進來，就把他們全部燒掉。', points: 1969, isCorrect: true },
     ],
     explanation: {
       text: '2024/12/18多位民進黨立委摸黑闖入立法院站裡主席台要對《選罷法》、《憲訴法》與《財劃法》三讀作抗爭，立法院門口爆發推擠，國民黨立委鄭天財甚至口出狂言「你們全部都進去，我就把它燒掉」',
-      reference: 'https://www.ftvnews.com.tw/news/detail/2024C19W0444'
+      reference: ['https://www.ftvnews.com.tw/news/detail/2024C19W0444','https://youtu.be/1pwFs1T_9xA?si=XTRFeqT7XnjslAv-']
     }
   },
 ];
