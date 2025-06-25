@@ -220,8 +220,8 @@ const ResponsiveResultsScreen: React.FC = () => {
 
   const apiDomain = import.meta.env.VITE_API_DOMAIN;
   const shareUrl = `${apiDomain}/share/default`;
-  const shareText = `#雙和罷免團隊 全新企劃第二彈 來囉！\n隆重獻上「#國會派對：生存之亂」 playbaba.tw\n讓你扮演國民黨立委深入當今 #國會亂象！\n是要 #跟隨民意，還是要 #聽從黨意？\n快上 playbaba.tw 試試看！\n各位不熟政治的朋友們快來體驗國會生態！`;
-  const shareLineText = `雙和罷免團隊全新企劃第二彈來囉！\n隆重獻上「國會派對：生存之亂」 \n各位不熟政治的朋友們快來體驗國會生態！`;
+  const shareText = `#雙和罷免團隊 全新企劃第二彈 來囉！\n隆重獻上「#國會派對：生存之亂」 playbaba.tw\n讓你扮演國民黨立委深入當今 #國會亂象！\n是要 #跟隨民意，還是要 #聽從黨意？\n快上 playbaba.tw 試試看！\n各位不熟政治的朋友們快來體驗國會亂象！`;
+  const shareLineText = `雙和罷免團隊全新企劃第二彈來囉！\n隆重獻上「國會派對：生存之亂」 \n各位不熟政治的朋友們快來體驗國會亂象！`;
   
   const handleScreenshotShare = async () => {
     const canvas = await html2canvas(document.body); // 你可以改成特定區域
@@ -415,7 +415,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                             </div>
                             <div className="flex-col w-1/2">
                               <p className="flex font-medium text-gray-200 pl-6 tracking-wide text-sm xs:text-lg">{getResultTitle()}</p>
-                              <p className="flex font-bold text-white pl-6 text-xs xs:text-base se:text-xs md:text-sm sp:text-sm md:text-xl">{getPersonalityTrait()}</p>
+                              <p className="flex font-bold text-white pl-6 text-xs xs:text-sm se:text-xs md:text-sm sp:text-sm md:text-xl">{getPersonalityTrait()}</p>
                             </div>
                           </div>
                         </div>
@@ -427,7 +427,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                     <div
                       className={`${isDesktop
                         ? "flex flex-row items-center w-3/4 justify-center z-40 min-h-[150px] md:min-h-[200px] w-2/3 md:w-3/4 lg:w-full"
-                        : "flex flex-row items-center w-4/5 justify-center z-40 xs:mt-0 xs:w-full"
+                        : "flex flex-row items-start w-4/5 justify-center z-40 xs:w-3/4 xs:-mt-8 md:w-full"
                         }`}
                     >
                       <motion.button
@@ -440,7 +440,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                         }}
                         className={`${isDesktop
                           ? "font-medium mx-4 w-1/3 lg:w-1/4"
-                          : "font-medium mx-4 w-1/3 lg:w-1/4"
+                          : "font-medium mx-4 w-full"
                           }`}
 
                         whileHover={{ scale: 1.02 }}
@@ -453,7 +453,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                         onClick={restartGame}
                         className={`${isDesktop
                           ? "font-medium mx-4 w-1/3 lg:w-1/4"
-                          : "font-medium mx-4 w-1/3 lg:w-1/4"
+                          : "font-medium mx-4 w-full"
                           }`}
 
                         whileHover={{ scale: 1.02 }}
