@@ -31,10 +31,14 @@ const ShareDropdown = ({
 
   const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  const lineText = messageText.replace(/\n/g, '%0A');
+  const lineText = shareLineText.replace(/\n/g, '%0A');
+  /*
   const lineShareUrl = isMobile
     ? `https://line.me/R/share?text=${lineText}`
     : `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
+  */
+  
+  const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${encodedUrl}&text=${encodeURIComponent(shareLineText)}`;
 
   const quote = shareText;
   const hashtag = "#國會派對";
