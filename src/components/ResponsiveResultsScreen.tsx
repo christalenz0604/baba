@@ -427,7 +427,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                     <div
                       className={`${isDesktop
                         ? "flex flex-row items-center w-3/4 justify-center z-40 min-h-[150px] md:min-h-[200px] w-2/3 md:w-3/4 lg:w-full"
-                        : "flex flex-row items-start w-4/5 justify-center z-40 xs:w-3/4 xs:-mt-8 md:w-full"
+                        : "flex flex-row items-start w-4/5 justify-center z-40 xs:w-3/4 xs:-translate-y-5 md:w-full"
                         }`}
                     >
                       <motion.button
