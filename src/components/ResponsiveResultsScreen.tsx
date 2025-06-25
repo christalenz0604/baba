@@ -499,7 +499,7 @@ const ResponsiveResultsScreen: React.FC = () => {
             <div className="fixed bottom-0 w-full overflow-hidden z-50 left-0 safe-footer" style={{ minHeight: '0vh' }}>
               {/* Gradient background fixed to bottom to cover entire footer */}
               <div
-                className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] xs:h-[40vh] z-0 bg-gradient-to-b from-transparent via-transparent safe-footer ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
+                className={`pointer-events-none fixed bottom-0 left-0 w-full h-[50vh] xs:h-[25vh] z-0 bg-gradient-to-b from-transparent via-transparent safe-footer ${getResult() === '成功' ? 'to-[#fe3427]/90' : 'to-[#1f31fe]/90'}`}
               ></div>
 
               {/* Footer subscription section */}
