@@ -11,6 +11,7 @@ import { FaThreads } from 'react-icons/fa6';
 const ShareDropdown = ({
   shareUrl,
   shareText,
+  shareLineText,
   imageData,
   onOpenChange,
   open: controlledOpen,
@@ -26,6 +27,7 @@ const ShareDropdown = ({
 
   const encodedUrl = encodeURIComponent(shareUrl);
   const messageText = `${shareText}\n${shareUrl}`;
+  const messageLineText = `${shareLineText}\n${shareUrl}`;
 
   const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 

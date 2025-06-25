@@ -220,7 +220,8 @@ const ResponsiveResultsScreen: React.FC = () => {
 
   const apiDomain = import.meta.env.VITE_API_DOMAIN;
   const shareUrl = `${apiDomain}/share/default`;
-  const shareText = `#雙和罷免團隊 全新企劃第二彈 來囉！\n隆重獻上「#國會派對：生存之亂」 playbaba.tw\n讓你扮演國民黨立委深入當今 #國會亂象！\n是要 #跟隨民意，還是要 #聽從黨意？\n快上 playbaba.tw 試試看！\n各位 #政治冷感 的朋朋們快來體驗國會亂象！`;
+  const shareText = `#雙和罷免團隊 全新企劃第二彈 來囉！\n隆重獻上「#國會派對：生存之亂」 playbaba.tw\n讓你扮演國民黨立委深入當今 #國會亂象！\n是要 #跟隨民意，還是要 #聽從黨意？\n快上 playbaba.tw 試試看！\n各位 #不熟政治 的朋友們快來體驗國會亂象！`;
+  const shareLineText = `雙和罷免團隊 全新企劃第二彈 來囉！\n隆重獻上「國會派對：生存之亂」 playbaba.tw\n讓你扮演國民黨立委深入當今國會亂象！\n是要跟隨民意，還是要聽從黨意？\n快上 playbaba.tw 試試看！\n各位不熟政治的朋友們快來體驗國會亂象！`;
   
   const handleScreenshotShare = async () => {
     const canvas = await html2canvas(document.body); // 你可以改成特定區域
@@ -467,6 +468,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                           {<ShareDropdown
                             shareUrl={shareUrl}
                             shareText={shareText}
+                            shareLineText={shareLineText}
                             imageData={screenshotUrl}
                             open={showShare}
                             setOpen={setShowShare}
