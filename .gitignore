@@ -24,6 +24,8 @@ dist-ssr
 *.sw?
 *.jpg
 *.png
+!green_KuaiKuai.jpg
+!8bit_green_KuaiKuai.png
 *.sh
 .env
 src/data/f_qtext_images.csv
