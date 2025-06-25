@@ -376,7 +376,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                           <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
                             <p className="flex font-medium text-gray-200 text-base md:text-2xl">累積連署書</p>
                             <img src={getPaperCountImage()} alt="" className="w-[60%] h-[60%] object-cover" />
-                            <p className="flex text-4xl font-bold text-white xs:text-2xl">x {gameState.score}</p>
+                            <p className="flex text-4xl font-bold text-white xs:text-xl">x {gameState.score}</p>
                           </div>
                           <div className="flex flex-col h-auto items-center" style={{ width: '32rem' }}>
                             <p className="flex font-medium text-gray-200 text-base md:text-2xl">{getResultTitle()}</p>
@@ -386,14 +386,14 @@ const ResponsiveResultsScreen: React.FC = () => {
                         </div>
                       </>)
                       :
-                      (<div className="mt-40">
+                      (<div className="mt-28">
                         <div className="flex flex-row items-center w-full justify-center pt-4">
                           <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
                             <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
                           </div>
                           <div className="flex flex-col w-1/2 h-auto">
-                            <p className="flex w-full pl-6 text-gray-200 text-base xs:text-sm">你扮演的立委是</p>
-                            <h3 className="flex font-semibold pl-6 text-4xl xs:text-xl text-white">{character.name}</h3>
+                            <p className="flex w-full pl-6 text-gray-200 text-sm xs:text-lg">你扮演的立委是</p>
+                            <h3 className="flex font-semibold pl-6 text-white text-3xl xs:text-4xl">{character.name}</h3>
                           </div>
                         </div>
                         <div className="w-full flex flex-col">
@@ -402,19 +402,19 @@ const ResponsiveResultsScreen: React.FC = () => {
                               <img src={getPaperCountImage()} alt="" className="w-3/4 h-3/4 object-cover" />
                             </div>
                             <div className="flex-col w-1/2">
-                              <p className="flex font-medium text-gray-200 pl-6">累積連署書</p>
-                              <p className="flex text-2xl font-bold text-white pl-6">x {gameState.score}</p>
+                              <p className="flex font-medium text-gray-200 pl-6 text-sm xs:text-lg">累積連署書</p>
+                              <p className="flex text-2xl font-bold text-white pl-6 text-3xl xs:text-4xl">x {gameState.score}</p>
                             </div>
                           </div>
                         </div>
                         <div className="w-full flex flex-col pb-4">
-                          <div className="flex flex-row justify-center items-center rounded-0 -mt-6">
+                          <div className="flex flex-row justify-center items-center rounded-0 -mt-8">
                             <div className="flex items-center mb-2 w-1/2 h-auto p-2">
                               <img src={getResultTitleImage()} alt="" className="w-3/4 h-3/4 object-cover" />
                             </div>
                             <div className="flex-col w-1/2">
-                              <p className="flex font-medium text-gray-200 pl-6 text-2xl xs:text-lg tracking-wide">{getResultTitle()}</p>
-                              <p className="flex text-l font-bold text-white pl-6 text-sm xs:text-xs">{getPersonalityTrait()}</p>
+                              <p className="flex font-medium text-gray-200 pl-6 tracking-wide text-sm xs:text-lg">{getResultTitle()}</p>
+                              <p className="flex font-bold text-white pl-6 text-xs xs:text-base se:text-xs md:text-sm sp:text-sm md:text-xl">{getPersonalityTrait()}</p>
                             </div>
                           </div>
                         </div>
@@ -425,8 +425,8 @@ const ResponsiveResultsScreen: React.FC = () => {
                     {/* add imeages on the buttons. share is a share icon and restart is a restart icon. */}
                     <div
                       className={`${isDesktop
-                        ? "flex flex-row items-center w-full justify-center z-40 min-h-[150px] md:min-h-[200px] w-2/3 md:w-3/4 lg:w-full"
-                        : "flex flex-row items-center w-full justify-center z-40"
+                        ? "flex flex-row items-center w-3/4 justify-center z-40 min-h-[150px] md:min-h-[200px] w-2/3 md:w-3/4 lg:w-full"
+                        : "flex flex-row items-center w-4/5 justify-center z-40 xs:mt-0 xs:w-full"
                         }`}
                     >
                       <motion.button
@@ -439,7 +439,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                         }}
                         className={`${isDesktop
                           ? "font-medium mx-4 w-1/3 lg:w-1/4"
-                          : "font-medium mx-4 w-1/3 lg:w-1/4 se:mt-4"
+                          : "font-medium mx-4 w-1/3 lg:w-1/4"
                           }`}
 
                         whileHover={{ scale: 1.02 }}
@@ -452,7 +452,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                         onClick={restartGame}
                         className={`${isDesktop
                           ? "font-medium mx-4 w-1/3 lg:w-1/4"
-                          : "font-medium mx-4 w-1/3 lg:w-1/4 se:mt-4"
+                          : "font-medium mx-4 w-1/3 lg:w-1/4"
                           }`}
 
                         whileHover={{ scale: 1.02 }}

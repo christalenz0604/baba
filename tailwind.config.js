@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       screens: {
-        'xs': '375px', // for iPhone SE and below
+        'sg': { 'raw': '(max-width: 360px)' },
+        'sp': { 'raw': '(max-width: 390px)' },
         'se': { 'raw': '(max-height: 667px)' },
       },
     },
