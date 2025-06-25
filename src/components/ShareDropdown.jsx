@@ -190,13 +190,13 @@ const ShareDropdown = ({
           </p>
 
           <img
-            src={getImagePath("/images/share_1200x630.png")}
+            src={imageData}
             alt="分享圖片"
             className="w-full rounded-lg mb-4 border"
           />
 
           <a
-            href={getImagePath("/images/share_1200x630.png")}
+            href={imageData}
             download="分享圖.png"
             className="inline-block mb-3 px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition"
           >
