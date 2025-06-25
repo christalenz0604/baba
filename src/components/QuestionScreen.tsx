@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X } from "lucide-react";
 import { questionSets } from '../data/questions';
 import { getImagePath } from '../utils/pathUtils';
+import { useAudio } from '../components/AudioProvider';
+import { MuteToggleButton } from '../components/MuteToggleButton';
 
 
 const QuestionScreen: React.FC = () => {
@@ -62,6 +64,8 @@ const QuestionScreen: React.FC = () => {
   const maxScore = 200;
 
   return (
+    <>
+	<MuteToggleButton />
     <div className="full-height">
     <div 
       style={{
@@ -272,6 +276,7 @@ const QuestionScreen: React.FC = () => {
       </div>
     </div>
 	</div>
+	</>
   );
 };
 

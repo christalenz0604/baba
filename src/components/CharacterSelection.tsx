@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { getImagePath } from '../utils/pathUtils';
 
+import { useAudio } from '../components/AudioProvider';
+import { MuteToggleButton } from '../components/MuteToggleButton';
+
 const CharacterSelection: React.FC = () => {
   const { selectCharacter } = useGame();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,6 +23,8 @@ const CharacterSelection: React.FC = () => {
   const character = characters[currentIndex];
 
   return (
+    <>
+	<MuteToggleButton />
     <div className="full-height flex flex-col overflow-auto">
     <div className="flex flex-col items-center justify-start flex-grow bg-[url('/images/background.webp')] bg-top bg-repeat-x bg-[length:auto_100%] bg-scroll font-pixel relative">
 
@@ -109,6 +114,7 @@ const CharacterSelection: React.FC = () => {
       </div>
     </div>
 	</div>
+	</>
   );
 };
 

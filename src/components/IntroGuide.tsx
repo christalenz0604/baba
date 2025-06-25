@@ -4,6 +4,10 @@ import useTypewriter from '../context/Typewriter';
 import { AnimatePresence, motion } from 'framer-motion';
 import { getImagePath } from '../utils/pathUtils';
 
+import { useAudio } from '../components/AudioProvider';
+import { MuteToggleButton } from '../components/MuteToggleButton';
+
+
 interface IntroGuideProps {
   onContinue: () => void;
 }
@@ -23,7 +27,7 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
 
   const text = [
     `歡迎進入國會派對！`,
-    `你將以立法委員的身分前進國會。`,
+    `你將以國民黨立法委員的身分前進國會。`,
     "面對各種關於國會生涯的重要抉擇，",
     `請試著用為黨為民的角度思考，`,
     "努力在國會活到最後一刻！"
@@ -52,6 +56,8 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
   }, [fadeOut, onContinue]);
 
   return (
+    <>
+	<MuteToggleButton />
     <AnimatePresence>
       {!fadeOut && (
         <div className="h-[calc(var(--vh,1vh)_*100)] flex flex-col bg-[#90a5c2] overflow-hidden">
@@ -96,16 +102,24 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
 
                   <h1 className="text-3xl font-bold mb-4">遊戲說明</h1>
 
-                  <p className="text-lg max-w-xl whitespace-pre-wrap leading-relaxed mb-6">
-                    {introText.split('\n').map((line, index, arr) => (
-                      <span key={index} className="inline-block">
-                        {line}
-                        {index === arr.length - 1 && !done && (
-                          <span className="animate-pulse">◍</span>
-                        )}
-                      </span>
-                    ))}
-                  </p>
+                  <p
+                    className="text-lg max-w-xl whitespace-pre-wrap leading-relaxed mb-6"
+                    dangerouslySetInnerHTML={{
+                      __html: introText
+                        .split('\n')
+                        .map((line, index) => {
+                        // 針對「國民黨立法委員」加上底線或粗體樣式
+                          const formatted = line.replace(
+                            /國民黨立法委員/g,
+                            '<span class="font-bold underline text-yellow-300">國民黨立法委員</span>'
+                          );
+                          return index === introText.split('\n').length - 1 && !done
+                            ? `${formatted}<span class="animate-pulse">◍</span>`
+                            : formatted;
+                          })
+                          .join('<br/>'),
+                        }}
+                  />
                 </div>
               </div>
             </div>
@@ -125,6 +139,7 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
         </div>
       )}
     </AnimatePresence>
+	</>
   );
 };
 

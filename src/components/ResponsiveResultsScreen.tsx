@@ -11,6 +11,8 @@ import { getImagePath } from '../utils/pathUtils';
 import { launchConfetti } from '../utils/confetti';
 import { launchFirework } from '../utils/firework';
 import { X } from 'lucide-react';
+import { useAudio } from '../components/AudioProvider';
+import { MuteToggleButton } from '../components/MuteToggleButton';
 
 const ResponsiveResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
@@ -241,10 +243,12 @@ const ResponsiveResultsScreen: React.FC = () => {
   const boardImage = getImagePath(`/images/results/objects/result_Board_${isDesktop ? 'WebSize' : 'phoneSize'}_${getResult() === '成功' ? 'Win' : 'Fail'}.webp`);
 
   return (
+    <>
+	<MuteToggleButton />
     <div>
       {showIntroVideo && (
         <div className="full-height">
-          <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center safe-footer">
+          <div className="fixed inset-0 z-[9998] bg-black flex items-center justify-center safe-footer">
             <video
               ref={videoRef}
               src={getResult() === "成功" ? `${getImagePath('/media/results_anime_success.mp4')}` : `${getImagePath('/media/results_anime_fail.mp4')}`}
@@ -720,6 +724,7 @@ const ResponsiveResultsScreen: React.FC = () => {
         </div>
       )}
     </div>
+	</>
   );
 };
 

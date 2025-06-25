@@ -184,3 +184,51 @@ hr.dotted-line {
     }
   }
 }
+
+
+.skip-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Unifont-JP', monospace;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  z-index: 10;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.skip-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.mute-button {
+  all: unset !important;
+  position: fixed !important;
+  top: 20px !important;
+  left: 20px !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  font-family: 'Unifont-JP', monospace !important;
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  image-rendering: pixelated !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.1s !important;
+}
+
+.mute-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}

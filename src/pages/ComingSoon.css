@@ -4,7 +4,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #f8fafc;
+    background-image: url("/images/background_landing.webp");
+    background-repeat: repeat-x;         /* 水平重複 */
+    background-size: auto 100%;          /* 自動寬度，但高度填滿畫面 */
+    background-position: bottom left;    /* 從左下角開始貼圖 */
 }
 
 .comingsoon-title {

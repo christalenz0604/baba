@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ComingSoon.css';
 import '../styles/pixel.css';
+import '../landing/App_landing.css';
 
 import { needPassword } from '../types.ts';
 
-const PASSWORD = 'baba19890604baba';
+import { useAudio } from '../components/AudioProvider';
+import { MuteToggleButton } from '../components/MuteToggleButton';
+
+
+const PASSWORD = 'abyalp';
 
 export default function ComingSoon() {
   const [input, setInput] = useState('');
@@ -42,7 +47,9 @@ export default function ComingSoon() {
   };
 
   return (
-    <div className="full-height comingsoon-container font-pixel">
+    <>
+	<MuteToggleButton />
+    <div className="full-height comingsoon-container font-pixel container_landing">
       <h1 className="comingsoon-title">
         Coming Soon
         <span className="dot-animate">...</span>
@@ -62,5 +69,6 @@ export default function ComingSoon() {
       </form>
       {error && <div className="comingsoon-error">{error}</div>}
     </div>
+	</>
   );
 } 

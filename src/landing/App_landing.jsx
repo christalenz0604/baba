@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { needPassword } from '../types.ts';
 
-
+import { useAudio } from '../components/AudioProvider';
+import { MuteToggleButton } from '../components/MuteToggleButton';
 
 function Landing() {
   const lines = ["穿越紅毯，朝小野大的全新國會正式拉開序幕，",
@@ -57,6 +58,8 @@ function Landing() {
     }
   }, [clicked]);
 
+  const { play } = useAudio(); // 使用音樂
+
   // next page or skip animation when clicked
   const handleClick = () => {
     if (allowClick) {
@@ -65,6 +68,8 @@ function Landing() {
   };
 
   return (
+    <>
+	<MuteToggleButton />
     <div className="full-height container_landing" onClick={handleClick}>
       {!done && (
         <button className="skip-button" onClick={(e) => {
@@ -88,6 +93,7 @@ function Landing() {
         </div>
       </div>
     </div>
+	</>
   );
 }
 
