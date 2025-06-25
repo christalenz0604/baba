@@ -23,6 +23,8 @@ const ShareDropdown = ({
   const setOpen = isControlled ? setControlledOpen : setUncontrolledOpen;
 
   const [showIGModal, setShowIGModal] = useState(false);
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  
   const dropdownRef = useRef(null);
 
   const encodedUrl = encodeURIComponent(shareUrl);
@@ -158,15 +160,39 @@ const ShareDropdown = ({
         {/* 📷 儲存圖片 */}
         {imageData && (
           isMobile ? (
-            <div className="flex flex-col items-center">
-              <p className="text-sm text-white mb-2">📱 請長按下方圖片並選擇「儲存圖片」</p>
-              <img
-                src={imageData}
-                alt="長按儲存圖片"
-                className="w-64 rounded-lg border border-white"
-                onContextMenu={(e) => e.preventDefault()} // 防止右鍵選單干擾
-              />
-            </div>
+            <>
+            <button
+              onClick={() => setShowSaveModal(true)}
+              className="hover:scale-110 transition-transform"
+            >
+            <img
+              src={getImagePath("/images/results/objects/image-download.webp")}
+              alt="儲存圖片"
+              className="w-8 h-8"
+            />
+            </button>
+
+            {/* 📱 Modal 彈窗顯示儲存圖 */}
+            {showSaveModal && (
+              <div className="fixed inset-0 z-50 bg-black/80 flex flex-col items-center justify-center px-4">
+                <p className="text-white text-center text-base mb-4">
+                  請長按下方圖片，選擇「儲存圖片」到相簿
+                </p>
+                <img
+                  src={imageData}
+                  alt="請長按儲存圖片"
+                  className="w-64 rounded-lg border border-white"
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+                <button
+                  onClick={() => setShowSaveModal(false)}
+                  className="mt-6 text-white underline text-sm"
+                >
+                  關閉
+                </button>
+              </div>
+            )}
+            </>
           ) : (
             <a
               href={imageData}
@@ -181,9 +207,6 @@ const ShareDropdown = ({
             </a>
           )
         )}
-
-
-
         </div>
 
 
