@@ -109,7 +109,7 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
                     <h1 className="text-3xl font-bold mb-4">遊戲說明</h1>
 
                     <p
-                      className="text-lg max-w-xl whitespace-pre-wrap leading-relaxed mb-6"
+                      className="text-base xs:text-lg md:text-xl max-w-xl whitespace-pre-wrap leading-relaxed mb-6"
                       dangerouslySetInnerHTML={{
                         __html: introText
                           .split('\n')
