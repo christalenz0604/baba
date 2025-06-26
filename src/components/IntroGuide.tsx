@@ -19,6 +19,8 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
   const [forceFinish, setForceFinish] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
+  const [allowClick, setAllowClick] = useState(false);
+
   const imageWrapperRef = useRef<HTMLDivElement>(null);
 
   const text = [
@@ -51,6 +53,13 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
     }
   }, [fadeOut, onContinue]);
 
+  useEffect(() => {
+    if (done) {
+      setTimeout(() => setAllowClick(true), 500);
+    }
+  }, [done]);
+
+
   return (
     <>
       <MuteToggleButton />
@@ -69,16 +78,14 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
             >
               <div className="w-full h-full flex items-center justify-center px-4 font-pixel text-white safe-header safe-footer">
                 <div className="relative w-full max-w-screen-md" ref={imageWrapperRef}>
-                  <img
-                    src={getImagePath('/images/intro/intro_bg3.webp')}
-                    alt="intro_bg"
-                    className="w-full h-auto object-contain pointer-events-none"
-				    style={{
-                      border: '16px solid white',
-                      borderRadius: 0
-                    }}
-                    onLoad={() => setImageLoaded(true)}
-                  />
+                  <div className="border-[16px] border-white rounded-none inline-block mx-auto max-h-screen">
+                    <img
+                      src={getImagePath('/images/intro/intro_bg3.webp')}
+                      alt="intro_bg"
+                      className="w-full object-contain"
+                      onLoad={() => setImageLoaded(true)}
+                    />
+                  </div>
 
                   {imageLoaded && (
                     <div className="absolute bottom-0 right-0 w-16 h-16">
@@ -118,6 +125,11 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
                           .join('<br/>'),
                       }}
                     />
+                    {allowClick && (
+                      <div className="prompt">
+                        點擊任一處繼續
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
