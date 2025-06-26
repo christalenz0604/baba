@@ -22,6 +22,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const audio = new Audio("/media/baba_bgm.mp3");
     audio.loop = true;
     audio.volume = 0.5;
+    audio.playbackRate = 0.75;
     audioRef.current = audio;
 
     const handleUserGesture = () => {
