@@ -1,26 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { characters } from '../data/characters';
 import { useGame } from '../context/GameContext';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { getImagePath } from '../utils/pathUtils';
-
 import { useAudio } from '../components/AudioProvider';
 import { MuteToggleButton } from '../components/MuteToggleButton';
+import { pushToDataLayer } from '../utils/gtm.ts'
 
 const CharacterSelection: React.FC = () => {
   const { selectCharacter } = useGame();
   const [currentIndex, setCurrentIndex] = useState(0);
+  // 監聽頁面載入，發送虛擬頁面瀏覽事件 (如果 App.tsx 沒有負責處理 App 內部的頁面瀏覽，這裡可以補上)
+  // 如果 App.tsx 已經處理了從 /main 到 /game/character_selection 的 page_view，這裡可以省略
+  useEffect(() => {
+    pushToDataLayer({
+      event: 'select_character',
+      pageTitle: '角色選擇頁面'
+    });
+    console.log('GTM Event: 虛擬頁面瀏覽 (角色選擇頁) 事件已推送！');
+  }, []);
 
   const prev = () => {
     setCurrentIndex((prev) => (prev - 1 + characters.length) % characters.length);
   };
-
   const next = () => {
     setCurrentIndex((prev) => (prev + 1) % characters.length);
   };
-
   const character = characters[currentIndex];
+
+    // 處理確認角色選擇並推送 GTM 事件
+  const handleSelectCharacter = () => {
+    selectCharacter(character); // 呼叫遊戲上下文中的選角函數
+
+    // GTM 追蹤：推送 'select_character' 事件
+    pushToDataLayer({
+      event: 'click_btn_select_character', // 自訂事件名稱
+      character_id: character.id, // 選定的角色 ID
+      character_name: character.name, // 選定的角色名稱
+      // 您可以根據需要添加其他角色屬性，例如 character_type, character_score 等
+    });
+    console.log('GTM Event: 選擇角色 (select_character) 事件已推送！', {
+      character_id: character.id,
+      character_name: character.name,
+    });
+  };
 
   return (
     <>
@@ -104,7 +128,7 @@ const CharacterSelection: React.FC = () => {
 
           <div className="relative px-5 mx-auto text-center">
             <button
-              onClick={() => selectCharacter(character)}
+              onClick={handleSelectCharacter}
               className="btn-pixel w-3/4 py-3 px-4 tracking-wider text-lg xs:py-1 max-[375px]:py-1"
             >
               確認角色

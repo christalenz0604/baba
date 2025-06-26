@@ -10,6 +10,7 @@ import './styles/pixel.css';
 import { setImagePathVariables } from './utils/cssUtils';
 import IntroGuide from './components/IntroGuide';
 import { needPassword } from './types.ts';
+import { pushToDataLayer } from './utils/gtm.ts'
 
 
 const GameContainer: React.FC = () => {
@@ -43,6 +44,19 @@ const GameContainer: React.FC = () => {
     window.addEventListener('resize', checkLayout);
     return () => window.removeEventListener('resize', checkLayout);
   }, []);
+
+  // GTM: 在遊戲正式開始時推送 'game_start' 事件
+  // 判斷遊戲開始的條件是當 gameState.hasStartedGame 從 false 變為 true 時
+  useEffect(() => {
+    if (gameState.hasStartedGame) {
+      pushToDataLayer({
+        event: 'game_start', // GTM 自訂事件名稱
+        game_name: '國會派對', // 自訂遊戲名稱，建議在 GA4 中註冊為自訂維度
+        // 您也可以在這裡添加其他與遊戲開始相關的參數
+      });
+      console.log('GTM Event: 遊戲正式開始 (game_start) 事件已推送！');
+    }
+  }, [gameState.hasStartedGame]); // 監聽 hasStartedGame 狀態的變化
 
   return (
     <div className="font-sans">

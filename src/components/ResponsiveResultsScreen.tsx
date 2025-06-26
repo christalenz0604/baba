@@ -13,6 +13,8 @@ import { launchFirework } from '../utils/firework';
 import { X } from 'lucide-react';
 import { useAudio } from '../components/AudioProvider';
 import { MuteToggleButton } from '../components/MuteToggleButton';
+import { pushToDataLayer } from '../utils/gtm.ts'; // 從工具檔案引入
+
 
 const ResponsiveResultsScreen: React.FC = () => {
   const { gameState, restartGame } = useGame();
@@ -81,6 +83,36 @@ const ResponsiveResultsScreen: React.FC = () => {
     }
   }, [canPlayConfetti]);
 
+    // GTM 追蹤：在遊戲結果頁面載入且結果準備好時推送事件
+    useEffect(() => {
+      if (canPlayConfetti) { // 確保 intro video 已播放完畢且內容已準備好
+        const gameStatus = getResult(); // 獲取遊戲結果 (成功/失敗)
+        const selectedCharacterId = character.id; // 獲取選擇的角色 ID
+        const finalScore = gameState.score; // 獲取最終分數
+        const endAtQ = gameState.currentQuestionIndex + 1; // 獲取完成遊戲題號 (如果有的話)
+  
+  
+        // 根據遊戲結果推送 game_win 或 game_lose 事件 (與之前討論一致)
+        if (gameStatus === '成功') {
+          pushToDataLayer({ 
+            event: 'game_win',
+            selected_character_id: selectedCharacterId, // 選擇的角色 ID
+            final_score: finalScore, // 最終分數
+            end_at_question: endAtQ, 
+           });
+          console.log('GTM Event: 遊戲勝利 (game_win) 事件已推送！');
+        } else {
+          pushToDataLayer({
+            event: 'game_lose',
+            selected_character_id: selectedCharacterId, // 選擇的角色 ID
+            final_score: finalScore, // 最終分數
+            end_at_question: endAtQ, 
+          });
+          console.log('GTM Event: 遊戲失敗 (game_lose) 事件已推送！', { endAtQ });
+        }
+      }
+    }, [canPlayConfetti, gameState.score, gameState.currentQuestionIndex, character.id, getResult]); // 監聽這些狀態變化以觸發追蹤
+  
 
   //Get Result Character Image if success show sad.gif if faile and the score is less than 100 show happy.gif if the score is between 100 and character.score show normal.gif
   const getResultCharacterImage = () => {
