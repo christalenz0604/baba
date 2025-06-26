@@ -67,12 +67,16 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="w-full h-full flex items-center justify-center px-4 font-pixel text-white">
+              <div className="w-full h-full flex items-center justify-center px-4 font-pixel text-white safe-header safe-footer">
                 <div className="relative w-full max-w-screen-md" ref={imageWrapperRef}>
                   <img
-                    src={getImagePath('/images/intro/intro_bg.webp')}
+                    src={getImagePath('/images/intro/intro_bg3.webp')}
                     alt="intro_bg"
                     className="w-full h-auto object-contain pointer-events-none"
+				    style={{
+                      border: '16px solid white',
+                      borderRadius: 0
+                    }}
                     onLoad={() => setImageLoaded(true)}
                   />
 
