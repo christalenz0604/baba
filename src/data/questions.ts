@@ -90,7 +90,7 @@ const ChangChihLunQuestions: Question[] = [
     text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'ChangChihLun6-1', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'ChangChihLun6-1', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
       { id: 'ChangChihLun6-2', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 0, isCorrect: false },
       { id: 'ChangChihLun6-3', text: '不會吧！三分鐘是要討論什麼？', points: 0, isCorrect: false },
     ],
@@ -248,7 +248,7 @@ const linTeFuQuestions: Question[] = [
     text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'linTeFu7-1', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'linTeFu7-1', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
       { id: 'linTeFu7-2', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 4, isCorrect: false },
       { id: 'linTeFu7-3', text: '不會吧！三分鐘是要討論什麼？', points: 6, isCorrect: false },
     ],
@@ -354,7 +354,7 @@ const HSUCHIAOHSINQuestions: Question[] = [
     options: [
       { id: 'HSUCHIAOHSIN4-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 4, isCorrect: false },
       { id: 'HSUCHIAOHSIN4-2', text: '不會吧！三分鐘是要討論什麼？', points: 60, isCorrect: false },
-      { id: 'HSUCHIAOHSIN4-3', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'HSUCHIAOHSIN4-3', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
@@ -498,7 +498,7 @@ const LaiShyhBaoQuestions: Question[] = [
     options: [
       { id: 'LaiShyhBao4-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 15, isCorrect: false },
       { id: 'LaiShyhBao4-2', text: '不會吧！三分鐘是要討論什麼？', points: 8, isCorrect: false },
-      { id: 'LaiShyhBao4-3', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'LaiShyhBao4-3', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
     ],
     explanation: {
       text: '公視報導，立法院內政委員會2024/12/16排審《選罷法》修正草案，國民黨拂曉出擊佔領立院紅樓2樓，將一側的鐵門鎖上用長桌頂住；並用保鮮膜把內政委員會門口封住；另一側則是以人牆阻擋，只讓議事人員進入。9時一到，召委徐欣瑩立即宣布開會，念完相關條文宣布初審通過，全數條文保留協商。',
@@ -654,7 +654,7 @@ const wanghungweiQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
       { id: 'wanghungwei5-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 228, isCorrect: false },
-      { id: 'wanghungwei5-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'wanghungwei5-2', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
       { id: 'wanghungwei5-3', text: '不會吧！三分鐘是要討論什麼？', points: 2, isCorrect: false },
     ],
     explanation: {
@@ -796,7 +796,7 @@ const LEEYEHSIUQuestions: Question[] = [
     text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'LEEYEHSIU5-1', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'LEEYEHSIU5-1', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
       { id: 'LEEYEHSIU5-2', text: '不會吧！三分鐘是要討論什麼？', points: 6, isCorrect: false },
       { id: 'LEEYEHSIU5-3', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 4, isCorrect: false },
     ],
@@ -898,7 +898,7 @@ const YEHYUANCHIHQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
       { id: 'YEHYUANCHIH2-1', text: '不會吧！三分鐘是要討論什麼？', points: 10, isCorrect: false },
-      { id: 'YEHYUANCHIH2-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'YEHYUANCHIH2-2', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
       { id: 'YEHYUANCHIH2-3', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 4, isCorrect: false },
     ],
     explanation: {
@@ -1097,7 +1097,7 @@ const HungMongKaiQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
       { id: 'HungMongKai6-1', text: '不會吧！三分鐘是要討論什麼？', points: 10, isCorrect: false },
-      { id: 'HungMongKai6-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'HungMongKai6-2', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
       { id: 'HungMongKai6-3', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 3, isCorrect: false },
     ],
     explanation: {
@@ -1212,7 +1212,7 @@ const LoMingTsaiQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
       { id: 'LoMingTsai4-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 28, isCorrect: false },
-      { id: 'LoMingTsai4-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'LoMingTsai4-2', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
       { id: 'LoMingTsai4-3', text: '不會吧！三分鐘是要討論什麼？', points: 2, isCorrect: false },
     ],
     explanation: {
@@ -1383,7 +1383,7 @@ const LIAOHsienHsiangQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
       { id: 'LIAOHsienHsiang6-1', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 10, isCorrect: false },
-      { id: 'LIAOHsienHsiang6-2', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'LIAOHsienHsiang6-2', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
       { id: 'LIAOHsienHsiang6-3', text: '不會吧！三分鐘是要討論什麼？', points: 3, isCorrect: false },
     ],
     explanation: {
@@ -1567,7 +1567,7 @@ const LOCHIHCHIANGQuestions: Question[] = [
     text: '你同黨同事立委徐欣瑩想用三分鐘把超嚴格選罷法提案送出委員會，你認為他應該怎麼做？',
     image: getImagePath("/images/question/common_q_pic_06.webp"),
     options: [
-      { id: 'LOCHIHCHIANG9-1', text: '鎖門、封門是必要手段，排處異議，就能快速通過委員會！', points: 1949, isCorrect: true },
+      { id: 'LOCHIHCHIANG9-1', text: '鎖門、封門是必要手段，排除異議，就能快速通過委員會！', points: 1949, isCorrect: true },
       { id: 'LOCHIHCHIANG9-2', text: '應該會先緩緩吧！我們黨內都還不知道內容耶！', points: 6, isCorrect: false },
       { id: 'LOCHIHCHIANG9-3', text: '不會吧！三分鐘是要討論什麼？', points: 4, isCorrect: false },
     ],
