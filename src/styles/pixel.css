@@ -185,6 +185,19 @@ hr.dotted-line {
   }
 }
 
+@media (max-height: 864px) {
+  .h-small\:max-w-3xl {
+    max-width: 768px !important;
+  }
+  .h-small\:max-w-2xl {
+    max-width: 672px !important;
+  }
+  .h-small\:max-w-xl {
+    max-width: 576px !important;
+  }
+
+}
+
 
 .skip-button {
   position: absolute;
@@ -232,3 +245,4 @@ hr.dotted-line {
 .mute-button:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
+

@@ -318,7 +318,7 @@ const ResponsiveResultsScreen: React.FC = () => {
 
 
 
-            <div className="flex-frow max-w-4xl mx-auto" >
+            <div className="flex-frow max-w-4xl mx-auto h-small:max-w-3xl" >
               <motion.div
                 className="flex flex-col rounded-0 overflow-visible justify-center my-4 relative mx-auto lg:w-[90%]"
                 initial={{ opacity: 0, y: 20 }}
