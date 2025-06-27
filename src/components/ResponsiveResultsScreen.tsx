@@ -314,7 +314,6 @@ const ResponsiveResultsScreen: React.FC = () => {
             }}
           >
 
-            <div className="fireworks-container" id="fireworks"></div>
             <canvas id="confetti"></canvas>
 
 
