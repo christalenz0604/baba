@@ -134,7 +134,7 @@ const ChangChihLunQuestions: Question[] = [
     options: [
       { id: 'ChangChihLun9-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，再加上來依親中配的長輩，一定要通過法案拉攏這群民眾！', points: 7777, isCorrect: true },
       { id: 'ChangChihLun9-2', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 88, isCorrect: false },
-      { id: 'ChangChihLun9-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 0, isCorrect: false },
+      { id: 'ChangChihLun9-3', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -222,7 +222,7 @@ const linTeFuQuestions: Question[] = [
     options: [
       { id: 'linTeFu5-1', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 12, isCorrect: false },
       { id: 'linTeFu5-2', text: '很好啊！這樣退休後的族群可以利用資產配置，讓所得稅低於20%，享用免健保費福利。', points: 4277, isCorrect: true },
-      { id: 'linTeFu5-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 4, isCorrect: false },
+      { id: 'linTeFu5-3', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -410,7 +410,7 @@ const HSUCHIAOHSINQuestions: Question[] = [
     options: [
       { id: 'HSUCHIAOHSIN8-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
       { id: 'HSUCHIAOHSIN8-2', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 2, isCorrect: false },
-      { id: 'HSUCHIAOHSIN8-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 0, isCorrect: false },
+      { id: 'HSUCHIAOHSIN8-3', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 0, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -524,7 +524,7 @@ const LaiShyhBaoQuestions: Question[] = [
     text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'LaiShyhBao6-1', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 10, isCorrect: false },
+      { id: 'LaiShyhBao6-1', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 10, isCorrect: false },
       { id: 'LaiShyhBao6-2', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
       { id: 'LaiShyhBao6-3', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 3, isCorrect: false },
     ],
@@ -683,7 +683,7 @@ const wanghungweiQuestions: Question[] = [
     options: [
       { id: 'wanghungwei7-1', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 15, isCorrect: false },
       { id: 'wanghungwei7-2', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
-      { id: 'wanghungwei7-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 4, isCorrect: false },
+      { id: 'wanghungwei7-3', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -838,7 +838,7 @@ const LEEYEHSIUQuestions: Question[] = [
     text: '黨團提出了65歲以上，綜合所得稅率未達20%免健保費一案，你覺得這個提案如何？',
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
-      { id: 'LEEYEHSIU8-1', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 12, isCorrect: false },
+      { id: 'LEEYEHSIU8-1', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 12, isCorrect: false },
       { id: 'LEEYEHSIU8-2', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
       { id: 'LEEYEHSIU8-3', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 4, isCorrect: false },
     ],
@@ -969,7 +969,7 @@ const YEHYUANCHIHQuestions: Question[] = [
     options: [
       { id: 'YEHYUANCHIH7-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
       { id: 'YEHYUANCHIH7-2', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 7, isCorrect: false },
-      { id: 'YEHYUANCHIH7-3', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 4, isCorrect: false },
+      { id: 'YEHYUANCHIH7-3', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 4, isCorrect: false },
     ],
     explanation: {
       text: '藍白針對《老人福利法》修正草案提案，原本最寬鬆版本為65歲以上長者，綜合所得稅率未達20%免繳健保費，沒想到引發醫事團體反對，醫改團體更警告，全民健保是「社會保險」，而非「社會福利」，修法若通過恐怕衝擊健保永續。',
@@ -1069,7 +1069,7 @@ const HungMongKaiQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
       { id: 'HungMongKai4-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
-      { id: 'HungMongKai4-2', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 8, isCorrect: false },
+      { id: 'HungMongKai4-2', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 8, isCorrect: false },
       { id: 'HungMongKai4-3', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 5, isCorrect: false },
     ],
     explanation: {
@@ -1198,7 +1198,7 @@ const LoMingTsaiQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
       { id: 'LoMingTsai3-1', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 12, isCorrect: true },
-      { id: 'LoMingTsai3-2', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 6, isCorrect: false },
+      { id: 'LoMingTsai3-2', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 6, isCorrect: false },
       { id: 'LoMingTsai3-3', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
     ],
     explanation: {
@@ -1313,7 +1313,7 @@ const LIAOHsienHsiangQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
       { id: 'LIAOHsienHsiang1-1', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 10, isCorrect: false },
-      { id: 'LIAOHsienHsiang1-2', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 5, isCorrect: false },
+      { id: 'LIAOHsienHsiang1-2', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 5, isCorrect: false },
       { id: 'LIAOHsienHsiang1-3', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
     ],
     explanation: {
@@ -1484,7 +1484,7 @@ const LOCHIHCHIANGQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_08.webp"),
     options: [
       { id: 'LOCHIHCHIANG3-1', text: '跟著黨規劃的就對了，65歲以上的鐵票最多了，一定要多多釋出福利法案拉攏這群民眾！', points: 4277, isCorrect: true },
-      { id: 'LOCHIHCHIANG3-2', text: '目前健保已經很吃緊了，真得有能力負擔這項免健保費的法案？', points: 5, isCorrect: false },
+      { id: 'LOCHIHCHIANG3-2', text: '目前健保已經很吃緊了，真的有能力負擔這項免健保費的法案？', points: 5, isCorrect: false },
       { id: 'LOCHIHCHIANG3-3', text: '利用資產配置就有機會高年收但所得稅率未達20%，這可能會造成世代對立啊！', points: 3, isCorrect: false },
     ],
     explanation: {
