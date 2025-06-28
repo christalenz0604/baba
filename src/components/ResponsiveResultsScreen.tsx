@@ -352,7 +352,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                   {/* 插入文字在 ribbon 上 */}
                   <div className={`${isDesktop
                     ? "absolute text-white font-pixel font-bold text-[clamp(2rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]"
-                    : "absolute text-white font-pixel font-bold text-[clamp(2rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]"
+                    : "absolute text-white font-pixel font-bold text-[clamp(1.5rem,3.5vw,1.5rem)] z-20 pointer-events-none whitespace-nowrap drop-shadow-[2px_2px_0px_rgba(0,0,0,0.4)]"
                     }`}
                   >
 
@@ -422,7 +422,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                         </div>
                       </>)
                       :
-                      (<div className="mt-28">
+                      (<div className="mt-28 -translate-y-4">
                         <div className="flex flex-row items-center w-full justify-center pt-4">
                           <div className="flex w-1/2 h-auto overflow-hidden border-indigo-500">
                             <img src={getResultCharacterImage()} alt={character.name} className="w-3/4 h-3/4 object-cover" />
@@ -450,7 +450,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                             </div>
                             <div className="flex-col w-1/2">
                               <p className="flex font-medium text-gray-200 pl-6 tracking-wide text-sm xs:text-lg">{getResultTitle()}</p>
-                              <p className="flex font-bold text-white pl-6 text-xs xs:text-sm se:text-xs md:text-sm sp:text-sm md:text-xl">{getPersonalityTrait()}</p>
+                              <p className="flex font-bold text-white pl-6 text-sm sp:text-xs md:text-xl">{getPersonalityTrait()}</p>
                             </div>
                           </div>
                         </div>
@@ -462,7 +462,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                     <div
                       className={`${isDesktop
                         ? "flex flex-row items-center w-3/4 justify-center z-40 min-h-[150px] md:min-h-[200px] w-2/3 md:w-3/4 lg:w-full"
-                        : "flex flex-row items-start w-4/5 justify-center z-40 xs:w-3/4 -translate-y-5 md:translate-y-0 md:w-full"
+                        : "flex flex-row items-start w-4/5 justify-center z-40 xs:w-3/4 -translate-y-10 md:translate-y-0 md:w-full"
                         }`}
                     >
                       <motion.button
@@ -481,7 +481,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Share_Success.webp") : getImagePath("/images/results/objects/btn_Share_Fail.webp")} alt="share" className="w-full h-full object-contain" />
+                        <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Share_Success_2.webp") : getImagePath("/images/results/objects/btn_Share_Fail_2.webp")} alt="share" className="w-full h-full object-contain" />
                       </motion.button>
 
                       <motion.button
@@ -494,7 +494,7 @@ const ResponsiveResultsScreen: React.FC = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Tryagain_Success.webp") : getImagePath("/images/results/objects/btn_Tryagain_Fail.webp")} alt="restart" className="w-full h-full object-contain" />
+                        <img src={getResult() === "成功" ? getImagePath("/images/results/objects/btn_Tryagain_Success_2.webp") : getImagePath("/images/results/objects/btn_Tryagain_Fail_2.webp")} alt="restart" className="w-full h-full object-contain" />
                       </motion.button>
                     </div>
                     {
