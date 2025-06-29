@@ -70,68 +70,64 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
             onClick={handleClickToContinue}
           >
             <motion.div
-              className="flex flex-col flex-grow relative"
+              className="flex flex-col flex-grow items-center justify-center relative"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="w-full h-full flex items-center justify-center px-4 font-pixel text-white safe-header safe-footer">
-                <div className="relative w-full max-w-screen-md" ref={imageWrapperRef}>
-                  <div className="border-[16px] border-white rounded-none inline-block mx-auto max-h-screen">
+              <div className="relative border-[16px] border-white rounded-none inline-block max-h-[90vh] overflow-hidden">
+                <img
+                  src={getImagePath('/images/intro/intro_bg3.webp')}
+                  alt="intro_bg"
+                  className="w-full object-contain max-h-[90vh]"
+                  onLoad={() => setImageLoaded(true)}
+                />
+
+                {imageLoaded && (
+                  <div className="absolute bottom-0 right-0 w-16 h-16">
                     <img
-                      src={getImagePath('/images/intro/intro_bg3.webp')}
-                      alt="intro_bg"
-                      className="w-full object-contain"
-                      onLoad={() => setImageLoaded(true)}
+                      src={getImagePath('/images/intro/KMT_Rolling.gif')}
+                      alt="kmt_rolling"
+                      className="w-full h-full object-contain"
                     />
                   </div>
+                )}
+              </div>
 
-                  {imageLoaded && (
-                    <div className="absolute bottom-0 right-0 w-16 h-16">
-                      <img
-                        src={getImagePath('/images/intro/KMT_Rolling.gif')}
-                        alt="kmt_rolling"
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  )}
-
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                    <div className="w-32 mb-4">
-                      <img
-                        src={getImagePath('/images/blue_lawmaker.gif')}
-                        alt="avatar"
-                        className="w-3/5 object-contain mx-auto md:w-full"
-                      />
-                    </div>
-
-                    <h1 className="text-3xl font-bold mb-4">遊戲說明</h1>
-
-                    <p
-                      className="text-base xs:text-lg md:text-xl max-w-xl whitespace-pre-wrap leading-relaxed mb-6"
-                      dangerouslySetInnerHTML={{
-                        __html: introText
-                          .split('\n')
-                          .map((line, index) => {
-                            const formatted = line.replace(
-                              /國民黨立法委員/g,
-                              '<span class="font-bold underline text-yellow-300">國民黨立法委員</span>'
-                            );
-                            return index === introText.split('\n').length - 1 && !done
-                              ? `${formatted}<span class="animate-pulse">◍</span>`
-                              : formatted;
-                          })
-                          .join('<br/>'),
-                      }}
-                    />
-                    {allowClick && (
-                      <div className="prompt">
-                        點擊任一處繼續
-                      </div>
-                    )}
-                  </div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <div className="w-32 mb-4">
+                  <img
+                    src={getImagePath('/images/blue_lawmaker.gif')}
+                    alt="avatar"
+                    className="w-3/5 object-contain mx-auto md:w-full"
+                  />
                 </div>
+
+                <h1 className="text-3xl font-bold mb-4 text-white">遊戲說明</h1>
+
+                <p
+                  className="text-base xs:text-lg text-white md:text-xl max-w-xl whitespace-pre-wrap leading-relaxed mb-6"
+                  dangerouslySetInnerHTML={{
+                    __html: introText
+                      .split('\n')
+                      .map((line, index) => {
+                        const formatted = line.replace(
+                          /國民黨立法委員/g,
+                          '<span class="font-bold underline text-yellow-300">國民黨立法委員</span>'
+                        );
+                        return index === introText.split('\n').length - 1 && !done
+                          ? `${formatted}<span class="animate-pulse">◍</span>`
+                          : formatted;
+                        })
+                      .join('<br/>'),
+                    }}
+                />
+                {allowClick && (
+                  <div className="prompt text-white">
+                    點擊任一處繼續
+                  </div>
+                )}
               </div>
             </motion.div>
 

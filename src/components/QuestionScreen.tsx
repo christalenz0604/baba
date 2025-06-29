@@ -9,6 +9,15 @@ import { useAudio } from '../components/AudioProvider';
 import { MuteToggleButton } from '../components/MuteToggleButton';
 
 
+function shuffleArray<T>(array: T[]): T[] {    // sort the options, and questions? maybe
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 const QuestionScreen: React.FC = () => {
   const { gameState, getCurrentQuestion, answerQuestion } = useGame();
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -23,12 +32,17 @@ const QuestionScreen: React.FC = () => {
   const character = gameState.selectedCharacter;
   const totalQuestions = gameState.questionSetId ? questionSets[gameState.questionSetId].questions.length : 0;
 
+  const [shuffledOptions, setShuffledOptions] = useState(() => shuffleArray(currentQuestion.options));
+
+
   if (!currentQuestion || !character) return null;
   
+
   useEffect(() => {
     setSelectedOption(null);
     setShowPoints(false);
-  }, [currentQuestion.id]); // 或 currentQuestionIndex
+    setShuffledOptions(shuffleArray(currentQuestion.options));   // sort the options
+  }, [currentQuestion.id]);  // 或 currentQuestionIndex
 
 
   useEffect(() => {
@@ -62,6 +76,10 @@ const QuestionScreen: React.FC = () => {
   };
 
   const maxScore = 200;
+
+
+
+
 
   return (
     <>
@@ -231,7 +249,7 @@ const QuestionScreen: React.FC = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {currentQuestion.options.map((option) => {
+              {shuffledOptions.map((option) => {
                 const isSelected = selectedOption === option.id;
                 const isHovered = hoveredOption === option.id && !isSelected;
 
