@@ -68,7 +68,7 @@ function Landing() {
   };
 
   return (
-    <>
+    <div className="relative w-full h-full">
 	<MuteToggleButton />
     <div className="full-height container_landing" onClick={handleClick}>
       {!done && (
@@ -93,7 +93,7 @@ function Landing() {
         </div>
       </div>
     </div>
-	</>
+	</div>
   );
 }
 
