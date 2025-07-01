@@ -133,7 +133,7 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
 
             {/* Skip button */}
             {!done && (
-              <div className="absolute top-4 right-4 z-50">
+              <div className="absolute top-0 right-0 z-50">
                 <button onClick={handleSkip} className="skip-button">
                   Skip
                 </button>
