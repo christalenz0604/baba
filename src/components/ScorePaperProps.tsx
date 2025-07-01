@@ -14,7 +14,12 @@ const ScoreTree: React.FC<ScorePaperProps> = ({ score, maxScore, level }) => {
       <div className="mb-2">
         <div className="text-base text-gray-100 font-pixel font-medium">累積的連署書</div>
         <div className="flex items-center">
-          <img src={getImagePath(`/images/question/staement_lv${level}.webp`)} alt="連署書數量" className="w-12 h-auto mr-2" />
+          <img
+            id="fireTargetPic"		  
+		    src={getImagePath(`/images/question/staement_lv${level}.webp`)} 
+			alt="連署書數量" 
+			className="w-12 h-auto mr-2" 
+	      />
           <span className="text-lg text-gray-100 font-pixel font-semibold">x {score}</span>
         </div>
       </div>

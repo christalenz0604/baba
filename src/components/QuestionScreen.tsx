@@ -63,9 +63,64 @@ const QuestionScreen: React.FC = () => {
     setTimeout(() => document.body.click(), 10);
   }, [currentQuestion.id]);
 
-  const handleOptionClick = (points: number, isCorrect: boolean, optionId: string) => {
+  const handleOptionClick = (
+    points: number, 
+	isCorrect: boolean, 
+	optionId: string,
+	event: React.MouseEvent<HTMLDivElement>    // fire fly
+  ) => {
+
     if (selectedOption) return;
     setSelectedOption(optionId);
+
+    // fire fly
+    if (points > 0) {
+      const template = document.getElementById("flyTemplate") as HTMLElement;
+      const target = document.getElementById("fireTargetPic") as HTMLElement;
+
+      if (template && target) {
+        const rect = (event.target as HTMLElement).getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+
+        const clone = template.cloneNode(true) as HTMLElement;
+        clone.classList.remove("hidden");
+
+        clone.style.left = rect.left + "px";
+        clone.style.top = rect.top + "px";
+
+        document.body.appendChild(clone);
+        clone.offsetWidth; // reflow 強制觸發動畫
+
+        const deltaX = targetRect.left - rect.left;
+        const deltaY = targetRect.top - rect.top;
+
+        clone.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.1)`;
+        clone.style.opacity = "1";
+
+        // 抵達目標後，先放大
+        setTimeout(() => {
+          clone.style.transition = "transform 0.2s ease-out";
+          clone.style.transform += " scale(2)";
+        }, 1300);
+
+        // 然後縮回來、再淡出
+        setTimeout(() => {
+          clone.style.transition = "transform 0.2s ease-in, opacity 0.2s ease-in";
+          clone.style.transform = clone.style.transform.replace(/scale\([^)]+\)/, "scale(1)");
+          clone.style.opacity = "0";
+        }, 1500);
+
+        // 移除 clone，觸發 pop
+        setTimeout(() => {
+          clone.remove();
+          target.classList.add("pop-effect");
+          setTimeout(() => {
+            target.classList.remove("pop-effect");
+          }, 400);
+        }, 1800);
+      }
+    }
+
     setPointsToAdd(points);
     setShowPoints(true);
     setTimeout(() => {
@@ -84,6 +139,11 @@ const QuestionScreen: React.FC = () => {
   return (
     <>
 	<MuteToggleButton />
+
+    <div id="flyTemplate" className="fire-img hidden">
+      <img src={getImagePath("/images/question/fire.webp")} alt="飛行圖" style={{ width: '100%', height: 'auto' }} />
+    </div>
+
     <div className="full-height">
     <div 
       style={{
@@ -264,7 +324,7 @@ const QuestionScreen: React.FC = () => {
                   <motion.div
                     key={option.id}
                     className={`${baseClass} ${stateClass}`}
-                    onClick={() => handleOptionClick(option.points, option.isCorrect, option.id)}
+                    onClick={(e) => handleOptionClick(option.points, option.isCorrect, option.id, e)}
                     onMouseEnter={() => setHoveredOption(option.id)}
                     onMouseLeave={() => setHoveredOption(null)}
                     onTouchStart={() => setHoveredOption(option.id)}
