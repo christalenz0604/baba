@@ -14,7 +14,7 @@ import { getImagePath } from '../utils/pathUtils';
     description: '法案審查是立委的重要職責，每個決定都可能影響thousands of人民的生活。面對不熟悉的議題，如何在有限時間內做出正確判斷，考驗著立委的專業素養和責任心。這個時刻的選擇，將展現你是否真正重視立委的職責。',
 */
 
-const CommonQuestions: Question[] = [
+export const CommonQuestions: Question[] = [
   {
     id: 'Common1',
     text: '總召邀你上班時間一起去中國查訪，你會？',
@@ -35,7 +35,7 @@ const CommonQuestions: Question[] = [
     image: getImagePath("/images/question/common_q_pic_02.webp"),
     options: [
       { id: 'Common2-1', text: '理性討論，找到對台灣最有利的平衡點。', points: 0, isCorrect: false },
-      { id: 'Common2-2', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 7827, isCorrect: true },
+      { id: 'Common2-2', text: '最後一秒提出最高機密版本，舉手表決通過。', points: 6287, isCorrect: true },
       { id: 'Common2-3', text: '開公聽會，審慎處理，此事非同小可，不能輕忽。', points: 0, isCorrect: false },
     ],
     explanation: {
@@ -138,7 +138,7 @@ const ChangChihLunQuestions: Question[] = [
     text: '2024/4/3環狀線軌道因地震發生錯位，身為區域立委的你會？',
     image: getImagePath("/images/question/ChangChihLun_q_pic_02.webp"),
     options: [
-      { id: 'ChangChihLun2-1', text: '錯位？可能要先千斤頂修復，後面再來處理其他相關交通問題！', points: 300, isCorrect: true },
+      { id: 'ChangChihLun2-1', text: '錯位？可能要先千斤頂修復，後面再來處理其他相關交通問題！', points: 1840, isCorrect: true },
       { id: 'ChangChihLun2-2', text: '研究一下合約內容，叫廠商來開會說明。', points: 130, isCorrect: false },
       { id: 'ChangChihLun2-3', text: '捷運局需要負責，不能甩鍋。', points: 0, isCorrect: false },
     ],
@@ -184,7 +184,7 @@ const linTeFuQuestions: Question[] = [
     text: '80歲以上免醫療評估請看護被批會出事，要不要煞車？',
     image: getImagePath("/images/question/linTeFu_q_pic_01.webp"),
     options: [
-      { id: 'linTeFu6-1', text: '黨說過了沒問題，我還能比黨懂醫療？', points: 1050, isCorrect: true },
+      { id: 'linTeFu6-1', text: '黨說過了沒問題，我還能比黨懂醫療？', points: 2550, isCorrect: true },
       { id: 'linTeFu6-2', text: '我...我想睡一下，明天再想。', points: 555, isCorrect: false },
       { id: 'linTeFu6-3', text: '不煞會翻車，我喊暫停！', points: 3, isCorrect: false },
     ],

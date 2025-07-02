@@ -18,22 +18,8 @@ function shuffleArray<T>(array: T[]): T[] {    // sort the options, and question
   return shuffled;
 }
 
-function mergeQuestionSet(characterId: string, desiredCount = 10): Question[] {
-  const personalKey = questionSets[characterId];
-  const personalSet = questionMap[personalKey] || [];
-
-  const personalIds = new Set(personalSet.map(q => q.id));
-  const remainingCommon = CommonQuestions.filter(q => !personalIds.has(q.id));
-
-  const allCombined = [...personalSet, ...remainingCommon];
-  return shuffleArray(allCombined).slice(0, desiredCount);
-}
-
-
-
-
 const QuestionScreen: React.FC = () => {
-  const { gameState, getCurrentQuestion, answerQuestion } = useGame();
+  const { gameState, getCurrentQuestion, answerQuestion, mergedQuestions } = useGame();
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [hoveredOption, setHoveredOption] = useState<string | null>(null);
   const [showPoints, setShowPoints] = useState(false);
@@ -44,9 +30,11 @@ const QuestionScreen: React.FC = () => {
 
   const currentQuestion = getCurrentQuestion();
   const character = gameState.selectedCharacter;
-  const totalQuestions = gameState.questionSetId ? questionSets[gameState.questionSetId].questions.length : 0;
+  const totalQuestions = mergedQuestions.length;
 
   const [shuffledOptions, setShuffledOptions] = useState(() => shuffleArray(currentQuestion.options));
+
+
 
 
   if (!currentQuestion || !character) return null;
