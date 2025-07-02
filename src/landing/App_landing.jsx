@@ -49,6 +49,7 @@ function Landing() {
   // next page or skip animation when clicked
   const handleClick = () => {
     if (allowClick) {
+	  play();
       setClicked(true);
     }
   };
