@@ -29,20 +29,6 @@ function Landing() {
     skip    // skip status
   );
 
-  useEffect(() => {
-    const access = localStorage.getItem('baba_access_granted') === 'yes';
-    const timestamp = parseInt(localStorage.getItem('baba_access_time') || '0', 10);
-    const now = Date.now();
-    const expired = now - timestamp > 3 * 60 * 60 * 1000; // 三小時
-
-    if (needPassword && (!access || expired)) {
-      localStorage.removeItem('baba_access_granted');
-      localStorage.removeItem('baba_access_time');
-      navigate('/'); // 轉回登入頁
-    }
-  }, [navigate]);
-
-
 
   useEffect(() => {
     if (done) {

@@ -18,18 +18,6 @@ const GameContainer: React.FC = () => {
   const [isDesktopLayout, setIsDesktopLayout] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const access = localStorage.getItem('baba_access_granted') === 'yes';
-    const timestamp = parseInt(localStorage.getItem('baba_access_time') || '0', 10);
-    const now = Date.now();
-    const expired = now - timestamp > 3 * 60 * 60 * 1000; // 三小時
-
-    if ((!access || expired) && needPassword) {
-      localStorage.removeItem('baba_access_granted');
-      localStorage.removeItem('baba_access_time');
-      navigate('/'); // 轉回登入頁
-    }
-  }, [navigate]);
 
 
   useEffect(() => {

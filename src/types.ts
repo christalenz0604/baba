@@ -50,4 +50,4 @@ export interface GameState {
   hasStartedGame: boolean;
 }
 
-export const needPassword = false;
+export const needPassword = true;
