@@ -1,4 +1,3 @@
-import './App_landing.css';
 import useTypewriter from './useTypewriter';
 import { useState, useEffect } from 'react';
 import { getImagePath } from '../utils/pathUtils';

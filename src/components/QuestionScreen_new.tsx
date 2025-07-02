@@ -3,7 +3,7 @@ import { useGame } from '../context/GameContext';
 import ScorePaperProps from './ScorePaperProps';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X } from "lucide-react";
-import { questionSets } from '../data/questions';
+import { questionSets, CommonQuestions } from '../data/questions_new';
 import { getImagePath } from '../utils/pathUtils';
 import { useAudio } from '../components/AudioProvider';
 import { MuteToggleButton } from '../components/MuteToggleButton';
@@ -17,6 +17,20 @@ function shuffleArray<T>(array: T[]): T[] {    // sort the options, and question
   }
   return shuffled;
 }
+
+function mergeQuestionSet(characterId: string, desiredCount = 10): Question[] {
+  const personalKey = questionSets[characterId];
+  const personalSet = questionMap[personalKey] || [];
+
+  const personalIds = new Set(personalSet.map(q => q.id));
+  const remainingCommon = CommonQuestions.filter(q => !personalIds.has(q.id));
+
+  const allCombined = [...personalSet, ...remainingCommon];
+  return shuffleArray(allCombined).slice(0, desiredCount);
+}
+
+
+
 
 const QuestionScreen: React.FC = () => {
   const { gameState, getCurrentQuestion, answerQuestion } = useGame();
