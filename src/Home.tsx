@@ -6,8 +6,42 @@ import SharePage from './pages/SharePage';
 import ComingSoon from './pages/ComingSoon.jsx';
 import { pushToDataLayer } from './utils/gtm.ts'
 
+import { useAudio } from './components/AudioProvider';
+
 function Home() {
   const location = useLocation(); // 獲取當前路由資訊
+  const { play, mute, unmute } = useAudio();
+
+
+
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      play();
+      window.removeEventListener('click', handleUserInteraction);
+    };
+    window.addEventListener('click', handleUserInteraction);
+
+    return () => {
+      window.removeEventListener('click', handleUserInteraction);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        mute();   // 當頁面不在前景就靜音
+      } else {
+        unmute(); // 回來就恢復音量
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [mute, unmute]);
+
 
   useEffect(() => {
     // 監聽 location 物件的變化 (即路由變化)

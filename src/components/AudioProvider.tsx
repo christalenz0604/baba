@@ -5,6 +5,8 @@ const AudioContext = createContext<{
   isMuted: boolean;
   toggleMute: () => void;
   play: () => void;
+  mute: () => void;
+  unmute: () => void;
 } | null>(null);
 
 export const useAudio = () => {
@@ -15,6 +17,7 @@ export const useAudio = () => {
 
 export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isUserMuted, setIsUserMuted] = useState(false); // 使用者是否主動靜音
   const [isMuted, setIsMuted] = useState(false);
 
   const play = () => {
@@ -33,17 +36,31 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   };
 
-
-
-
   const toggleMute = () => {
     if (!audioRef.current) return;
-    audioRef.current.muted = !audioRef.current.muted;
-    setIsMuted(audioRef.current.muted);
+
+    const nextMuted = !isUserMuted;
+    setIsUserMuted(nextMuted);
+    audioRef.current.muted = nextMuted;
+    setIsMuted(nextMuted);
+  };
+
+  const mute = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = true;
+      setIsMuted(true);
+    }
+  };
+
+  const unmute = () => {
+    if (audioRef.current && !isUserMuted) { // 只在使用者沒有靜音時才恢復聲音
+      audioRef.current.muted = false;
+      setIsMuted(false);
+    }
   };
 
   return (
-    <AudioContext.Provider value={{ isMuted, toggleMute, play }}>
+    <AudioContext.Provider value={{ isMuted, toggleMute, play, mute, unmute }}>
       {children}
     </AudioContext.Provider>
   );

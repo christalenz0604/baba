@@ -43,12 +43,10 @@ function Landing() {
     }
   }, [clicked]);
 
-  const { play } = useAudio(); // 使用音樂
 
   // next page or skip animation when clicked
   const handleClick = () => {
     if (allowClick) {
-	  play();
       setClicked(true);
     }
   };
