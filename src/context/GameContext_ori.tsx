@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { Character, GameState, Question } from '../types';
-import { questionSets, CommonQuestions } from '../data/questions_new';
+import { questionSets } from '../data/questions';
 
 interface GameContextType {
   gameState: GameState;
@@ -9,7 +9,6 @@ interface GameContextType {
   getCurrentQuestion: () => Question | null;
   restartGame: () => void;
   startGame: () => void;
-  mergedQuestions: Question[];
 }
 
 const initialGameState: GameState = {
@@ -23,59 +22,16 @@ const initialGameState: GameState = {
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
 
-
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
-function mergeQuestionSet(characterId: string, desiredCount = 10): Question[] {
-  const personalKey = questionSets[characterId];
-  const personalSet = personalKey?.questions || [];
-
-  // 建立 common 問題的 Map
-  const commonMap = new Map(CommonQuestions.map(q => [q.id, q]));
-
-  // 建立 override 後的題目
-  const mergedPersonalSet = personalSet.map(p => {
-    const base = commonMap.get(p.id);
-    if (!base) return p; // 沒有對應 common 題，原樣返回
-
-    return {
-      ...base,     // 用 common 的作為基底
-      ...p,        // 再由個人題目覆蓋必要欄位（如選項）
-    };
-  });
-
-  const personalIds = new Set(mergedPersonalSet.map(q => q.id));
-  const remainingCommon = CommonQuestions.filter(q => !personalIds.has(q.id));
-
-  const needMore = desiredCount - mergedPersonalSet.length;
-  const commonSubset = remainingCommon.slice(0, Math.max(0, needMore));
-
-  return shuffleArray([...mergedPersonalSet, ...commonSubset]);
-}
-
-
-
 export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [gameState, setGameState] = useState<GameState>(initialGameState);
 
-  const [mergedQuestions, setMergedQuestions] = useState<Question[]>([]);
-
   const selectCharacter = (character: Character) => {
-	const merged = mergeQuestionSet(character.questionSetId, 10);
     setGameState({
       ...initialGameState,
       selectedCharacter: character,
       questionSetId: character.questionSetId,
       hasStartedGame: true,
     });
-	setMergedQuestions(merged);
   };
 
   const answerQuestion = (points: number, isCorrect: boolean) => {
@@ -86,7 +42,8 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       if (isCorrect) {
         // If correct, move to the next question
         const nextQuestionIndex = prevState.currentQuestionIndex + 1;
-        const isGameOver = nextQuestionIndex >= mergedQuestions.length;
+        const isGameOver = !prevState.questionSetId || 
+          nextQuestionIndex >= questionSets[prevState.questionSetId].questions.length;
         
         return {
           ...prevState,
@@ -105,13 +62,6 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     });
   };
 
-
-  const getCurrentQuestion = (): Question | null => {
-    if (gameState.isGameOver) return null;
-    return mergedQuestions[gameState.currentQuestionIndex] || null;
-  };
-
-/*
   const getCurrentQuestion = (): Question | null => {
     if (!gameState.questionSetId || gameState.isGameOver) return null;
     
@@ -120,11 +70,9 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     
     return questionSet.questions[gameState.currentQuestionIndex] || null;
   };
-*/
 
   const restartGame = () => {
     setGameState(initialGameState);
-    setMergedQuestions([]);
   };
 
   const startGame = () => {
@@ -142,8 +90,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         answerQuestion, 
         getCurrentQuestion, 
         restartGame,
-        startGame,
-        mergedQuestions
+        startGame
       }}
     >
       {children}

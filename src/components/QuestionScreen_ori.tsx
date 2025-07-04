@@ -3,7 +3,7 @@ import { useGame } from '../context/GameContext';
 import ScorePaperProps from './ScorePaperProps';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X } from "lucide-react";
-import { questionSets, CommonQuestions } from '../data/questions_new';
+import { questionSets } from '../data/questions';
 import { getImagePath } from '../utils/pathUtils';
 import { useAudio } from '../components/AudioProvider';
 import { MuteToggleButton } from '../components/MuteToggleButton';
@@ -19,7 +19,7 @@ function shuffleArray<T>(array: T[]): T[] {    // sort the options, and question
 }
 
 const QuestionScreen: React.FC = () => {
-  const { gameState, getCurrentQuestion, answerQuestion, mergedQuestions } = useGame();
+  const { gameState, getCurrentQuestion, answerQuestion } = useGame();
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [hoveredOption, setHoveredOption] = useState<string | null>(null);
   const [showPoints, setShowPoints] = useState(false);
@@ -30,11 +30,9 @@ const QuestionScreen: React.FC = () => {
 
   const currentQuestion = getCurrentQuestion();
   const character = gameState.selectedCharacter;
-  const totalQuestions = mergedQuestions.length;
+  const totalQuestions = gameState.questionSetId ? questionSets[gameState.questionSetId].questions.length : 0;
 
   const [shuffledOptions, setShuffledOptions] = useState(() => shuffleArray(currentQuestion.options));
-
-
 
 
   if (!currentQuestion || !character) return null;
@@ -123,20 +121,13 @@ const QuestionScreen: React.FC = () => {
       }
     }
 
-    let actualPoints = points;
-    const isLastQuestion = gameState.currentQuestionIndex === totalQuestions - 1;
-    if (isCorrect && isLastQuestion) {
-      actualPoints = character.score - gameState.score;
-    }
-
-    setPointsToAdd(actualPoints);
+    setPointsToAdd(points);
     setShowPoints(true);
     setTimeout(() => {
       setSelectedOption(null);
-      answerQuestion(actualPoints, isCorrect);
+      answerQuestion(points, isCorrect);
       setShowPoints(false);
     }, 1500);
-
   };
 
   const maxScore = 200;
