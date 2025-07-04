@@ -167,17 +167,11 @@ const ChangChihLunQuestions: Question[] = [
 const linTeFuQuestions: Question[] = [
   {
     id: 'Common1',
-    text: '上班時間總召邀你一起去中國查訪',
-    image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'Common1-1', text: '謝謝總召，但我不想去，怕被選民誤會。', points: 0, isCorrect: false },
       { id: 'Common1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 0, isCorrect: false },
       { id: 'Common1-3', text: '嗯？我睡著了，沒有注意到，他們出發了嗎？', points: 1450, isCorrect: true },
     ],
-    explanation: {
-      text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
-    }
   },
   {
     id: 'linTeFu6',
@@ -215,17 +209,11 @@ const linTeFuQuestions: Question[] = [
 const HSUCHIAOHSINQuestions: Question[] = [
   {
     id: 'Common1',
-    text: '上班時間總召邀你一起去中國查訪',
-    image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'Common1-1', text: '謝謝總召，但我不想去，怕被選民誤會。', points: 0, isCorrect: false },
       { id: 'Common1-2', text: '總召叫我去哪我就去哪，不問、服從、不拖延！', points: 3250, isCorrect: false },
       { id: 'Common1-3', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
     ],
-    explanation: {
-      text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
-    }
   },
   {
     id: 'HSUCHIAOHSIN3',
@@ -261,17 +249,11 @@ const HSUCHIAOHSINQuestions: Question[] = [
 const LaiShyhBaoQuestions: Question[] = [
   {
     id: 'Common1',
-    text: '上班時間總召邀你一起去中國查訪',
-    image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'Common1-1', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
       { id: 'Common1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 0, isCorrect: false },
       { id: 'Common1-3', text: '總召叫我去哪我就去哪，絕對服從！', points: 8964, isCorrect: false },
     ],
-    explanation: {
-      text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
-    }
   },
   {
     id: 'LaiShyhBao7',
@@ -337,17 +319,11 @@ const wanghungweiQuestions: Question[] = [
 const LEEYEHSIUQuestions: Question[] = [
   {
     id: 'Common1',
-    text: '上班時間總召邀你一起去中國查訪',
-    image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'Common1-1', text: '我比較想在立法院上班就好，不太想去查訪。', points: 10, isCorrect: false },
       { id: 'Common1-2', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
       { id: 'Common1-3', text: '謝謝總召，但我還是想認真開會為民服務。', points: 3, isCorrect: false },
     ],
-    explanation: {
-      text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
-    }
   },
   {
     id: 'LEEYEHSIU4',
@@ -382,17 +358,11 @@ const LEEYEHSIUQuestions: Question[] = [
 const YEHYUANCHIHQuestions: Question[] = [
   {
     id: 'Common1',
-    text: '上班時間總召邀你一起去中國查訪',
-    image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'Common1-1', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
       { id: 'Common1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 5, isCorrect: false },
       { id: 'Common1-3', text: '我比較想在立法院上班就好，不太想去查訪。', points: 100, isCorrect: false },
     ],
-    explanation: {
-      text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
-    }
   },
   {
     id: 'YEHYUANCHIH5',
@@ -441,17 +411,11 @@ const HungMongKaiQuestions: Question[] = [
   },
   {
     id: 'Common1',
-    text: '上班時間總召邀你一起去中國查訪',
-    image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'Common1-1', text: '我很想參加，可惜我媽剛好有事情找我！', points: 1450, isCorrect: true },
       { id: 'Common1-2', text: '謝謝總召，但我還是想認真開會為民服務。', points: 6, isCorrect: false },
       { id: 'Common1-3', text: '我比較想在立法院上班就好，不太想去查訪。', points: 4, isCorrect: false },
     ],
-    explanation: {
-      text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
-    }
   },
   {
     id: 'HungMongKai7',
@@ -562,17 +526,11 @@ const LOCHIHCHIANGQuestions: Question[] = [
   },
   {
     id: 'Common1',
-    text: '上班時間總召邀你一起去中國查訪',
-    image: getImagePath("/images/question/common_q_pic_03.webp"),
     options: [
       { id: 'Common1-1', text: '總召叫我去哪我就去哪，絕對服從！', points: 8888, isCorrect: false },
       { id: 'Common1-2', text: '我很想參加，可惜剛好有事情！', points: 1450, isCorrect: true },
       { id: 'Common1-3', text: '謝謝總召，但我還是想認真開會為民服務。', points: 3, isCorrect: false },
     ],
-    explanation: {
-      text: '2024/4/26在立法院開議期間，傅崐萁率領羅明才、陳雪生、鄭天財、徐欣瑩、陳玉珍、鄭正鈐、王鴻薇、林沛祥、廖先翔、張智倫、邱鎮軍、游顥、盧縣一、黃仁、翁曉玲、林倩綺訪問中國，在人民大會堂新疆廳拜見全國政協主席王滬寧；王滬寧近日才宣布去年統戰工作做得很好，2025更要做好「四個凝聚」工作，切實發揮最廣泛愛國統一戰線組織的政治作用，不斷鞏固全國各族人民大團結，加強海內外中華兒女大團結。',
-      reference: ['https://www.cna.com.tw/news/aipl/202404260199.aspx','https://www.ntdtv.com.tw/b5/20240426/video/389064.html']
-    }
   },
 ];
 

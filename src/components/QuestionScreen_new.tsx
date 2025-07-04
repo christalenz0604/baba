@@ -123,13 +123,20 @@ const QuestionScreen: React.FC = () => {
       }
     }
 
-    setPointsToAdd(points);
+    let actualPoints = points;
+    const isLastQuestion = gameState.currentQuestionIndex === totalQuestions - 1;
+    if (isCorrect && isLastQuestion) {
+      actualPoints = character.score - gameState.score;
+    }
+
+    setPointsToAdd(actualPoints);
     setShowPoints(true);
     setTimeout(() => {
       setSelectedOption(null);
-      answerQuestion(points, isCorrect);
+      answerQuestion(actualPoints, isCorrect);
       setShowPoints(false);
     }, 1500);
+
   };
 
   const maxScore = 200;

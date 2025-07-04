@@ -37,13 +37,27 @@ function mergeQuestionSet(characterId: string, desiredCount = 10): Question[] {
   const personalKey = questionSets[characterId];
   const personalSet = personalKey?.questions || [];
 
-  const personalIds = new Set(personalSet.map(q => q.id));
+  // 建立 common 問題的 Map
+  const commonMap = new Map(CommonQuestions.map(q => [q.id, q]));
+
+  // 建立 override 後的題目
+  const mergedPersonalSet = personalSet.map(p => {
+    const base = commonMap.get(p.id);
+    if (!base) return p; // 沒有對應 common 題，原樣返回
+
+    return {
+      ...base,     // 用 common 的作為基底
+      ...p,        // 再由個人題目覆蓋必要欄位（如選項）
+    };
+  });
+
+  const personalIds = new Set(mergedPersonalSet.map(q => q.id));
   const remainingCommon = CommonQuestions.filter(q => !personalIds.has(q.id));
 
-  const needMore = desiredCount - personalSet.length;
+  const needMore = desiredCount - mergedPersonalSet.length;
   const commonSubset = remainingCommon.slice(0, Math.max(0, needMore));
 
-  return shuffleArray([...personalSet, ...commonSubset]);
+  return shuffleArray([...mergedPersonalSet, ...commonSubset]);
 }
 
 
