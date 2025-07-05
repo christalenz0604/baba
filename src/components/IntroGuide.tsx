@@ -98,9 +98,9 @@ const IntroGuide: React.FC<IntroGuideProps> = ({ onContinue }) => {
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                 <div className="w-32 mb-4">
                   <img
-                    src={getImagePath('/images/blue_lawmaker.gif')}
+                    src={getImagePath('/images/blue_rainbow_cat.gif')}
                     alt="avatar"
-                    className="w-3/5 object-contain mx-auto md:w-full"
+   rainbow_cat         className="w-3/5 object-contain mx-auto md:w-full"
                   />
                 </div>
 
