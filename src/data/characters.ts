@@ -92,15 +92,6 @@ export const characters: Character[] = [
       fail: getImagePath('/images/results/avatar/LEEYEHSIU_pic_Sad.gif'),
     }
   },
-//陳玉珍ChenYuJen
-  // {
-  //   id: 'ChenYuJen',//人物id
-  //   name: '陳玉珍',
-  //   districts:'新北市第9選區',
-  //   avatar: '/images/陳玉珍_8bit.gif?auto=compress&cs=tinysrgb&w=300',
-  //   description: '陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍陳玉珍',
-  //   questionSetId: 'ChenYuJen',//對應問題系列
-  // },
 //葉元之YEHYUANCHIH
   {
     id: 'YEHYUANCHIH',//人物id
@@ -116,15 +107,6 @@ export const characters: Character[] = [
       fail: getImagePath('/images/results/avatar/YEHYUANCHIH_pic_Sad.gif'),
     }
   },
-//傅崐萁FUKUNCHI
-  // {
-  //   id: 'FUKUNCHI',//人物id
-  //   name: '傅崐萁',
-  //   districts:'花蓮縣',
-  //   avatar: '/images/傅崐萁8bit.gif?auto=compress&cs=tinysrgb&w=300',
-  //   description: '代表花蓮的立法委員，在0403大地震，太魯閣滿目瘡痍、搜救人員努力搜救之時，帶著國會立法委員前往敵對勢力國家接旨',
-  //   questionSetId: 'FUKUNCHI',//對應問題系列
-  // },
 //洪孟楷
   {
     id: 'HungMongKai',//人物id
@@ -185,5 +167,214 @@ export const characters: Character[] = [
       fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
     }
   },
-  
+//傅崐萁
+{
+  id: 'fuKungChi',//人物id
+  name: '傅崐萁',
+  districts:'花蓮縣選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '人稱花蓮王，出場自帶BGM(不知道有沒有談授權的壇島警騎)只有我當總召才能把立法院帶成這樣',
+  questionSetId: 'fuKungChi',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//林沛祥
+{
+  id: 'linPeixiang',//人物id
+  name: '林沛祥',
+  districts:'基隆市選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '所謂的top one percent ，1%的人就是在說我..我們這些立委，持續推動國家前進，不管方向你喜不喜歡。',
+  questionSetId: 'linPeixiang',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//牛煦庭
+{
+  id: 'niuXuting',//人物id
+  name: '牛煦庭',
+  districts:'桃園市第1選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '立院最強菜鳥：砍預算、挺中配，還能揮拳打同事，一人包辦全場風波。',
+  questionSetId: 'niuXuting',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//涂權吉
+{
+  id: 'tuQuanji',//人物id
+  name: '涂權吉',
+  districts:'桃園市第2選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '百分之百授權的辦公室主任說：「不用跟委員說明...」？誰才是立委？涂權吉在哪裏？',
+  questionSetId: 'tuQuanji',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//魯明哲
+{
+  id: 'luMingzhe',//人物id
+  name: '魯明哲',
+  districts:'桃園市第3選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '父親是八二三砲戰英雄，長大後卻成了「立院小透明」，存在感極低，但親中政策，一項也沒錯過。嘴上挺中華民國，實際上卻做著背叛正藍軍的事。',
+  questionSetId: 'luMingzhe',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//萬美玲
+{
+  id: 'waMeiling',//人物id
+  name: '萬美玲',
+  districts:'桃園市第4選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '選舉和被罷免都用同樣的萬年照片當看板，樁腳滿桃園，一言不合就封鎖你的標準雙面人。',
+  questionSetId: 'waMeiling',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//呂玉玲
+{
+  id: 'luYuling',//人物id
+  name: '呂玉玲',
+  districts:'桃園市第5選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '蟠踞平鎮龍潭16年的呂后，最強招式是送不完的吐司。',
+  questionSetId: 'luYuling',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//邱若華
+{
+  id: 'qiuRuohua',//人物id
+  name: '邱若華',
+  districts:'桃園市第6選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '桃園市議會議長的姪女，低調版的彰化謝家，空降成為立委卻毫無存在感。',
+  questionSetId: 'qiuRuohua',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//廖偉翔
+{
+  id: 'liaoWeixiang',//人物id
+  name: '廖偉翔',
+  districts:'台中市第4選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '媽媽選輸就靠兒子復仇，專長是成功爭取藍線捷運的時空旅人收割術，以及揍人的違憲拳，不講他在新光三越氣爆搞直播+移動三角錐，還不知道他是誰。',
+  questionSetId: 'liaoWeixiang',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//黃健豪
+{
+  id: 'huangJianhao',//人物id
+  name: '黃健豪',
+  districts:'台中市第5選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '申請育兒津貼並反手提案刪育嬰預算的新科立委。',
+  questionSetId: 'qiuRuohua',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//羅廷瑋
+{
+  id: 'luoTingwei',//人物id
+  name: '羅廷瑋',
+  districts:'台中市第6選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '全副武裝、穿戴滿滿護具入議場鎖喉鍾佳濱的"戰將"。',
+  questionSetId: 'luoTingwei',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//鄭正鈐
+{
+  id: 'zhengZhengqin',//人物id
+  name: '鄭正鈐',
+  districts:'新竹市選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '全副武裝、穿戴滿滿護具入議場鎖喉鍾佳濱的"戰將"。',
+  questionSetId: 'zhengZhengqin',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//丁學忠
+{
+  id: 'dingXuezhong',//人物id
+  name: '丁學忠',
+  districts:'雲林縣第1選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '全副武裝、穿戴滿滿護具入議場鎖喉鍾佳濱的"戰將"。',
+  questionSetId: 'dingXuezhong',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
+//黃建賓
+{
+  id: 'huangJianbin',//人物id
+  name: '黃建賓',
+  districts:'台東縣選舉區',
+  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
+  description: '全副武裝、穿戴滿滿護具入議場鎖喉鍾佳濱的"戰將"。',
+  questionSetId: 'huangJianbin',//對應問題系列
+  score: 36398,
+  resultCharacterImages: {
+    success: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Happy.gif'),
+    fail: getImagePath('/images/results/avatar/LOCHIHCHIANG_pic_Sad.gif'),
+  }
+},
 ];
