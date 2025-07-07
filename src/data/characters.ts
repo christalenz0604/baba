@@ -172,7 +172,7 @@ export const characters: Character[] = [
   id: 'fuKungChi',//人物id
   name: '傅崐萁',
   districts:'花蓮縣選舉區',
-  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  avatar: getImagePath('/images/character/fu_kc_Pickup.gif'),
   portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
   description: '人稱花蓮王，出場自帶BGM(不知道有沒有談授權的壇島警騎)只有我當總召才能把立法院帶成這樣',
   questionSetId: 'fuKungChi',//對應問題系列
@@ -187,7 +187,7 @@ export const characters: Character[] = [
   id: 'linPeixiang',//人物id
   name: '林沛祥',
   districts:'基隆市選舉區',
-  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  avatar: getImagePath('/images/character/lin_px_Pickup.gif'),
   portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
   description: '所謂的top one percent ，1%的人就是在說我..我們這些立委，持續推動國家前進，不管方向你喜不喜歡。',
   questionSetId: 'linPeixiang',//對應問題系列
@@ -217,7 +217,7 @@ export const characters: Character[] = [
   id: 'tuQuanji',//人物id
   name: '涂權吉',
   districts:'桃園市第2選舉區',
-  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  avatar: getImagePath('/images/character/tu_qj_Pickup.gif'),
   portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
   description: '百分之百授權的辦公室主任說：「不用跟委員說明...」？誰才是立委？涂權吉在哪裏？',
   questionSetId: 'tuQuanji',//對應問題系列
@@ -232,7 +232,7 @@ export const characters: Character[] = [
   id: 'luMingzhe',//人物id
   name: '魯明哲',
   districts:'桃園市第3選舉區',
-  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  avatar: getImagePath('/images/character/lu_mc_Pickup.gif'),
   portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
   description: '父親是八二三砲戰英雄，長大後卻成了「立院小透明」，存在感極低，但親中政策，一項也沒錯過。嘴上挺中華民國，實際上卻做著背叛正藍軍的事。',
   questionSetId: 'luMingzhe',//對應問題系列
@@ -262,7 +262,7 @@ export const characters: Character[] = [
   id: 'luYuling',//人物id
   name: '呂玉玲',
   districts:'桃園市第5選舉區',
-  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  avatar: getImagePath('/images/character/lu_yl_Pickup.gif'),
   portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
   description: '蟠踞平鎮龍潭16年的呂后，最強招式是送不完的吐司。',
   questionSetId: 'luYuling',//對應問題系列
@@ -292,7 +292,7 @@ export const characters: Character[] = [
   id: 'liaoWeixiang',//人物id
   name: '廖偉翔',
   districts:'台中市第4選舉區',
-  avatar: getImagePath('/images/character/LOCHIHCHIANG_pic_Pickup.gif'),
+  avatar: getImagePath('/images/character/liao_wx_Pickup.gif'),
   portrait: getImagePath('/images/portraits/LOCHIHCHIANG_pic_small.gif'),
   description: '媽媽選輸就靠兒子復仇，專長是成功爭取藍線捷運的時空旅人收割術，以及揍人的違憲拳，不講他在新光三越氣爆搞直播+移動三角錐，還不知道他是誰。',
   questionSetId: 'liaoWeixiang',//對應問題系列
